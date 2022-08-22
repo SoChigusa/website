@@ -1,7 +1,7 @@
 import React from 'react';
-import { SSRProvider } from 'react-bootstrap';
+import { SSRProvider, Container } from 'react-bootstrap';
 import Head from 'next/head';
-import Header from './Header';
+import Header from './header';
 import styles from './layout.module.css';
 
 export default function Layout({ children, title }) {
@@ -10,10 +10,12 @@ export default function Layout({ children, title }) {
       <Head>
         <title>{title}</title>
       </Head>
-      <Header></Header>
-      <div className={styles.container}>
-        {children}
-      </div>
+      <body className={styles.paddingNavbar}>
+        <Header></Header>
+        <Container>
+          {children}
+        </Container>
+      </body>
     </SSRProvider>
   )
 }
