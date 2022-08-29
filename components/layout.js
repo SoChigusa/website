@@ -2,20 +2,17 @@ import React from 'react';
 import { SSRProvider, Container } from 'react-bootstrap';
 import Head from 'next/head';
 import Header from './header';
-import styles from './layout.module.css';
+import { MathJaxContext } from 'better-react-mathjax';
 
-export default function Layout({ children, title }) {
+export default function Layout({ children, title, description }) {
   return (
     <SSRProvider>
-      <Head>
-        <title>{title}</title>
-      </Head>
-      <body className={styles.paddingNavbar}>
-        <Header></Header>
+      <Header></Header>
+      <main>
         <Container>
-          {children}
+          <MathJaxContext>{children}</MathJaxContext>
         </Container>
-      </body>
+      </main>
     </SSRProvider>
   )
 }

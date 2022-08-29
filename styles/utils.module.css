@@ -1,0 +1,12 @@
+.subject {
+  max-width: 100%;
+  font-size: 140%;
+  letter-spacing: 3px;
+  padding-left: 6px;
+  padding-bottom: 2px;
+  padding-top: 10px;
+  border-left: 4px solid #bababa;
+  border-bottom: 2px solid #bababa;
+  /* margin-bottom: 15px; */
+  float: left;
+}
