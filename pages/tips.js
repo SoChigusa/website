@@ -1,7 +1,7 @@
 import fs from 'fs';
 import matter from 'gray-matter';
 import { Container } from "react-bootstrap";
-import { Stack } from 'react-bootstrap';
+import { Stack, Row } from 'react-bootstrap';
 import ArticlesMeta from "../components/meta/articles";
 import PostCard from '../components/postcard';
 
@@ -38,9 +38,11 @@ export default function Home({ posts }) {
         img=""
       />
       <Stack gap={3}>
-        {posts.map((post) => (
-          <PostCard key={post.slug} post={post} />
-        ))}
+        <Row>
+          {posts.map((post) => (
+            <PostCard key={post.slug} post={post} />
+          ))}
+        </Row>
       </Stack>
     </Container>
   )

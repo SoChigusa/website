@@ -1,22 +1,32 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Card, CardImg, Col } from "react-bootstrap";
 
 const PostCard = ({ post }) => {
   return (
-    <div key={post.slug}>
-      <Link href={`/tips/${post.slug}`}>
-        <a>
-          <div className="border rounded">
-            <Image
+    <Col md="auto" key={post.slug}>
+      <Card style={{ width: '24em', height: '100%' }}>
+        <Link href={`/tips/${post.slug}`}>
+          <a>
+            <Card.Img
+              top
+              width='20em'
               src={`/images/${post.frontMatter.image}.svg`}
-              width={360}
-              height={360}
+              alt={post.frontMatter.title}
             />
-          </div>
-          <p>{post.frontMatter.title}</p>
-        </a>
-      </Link>
-    </div>
+          </a>
+        </Link>
+        <Card.Body>
+          <Link href={`/tips/${post.slug}`}>
+            <a>
+              <Card.Title>{post.frontMatter.title}</Card.Title>
+            </a>
+          </Link>
+          <Card.Subtitle>{post.frontMatter.date}</Card.Subtitle>
+          <Card.Text>{post.frontMatter.description}</Card.Text>
+        </Card.Body>
+      </Card>
+    </Col>
   );
 };
 
