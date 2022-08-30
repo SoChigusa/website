@@ -1,5 +1,7 @@
 import Layout from '../components/layout';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'github-markdown-css/github-markdown.css';
+import 'highlight.js/styles/panda-syntax-light.css'
 import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
