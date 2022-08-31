@@ -30,7 +30,7 @@ export const getStaticProps = () => {
 
 export default function Home({ posts }) {
   return (
-    <Container>
+    <Container className='w-100'>
       <ArticlesMeta
         title="Tips by So Chigusa"
         description="Summary of tips written by So Chigusa"
@@ -38,12 +38,12 @@ export default function Home({ posts }) {
         img=""
       />
       <Stack gap={3}>
-        <Row>
+        <Row className='justify-content-center'>
           {posts.map((post) => (
             <PostCard key={post.slug} post={post} />
           ))}
         </Row>
       </Stack>
-    </Container>
+    </Container >
   )
 }

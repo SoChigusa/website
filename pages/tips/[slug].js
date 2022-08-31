@@ -1,7 +1,10 @@
 import fs from 'fs';
 import matter from 'gray-matter';
 import { marked } from 'marked';
+import Image from 'next/image';
+import { Col, Row, Container } from 'react-bootstrap';
 import hljs from 'highlight.js';
+import styles from '../../styles/utils.module.css';
 
 export async function getStaticProps({ params }) {
   marked.setOptions({
@@ -31,12 +34,23 @@ export async function getStaticPaths() {
 
 export default function Post({ frontMatter, html }) {
   return (
-    <div>
-      <h1>{frontMatter.title}</h1>
-      <span>{frontMatter.date}</span>
-      <article className="markdown-body">
-        <div dangerouslySetInnerHTML={{ __html: html }}></div>
-      </article>
-    </div>
+    <Container className="w-100">
+      <div className="markdown-body">
+        <div className={styles.imageBox}>
+          <Image
+            src={`/images/${frontMatter.image}.svg`}
+            width={1200}
+            height={675}
+            objectFit='contain'
+          />
+        </div>
+        <h1>{frontMatter.title}</h1>
+        <span>最終更新: {frontMatter.date}</span>
+        <p>{frontMatter.description}</p>
+        <article>
+          <div dangerouslySetInnerHTML={{ __html: html }}></div>
+        </article>
+      </div>
+    </Container>
   );
 }

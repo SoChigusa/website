@@ -1,11 +1,13 @@
 ---
 
-title: 'SLHA を用いた SUSY-HIT から MadGraph への連携'
+title: 'SUSY-HIT と MadGraph の連携'
 date: '2020-01-03'
-description: 'SLHA 形式を用いて粒子の崩壊率計算ツール SUSY-HIT と MadGraph を連携させる方法に関しての tips'
+description: 'SLHA 形式を用いて粒子の崩壊率計算ツール SUSY-HIT と MadGraph を連携させる方法に関する tips'
 image: 'Fortran_logo'
 
 ---
+
+## 基本事項
 
 SUSY LesHouches Accord (SLHA) 形式を用いて、超対称粒子スペクトルの情報に
 崩壊率の情報を付け加えて、MadGraph (+Pythia, etc..) が使えるようにする。

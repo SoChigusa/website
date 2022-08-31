@@ -7,6 +7,8 @@ image: 'ISO_C++_Logo'
 
 ---
 
+## 注意点
+
 基本的に、Madgraph と連携して pythia8 を動かすことを想定する。
 
 ## Master Switches ##

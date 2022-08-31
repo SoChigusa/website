@@ -7,6 +7,8 @@ image: 'ISO_C++_Logo'
 
 ---
 
+## インストール
+
 #### （ほぼ `automake` の勉強と同義） ####
 
 ひとまず、環境に存在しなかった `autoconf` および `automake` を導入。
