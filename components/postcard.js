@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Card, Col } from "react-bootstrap";
 
 const PostCard = ({ post }) => {
@@ -9,7 +8,7 @@ const PostCard = ({ post }) => {
         <Link href={`/tips/${post.slug}`}>
           <a>
             <Card.Img
-              top
+              top='true'
               height='240px'
               src={`/images/${post.frontMatter.image}.svg`}
               alt={post.frontMatter.title}

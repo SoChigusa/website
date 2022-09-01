@@ -2,7 +2,7 @@ import fs from 'fs';
 import matter from 'gray-matter';
 import { marked } from 'marked';
 import Image from 'next/image';
-import { Col, Row, Container } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import hljs from 'highlight.js';
 import styles from '../../styles/utils.module.css';
 

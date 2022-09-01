@@ -3,6 +3,8 @@ import matter from 'gray-matter';
 import { Container } from "react-bootstrap";
 import { Stack, Row } from 'react-bootstrap';
 import ArticlesMeta from "../components/meta/articles";
+import PaginationBar from '../components/pagination';
+import { PAGE_SIZE, range } from '../components/pagination';
 import PostCard from '../components/postcard';
 
 export const getStaticProps = () => {
@@ -20,15 +22,17 @@ export const getStaticProps = () => {
   const sortedPosts = posts.sort((postA, postB) =>
     new Date(postA.frontMatter.date) > new Date(postB.frontMatter.date) ? -1 : 1
   );
+  const pages = range(1, Math.ceil(posts.length / PAGE_SIZE));
 
   return {
     props: {
-      posts: sortedPosts,
+      posts: sortedPosts.slice(0, PAGE_SIZE),
+      pages,
     },
   };
 };
 
-export default function Home({ posts }) {
+export default function Home({ posts, pages }) {
   return (
     <Container className='w-100'>
       <ArticlesMeta
@@ -42,6 +46,9 @@ export default function Home({ posts }) {
           {posts.map((post) => (
             <PostCard key={post.slug} post={post} />
           ))}
+        </Row>
+        <Row>
+          <PaginationBar pages={pages} />
         </Row>
       </Stack>
     </Container >
