@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Container } from 'react-bootstrap';
 import hljs from 'highlight.js';
 import styles from '../../styles/utils.module.css';
+import createHeaderData from "../../utils/createHeaderData";
 
 export async function getStaticProps({ params }) {
   marked.setOptions({
@@ -16,7 +17,9 @@ export async function getStaticProps({ params }) {
   const file = fs.readFileSync(`tips/${params.slug}.md`, 'utf-8');
   const { data, content } = matter(file);
   const html = marked(content);
-  return { props: { frontMatter: data, html } };
+
+  const headerData = createHeaderData();
+  return { props: { frontMatter: data, html, headerData } };
 }
 
 export async function getStaticPaths() {
