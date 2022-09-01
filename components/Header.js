@@ -1,8 +1,8 @@
-import fs from 'fs';
 import React from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 
-export default function Header() {
+export default function Header({headerData}) {
+  console.log(headerData);
   return (
     <Navbar bg="dark" variant="dark" fixed="top" expand="sm">
       <Container>

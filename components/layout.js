@@ -3,10 +3,10 @@ import { SSRProvider, Container } from 'react-bootstrap';
 import Header from './header';
 import { MathJaxContext } from 'better-react-mathjax';
 
-export default function Layout({ children, title, description }) {
+export default function Layout({ children, title, description, headerData }) {
   return (
     <SSRProvider>
-      <Header></Header>
+      <Header headerData={headerData} />
       <main>
         <Container>
           <MathJaxContext>{children}</MathJaxContext>
