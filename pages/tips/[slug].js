@@ -1,11 +1,12 @@
 import fs from 'fs';
 import matter from 'gray-matter';
 import { marked } from 'marked';
+import createHeaderData from '../../utils/createHeaderData';
 import Image from 'next/image';
 import { Container } from 'react-bootstrap';
 import hljs from 'highlight.js';
 import styles from '../../styles/utils.module.css';
-import createHeaderData from "../../utils/createHeaderData";
+import Layout from '../../components/layout';
 
 export async function getStaticProps({ params }) {
   marked.setOptions({
@@ -19,7 +20,7 @@ export async function getStaticProps({ params }) {
   const html = marked(content);
 
   const headerData = createHeaderData();
-  return { props: { frontMatter: data, html, headerData } };
+  return { props: { headerData, frontMatter: data, html } };
 }
 
 export async function getStaticPaths() {
@@ -35,25 +36,27 @@ export async function getStaticPaths() {
   }
 }
 
-export default function Post({ frontMatter, html }) {
+export default function Post({ headerData, frontMatter, html }) {
   return (
-    <Container className="w-100">
-      <div className="markdown-body">
-        <div className={styles.imageBox}>
-          <Image
-            src={`/images/${frontMatter.image}.svg`}
-            width={1200}
-            height={675}
-            objectFit='contain'
-          />
+    <Layout headerData={headerData}>
+      <Container className="w-100">
+        <div className="markdown-body">
+          <div className={styles.imageBox}>
+            <Image
+              src={`/images/${frontMatter.image}.svg`}
+              width={1200}
+              height={675}
+              objectFit='contain'
+            />
+          </div>
+          <h1>{frontMatter.title}</h1>
+          <span>最終更新: {frontMatter.date}</span>
+          <p>{frontMatter.description}</p>
+          <article>
+            <div dangerouslySetInnerHTML={{ __html: html }}></div>
+          </article>
         </div>
-        <h1>{frontMatter.title}</h1>
-        <span>最終更新: {frontMatter.date}</span>
-        <p>{frontMatter.description}</p>
-        <article>
-          <div dangerouslySetInnerHTML={{ __html: html }}></div>
-        </article>
-      </div>
-    </Container>
+      </Container>
+    </Layout>
   );
 }

@@ -1,10 +1,12 @@
 import fs from 'fs';
 import matter from 'gray-matter';
 import { Container, Stack, Row } from 'react-bootstrap';
+import createHeaderData from '../../../utils/createHeaderData';
 import ArticlesMeta from "../../../components/meta/articles";
 import PaginationBar from '../../../components/pagination';
 import { PAGE_SIZE, range } from '../../../components/pagination';
 import PostCard from '../../../components/postcard';
+import Layout from '../../../components/layout';
 
 export async function getStaticProps({ params }) {
   const current_page = params.page;
@@ -28,8 +30,10 @@ export async function getStaticProps({ params }) {
     PAGE_SIZE * current_page
   );
 
+  const headerData = createHeaderData();
   return {
     props: {
+      headerData,
       posts: slicedPosts,
       pages,
       current_page,
@@ -52,26 +56,28 @@ export async function getStaticPaths() {
   }
 }
 
-const Page = ({ posts, pages, current_page }) => {
+const Page = ({ headerData, posts, pages, current_page }) => {
   return (
-    <Container className='w-100'>
-      <ArticlesMeta
-        title="Tips by So Chigusa"
-        description="Summary of tips written by So Chigusa"
-        url=""
-        img=""
-      />
-      <Stack gap={3}>
-        <Row className='justify-content-center'>
-          {posts.map((post) => (
-            <PostCard key={post.slug} post={post} />
-          ))}
-        </Row>
-        <Row>
-          <PaginationBar pages={pages} current_page={current_page} />
-        </Row>
-      </Stack>
-    </Container >
+    <Layout headerData={headerData}>
+      <Container className='w-100'>
+        <ArticlesMeta
+          title="Tips by So Chigusa"
+          description="Summary of tips written by So Chigusa"
+          url=""
+          img=""
+        />
+        <Stack gap={3}>
+          <Row className='justify-content-center'>
+            {posts.map((post) => (
+              <PostCard key={post.slug} post={post} />
+            ))}
+          </Row>
+          <Row>
+            <PaginationBar pages={pages} current_page={current_page} />
+          </Row>
+        </Stack>
+      </Container >
+    </Layout>
   );
 };
 
