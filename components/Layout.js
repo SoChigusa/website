@@ -1,6 +1,6 @@
 import React from 'react';
 import { SSRProvider, Container } from 'react-bootstrap';
-import Header from './header';
+import Header from './Header';
 import { MathJaxContext } from 'better-react-mathjax';
 
 export default function Layout({ children, headerData }) {
