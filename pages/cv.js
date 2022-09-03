@@ -14,7 +14,7 @@ const cv = () => {
       <ArticlesMeta
         title="CV of So Chigusa"
         description="CV of So Chigusa"
-        url=""
+        url="/cv"
         img=""
       />
       <Stack gap={3}>

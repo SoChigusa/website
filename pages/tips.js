@@ -25,7 +25,7 @@ export default function Home({ headerData, posts, pages }) {
       <ArticlesMeta
         title="Tips by So Chigusa"
         description="Summary of tips written by So Chigusa"
-        url=""
+        url="/tips"
         img=""
       />
       <Stack gap={3}>

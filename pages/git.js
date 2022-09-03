@@ -14,7 +14,7 @@ export default function Home({ headerData }) {
       <ArticlesMeta
         title="Github repositories of So Chigusa"
         description="Summary of projects shared on github by So Chigusa"
-        url=""
+        url="/git"
         img=""
       />
       <Stack gp={3}>

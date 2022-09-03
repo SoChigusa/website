@@ -61,7 +61,7 @@ const Page = ({ headerData, posts, pages, current_page }) => {
       <ArticlesMeta
         title="Tips by So Chigusa"
         description="Summary of tips written by So Chigusa"
-        url=""
+        url={`/tips/page/${current_page}`}
         img=""
       />
       <Stack gap={3}>

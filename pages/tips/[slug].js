@@ -20,7 +20,7 @@ export async function getStaticProps({ params }) {
   const html = marked(content);
 
   const headerData = createHeaderData();
-  return { props: { headerData, frontMatter: data, html } };
+  return { props: { headerData, slug: params.slug, frontMatter: data, html } };
 }
 
 export async function getStaticPaths() {
@@ -36,14 +36,14 @@ export async function getStaticPaths() {
   }
 }
 
-export default function Post({ headerData, frontMatter, html }) {
+export default function Post({ headerData, slug, frontMatter, html }) {
   return (
     <Container className="w-100">
       <ArticlesMeta
         title={frontMatter.title}
         description={frontMatter.description}
-        url=""
-        img=""
+        url={`/tips/${slug}`}
+        img={`/images/${frontMatter.image}`}
       />
       <div className="markdown-body">
         <div className={styles.imageBox}>

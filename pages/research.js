@@ -14,7 +14,7 @@ export default function Home({ headerData }) {
       <ArticlesMeta
         title="Research works by So Chigusa"
         description="Summary of research works of So Chigusa: papers, talks, and awards"
-        url=""
+        url="/research"
         img=""
       />
       <Stack gap={3}>
