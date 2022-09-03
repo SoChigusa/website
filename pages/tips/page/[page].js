@@ -3,10 +3,9 @@ import matter from 'gray-matter';
 import { Container, Stack, Row } from 'react-bootstrap';
 import createHeaderData from '../../../utils/createHeaderData';
 import ArticlesMeta from "../../../components/meta/articles";
-import PaginationBar from '../../../components/pagination';
-import { PAGE_SIZE, range } from '../../../components/pagination';
-import PostCard from '../../../components/postcard';
-import Layout from '../../../components/layout';
+import PaginationBar from '../../../components/PaginationBar';
+import { PAGE_SIZE, range } from '../../../components/PaginationBar';
+import PostCard from '../../../components/PostCard';
 
 export async function getStaticProps({ params }) {
   const current_page = params.page;
@@ -58,26 +57,24 @@ export async function getStaticPaths() {
 
 const Page = ({ headerData, posts, pages, current_page }) => {
   return (
-    <Layout headerData={headerData}>
-      <Container className='w-100'>
-        <ArticlesMeta
-          title="Tips by So Chigusa"
-          description="Summary of tips written by So Chigusa"
-          url=""
-          img=""
-        />
-        <Stack gap={3}>
-          <Row className='justify-content-center'>
-            {posts.map((post) => (
-              <PostCard key={post.slug} post={post} />
-            ))}
-          </Row>
-          <Row>
-            <PaginationBar pages={pages} current_page={current_page} />
-          </Row>
-        </Stack>
-      </Container >
-    </Layout>
+    <Container className='w-100'>
+      <ArticlesMeta
+        title="Tips by So Chigusa"
+        description="Summary of tips written by So Chigusa"
+        url=""
+        img=""
+      />
+      <Stack gap={3}>
+        <Row className='justify-content-center'>
+          {posts.map((post) => (
+            <PostCard key={post.slug} post={post} />
+          ))}
+        </Row>
+        <Row>
+          <PaginationBar pages={pages} current_page={current_page} />
+        </Row>
+      </Stack>
+    </Container >
   );
 };
 

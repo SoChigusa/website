@@ -1,4 +1,4 @@
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'github-markdown-css/github-markdown-light.css';
 import 'highlight.js/styles/panda-syntax-light.css';
@@ -6,7 +6,9 @@ import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Component {...pageProps} />
+    <Layout headerData={pageProps.headerData}>
+      <Component {...pageProps} />
+    </Layout>
   );
 }
 

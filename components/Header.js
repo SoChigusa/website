@@ -23,15 +23,15 @@ export default function Header({ headerData }) {
               <Nav.Link href="/note">Note</Nav.Link>
             </Nav.Item>
             <NavDropdown key="tips" title="Tips" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/tips">List</NavDropdown.Item>
+              <NavDropdown.Item key="list" href="/tips">List</NavDropdown.Item>
               <NavDropdown.Divider />
               {
                 newTips.map((post) => (
-                  <NavDropdown.Item href={`/tips/${post.slug}`}>{post.frontMatter.title}</NavDropdown.Item>
+                  <NavDropdown.Item key={post.slug} href={`/tips/${post.slug}`}>{post.frontMatter.title}</NavDropdown.Item>
                 ))
               }
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/tips">もっと見る</NavDropdown.Item>
+              <NavDropdown.Item key="more" href="/tips">もっと見る</NavDropdown.Item>
             </NavDropdown>
             <Nav.Item key="git">
               <Nav.Link href="/git">Git</Nav.Link>
