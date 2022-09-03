@@ -1,5 +1,5 @@
 import createHeaderData from "../utils/createHeaderData";
-import Activity from '../components/activity';
+import Activity from '../components/Activity';
 import { Row, Col, Button, Container, Stack } from 'react-bootstrap';
 import styles from '../styles/utils.module.css';
 import IndexMeta from '../components/meta';
