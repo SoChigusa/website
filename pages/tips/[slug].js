@@ -3,6 +3,7 @@ import matter from 'gray-matter';
 import { marked } from 'marked';
 import createHeaderData from '../../utils/createHeaderData';
 import Image from 'next/image';
+import ArticlesMeta from '../../components/meta/articles';
 import { Container } from 'react-bootstrap';
 import hljs from 'highlight.js';
 import styles from '../../styles/utils.module.css';
@@ -38,10 +39,16 @@ export async function getStaticPaths() {
 export default function Post({ headerData, frontMatter, html }) {
   return (
     <Container className="w-100">
+      <ArticlesMeta
+        title={frontMatter.title}
+        description={frontMatter.description}
+        url=""
+        img=""
+      />
       <div className="markdown-body">
         <div className={styles.imageBox}>
           <Image
-            src={`/images/${frontMatter.image}.svg`}
+            src={`/images/${frontMatter.image}`}
             width={1200}
             height={675}
             objectFit='contain'

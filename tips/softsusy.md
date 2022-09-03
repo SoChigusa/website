@@ -3,7 +3,7 @@
 title: 'softsusy の導入'
 date: '2020-01-02'
 description: 'スペクトル計算ツール softsusy のコンパイルに関する tips'
-image: 'ISO_C++_Logo'
+image: 'ISO_C++_Logo.svg'
 
 ---
 

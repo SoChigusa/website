@@ -3,7 +3,7 @@
 title: 'ひとりでもgit、みんなでもgit'
 date: '2022-08-14'
 description: 'git の様々な便利な使い方に関する tips'
-image: 'Git-logo'
+image: 'Git-logo.svg'
 
 ---
 

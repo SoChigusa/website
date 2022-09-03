@@ -3,7 +3,7 @@
 title: 'macOS Mojave アップデートとアフターケア'
 date: '2020-01-02'
 description: 'macOS を Mojave 11 にアップデートした際の記録'
-image: 'Apple_logo_black'
+image: 'Apple_logo_black.svg'
 
 ---
 

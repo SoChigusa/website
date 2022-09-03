@@ -3,7 +3,7 @@
 title: 'Inkscapeでお絵かき'
 date: '2020-12-12'
 description: 'フリーソフトの Inkscape を用いたイラスト作成に関する tips'
-image: 'Inkscape_Logo'
+image: 'Inkscape_Logo.svg'
 
 ---
 

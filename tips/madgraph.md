@@ -3,7 +3,7 @@
 title: 'Madgraph の導入から計算まで'
 date: '2022-08-18'
 description: 'Madgraph の導入方法、使い方、トラブルシューティングに関する tips'
-image: 'Feynmann_Diagram_Gluon_Radiation'
+image: 'Feynmann_Diagram_Gluon_Radiation.svg'
 
 ---
 

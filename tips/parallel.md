@@ -3,7 +3,7 @@
 title: '並列計算'
 date: '2021-10-04'
 description: 'c++ を用いた並列計算の実装方法に関する tips'
-image: 'ISO_C++_Logo'
+image: 'ISO_C++_Logo.svg'
 
 ---
 

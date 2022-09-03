@@ -3,7 +3,7 @@
 title: 'Tax Return 手続き（J1ビザ）'
 date: '2021-01-04'
 description: 'アメリカでJ1ビザホルダーが年始に行う Tax Return 手続きに関する tips'
-image: 'Logo_of_the_Internal_Revenue_Service'
+image: 'Logo_of_the_Internal_Revenue_Service.svg'
 
 ---
 

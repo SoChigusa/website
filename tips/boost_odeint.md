@@ -3,7 +3,7 @@
 title: 'Boost を使って微分方程式を解く'
 date: '2020-01-06'
 description: 'boost::numeric::odeint の使用方法に関する tips'
-image: 'ISO_C++_Logo'
+image: 'ISO_C++_Logo.svg'
 
 ---
 
@@ -61,16 +61,16 @@ auto crkd5 = odeint::make_controlled< odeint::runge_kutta_dopri5<state> >(1.e-8,
 std::vector<double> timelog;
 std::vector<state> statelog;
 odeint::integrate_const(
-	      crkd5,  // stepper
-		  my_system,  // ODE
-		  state0,  // initial condition
-		  0.,   // initial time
-		  1.,   // final time
-		  0.001,// step size
-		  [&](const state & st, const double t) {  // observer
-		    timelog.push_back(arg_t);
-		    statelog.push_back(ph);
-		  });
+    crkd5,  // stepper
+    my_system,  // ODE
+    state0,  // initial condition
+    0.,   // initial time
+    1.,   // final time
+    0.001,// step size
+    [&](const state & st, const double t) {  // observer
+      timelog.push_back(arg_t);
+      statelog.push_back(ph);
+    });
 ```
 
 `integrate_const` を用いれば、Controlled Stepper の場合にも欲しい刻み幅でのデータを出力してくれる。

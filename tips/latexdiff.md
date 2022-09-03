@@ -3,7 +3,7 @@
 title: '快適な latexdiff 生活'
 date: '2020-07-13'
 description: 'latexdiff の使用法に関する tips'
-image: 'LaTeX_project_logo_bird'
+image: 'LaTeX_project_logo_bird.svg'
 
 ---
 

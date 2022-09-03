@@ -3,7 +3,7 @@
 title: 'SUSY-HIT と MadGraph の連携'
 date: '2020-01-03'
 description: 'SLHA 形式を用いて粒子の崩壊率計算ツール SUSY-HIT と MadGraph を連携させる方法に関する tips'
-image: 'Fortran_logo'
+image: 'Fortran_logo.svg'
 
 ---
 

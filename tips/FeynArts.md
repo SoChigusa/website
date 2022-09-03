@@ -3,7 +3,7 @@
 title: 'FeynArts, FormCalc, LoopTools の導入'
 date: '2020-01-05'
 description: 'Feyn*** ツール群のインストールに関する tips'
-image: 'Mathematica_Logo'
+image: 'Mathematica_Logo.svg'
 
 ---
 

@@ -3,7 +3,7 @@
 title: 'Google-APIで遊ぶ'
 date: '2021-06-10'
 description: 'Google API を用いてやりたいことを叶えるための tips'
-image: 'Google_Developers_text_logo'
+image: 'Google_Developers_text_logo.svg'
 
 ---
 

@@ -3,7 +3,7 @@
 title: 'Macbook Air (2020) M1チップ'
 date: '2022-06-21'
 description: '2020年の Macbook Air のセットアップに関する tips'
-image: 'Apple_logo_black'
+image: 'Apple_logo_black.svg'
 
 ---
 

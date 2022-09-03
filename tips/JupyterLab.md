@@ -3,7 +3,7 @@
 title: 'JupyterLab の導入から機能拡張、便利な応用まで'
 date: '2022-05-03'
 description: 'JupyterLab の導入、拡張機能のインストール、及び応用的な使用法に関する tips'
-image: 'Jupyter_logo'
+image: 'Jupyter_logo.svg'
 
 ---
 

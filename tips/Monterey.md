@@ -3,7 +3,7 @@
 title: 'macOS Monterey 12 アップデート日記'
 date: '2021-11-01'
 description: 'macOS を Monterey 12 にアップデートした際の記録'
-image: 'Apple_logo_black'
+image: 'Apple_logo_black.svg'
 
 ---
 

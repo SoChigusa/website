@@ -3,7 +3,7 @@
 title: 'matplotlib を使いこなす'
 date: '2020-12-27'
 description: 'matplotlib を用いたプロット作成方法に関する tips'
-image: 'Python_logo_and_wordmark'
+image: 'Python_logo_and_wordmark.svg'
 
 ---
 

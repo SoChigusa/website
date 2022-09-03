@@ -3,7 +3,7 @@
 title: 'Mac mini (2022) M1チップ'
 date: '2022-07-31'
 description: '2022年の Mac mini のセットアップに関する tips'
-image: 'Apple_logo_black'
+image: 'Apple_logo_black.svg'
 
 ---
 

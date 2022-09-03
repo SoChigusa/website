@@ -3,7 +3,7 @@
 title: 'コストコの日用品は安いのか？'
 date: '2020-01-16'
 description: 'アメリカのコストコで売られる日用品の安さを検証した記録'
-image: 'Costco_Wholesale_logo_2010-10-26'
+image: 'Costco_Wholesale_logo_2010-10-26.svg'
 
 ---
 

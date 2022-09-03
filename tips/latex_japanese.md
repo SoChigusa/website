@@ -3,7 +3,7 @@
 title: 'latexで日本語美文書'
 date: '2020-01-02'
 description: 'latex を用いて日本語文書を書くための tips'
-image: 'LaTeX_project_logo_bird'
+image: 'LaTeX_project_logo_bird.svg'
 
 ---
 

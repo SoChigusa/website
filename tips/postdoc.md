@@ -3,7 +3,7 @@
 title: '1期目ポスドク職探しの日記'
 date: '2021-01-21'
 description: '素粒子理論研究者の1期目ポスドク職探しの記録'
-image: 'pp_logo'
+image: 'science_hatsumou_kenkyu.png'
 
 ---
 

@@ -3,7 +3,7 @@
 title: 'fastjet を使って解析'
 date: '2020-01-02'
 description: 'fastjet の応用的な使い方に関する tips'
-image: 'ISO_C++_Logo'
+image: 'ISO_C++_Logo.svg'
 
 ---
 

@@ -1,6 +1,7 @@
 import createHeaderData from "../utils/createHeaderData";
-import { Container } from "react-bootstrap";
+import { Container, Stack } from "react-bootstrap";
 import ArticlesMeta from "../components/meta/articles";
+import TemporalAlert from "../components/TemporalAlert";
 
 export async function getStaticProps({ params }) {
   const headerData = createHeaderData();
@@ -16,7 +17,10 @@ export default function Home({ headerData }) {
         url=""
         img=""
       />
-      Summarize notes and slides here
+      <Stack gap={3}>
+        <TemporalAlert />
+        <span>Summarize notes and slides here</span>
+      </Stack>
     </Container>
   )
 }

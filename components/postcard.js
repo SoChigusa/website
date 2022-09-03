@@ -10,7 +10,7 @@ const PostCard = ({ post }) => {
             <Card.Img
               top='true'
               height='240px'
-              src={`/images/${post.frontMatter.image}.svg`}
+              src={`/images/${post.frontMatter.image}`}
               alt={post.frontMatter.title}
               style={{ padding: '5px', objectFit: 'contain' }}
             />

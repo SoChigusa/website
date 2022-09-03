@@ -3,7 +3,7 @@
 title: 'pythia8 を使いこなす'
 date: '2020-01-04'
 description: 'pythia8 の使用法全般に関する tips'
-image: 'ISO_C++_Logo'
+image: 'ISO_C++_Logo.svg'
 
 ---
 

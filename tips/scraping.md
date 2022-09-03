@@ -3,7 +3,7 @@
 title: 'Pythonでスクレイピング'
 date: '2021-02-04'
 description: 'Selenium を python で動かしてスクレイピングを楽しむ方法に関する tips'
-image: 'Selenium_logo'
+image: 'Selenium_logo.svg'
 
 ---
 

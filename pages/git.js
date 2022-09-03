@@ -1,6 +1,7 @@
 import createHeaderData from "../utils/createHeaderData";
-import { Container } from "react-bootstrap";
+import { Container, Stack } from "react-bootstrap";
 import ArticlesMeta from "../components/meta/articles";
+import TemporalAlert from "../components/TemporalAlert";
 
 export async function getStaticProps({ params }) {
   const headerData = createHeaderData();
@@ -16,7 +17,10 @@ export default function Home({ headerData }) {
         url=""
         img=""
       />
-      Summarize github repositories here
+      <Stack gp={3}>
+        <TemporalAlert />
+        <span>Summarize github repositories here</span>
+      </Stack>
     </Container>
   )
 }

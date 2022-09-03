@@ -3,7 +3,7 @@
 title: 'Delphes の応用'
 date: '2020-01-02'
 description: 'Delphes の応用的な使い方に関する tips'
-image: 'Tcl-powered'
+image: 'Tcl-powered.svg'
 
 ---
 

@@ -3,6 +3,7 @@ import Activity from '../components/activity';
 import { Row, Col, Button, Container, Stack } from 'react-bootstrap';
 import styles from '../styles/utils.module.css';
 import IndexMeta from '../components/meta';
+import TemporalAlert from "../components/TemporalAlert";
 
 export async function getStaticProps({ params }) {
   const headerData = createHeaderData();
@@ -14,6 +15,7 @@ export default function Home({ headerData }) {
     <Container>
       <IndexMeta />
       <Stack gap={3}>
+        <TemporalAlert />
         <h2 className={styles.subject}>
           Recent research activities
           <Button variant="primary">See More</Button>
