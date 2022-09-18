@@ -1,7 +1,7 @@
 import fs from "fs";
 import { toJSON } from "bibtex-parser-js";
+import { Box, Grid } from "@mui/material";
 import createHeaderData from "../utils/createHeaderData";
-import { Container, Row, Stack } from "react-bootstrap";
 import ArticlesMeta from "../components/meta/articles";
 import TemporalAlert from "../components/TemporalAlert";
 import PublicationCard from "../components/PublicationCard";
@@ -22,25 +22,22 @@ export async function getStaticProps({ params }) {
 
 const Research = ({ headerData, publications }) => {
   return (
-    <Container>
+    <>
       <ArticlesMeta
         title="Research works by So Chigusa"
         description="Summary of research works of So Chigusa: papers, talks, and awards"
         url="/research"
         img=""
       />
-      <Stack gap={3}>
-        <TemporalAlert />
-        <Row className='justify-content-center'>
+      <TemporalAlert />
+      <Box sx={{ flexGrow: 1 }}>
+        <Grid container spacing={2}>
           {publications.map((publication) => (
             <PublicationCard key={publication.citationKey} publication={publication} />
           ))}
-        </Row>
-        {/* <Row>
-          <PaginationBar pages={pages} />
-        </Row> */}
-      </Stack>
-    </Container>
+        </Grid>
+      </Box>
+    </>
   )
 };
 

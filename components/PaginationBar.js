@@ -1,27 +1,31 @@
-import { Pagination } from "react-bootstrap";
+import { Pagination, PaginationItem, Stack } from "@mui/material";
+import Link from "next/link";
 
 export const PAGE_SIZE = '6';
 
 export const range = (start, end, length = end - start + 1) =>
   Array.from({ length }, (_, i) => start + i);
 
-const PaginationBar = ({ pages, current_page = 1 }) => {
-  const firstPage = pages[0];
-  const previousPage = Math.max(firstPage, current_page - 1);
-  const lastPage = pages.slice(-1)[0];
-  const nextPage = Math.min(lastPage, parseInt(current_page) + 1);
+const PaginationBar = ({ totalPages, current_page = 1 }) => {
   return (
-    <Pagination className="justify-content-center">
-      <Pagination.First href={`/tips/page/${firstPage}`} />
-      <Pagination.Prev href={`/tips/page/${previousPage}`} />
-      {pages.map((page) => (
-        <Pagination.Item key={page} active={current_page.toString() === page.toString()} href={`/tips/page/${page}`}>
-          {page}
-        </Pagination.Item>
-      ))}
-      <Pagination.Next href={`/tips/page/${nextPage}`} />
-      <Pagination.Last href={`/tips/page/${lastPage}`} />
-    </Pagination>
+    <Stack spacing={2}>
+      <Pagination
+        count={totalPages}
+        defaultPage={parseInt(current_page)}
+        showFirstButton
+        showLastButton
+        color="primary"
+        renderItem={(item) => (
+          <Link href={`/tips/page/${item.page}`}>
+            <PaginationItem
+              component='a'
+              {...item}
+            />
+          </Link>
+        )}
+        sx={{ display: 'flex', justifyContent: "center", padding: 2 }}
+      />
+    </Stack>
   );
 };
 

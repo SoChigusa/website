@@ -1,10 +1,9 @@
 import fs from 'fs';
 import matter from 'gray-matter';
 import { marked } from 'marked';
-import createHeaderData from '../../utils/createHeaderData';
 import Image from 'next/image';
+import createHeaderData from '../../utils/createHeaderData';
 import ArticlesMeta from '../../components/meta/articles';
-import { Container } from 'react-bootstrap';
 import hljs from 'highlight.js';
 import styles from '../../styles/utils.module.css';
 
@@ -38,7 +37,7 @@ export async function getStaticPaths() {
 
 export default function Post({ headerData, slug, frontMatter, html }) {
   return (
-    <Container className="w-100">
+    <>
       <ArticlesMeta
         title={frontMatter.title}
         description={frontMatter.description}
@@ -61,6 +60,6 @@ export default function Post({ headerData, slug, frontMatter, html }) {
           <div dangerouslySetInnerHTML={{ __html: html }}></div>
         </article>
       </div>
-    </Container>
+    </>
   );
 }

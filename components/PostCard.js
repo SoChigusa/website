@@ -1,32 +1,37 @@
 import Link from "next/link";
-import { Card, Col } from "react-bootstrap";
+import { Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 
 const PostCard = ({ post }) => {
   return (
-    <Col md="auto" key={post.slug} style={{ padding: '5px' }}>
-      <Card style={{ width: '24em', height: '100%' }}>
+    <Grid item xs={12} sm={6} md={4}>
+      <Card sx={{ height: '100%' }}>
         <Link href={`/tips/${post.slug}`}>
           <a>
-            <Card.Img
-              top='true'
-              height='240px'
-              src={`/images/${post.frontMatter.image}`}
+            <CardMedia
+              component='img'
+              style={{ height: 240, padding: '3%', objectFit: 'contain' }}
+              image={`/images/${post.frontMatter.image}`}
               alt={post.frontMatter.title}
-              style={{ padding: '5px', objectFit: 'contain' }}
             />
           </a>
         </Link>
-        <Card.Body>
-          <Link href={`/tips/${post.slug}`}>
-            <a>
-              <Card.Title>{post.frontMatter.title}</Card.Title>
-            </a>
-          </Link>
-          <Card.Subtitle>{post.frontMatter.date}</Card.Subtitle>
-          <Card.Text>{post.frontMatter.description}</Card.Text>
-        </Card.Body>
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            <Link href={`/tips/${post.slug}`}>
+              <a>
+                {post.frontMatter.title}
+              </a>
+            </Link>
+          </Typography>
+          <Typography variant="h6" color="text.secondary">
+            {post.frontMatter.date}
+          </Typography>
+          <Typography variant="body2">
+            {post.frontMatter.description}
+          </Typography>
+        </CardContent>
       </Card>
-    </Col>
+    </Grid>
   );
 };
 

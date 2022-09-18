@@ -1,6 +1,6 @@
 import fs from 'fs';
 import matter from 'gray-matter';
-import { Container, Stack, Row } from 'react-bootstrap';
+import { Box, Grid } from '@mui/material';
 import createHeaderData from '../../../utils/createHeaderData';
 import ArticlesMeta from "../../../components/meta/articles";
 import PaginationBar from '../../../components/PaginationBar';
@@ -20,7 +20,7 @@ export async function getStaticProps({ params }) {
     };
   });
 
-  const pages = range(1, Math.ceil(posts.length / PAGE_SIZE));
+  const totalPages = Math.ceil(posts.length / PAGE_SIZE);
   const sortedPosts = posts.sort((postA, postB) =>
     new Date(postA.frontMatter.date) > new Date(postB.frontMatter.date) ? -1 : 1
   );
@@ -34,7 +34,7 @@ export async function getStaticProps({ params }) {
     props: {
       headerData,
       posts: slicedPosts,
-      pages,
+      totalPages,
       current_page,
     },
   };
@@ -55,26 +55,24 @@ export async function getStaticPaths() {
   }
 }
 
-const Page = ({ headerData, posts, pages, current_page }) => {
+const Page = ({ headerData, posts, totalPages, current_page }) => {
   return (
-    <Container className='w-100'>
+    <>
       <ArticlesMeta
         title="Tips by So Chigusa"
         description="Summary of tips written by So Chigusa"
         url={`/tips/page/${current_page}`}
         img=""
       />
-      <Stack gap={3}>
-        <Row className='justify-content-center'>
+      <Box sx={{ flexGrow: 1 }}>
+        <Grid container spacing={2}>
           {posts.map((post) => (
             <PostCard key={post.slug} post={post} />
           ))}
-        </Row>
-        <Row>
-          <PaginationBar pages={pages} current_page={current_page} />
-        </Row>
-      </Stack>
-    </Container >
+        </Grid>
+      </Box>
+      <PaginationBar totalPages={totalPages} current_page={current_page} />
+    </>
   );
 };
 

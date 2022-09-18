@@ -1,5 +1,4 @@
-import { Container } from "react-bootstrap";
-import { Stack, Row } from 'react-bootstrap';
+import { Box, Grid } from "@mui/material";
 import createHeaderData from '../utils/createHeaderData';
 import ArticlesMeta from "../components/meta/articles";
 import PaginationBar from '../components/PaginationBar';
@@ -8,36 +7,34 @@ import PostCard from '../components/PostCard';
 
 export const getStaticProps = () => {
   const headerData = createHeaderData();
-  const pages = range(1, Math.ceil(headerData.tips.length / PAGE_SIZE));
+  const totalPages = Math.ceil(headerData.tips.length / PAGE_SIZE);
 
   return {
     props: {
       headerData,
       posts: headerData.tips.slice(0, PAGE_SIZE),
-      pages,
+      totalPages,
     },
   };
 };
 
-export default function Home({ headerData, posts, pages }) {
+export default function Home({ headerData, posts, totalPages }) {
   return (
-    <Container className='w-100'>
+    <>
       <ArticlesMeta
         title="Tips by So Chigusa"
         description="Summary of tips written by So Chigusa"
         url="/tips"
         img=""
       />
-      <Stack gap={3}>
-        <Row className='justify-content-center'>
+      <Box sx={{ flexGrow: 1 }}>
+        <Grid container spacing={2}>
           {posts.map((post) => (
             <PostCard key={post.slug} post={post} />
           ))}
-        </Row>
-        <Row>
-          <PaginationBar pages={pages} />
-        </Row>
-      </Stack>
-    </Container >
+        </Grid>
+      </Box>
+      <PaginationBar totalPages={totalPages} />
+    </>
   )
 }
