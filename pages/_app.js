@@ -1,5 +1,4 @@
 import Layout from '../components/Layout';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import 'github-markdown-css/github-markdown-light.css';
 import 'highlight.js/styles/panda-syntax-light.css';
 import '../styles/globals.css'

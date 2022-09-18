@@ -1,10 +1,11 @@
 import { Alert } from "@mui/material";
+import Link from "./Link";
 
 const TemporalAlert = () => {
   return (
-    <Alert severity='error'>
+    <Alert severity='error' sx={{ marginBottom: 2 }}>
       This website is still under construction.<br />
-      Please visit <a href="https://sochigusa.bitbucket.io/" target="_blank" rel="noreferrer">my current website</a> for more information.
+      Please visit <Link href="https://sochigusa.bitbucket.io/" target="_blank">my current website</Link> for more information.
     </Alert>
   )
 };

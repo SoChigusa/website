@@ -1,4 +1,5 @@
-import { Card, Col } from "react-bootstrap";
+import { Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
+import Link from "./Link";
 
 const deformAuthorNames = (authors) => {
   const authorList = authors.split(' and ');
@@ -30,25 +31,28 @@ const PublicationCard = ({ publication }) => {
   const title = latexReplacement(titleOrig);
 
   return (
-    <Col md="auto" key={publication.citationKey} style={{ padding: '5px' }}>
-      <Card style={{ width: '36em', height: '100%' }}>
-        <a href={`https://arxiv.org/abs/${eprint}`} target="_blank" rel="noreferrer">
-          <Card.Img
-            top='true'
-            height='360px'
-            src={publication.entryTags.imageExist ? `/publicationImages/${eprint}.svg` : noimage}
+    <Grid item xs={12} sm={12} md={6}>
+      <Card sx={{ height: '100%' }}>
+        <Link href={`https://arxiv.org/abs/${eprint}`} target="_blank">
+          <CardMedia
+            component='img'
+            style={{ height: 360, width: '94%', padding: '3%', objectFit: 'contain' }}
+            image={publication.entryTags.imageExist ? `/publicationImages/${eprint}.svg` : noimage}
             alt={title}
-            style={{ padding: '5px', objectFit: 'contain' }}
           />
-        </a>
-        <Card.Body>
-          <a href={`https://arxiv.org/abs/${eprint}`} target="_blank" rel="noreferrer">
-            <Card.Title>{title}</Card.Title>
-          </a>
-          <Card.Subtitle>{author}</Card.Subtitle>
-        </Card.Body>
+        </Link>
+        <CardContent>
+          <Typography gutterBottom variant="h6" component="div">
+            <Link href={`https://arxiv.org/abs/${eprint}`} target="_blank">
+              {title}
+            </Link>
+          </Typography>
+          <Typography variant="body2">
+            {author}
+          </Typography>
+        </CardContent>
       </Card>
-    </Col>
+    </Grid>
   );
 };
 

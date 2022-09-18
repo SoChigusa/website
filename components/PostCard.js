@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
+import Link from "./Link";
 
 const PostCard = ({ post }) => {
   return (
@@ -9,7 +9,7 @@ const PostCard = ({ post }) => {
           <a>
             <CardMedia
               component='img'
-              style={{ height: 240, padding: '3%', objectFit: 'contain' }}
+              style={{ height: 240, width: '94%', padding: '3%', objectFit: 'contain' }}
               image={`/images/${post.frontMatter.image}`}
               alt={post.frontMatter.title}
             />
@@ -23,7 +23,7 @@ const PostCard = ({ post }) => {
               </a>
             </Link>
           </Typography>
-          <Typography variant="h6" color="text.secondary">
+          <Typography variant="h7" color="text.secondary">
             {post.frontMatter.date}
           </Typography>
           <Typography variant="body2">

@@ -3,7 +3,7 @@ import { AppBar, Box, Toolbar, Typography, Button, Menu, IconButton, Container, 
 import SchoolIcon from '@mui/icons-material/School';
 import MenuIcon from "@mui/icons-material/Menu";
 import { ExpandMore } from "@mui/icons-material";
-import Link from "next/link";
+import Link from "./Link";
 
 const Header = ({ headerData }) => {
   const pages = [
@@ -36,7 +36,7 @@ const Header = ({ headerData }) => {
 
   return (
     <AppBar position="static" sx={{ mb: 2, }}>
-      <Container maxWidth="xl">
+      <Container maxWidth='lg'>
         <Toolbar disableGutters>
 
           {/* Logo for medium size window */}
@@ -90,7 +90,7 @@ const Header = ({ headerData }) => {
             >
               {pages.map((page) => {
                 return (
-                  <Link href={page.url} passHref>
+                  <Link href={page.url} color='inherit'>
                     <MenuItem key={page.name} onClick={handleCloseNavMenu}>
                       <Typography textAlign="center">{page.name}</Typography>
                     </MenuItem>
@@ -155,7 +155,7 @@ const Header = ({ headerData }) => {
                     >
                       {
                         newTips.map((post) => (
-                          <Link href={`/tips/${post.slug}`} passHref>
+                          <Link href={`/tips/${post.slug}`} color='inherit'>
                             <MenuItem
                               key={post.slug}
                               onClick={handleCloseDropdown}
@@ -167,7 +167,7 @@ const Header = ({ headerData }) => {
                         ))
                       }
                       <Divider />
-                      <Link href='/tips' passHref>
+                      <Link href='/tips' color='inherit'>
                         <MenuItem
                           key='more'
                           onClick={handleCloseDropdown}
@@ -181,7 +181,7 @@ const Header = ({ headerData }) => {
                 );
               } else {
                 return (
-                  <Link href={page.url} passHref>
+                  <Link href={page.url} color='inherit'>
                     <Button
                       key={page.name}
                       onClick={handleCloseNavMenu}

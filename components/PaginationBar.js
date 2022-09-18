@@ -1,5 +1,5 @@
 import { Pagination, PaginationItem, Stack } from "@mui/material";
-import Link from "next/link";
+import Link from "./Link";
 
 export const PAGE_SIZE = '6';
 
