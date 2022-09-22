@@ -10,7 +10,7 @@ const PostCard = ({ post }) => {
             <CardMedia
               component='img'
               style={{ height: 240, width: '94%', padding: '3%', objectFit: 'contain' }}
-              image={`/images/${post.frontMatter.image}`}
+              image={`/logos/${post.frontMatter.image}`}
               alt={post.frontMatter.title}
             />
           </a>

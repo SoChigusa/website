@@ -47,12 +47,12 @@ export default function Post({ headerData, slug, frontMatter, html }) {
         title={frontMatter.title}
         description={frontMatter.description}
         url={`/tips/${slug}`}
-        img={`/images/${frontMatter.image}`}
+        img={`/logos/${frontMatter.image}`}
       />
       <div className="markdown-body">
         <div className={styles.imageBox}>
           <Image
-            src={`/images/${frontMatter.image}`}
+            src={`/logos/${frontMatter.image}`}
             width={1200}
             height={675}
             objectFit='contain'
@@ -65,7 +65,7 @@ export default function Post({ headerData, slug, frontMatter, html }) {
           <div dangerouslySetInnerHTML={{ __html: html }}></div>
         </article>
       </div>
-      <Like />
+      <Like sx={{ marginBottom: 2 }} />
       <Stack direction='row' spacing={1} sx={{ marginBottom: 2 }}>
         <Typography variant='h6'>
           Share this post:
