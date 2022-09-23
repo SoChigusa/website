@@ -65,16 +65,18 @@ const PublicationCard = ({ publication }) => {
         </Stack>
       </AccordionSummary>
       <AccordionDetails>
-        <Card sx={{ display: 'flex' }}>
-          <Box sx={{ width: '40%' }}>
+
+        {/* Card for >= medium size window */}
+        <Card sx={{ display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ width: { md: '50%', lg: '40%' }, my: 'auto' }}>
             <CardMedia
               component='img'
-              style={{ height: 360, width: '94%', padding: '3%', objectFit: 'contain' }}
+              sx={{ height: { md: 280, lg: 360 }, width: '94%', padding: '3%', objectFit: 'contain' }}
               image={publication.entryTags.imageExist ? `/publicationImages/${eprint}.svg` : noimage}
               alt={title}
             />
           </Box>
-          <Box sx={{ width: '60%' }}>
+          <Box sx={{ width: { md: '50%', lg: '60%' } }}>
             <CardContent>
               <Typography gutterBottom variant="h6">
                 Abstract
@@ -87,9 +89,6 @@ const PublicationCard = ({ publication }) => {
               <Box sx={{ float: 'right', marginBottom: 2, marginRight: 2 }}>
                 <Stack spacing={2} direction='row'>
                   <Link href={`https://arxiv.org/abs/${eprint}`} target="_blank">
-                    {/* <Button variant="contained">
-                      Open arXiv
-                    </Button> */}
                     <Image
                       src='/logos/ArXiv_logo_2022.png'
                       width={80}
@@ -103,6 +102,42 @@ const PublicationCard = ({ publication }) => {
             </CardContent>
           </Box>
         </Card>
+
+        {/* Card for (extra) small size window */}
+        <Card sx={{ display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ width: '100%' }}>
+            <CardMedia
+              component='img'
+              sx={{ width: 360, paddingTop: '2%', mx: 'auto', objectFit: 'contain' }}
+              image={publication.entryTags.imageExist ? `/publicationImages/${eprint}.svg` : noimage}
+              alt={title}
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h6">
+                Abstract
+              </Typography>
+              <Typography gutterBottom variant="body1">
+                <MathJax >
+                  {abstract}
+                </MathJax>
+              </Typography>
+              <Box sx={{ float: 'right', marginBottom: 2, marginRight: 2 }}>
+                <Stack spacing={2} direction='row'>
+                  <Link href={`https://arxiv.org/abs/${eprint}`} target="_blank">
+                    <Image
+                      src='/logos/ArXiv_logo_2022.png'
+                      width={80}
+                      height={36}
+                      style={{ paddingTop: 4 }}
+                    />
+                  </Link>
+                  <Like />
+                </Stack>
+              </Box>
+            </CardContent>
+          </Box>
+        </Card>
+
       </AccordionDetails>
     </Accordion >
   );
