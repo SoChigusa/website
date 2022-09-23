@@ -57,7 +57,7 @@ const PublicationCard = ({ publication }) => {
       >
         <Stack spacing={1}>
           <Typography variant="subtitle1" color="primary">
-            {title} [{eprint}]
+            {title} [arXiv: {eprint}]
           </Typography>
           <Typography variant="subtitle2" sx={{ color: 'text.secondary' }}>
             {author} ({date})

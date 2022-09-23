@@ -196,7 +196,7 @@ const Header = ({ headerData }) => {
           </Box>
 
           {/* Avatar */}
-          <Avatar alt="So Chigusa" src="/images/avatar/1.jpg" />
+          <Avatar alt="So Chigusa" src="/avatars/1.jpg" />
 
         </Toolbar>
       </Container>
