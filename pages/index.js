@@ -1,18 +1,32 @@
+import { Box, Grid, Typography } from "@mui/material";
 import createHeaderData from "../utils/createHeaderData";
+import extractPublicationData from "../utils/extractPublicationData";
 import Activity from '../components/Activity';
 import IndexMeta from '../components/meta';
 import TemporalAlert from "../components/TemporalAlert";
+import PublicationCard from "../components/PublicationCard";
 
 export async function getStaticProps({ params }) {
   const headerData = createHeaderData();
-  return { props: { headerData, }, };
+  const publications = await extractPublicationData({ slice: 6 });
+  return { props: { headerData, publications }, };
 }
 
-export default function Home({ headerData }) {
+export default function Home({ headerData, publications }) {
   return (
     <>
       <IndexMeta />
       <TemporalAlert />
+      <Typography gutterBottom variant="h4">
+        Recent activities
+      </Typography>
+      <Box sx={{ flexGrow: 1, my: 2 }}>
+        <Grid container spacing={2}>
+          {publications.map((publication) => (
+            <PublicationCard key={publication.citationKey} publication={publication} />
+          ))}
+        </Grid>
+      </Box>
     </>
     // <Container>
     //   <IndexMeta />
