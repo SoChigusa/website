@@ -30,7 +30,7 @@ const Publications = ({ headerData, publications }) => {
         ))}
         <Stack spacing={2} direction="row" sx={{ my: 2 }}>
           <Link href='../research'>
-            <IconButton aria-label="go back">
+            <IconButton aria-label="go back" sx={{ marginLeft: 1, marginBottom: 1 }}>
               <ArrowBack />
             </IconButton>
           </Link>

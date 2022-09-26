@@ -1,4 +1,4 @@
-import { Box, Button, List, ListItem, ListItemText, Stack, Typography } from "@mui/material";
+import { Box, Button, IconButton, List, ListItem, ListItemText, Stack, Typography } from "@mui/material";
 import createHeaderData from "../utils/createHeaderData";
 import extractPublicationData from "../utils/extractPublicationData";
 import extractTalkData from "../utils/extractTalkData";
@@ -7,6 +7,7 @@ import TemporalAlert from "../components/TemporalAlert";
 import PublicationCard from "../components/PublicationCard";
 import Link from "../components/Link";
 import TalkList from "../components/TalkList";
+import { MoreHoriz } from "@mui/icons-material";
 
 export async function getStaticProps({ params }) {
   const headerData = createHeaderData();
@@ -36,9 +37,9 @@ const Research = ({ headerData, publications, seminars, talks, awards }) => {
         ))}
         <Stack spacing={2} direction="row" sx={{ my: 2 }}>
           <Link href='research/publications'>
-            <Button variant="contained">
-              See More
-            </Button>
+            <IconButton aria-label="see more" sx={{ marginLeft: 1 }}>
+              <MoreHoriz />
+            </IconButton>
           </Link>
           <Link href="https://inspirehep.net/authors/1474093#with-citation-summary" target='_blank'>
             <Button variant="contained">
@@ -51,29 +52,19 @@ const Research = ({ headerData, publications, seminars, talks, awards }) => {
         <Typography gutterBottom variant="h5">
           Invited Seminars
         </Typography>
-        <TalkList talks={seminars} seminar />
-        <Link href='research/talks'>
-          <Button variant="contained" sx={{ my: 2 }}>
-            See More
-          </Button>
-        </Link>
+        <TalkList talks={seminars} seeMore />
       </Box>
       <Box sx={{ flexGrow: 1 }}>
         <Typography gutterBottom variant="h5">
           Talks
         </Typography>
-        <TalkList talks={talks} />
-        <Link href='research/talks'>
-          <Button variant="contained" sx={{ my: 2 }}>
-            See More
-          </Button>
-        </Link>
+        <TalkList talks={talks} seeMore />
       </Box>
       <Box sx={{ flexGrow: 1 }}>
         <Typography gutterBottom variant="h5">
           Awards
         </Typography>
-        <TalkList talks={awards} award />
+        <TalkList talks={awards} />
       </Box>
     </>
   )
