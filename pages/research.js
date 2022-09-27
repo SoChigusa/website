@@ -1,9 +1,8 @@
-import { Box, Button, IconButton, List, ListItem, ListItemText, Stack, Typography } from "@mui/material";
+import { Box, Button, IconButton, Stack, Tooltip, Typography } from "@mui/material";
 import createHeaderData from "../utils/createHeaderData";
 import extractPublicationData from "../utils/extractPublicationData";
 import extractTalkData from "../utils/extractTalkData";
 import ArticlesMeta from "../components/meta/articles";
-import TemporalAlert from "../components/TemporalAlert";
 import PublicationCard from "../components/PublicationCard";
 import Link from "../components/Link";
 import TalkList from "../components/TalkList";
@@ -37,9 +36,11 @@ const Research = ({ headerData, publications, seminars, talks, awards }) => {
         ))}
         <Stack spacing={2} direction="row" sx={{ my: 2 }}>
           <Link href='research/publications'>
-            <IconButton aria-label="see more" sx={{ marginLeft: 1 }}>
-              <MoreHoriz />
-            </IconButton>
+            <Tooltip title='See more' placement="bottom" arrow>
+              <IconButton aria-label="see more" sx={{ marginLeft: 1 }}>
+                <MoreHoriz />
+              </IconButton>
+            </Tooltip>
           </Link>
           <Link href="https://inspirehep.net/authors/1474093#with-citation-summary" target='_blank'>
             <Button variant="contained">
@@ -60,7 +61,7 @@ const Research = ({ headerData, publications, seminars, talks, awards }) => {
         </Typography>
         <TalkList talks={talks} seeMore />
       </Box>
-      <Box sx={{ flexGrow: 1 }}>
+      <Box sx={{ flexGrow: 1, mb: 5 }}>
         <Typography gutterBottom variant="h5">
           Awards
         </Typography>

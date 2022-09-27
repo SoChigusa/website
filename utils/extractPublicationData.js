@@ -7,7 +7,7 @@ const extractPublicationData = async ({ slice = -1 } = {}) => {
   let publications = (slice >= 0 ? toJSON(bib).slice(0, slice) : toJSON(bib));
 
   // constrain the number of requests to MAX_NUMBER_OF_REQUEST
-  const MAX_NUMBER_OF_REQUEST = 5
+  const MAX_NUMBER_OF_REQUEST = 3
   const num_pub = publications.length;
   let cnt = 0;
   let promises = [];

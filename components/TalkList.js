@@ -1,13 +1,15 @@
 import { EmojiEvents, Mic, MoreHoriz, SpeakerPhone } from "@mui/icons-material";
-import { IconButton, List, ListItem, ListItemIcon, ListItemText } from "@mui/material";
+import { IconButton, List, ListItem, ListItemIcon, ListItemText, Tooltip } from "@mui/material";
 import Link from "./Link";
 
 const TalkList = ({ talks, seeMore = false, filters = ['all', true, true, true, true] } = []) => {
   const see_more_if_any = (!seeMore ? '' : (
     <Link href='research/talks'>
-      <IconButton aria-label="see more" sx={{ marginLeft: 1, marginBottom: 1 }}>
-        <MoreHoriz />
-      </IconButton>
+      <Tooltip title='See more' placement="bottom" arrow>
+        <IconButton aria-label="see more" sx={{ marginLeft: 1, marginBottom: 1 }}>
+          <MoreHoriz />
+        </IconButton>
+      </Tooltip>
     </Link>
   ));
 

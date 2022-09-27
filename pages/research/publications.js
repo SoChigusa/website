@@ -5,6 +5,7 @@ import ArticlesMeta from "../../components/meta/articles";
 import PublicationCard from "../../components/PublicationCard";
 import Link from "../../components/Link";
 import { ArrowBack } from "@mui/icons-material";
+import GoBackButton from "../../components/GoBackButton";
 
 export async function getStaticProps({ params }) {
   const headerData = createHeaderData();
@@ -29,11 +30,7 @@ const Publications = ({ headerData, publications }) => {
           <PublicationCard key={publication.citationKey} publication={publication} />
         ))}
         <Stack spacing={2} direction="row" sx={{ my: 2 }}>
-          <Link href='../research'>
-            <IconButton aria-label="go back" sx={{ marginLeft: 1, marginBottom: 1 }}>
-              <ArrowBack />
-            </IconButton>
-          </Link>
+          <GoBackButton gutterLeft gutterBottom href='/research' />
           <Link href="https://inspirehep.net/authors/1474093#with-citation-summary" target='_blank'>
             <Button variant="contained">
               See on inspire hep

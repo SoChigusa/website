@@ -2,6 +2,7 @@ import { ArrowBack } from "@mui/icons-material";
 import { Box, Checkbox, Divider, FormControl, FormControlLabel, FormGroup, FormLabel, IconButton, Radio, RadioGroup, Typography } from "@mui/material";
 import { Stack } from "@mui/system";
 import { useState } from "react";
+import GoBackButton from "../../components/GoBackButton";
 import Link from "../../components/Link";
 import ArticlesMeta from "../../components/meta/articles";
 import TalkList from "../../components/TalkList";
@@ -129,11 +130,7 @@ const Talks = ({ headerData, all_talks }) => {
       <Divider />
       <Box sx={{ flexGrow: 1, marginTop: 1 }}>
         <TalkList talks={all_talks} icon filters={[filter, oral, poster, international, domestic]} />
-        <Link href='../research'>
-          <IconButton aria-label="go back" sx={{ marginLeft: 1, marginBottom: 1 }}>
-            <ArrowBack />
-          </IconButton>
-        </Link>
+        <GoBackButton gutterLeft gutterBottom href='/research' />
       </Box>
     </>
   );

@@ -1,7 +1,7 @@
 import { Pagination, PaginationItem, Stack } from "@mui/material";
 import Link from "./Link";
 
-export const PAGE_SIZE = '6';
+export const PAGE_SIZE = '24';
 
 export const range = (start, end, length = end - start + 1) =>
   Array.from({ length }, (_, i) => start + i);
