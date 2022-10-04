@@ -1,37 +1,10 @@
 import { MathJax } from "better-react-mathjax";
-import { Accordion, AccordionDetails, AccordionSummary, Box, Button, Card, CardContent, CardMedia, Stack, Typography } from "@mui/material";
+import { Accordion, AccordionDetails, AccordionSummary, Box, Card, CardContent, CardMedia, Stack, Typography } from "@mui/material";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Like from '../components/Like';
 import Link from "./Link";
 import Image from "next/image";
-
-const deformAuthorNames = (authors) => {
-  const authorList = authors.split(' and ');
-  const authorListNew = authorList.map((author) => {
-    const names = author.split(', ');
-    return `${names[1]} ${names[0]}`;
-  })
-  return authorListNew.join(', ');
-};
-
-const latexReplacement = (titleOrig) => {
-  let title = titleOrig;
-  title = title.replace(' \\ensuremath{-} ', '-');
-  title = title.replace('\\textendash{}', '-');
-  return title;
-}
-
-const mathjaxInline = (latex) => {
-  let pieces = latex.split('\$');
-  let i = -1;
-  const n = pieces.length;
-  pieces = pieces.map(piece => {
-    i++;
-    if (i == n - 1) { return piece; }
-    return (i % 2 == 0 ? piece + '\\(' : piece + '\\)');
-  });
-  return pieces.join('');
-}
+import { deformAuthorNames, latexReplacement, mathjaxInline } from "../utils/deformPublicationData";
 
 const PublicationCard = ({ publication }) => {
   const authorOrig = publication.entryTags.AUTHOR;
@@ -46,7 +19,6 @@ const PublicationCard = ({ publication }) => {
 
   // replace specific latex commands in my paper titles
   const title = mathjaxInline(latexReplacement(titleOrig));
-
 
   return (
     <Accordion>

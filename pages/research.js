@@ -11,7 +11,7 @@ import { MoreHoriz } from "@mui/icons-material";
 export async function getStaticProps({ params }) {
   const headerData = createHeaderData();
   const publications = await extractPublicationData({ slice: 6 });
-  const [seminars, talks, awards] = await extractTalkData({ slice: 3, separate: true })
+  const [seminars, talks, awards] = await extractTalkData({ slice: 3, separate: true });
   return { props: { headerData, publications, seminars, talks, awards }, };
 }
 

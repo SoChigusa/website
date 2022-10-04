@@ -1,9 +1,7 @@
-import { ArrowBack } from "@mui/icons-material";
 import { Box, Checkbox, Divider, FormControl, FormControlLabel, FormGroup, FormLabel, IconButton, Radio, RadioGroup, Typography } from "@mui/material";
 import { Stack } from "@mui/system";
 import { useState } from "react";
 import GoBackButton from "../../components/GoBackButton";
-import Link from "../../components/Link";
 import ArticlesMeta from "../../components/meta/articles";
 import TalkList from "../../components/TalkList";
 import createHeaderData from "../../utils/createHeaderData";
@@ -11,7 +9,7 @@ import extractTalkData from "../../utils/extractTalkData";
 
 export async function getStaticProps({ params }) {
   const headerData = createHeaderData();
-  const all_talks = await extractTalkData()
+  const all_talks = await extractTalkData();
   return { props: { headerData, all_talks }, };
 }
 

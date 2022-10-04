@@ -1,5 +1,5 @@
 const extractTalkData = async ({ slice = -1, separate = false } = {}) => {
-  const json = await fetch('https://script.google.com/macros/s/AKfycbxkUPyRs4Iqo9UiE6pJyrdvtYfIrk3rQK-3mAbn-RO02qGymDmqTKh1UytrXN2PcZw-FA/exec', { method: 'GET' }).then(data => {
+  const json = await fetch('https://script.google.com/macros/s/AKfycbxWGRs44fr2ZfokuqmOOVsgWlYpi9d_6h7Z6C5GRCyEweVxY50F3TH-bRZrOG6OaF1R9w/exec', { method: 'GET' }).then(data => {
     return data.json();
   });
   if (separate) {
