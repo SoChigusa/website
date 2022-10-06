@@ -1,6 +1,6 @@
+import { deformAuthorNames, latexReplacement, mathjaxInline } from "../utils/deformPublicationData";
 import { AccessTime } from "@mui/icons-material";
 import { Card, CardContent, CardMedia, Stack, Typography } from "@mui/material";
-import { deformAuthorNames, latexReplacement, mathjaxInline } from "../utils/deformPublicationData";
 import Link from "./Link";
 
 const ABSTRACT_MAX_LENGTH = 300
@@ -23,9 +23,14 @@ const NewestPublication = ({ publication }) => {
   // replace specific latex commands in my paper titles
   const title = latexReplacement(titleOrig);
 
+  // query for Link
+  const query = {
+    expanded: eprint
+  };
+
   return (
     <Card sx={{ width: '100%', boxShadow: 0 }}>
-      <Link href={`https://arxiv.org/abs/${eprint}`} target='_blank'>
+      <Link href='research/publications' query={query}>
         <CardMedia
           component='img'
           sx={{ height: { md: 280, lg: 360 }, width: '76%', px: '12%', pt: 2, pb: '0', objectFit: 'contain' }}
@@ -34,7 +39,7 @@ const NewestPublication = ({ publication }) => {
         />
       </Link>
       <CardContent sx={{ width: '94%', px: '3%' }}>
-        <Link href={`https://arxiv.org/abs/${eprint}`} target='_blank'>
+        <Link href={`research/publications`} query={query}>
           <Typography variant="h6" component="div">
             {title}
           </Typography>

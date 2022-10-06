@@ -2,7 +2,7 @@ import Head from "next/head";
 
 const homeURL = 'https://website-sochigusa.vercel.app';
 
-export default function IndexMeta({ title = "So Chigusa's homepage", description = "So Chigusa, a researcher of the particle physics" }) {
+export default function IndexMeta({ title = "So Chigusa's webpage", description = "So Chigusa, a researcher of the particle physics" }) {
   return (
     <Head>
       <meta property="og:type" content="website" />

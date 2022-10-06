@@ -1,7 +1,7 @@
 import NextLink from "next/link";
 import { Link as MUILink } from "@mui/material";
 
-const Link = ({ children, href, target, color = 'primary' }) => {
+const Link = ({ children, href, target, color = 'primary', query = {} }) => {
   if (target == '_blank') {
     return (
       <MUILink href={href} color={color} underline="none" target='_blank' rel="noreferrer">
@@ -10,7 +10,7 @@ const Link = ({ children, href, target, color = 'primary' }) => {
     );
   } else {
     return (
-      <NextLink href={href} passHref>
+      <NextLink href={{ pathname: href, query: query }} passHref>
         <MUILink color={color} underline="none">
           {children}
         </MUILink>

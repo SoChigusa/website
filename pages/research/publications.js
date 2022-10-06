@@ -1,11 +1,12 @@
-import { Box, Button, IconButton, Stack, Typography } from "@mui/material";
+import { useRouter } from "next/router";
 import createHeaderData from "../../utils/createHeaderData";
 import extractPublicationData from "../../utils/extractPublicationData";
+import { Box, Button, IconButton, Stack, Typography } from "@mui/material";
 import ArticlesMeta from "../../components/meta/articles";
 import PublicationCard from "../../components/PublicationCard";
 import Link from "../../components/Link";
-import { ArrowBack } from "@mui/icons-material";
 import GoBackButton from "../../components/GoBackButton";
+import { useState } from "react";
 
 export async function getStaticProps({ params }) {
   const headerData = createHeaderData();
@@ -14,6 +15,14 @@ export async function getStaticProps({ params }) {
 }
 
 const Publications = ({ headerData, publications }) => {
+
+  // state to organize accordions
+  const router = useRouter();
+  const [expanded, setExpanded] = useState(router.query.expanded);
+  const handleChange = (panel) => (event, newExpanded) => {
+    setExpanded(newExpanded ? panel : false);
+  };
+
   return (
     <>
       <ArticlesMeta
@@ -27,7 +36,12 @@ const Publications = ({ headerData, publications }) => {
       </Typography>
       <Box sx={{ flexGrow: 1 }}>
         {publications.map((publication) => (
-          <PublicationCard key={publication.citationKey} publication={publication} />
+          <PublicationCard
+            key={publication.citationKey}
+            publication={publication}
+            expanded={expanded === publication.entryTags.EPRINT}
+            handle={handleChange(publication.entryTags.EPRINT)}
+          />
         ))}
         <Stack spacing={2} direction="row" sx={{ my: 2 }}>
           <GoBackButton gutterLeft gutterBottom href='/research' />

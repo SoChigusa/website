@@ -19,10 +19,15 @@ const PublicationCardSmall = publication => {
   // replace specific latex commands in my paper titles
   const title = latexReplacement(titleOrig);
 
+  // query for Link
+  const query = {
+    expanded: eprint
+  };
+
   return (
     <Box sx={{ display: 'flex' }}>
       <Box sx={{ display: { xs: 'none', sm: 'block', md: 'none', lg: 'block' }, width: 196, height: 144, padding: 2 }}>
-        <Link href={`https://arxiv.org/abs/${eprint}`} target='_blank'>
+        <Link href='research/publications' query={query}>
           <Image
             width={196}
             height={144}
@@ -33,7 +38,7 @@ const PublicationCardSmall = publication => {
         </Link>
       </Box>
       <Box sx={{ width: 'auto', height: 'auto', padding: 2 }}>
-        <Link href={`https://arxiv.org/abs/${eprint}`} target='_blank'>
+        <Link href='research/publications' query={query}>
           <Typography variant="subtitle1" component="div" gutterBottom>
             {title}
           </Typography>

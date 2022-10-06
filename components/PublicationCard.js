@@ -1,12 +1,15 @@
 import { MathJax } from "better-react-mathjax";
-import { Accordion, AccordionDetails, AccordionSummary, Box, Card, CardContent, CardMedia, Stack, Typography } from "@mui/material";
+import { Accordion, AccordionDetails, AccordionSummary, Box, Card, CardContent, CardMedia, Grid, IconButton, Stack, Tooltip, Typography } from "@mui/material";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Like from '../components/Like';
 import Link from "./Link";
 import Image from "next/image";
 import { deformAuthorNames, latexReplacement, mathjaxInline } from "../utils/deformPublicationData";
+import { Article } from "@mui/icons-material";
 
-const PublicationCard = ({ publication }) => {
+const PublicationCard = ({ publication, expanded, handle }) => {
+
+  // extract publication information
   const authorOrig = publication.entryTags.AUTHOR;
   const titleOrig = publication.entryTags.TITLE.slice(1, -1);
   const eprint = publication.entryTags.EPRINT;
@@ -21,7 +24,7 @@ const PublicationCard = ({ publication }) => {
   const title = mathjaxInline(latexReplacement(titleOrig));
 
   return (
-    <Accordion>
+    <Accordion expanded={expanded} onChange={handle}>
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
         aria-controls={title}
@@ -37,79 +40,53 @@ const PublicationCard = ({ publication }) => {
         </Stack>
       </AccordionSummary>
       <AccordionDetails>
-
-        {/* Card for >= medium size window */}
-        <Card sx={{ display: { xs: 'none', md: 'flex' } }}>
-          <Box sx={{ width: { md: '50%', lg: '40%' }, my: 'auto' }}>
-            <CardMedia
-              component='img'
-              sx={{ height: { md: 280, lg: 360 }, width: '94%', padding: '3%', objectFit: 'contain' }}
-              image={publication.entryTags.imageExist ? `/publicationImages/${eprint}.svg` : noimage}
-              alt={title}
-            />
-          </Box>
-          <Box sx={{ width: { md: '50%', lg: '60%' } }}>
-            <CardContent>
-              <Typography gutterBottom variant="h6">
-                Abstract
-              </Typography>
-              <Typography gutterBottom variant="body1">
-                <MathJax >
-                  {abstract}
-                </MathJax>
-              </Typography>
-              <Box sx={{ float: 'right', marginBottom: 2, marginRight: 2 }}>
-                <Stack spacing={2} direction='row'>
-                  <Link href={`https://arxiv.org/abs/${eprint}`} target="_blank">
-                    <Image
-                      src='/logos/ArXiv_logo_2022.png'
-                      width={80}
-                      height={36}
-                      style={{ paddingTop: 4 }}
-                    />
-                  </Link>
-                  <Like />
-                </Stack>
-              </Box>
-            </CardContent>
-          </Box>
+        <Card>
+          <Grid container sx={{ flexDirection: { xs: 'column', md: 'row' } }}>
+            <Box sx={{ width: { xs: '100%', sm: '85%', md: '40%', lg: '40%' }, mx: 'auto', my: 'auto' }}>
+              <CardMedia
+                component='img'
+                sx={{ height: { md: 360, lg: 360 }, width: '94%', padding: '3%', objectFit: 'contain' }}
+                image={publication.entryTags.imageExist ? `/publicationImages/${eprint}.svg` : noimage}
+                alt={title}
+              />
+            </Box>
+            <Box sx={{ width: { xs: '100%', md: '60%', lg: '60%' } }}>
+              <CardContent>
+                <Typography gutterBottom variant="h6">
+                  Abstract
+                </Typography>
+                <Typography gutterBottom variant="body1">
+                  <MathJax >
+                    {abstract}
+                  </MathJax>
+                </Typography>
+                <Box sx={{ float: 'right', marginBottom: 2, marginRight: 2 }}>
+                  <Stack spacing={2} direction='row'>
+                    <Link href={`https://arxiv.org/pdf/${eprint}.pdf`} target="_blank">
+                      <Tooltip title="Open PDF" placement="bottom" arrow>
+                        <IconButton aria-label="open pdf">
+                          <Article />
+                        </IconButton>
+                      </Tooltip>
+                    </Link>
+                    <Link href={`https://arxiv.org/abs/${eprint}`} target="_blank">
+                      <Tooltip title="See on arXiv" placement="bottom" arrow>
+                        <Box sx={{ mt: '4px' }}>
+                          <Image
+                            src='/logos/ArXiv_logo_2022.png'
+                            width={80}
+                            height={36}
+                          />
+                        </Box>
+                      </Tooltip>
+                    </Link>
+                    <Like />
+                  </Stack>
+                </Box>
+              </CardContent>
+            </Box>
+          </Grid>
         </Card>
-
-        {/* Card for (extra) small size window */}
-        <Card sx={{ display: { xs: 'flex', md: 'none' } }}>
-          <Box sx={{ width: '100%' }}>
-            <CardMedia
-              component='img'
-              sx={{ width: 360, paddingTop: '2%', mx: 'auto', objectFit: 'contain' }}
-              image={publication.entryTags.imageExist ? `/publicationImages/${eprint}.svg` : noimage}
-              alt={title}
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h6">
-                Abstract
-              </Typography>
-              <Typography gutterBottom variant="body1">
-                <MathJax >
-                  {abstract}
-                </MathJax>
-              </Typography>
-              <Box sx={{ float: 'right', marginBottom: 2, marginRight: 2 }}>
-                <Stack spacing={2} direction='row'>
-                  <Link href={`https://arxiv.org/abs/${eprint}`} target="_blank">
-                    <Image
-                      src='/logos/ArXiv_logo_2022.png'
-                      width={80}
-                      height={36}
-                      style={{ paddingTop: 4 }}
-                    />
-                  </Link>
-                  <Like />
-                </Stack>
-              </Box>
-            </CardContent>
-          </Box>
-        </Card>
-
       </AccordionDetails>
     </Accordion >
   );
