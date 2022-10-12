@@ -1,15 +1,18 @@
+import { useState } from "react";
+import compileCV from "../../utils/compileCV";
+import createHeaderData from "../../utils/createHeaderData";
+import extractTalkData from "../../utils/extractTalkData";
 import { Box, Checkbox, Divider, FormControl, FormControlLabel, FormGroup, FormLabel, IconButton, Radio, RadioGroup, Typography } from "@mui/material";
 import { Stack } from "@mui/system";
-import { useState } from "react";
 import GoBackButton from "../../components/GoBackButton";
 import ArticlesMeta from "../../components/meta/articles";
 import TalkList from "../../components/TalkList";
-import createHeaderData from "../../utils/createHeaderData";
-import extractTalkData from "../../utils/extractTalkData";
 
 export async function getStaticProps({ params }) {
   const headerData = createHeaderData();
   const all_talks = await extractTalkData();
+  const [seminars, talks, awards] = await extractTalkData({ separate: true });
+  compileCV({ seminars: seminars, talks: talks, awards: awards });
   return { props: { headerData, all_talks }, };
 }
 

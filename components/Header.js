@@ -8,7 +8,7 @@ import Link from "./Link";
 const Header = ({ headerData }) => {
   const pages = [
     { name: 'Home', url: '/' },
-    { name: 'CV', url: '/cv' },
+    { name: 'CV', url: '/cv.pdf' },
     { name: 'Research', url: '/research' },
     { name: 'Note', url: '/note' },
     { name: 'Tips', url: '/tips' },

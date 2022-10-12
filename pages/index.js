@@ -1,7 +1,7 @@
-import { Box, Grid, Stack, Typography } from "@mui/material";
 import createHeaderData from "../utils/createHeaderData";
 import extractPublicationData from "../utils/extractPublicationData";
 import extractTalkData from "../utils/extractTalkData";
+import { Box, Grid, Typography } from "@mui/material";
 import IndexMeta from '../components/meta';
 import TemporalAlert from "../components/TemporalAlert";
 import RecentResearchTab from "../components/RecentResearchTab";

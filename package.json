@@ -18,6 +18,8 @@
     "marked": "^4.0.19",
     "next": "latest",
     "node-html-parser": "^6.1.0",
+    "node-latex": "^3.1.0",
+    "node-latexmk": "^0.1.5",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-share": "^4.4.0",

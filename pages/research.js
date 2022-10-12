@@ -1,12 +1,12 @@
-import { Box, Button, IconButton, Stack, Tooltip, Typography } from "@mui/material";
 import createHeaderData from "../utils/createHeaderData";
 import extractPublicationData from "../utils/extractPublicationData";
 import extractTalkData from "../utils/extractTalkData";
+import { Box, Button, IconButton, Stack, Tooltip, Typography } from "@mui/material";
+import { MoreHoriz } from "@mui/icons-material";
 import ArticlesMeta from "../components/meta/articles";
 import PublicationCard from "../components/PublicationCard";
 import Link from "../components/Link";
 import TalkList from "../components/TalkList";
-import { MoreHoriz } from "@mui/icons-material";
 
 export async function getStaticProps({ params }) {
   const headerData = createHeaderData();
