@@ -1,18 +1,8 @@
-import { EmojiEvents, Mic, MoreHoriz, SpeakerPhone } from "@mui/icons-material";
-import { IconButton, List, ListItem, ListItemIcon, ListItemText, Tooltip } from "@mui/material";
-import Link from "./Link";
+import { EmojiEvents, Mic, SpeakerPhone } from "@mui/icons-material";
+import { List, ListItem, ListItemIcon, ListItemText } from "@mui/material";
+import SeeMoreButton from './SeeMoreButton';
 
 const TalkList = ({ talks, seeMore = false, filters = ['all', true, true, true, true] } = []) => {
-  const see_more_if_any = (!seeMore ? '' : (
-    <Link href='research/talks'>
-      <Tooltip title='See more' placement="bottom" arrow>
-        <IconButton aria-label="see more" sx={{ marginLeft: 1, marginBottom: 1 }}>
-          <MoreHoriz />
-        </IconButton>
-      </Tooltip>
-    </Link>
-  ));
-
   // filter talk information
   const [filter, oral, poster, international, domestic] = filters;
   let filtered = talks;
@@ -62,7 +52,9 @@ const TalkList = ({ talks, seeMore = false, filters = ['all', true, true, true, 
           }
         })
         }
-        {see_more_if_any}
+        {(!seeMore ? '' : (
+          <SeeMoreButton href='research/talks' />
+        ))}
       </List>
     </>
   )

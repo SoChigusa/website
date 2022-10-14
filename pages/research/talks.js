@@ -1,8 +1,9 @@
 import { useState } from "react";
+import useLocale from "../../utils/useLocale";
 import compileCV from "../../utils/compileCV";
 import createHeaderData from "../../utils/createHeaderData";
 import extractTalkData from "../../utils/extractTalkData";
-import { Box, Checkbox, Divider, FormControl, FormControlLabel, FormGroup, FormLabel, IconButton, Radio, RadioGroup, Typography } from "@mui/material";
+import { Box, Checkbox, Divider, FormControl, FormControlLabel, FormGroup, FormLabel, Radio, RadioGroup, Typography } from "@mui/material";
 import { Stack } from "@mui/system";
 import GoBackButton from "../../components/GoBackButton";
 import ArticlesMeta from "../../components/meta/articles";
@@ -17,6 +18,8 @@ export async function getStaticProps({ params }) {
 }
 
 const Talks = ({ headerData, all_talks }) => {
+  const { t } = useLocale();
+
   // filters
   const [filter, setFilter] = useState('all');
   const is_disabled = 'disable'
@@ -53,12 +56,12 @@ const Talks = ({ headerData, all_talks }) => {
         img=""
       />
       <Typography gutterBottom variant="h4">
-        Talks and Awards
+        {t.TALKS_AND_AWARDS}
       </Typography>
       <Box sx={{ flexGrow: 1, marginBottom: 1 }}>
         <Stack spacing={1}>
           <FormControl>
-            <FormLabel id='talks-filter'>Filter</FormLabel>
+            <FormLabel id='talks-filter'>{t.FILTER}</FormLabel>
             <RadioGroup
               aria-labelledby="talks-filter"
               value={filter}
@@ -66,63 +69,63 @@ const Talks = ({ headerData, all_talks }) => {
               onChange={handleChangeFilter}
               row
             >
-              <FormControlLabel value='all' control={<Radio />} label='All' />
-              <FormControlLabel value='seminar' control={<Radio />} label='Seminars' />
-              <FormControlLabel value='talk' control={<Radio />} label='Talks' />
-              <FormControlLabel value='award' control={<Radio />} label='Awards' />
+              <FormControlLabel value='all' control={<Radio />} label={t.ALL} />
+              <FormControlLabel value='seminar' control={<Radio />} label={t.SEMINARS} />
+              <FormControlLabel value='talk' control={<Radio />} label={t.TALKS} />
+              <FormControlLabel value='award' control={<Radio />} label={t.AWARDS} />
             </RadioGroup>
           </FormControl>
           <FormControl>
-            <FormLabel id='talk-types'>Talk types</FormLabel>
+            <FormLabel id='talk-types'>{t.TALK_TYPES}</FormLabel>
             <FormGroup row>
               <FormControlLabel
                 control={
                   <Checkbox
-                    inputProps={{ 'aria-label': 'Oral' }}
+                    inputProps={{ 'aria-label': t.ORAL }}
                     onChange={handleChangeOral}
                     checked={oral}
                     disabled={(filter != 'talk')}
                   />
                 }
-                label='Oral'
+                label={t.ORAL}
               />
               <FormControlLabel
                 control={
                   <Checkbox
-                    inputProps={{ 'aria-label': 'Poster' }}
+                    inputProps={{ 'aria-label': t.POSTER }}
                     onChange={handleChangePoster}
                     checked={poster}
                     disabled={(filter != 'talk')}
                   />
                 }
-                label='Poster'
+                label={t.POSTER}
               />
             </FormGroup>
           </FormControl>
           <FormControl>
-            <FormLabel id='conference-types'>Conference types</FormLabel>
+            <FormLabel id='conference-types'>{t.CONFERENCE_TYPES}</FormLabel>
             <FormGroup row>
               <FormControlLabel
                 control={
                   <Checkbox
-                    inputProps={{ 'aria-label': 'International' }}
+                    inputProps={{ 'aria-label': t.INTERNATIONAL }}
                     onChange={handleChangeInternational}
                     checked={international}
                     disabled={(filter != 'talk')}
                   />
                 }
-                label='International'
+                label={t.INTERNATIONAL}
               />
               <FormControlLabel
                 control={
                   <Checkbox
-                    inputProps={{ 'aria-label': 'Domestic' }}
+                    inputProps={{ 'aria-label': t.DOMESTIC }}
                     onChange={handleChangeDomestic}
                     checked={domestic}
                     disabled={(filter != 'talk')}
                   />
                 }
-                label='Domestic (Japan)'
+                label={t.DOMESTIC}
               />
             </FormGroup>
           </FormControl>
@@ -131,7 +134,7 @@ const Talks = ({ headerData, all_talks }) => {
       <Divider />
       <Box sx={{ flexGrow: 1, marginTop: 1 }}>
         <TalkList talks={all_talks} icon filters={[filter, oral, poster, international, domestic]} />
-        <GoBackButton gutterLeft gutterBottom href='/research' />
+        <GoBackButton gutterLeft gutterBottom href='../research' />
       </Box>
     </>
   );

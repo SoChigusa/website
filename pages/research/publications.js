@@ -1,12 +1,13 @@
 import { useRouter } from "next/router";
+import { useState } from "react";
+import useLocale from "../../utils/useLocale";
 import createHeaderData from "../../utils/createHeaderData";
 import extractPublicationData from "../../utils/extractPublicationData";
-import { Box, Button, IconButton, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import ArticlesMeta from "../../components/meta/articles";
 import PublicationCard from "../../components/PublicationCard";
-import Link from "../../components/Link";
 import GoBackButton from "../../components/GoBackButton";
-import { useState } from "react";
+import InspireHEPButton from "../../components/InspireHEPButton";
 
 export async function getStaticProps({ params }) {
   const headerData = createHeaderData();
@@ -15,6 +16,7 @@ export async function getStaticProps({ params }) {
 }
 
 const Publications = ({ headerData, publications }) => {
+  const { t } = useLocale();
 
   // state to organize accordions
   const router = useRouter();
@@ -32,7 +34,7 @@ const Publications = ({ headerData, publications }) => {
         img=""
       />
       <Typography gutterBottom variant="h4">
-        Publications
+        {t.PUBLICATIONS}
       </Typography>
       <Box sx={{ flexGrow: 1 }}>
         {publications.map((publication) => (
@@ -44,12 +46,8 @@ const Publications = ({ headerData, publications }) => {
           />
         ))}
         <Stack spacing={2} direction="row" sx={{ my: 2 }}>
-          <GoBackButton gutterLeft gutterBottom href='/research' />
-          <Link href="https://inspirehep.net/authors/1474093#with-citation-summary" target='_blank'>
-            <Button variant="contained">
-              See on inspire hep
-            </Button>
-          </Link>
+          <GoBackButton gutterLeft gutterBottom href='../research' />
+          <InspireHEPButton />
         </Stack>
       </Box>
     </>

@@ -1,3 +1,4 @@
+import useLocale from "../utils/useLocale";
 import React from "react";
 import { Box, Stack, Tab, Tabs, Typography } from "@mui/material";
 import { AccessTime } from "@mui/icons-material";
@@ -58,6 +59,7 @@ const PublicationCardSmall = publication => {
 };
 
 const RecentResearchTab = ({ publications, talks }) => {
+  const { t } = useLocale();
   const [tab, setTab] = React.useState(0);
   const handleChange = (event, newTab) => {
     setTab(newTab);
@@ -71,8 +73,8 @@ const RecentResearchTab = ({ publications, talks }) => {
         aria-label="Tab of recent research activities"
         centered
       >
-        <Tab label='Publications' />
-        <Tab label='Talks' />
+        <Tab label={t.PUBLICATIONS} />
+        <Tab label={t.TALKS} />
       </Tabs>
       {
         tab === 0 &&

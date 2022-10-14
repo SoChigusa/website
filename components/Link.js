@@ -1,7 +1,8 @@
+import useLocale from "../utils/useLocale";
 import NextLink from "next/link";
 import { Link as MUILink } from "@mui/material";
 
-const Link = ({ children, href, target, color = 'primary', query = {} }) => {
+const Link = ({ children, href, target, localeChange = false, color = 'primary', query = {} }) => {
   if (target == '_blank') {
     return (
       <MUILink href={href} color={color} underline="none" target='_blank' rel="noreferrer">
@@ -9,13 +10,29 @@ const Link = ({ children, href, target, color = 'primary', query = {} }) => {
       </MUILink>
     );
   } else {
-    return (
-      <NextLink href={{ pathname: href, query: query }} passHref>
-        <MUILink color={color} underline="none">
-          {children}
-        </MUILink>
-      </NextLink>
-    );
+    if (localeChange) {
+      var newLocale = '';
+      const { locale } = useLocale();
+      if (locale === 'en')
+        newLocale = 'ja';
+      else
+        newLocale = 'en';
+      return (
+        <NextLink href={{ pathname: href, query: query }} locale={newLocale} passHref>
+          <MUILink color={color} underline="none">
+            {children}
+          </MUILink>
+        </NextLink>
+      );
+    } else {
+      return (
+        <NextLink href={{ pathname: href, query: query }} passHref>
+          <MUILink color={color} underline="none">
+            {children}
+          </MUILink>
+        </NextLink>
+      );
+    }
   }
 }
 

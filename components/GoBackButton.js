@@ -1,8 +1,11 @@
+import useLocale from "../utils/useLocale";
 import { useRouter } from "next/router";
 import { ArrowBack } from "@mui/icons-material";
-import { backdropClasses, IconButton, Link, Tooltip } from "@mui/material";
+import { IconButton, Link, Tooltip } from "@mui/material";
 
 const GoBackButton = ({ gutterLeft = false, gutterBottom = false, browserBack = false, href } = {}) => {
+  const { t } = useLocale();
+
   // margin left / bottom adjustment
   const ml = (gutterLeft ? 1 : 0);
   const mb = (gutterBottom ? 5 : 1);
@@ -10,9 +13,9 @@ const GoBackButton = ({ gutterLeft = false, gutterBottom = false, browserBack = 
 
   if (browserBack) {
     return (
-      <Tooltip title='Go back' placement="bottom" arrow>
+      <Tooltip title={t.GO_BACK} placement="bottom" arrow>
         <IconButton
-          aria-label="go back"
+          aria-label={t.GO_BACK}
           sx={{ ml: ml, mb: mb }}
           onClick={() => router.back()}
         >
@@ -23,8 +26,8 @@ const GoBackButton = ({ gutterLeft = false, gutterBottom = false, browserBack = 
   } else {
     return (
       <Link href={href}>
-        <Tooltip title='Go back' placement="bottom" arrow>
-          <IconButton aria-label="go back" sx={{ ml: ml, mb: mb }}>
+        <Tooltip title={t.GO_BACK} placement="bottom" arrow>
+          <IconButton aria-label={t.GO_BACK} sx={{ ml: ml, mb: mb }}>
             <ArrowBack />
           </IconButton>
         </Tooltip>

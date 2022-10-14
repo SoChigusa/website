@@ -1,6 +1,7 @@
 import createHeaderData from "../utils/createHeaderData";
 import extractPublicationData from "../utils/extractPublicationData";
 import extractTalkData from "../utils/extractTalkData";
+import useLocale from "../utils/useLocale";
 import { Box, Grid, Typography } from "@mui/material";
 import IndexMeta from '../components/meta';
 import TemporalAlert from "../components/TemporalAlert";
@@ -15,6 +16,7 @@ export async function getStaticProps({ params }) {
 }
 
 export default function Home({ headerData, publications, talks }) {
+  const { t } = useLocale();
   const publications_recent = publications.slice(1);
 
   return (
@@ -22,7 +24,7 @@ export default function Home({ headerData, publications, talks }) {
       <IndexMeta />
       <TemporalAlert />
       <Typography gutterBottom variant="h4">
-        Recent activities
+        {t.RECENT_ACTIVITIES}
       </Typography>
       <Grid container sx={{ flexDirection: { xs: 'column', md: 'row' } }}>
         <Box sx={{ width: { xs: '100%', md: '48%' } }}>

@@ -1,3 +1,4 @@
+import useLocale from '../utils/useLocale';
 import { MathJax } from "better-react-mathjax";
 import { Accordion, AccordionDetails, AccordionSummary, Box, Card, CardContent, CardMedia, Grid, IconButton, Stack, Tooltip, Typography } from "@mui/material";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -8,6 +9,7 @@ import { deformAuthorNames, latexReplacement, mathjaxInline } from "../utils/def
 import { Article } from "@mui/icons-material";
 
 const PublicationCard = ({ publication, expanded, handle }) => {
+  const { t } = useLocale();
 
   // extract publication information
   const authorOrig = publication.entryTags.AUTHOR;
@@ -53,7 +55,7 @@ const PublicationCard = ({ publication, expanded, handle }) => {
             <Box sx={{ width: { xs: '100%', md: '60%', lg: '60%' } }}>
               <CardContent>
                 <Typography gutterBottom variant="h6">
-                  Abstract
+                  {t.ABSTRACT}
                 </Typography>
                 <Typography gutterBottom variant="body1">
                   <MathJax >
@@ -63,14 +65,14 @@ const PublicationCard = ({ publication, expanded, handle }) => {
                 <Box sx={{ float: 'right', marginBottom: 2, marginRight: 2 }}>
                   <Stack spacing={2} direction='row'>
                     <Link href={`https://arxiv.org/pdf/${eprint}.pdf`} target="_blank">
-                      <Tooltip title="Open PDF" placement="bottom" arrow>
-                        <IconButton aria-label="open pdf">
+                      <Tooltip title={t.OPEN_PDF} placement="bottom" arrow>
+                        <IconButton aria-label={t.OPEN_PDF}>
                           <Article />
                         </IconButton>
                       </Tooltip>
                     </Link>
                     <Link href={`https://arxiv.org/abs/${eprint}`} target="_blank">
-                      <Tooltip title="See on arXiv" placement="bottom" arrow>
+                      <Tooltip title={t.SEE_ON_ARXIV} placement="bottom" arrow>
                         <Box sx={{ mt: '4px' }}>
                           <Image
                             src='/logos/ArXiv_logo_2022.png'

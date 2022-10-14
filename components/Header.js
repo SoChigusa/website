@@ -1,18 +1,21 @@
 import { useState } from "react";
-import { AppBar, Box, Toolbar, Typography, Button, Menu, IconButton, Container, MenuItem, Avatar, Divider } from "@mui/material";
+import useLocale from "../utils/useLocale";
+import { AppBar, Box, Toolbar, Typography, Button, Menu, IconButton, Container, MenuItem, Avatar, Divider, Tooltip } from "@mui/material";
 import SchoolIcon from '@mui/icons-material/School';
 import MenuIcon from "@mui/icons-material/Menu";
+import TranslateIcon from '@mui/icons-material/Translate';
 import { ExpandMore } from "@mui/icons-material";
 import Link from "./Link";
 
 const Header = ({ headerData }) => {
+  const { t } = useLocale();
   const pages = [
-    { name: 'Home', url: '/' },
-    { name: 'CV', url: '/cv.pdf' },
-    { name: 'Research', url: '/research' },
-    { name: 'Note', url: '/note' },
-    { name: 'Tips', url: '/tips' },
-    { name: 'Git', url: '/git' },
+    { name: t.HOME, url: '/' },
+    { name: t.CV, url: '/cv.pdf' },
+    { name: t.RESEARCH, url: '/research' },
+    { name: t.NOTE, url: '/note' },
+    { name: t.TIPS, url: '/tips' },
+    { name: t.GIT, url: '/git' },
   ];
   const newTips = headerData.tips.slice(0, 6);
 
@@ -40,26 +43,27 @@ const Header = ({ headerData }) => {
         <Toolbar disableGutters>
 
           {/* Logo for medium size window */}
-          <SchoolIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            So Chigusa
-          </Typography>
+          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+            <SchoolIcon sx={{ mr: 1 }} />
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              sx={{
+                mr: 2,
+                fontFamily: 'monospace',
+                fontWeight: 700,
+                letterSpacing: '.3rem',
+                color: 'inherit',
+                textDecoration: 'none',
+              }}
+            >
+              So Chigusa
+            </Typography>
+          </Box>
 
           {/* Dropdown menu for small size window */}
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
               aria-label="menu"
@@ -101,24 +105,25 @@ const Header = ({ headerData }) => {
           </Box>
 
           {/* Logo for small size window */}
-          <SchoolIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="div"
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            So Chigusa
-          </Typography>
+          <Box sx={{ display: { xs: 'flex', md: 'none' }, mx: 'auto' }}>
+            <SchoolIcon sx={{ mr: 1 }} />
+            <Typography
+              variant="h5"
+              noWrap
+              component="div"
+              sx={{
+                mr: 2,
+                flexGrow: 1,
+                fontFamily: 'monospace',
+                fontWeight: 700,
+                letterSpacing: '.3rem',
+                color: 'inherit',
+                textDecoration: 'none',
+              }}
+            >
+              So Chigusa
+            </Typography>
+          </Box>
 
           {/* Menu for medium size window */}
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
@@ -195,8 +200,24 @@ const Header = ({ headerData }) => {
             })}
           </Box>
 
+          <Box sx={{ mr: 1 }}>
+            <Link href='' localeChange color="inherit">
+              <Tooltip title={t.TRANSLATE} placement="bottom" arrow>
+                <IconButton
+                  size="large"
+                  aria-label="change language"
+                  color="inherit"
+                >
+                  <TranslateIcon />
+                </IconButton>
+              </Tooltip>
+            </Link>
+          </Box>
+
           {/* Avatar */}
-          <Avatar alt="So Chigusa" src="/avatars/1.jpg" />
+          <Link href='https://twitter.com/SoChigusa' target='_blank'>
+            <Avatar alt="So Chigusa" src="/avatars/1.jpg" />
+          </Link>
 
         </Toolbar>
       </Container>
