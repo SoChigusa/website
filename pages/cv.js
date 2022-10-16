@@ -17,7 +17,7 @@ const cv = () => {
         img=""
       />
       <TemporalAlert />
-      <span>Provide CV here</span>
+      <a href="/cv.pdf">PDF version of CV</a>
     </>
   )
 };

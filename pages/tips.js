@@ -1,24 +1,26 @@
-import { Box, Grid } from "@mui/material";
+import { useRouter } from "next/router";
 import createHeaderData from '../utils/createHeaderData';
+import { Box, Grid } from "@mui/material";
 import ArticlesMeta from "../components/meta/articles";
 import PaginationBar from '../components/PaginationBar';
-import { PAGE_SIZE, range } from '../components/PaginationBar';
+import { PAGE_SIZE } from '../components/PaginationBar';
 import PostCard from '../components/PostCard';
 
 export const getStaticProps = () => {
   const headerData = createHeaderData();
-  const totalPages = Math.ceil(headerData.tips.length / PAGE_SIZE);
-
   return {
     props: {
       headerData,
-      posts: headerData.tips.slice(0, PAGE_SIZE),
-      totalPages,
     },
   };
 };
 
-export default function Home({ headerData, posts, totalPages }) {
+const Tips = ({ headerData }) => {
+  const { locale } = useRouter();
+  const totalPosts = locale === 'en' ? headerData.tips_en : headerData.tips_ja;
+  const totalPages = Math.ceil(totalPosts.length / PAGE_SIZE);
+  const posts = totalPosts.slice(0, PAGE_SIZE);
+
   return (
     <>
       <ArticlesMeta
@@ -37,4 +39,6 @@ export default function Home({ headerData, posts, totalPages }) {
       <PaginationBar totalPages={totalPages} />
     </>
   )
-}
+};
+
+export default Tips;

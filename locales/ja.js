@@ -5,6 +5,7 @@ export default {
   NOTE: 'ノート',
   TIPS: 'メモ',
   GIT: 'プロジェクト',
+  SEE_MORE_TIPS: 'もっと見る',
   SEE_MORE: '詳細',
   GO_BACK: '戻る',
   OPEN_PDF: 'PDFを開く',
@@ -28,4 +29,6 @@ export default {
   INTERNATIONAL: '国際会議',
   DOMESTIC: '日本国内の会議',
   TRANSLATE: 'Show in English',
+  LATEST_UPDATE: '最終更新',
+  SHARE_THIS_POST: 'この投稿をシェアする：',
 }

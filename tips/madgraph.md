@@ -98,7 +98,7 @@ MadGraph のバージョンによって（？）jet matching の際に `run_card
 
 ちなみにヘルプを見ると（<https://cp3.irmp.ucl.ac.be/projects/madgraph/wiki/Matching>）、紛らわしいことにオプションの `2` が CKKW に対応するらしい。
 これが on の状態で jet の本数を変えたプロセスをいくつか merge して走らせると、個々のプロセスを独立に走らせて計算した断面積の和と比して、大きな断面積が parton level で出てきたりする。
-おそらくこれが matching に十分な overlap を含む phase space の取り方になっていて、その後 pythia が走ってきちんと matching してくれる。
+これが matching に十分な overlap を含む phase space の取り方になっていて、その後 pythia が走ってきちんと matching してくれる。
 
 ## (2019/4/26) 事前にコードを書いてインタープリタに読ませる ##
 
@@ -182,7 +182,6 @@ C***************************************************************
 上の例では、終状態の lepton と neutrino の transverse mass でカットをかけている。
 注意点として、このカット単体では条件を満たすデータ点が少なすぎてエラーを吐くので（下記リンクと同様の症状と思われる）、
 別個に `run_card.dat` で lepton pT cut（pT > 100GeV）をかけておいた。
-おそらく `run_card.dat` の方の cut は、サンプル点を選び出す段階で既に適用されている。
 参考：<https://answers.launchpad.net/mg5amcnlo/+question/446723>
 
 ## (2018/08/24) aMCatNLOError : Some tests failed, run cannot continue ##

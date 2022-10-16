@@ -2,6 +2,7 @@ import { Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 import Link from "./Link";
 
 const PostCard = ({ post }) => {
+
   return (
     <Grid item xs={6} sm={4} md={3}>
       <Card sx={{ height: '100%' }}>

@@ -1,14 +1,17 @@
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 const homeURL = 'https://website-sochigusa.vercel.app';
 
 export default function IndexMeta({ title = "So Chigusa's webpage", description = "So Chigusa, a researcher of the particle physics" }) {
+  const { locale } = useRouter();
+  const url_head = locale === 'en' ? '' : '/ja';
   return (
     <Head>
       <meta property="og:type" content="website" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:url" content={`${homeURL}`} />
+      <meta property="og:url" content={`${homeURL}${url_head}`} />
       <meta property="og:site_name" content={title} />
       <meta property="article:author" content="https://www.facebook.com/profile.php?id=100007905904884" />
       {/* <meta property="og:image" content="Image" /> */}

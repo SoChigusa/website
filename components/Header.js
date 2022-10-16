@@ -7,17 +7,17 @@ import TranslateIcon from '@mui/icons-material/Translate';
 import { ExpandMore } from "@mui/icons-material";
 import Link from "./Link";
 
-const Header = ({ headerData }) => {
-  const { t } = useLocale();
+const Header = ({ headerData, slug, existTranslation }) => {
+  const { locale, t } = useLocale();
   const pages = [
     { name: t.HOME, url: '/' },
-    { name: t.CV, url: '/cv.pdf' },
+    { name: t.CV, url: '/cv' },
     { name: t.RESEARCH, url: '/research' },
     { name: t.NOTE, url: '/note' },
     { name: t.TIPS, url: '/tips' },
     { name: t.GIT, url: '/git' },
   ];
-  const newTips = headerData.tips.slice(0, 6);
+  const newTips = locale === 'en' ? headerData.tips_en.slice(0, 6) : headerData.tips_ja.slice(0, 6);
 
   // for menu icon button
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -128,7 +128,7 @@ const Header = ({ headerData }) => {
           {/* Menu for medium size window */}
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => {
-              if (page.name == 'Tips') {
+              if (page.name == t.TIPS) {
                 return (
                   <>
                     <Button
@@ -137,7 +137,7 @@ const Header = ({ headerData }) => {
                       endIcon={<ExpandMore />}
                       sx={{ my: 2, color: 'white' }}
                     >
-                      Tips
+                      {t.TIPS}
                     </Button>
                     <Menu
                       id='dropdown-appbar'
@@ -178,7 +178,7 @@ const Header = ({ headerData }) => {
                           onClick={handleCloseDropdown}
                           component='a'
                         >
-                          <Typography textAlign="center">もっと見る</Typography>
+                          <Typography textAlign="center">{t.SEE_MORE_TIPS}</Typography>
                         </MenuItem>
                       </Link>
                     </Menu>
@@ -200,18 +200,30 @@ const Header = ({ headerData }) => {
             })}
           </Box>
 
+          {/* translate button */}
           <Box sx={{ mr: 1 }}>
-            <Link href='' localeChange color="inherit">
-              <Tooltip title={t.TRANSLATE} placement="bottom" arrow>
-                <IconButton
-                  size="large"
-                  aria-label="change language"
-                  color="inherit"
-                >
-                  <TranslateIcon />
-                </IconButton>
-              </Tooltip>
-            </Link>
+            {existTranslation === false ? (
+              <IconButton
+                size="large"
+                aria-label="change language"
+                color="inherit"
+                disabled
+              >
+                <TranslateIcon />
+              </IconButton>
+            ) : (
+              <Link href='' query={slug === undefined ? {} : { slug: slug }} localeChange color="inherit">
+                <Tooltip title={t.TRANSLATE} placement="bottom" arrow>
+                  <IconButton
+                    size="large"
+                    aria-label="change language"
+                    color="inherit"
+                  >
+                    <TranslateIcon />
+                  </IconButton>
+                </Tooltip>
+              </Link>
+            )}
           </Box>
 
           {/* Avatar */}

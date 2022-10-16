@@ -5,6 +5,7 @@ export default {
   NOTE: 'Note',
   TIPS: 'Tips',
   GIT: 'Git',
+  SEE_MORE_TIPS: 'See more',
   SEE_MORE: 'See more',
   GO_BACK: 'Go back',
   OPEN_PDF: 'Open PDF',
@@ -28,4 +29,6 @@ export default {
   INTERNATIONAL: 'International',
   DOMESTIC: 'Domestic (Japan)',
   TRANSLATE: '日本語で表示',
+  LATEST_UPDATE: 'Latest update',
+  SHARE_THIS_POST: 'Share this post:',
 }

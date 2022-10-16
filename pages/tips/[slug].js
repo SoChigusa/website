@@ -1,6 +1,7 @@
 import fs from 'fs';
 import matter from 'gray-matter';
 import { marked } from 'marked';
+import useLocale from '../../utils/useLocale';
 import Image from 'next/image';
 import { FacebookIcon, FacebookShareButton, HatenaIcon, HatenaShareButton, LineIcon, LineShareButton, TwitterIcon, TwitterShareButton } from 'react-share';
 import { Box, Stack, Typography } from '@mui/material';
@@ -10,35 +11,55 @@ import Like from '../../components/Like';
 import ArticlesMeta from '../../components/meta/articles';
 import hljs from 'highlight.js';
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params, locale }) {
   const ip = await marked.setOptions({
     highlight: (code) => {
       return hljs.highlightAuto(code).value
     },
   });
 
-  const file = fs.readFileSync(`tips/${params.slug}.md`, 'utf-8');
+  var url, file;
+  var existTranslation = true;
+  if (locale === 'en') {
+    url = `/tips/${params.slug}`;
+    file = fs.readFileSync(`tips/en/${params.slug}.md`, 'utf-8');
+  } else {
+    url = `/ja/tips/${params.slug}`;
+    file = fs.readFileSync(`tips/${params.slug}.md`, 'utf-8');
+    existTranslation = fs.existsSync(`tips/en/${params.slug}.md`);
+  }
   const { data, content } = matter(file);
   const html = marked(content);
 
   const headerData = createHeaderData();
-  return { props: { headerData, slug: params.slug, frontMatter: data, html } };
+  return { props: { headerData, url, slug: params.slug, frontMatter: data, html, existTranslation: existTranslation } };
 }
 
 export async function getStaticPaths() {
-  const files = fs.readdirSync('tips');
-  const paths = files.map((fileName) => ({
+  const allFiles_ja = fs.readdirSync('tips', { withFileTypes: true });
+  const files_ja = allFiles_ja.filter(dirent => dirent.isFile()).map(({ name }) => name);
+  const paths_ja = files_ja.map((fileName) => ({
     params: {
       slug: fileName.replace(/\.md$/, ''),
     },
+    locale: 'ja',
   }));
+  const files_en = fs.readdirSync('tips/en');
+  const paths_en = files_en.map((fileName) => ({
+    params: {
+      slug: fileName.replace(/\.md$/, ''),
+    },
+    locale: 'en',
+  }));
+  const paths = paths_ja.concat(paths_en);
   return {
     paths,
     fallback: false,
   }
 }
 
-export default function Post({ headerData, slug, frontMatter, html }) {
+export default function Post({ url, slug, frontMatter, html, existTranslation }) {
+  const { t } = useLocale();
   return (
     <>
       <ArticlesMeta
@@ -51,7 +72,7 @@ export default function Post({ headerData, slug, frontMatter, html }) {
         <h1>{frontMatter.title}</h1>
         <Stack spacing={2} direction='row'>
           <Box sx={{ display: { xs: 'none', md: 'block' }, width: '70%' }}>
-            <span>最終更新: {frontMatter.date}</span>
+            <span>{t.LATEST_UPDATE}: {frontMatter.date}</span>
             <p>{frontMatter.description}</p>
           </Box>
           <Box
@@ -65,7 +86,7 @@ export default function Post({ headerData, slug, frontMatter, html }) {
           </Box>
         </Stack>
         <Box sx={{ display: { xs: 'block', md: 'none' }, mt: 2 }}>
-          <span>最終更新: {frontMatter.date}</span>
+          <span>{t.LATEST_UPDATE}: {frontMatter.date}</span>
           <p>{frontMatter.description}</p>
         </Box>
         <article>
@@ -75,25 +96,25 @@ export default function Post({ headerData, slug, frontMatter, html }) {
       <Like sx={{ marginBottom: 2 }} />
       <Stack direction='row' spacing={1}>
         <Typography variant='h6'>
-          Share this post:
+          {t.SHARE_THIS_POST}
         </Typography>
         <TwitterShareButton
-          url={`https://website-sochigusa.vercel.app/tips/${slug}`}
+          url={`https://website-sochigusa.vercel.app${url}`}
           title={frontMatter.title}>
           <TwitterIcon size={30} round={true} />
         </TwitterShareButton>
         <FacebookShareButton
-          url={`https://website-sochigusa.vercel.app/tips/${slug}`}
+          url={`https://website-sochigusa.vercel.app${url}`}
           title={frontMatter.title}>
           <FacebookIcon size={30} round={true} />
         </FacebookShareButton>
         <LineShareButton
-          url={`https://website-sochigusa.vercel.app/tips/${slug}`}
+          url={`https://website-sochigusa.vercel.app${url}`}
           title={frontMatter.title}>
           <LineIcon size={30} round={true} />
         </LineShareButton>
         <HatenaShareButton
-          url={`https://website-sochigusa.vercel.app/tips/${slug}`}
+          url={`https://website-sochigusa.vercel.app${url}`}
           title={frontMatter.title}>
           <HatenaIcon size={30} round={true} />
         </HatenaShareButton>

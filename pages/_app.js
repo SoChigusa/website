@@ -5,7 +5,7 @@ import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Layout headerData={pageProps.headerData}>
+    <Layout headerData={pageProps.headerData} slug={pageProps.slug} existTranslation={pageProps.existTranslation}>
       <Component {...pageProps} />
     </Layout>
   );
