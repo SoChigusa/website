@@ -9,7 +9,7 @@ image: 'Mathematica_Logo.svg'
 
 ## インストール ##
 
-http://www.feynarts.de を見て、用意されているシェルスクリプト`FeynInstall`を用いて
+[ここ](http://www.feynarts.de) を見て、用意されているシェルスクリプト`FeynInstall`を用いて
 全てのコードをインストールする。質問にイエス連打していれば`$PATH`の設定までしてくれるはずが、
 今回は上手くいかなかったので、手動で設定する。`~/Library/Mathemtica/Kernel/init.m`をエディタで開いて
 

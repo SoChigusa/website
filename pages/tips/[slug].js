@@ -74,6 +74,13 @@ export default function Post({ url, slug, frontMatter, html, existTranslation })
           <Box sx={{ display: { xs: 'none', md: 'block' }, width: '70%' }}>
             <span>{t.LATEST_UPDATE}: {frontMatter.date}</span>
             <p>{frontMatter.description}</p>
+            {!existTranslation ?
+              (
+                <Typography variant='caption' display='block' color='secondary'>
+                  日本語限定記事
+                </Typography>
+              ) : (<></>)
+            }
           </Box>
           <Box
             sx={{ width: { xs: '96%', sm: '80%', md: '30%' }, paddingLeft: { sm: '6%' }, marginLeft: { md: '70%' }, padding: '2%' }}>
@@ -88,6 +95,13 @@ export default function Post({ url, slug, frontMatter, html, existTranslation })
         <Box sx={{ display: { xs: 'block', md: 'none' }, mt: 2 }}>
           <span>{t.LATEST_UPDATE}: {frontMatter.date}</span>
           <p>{frontMatter.description}</p>
+          {!existTranslation ?
+            (
+              <Typography variant='caption' display='block' color='secondary'>
+                日本語限定記事
+              </Typography>
+            ) : (<></>)
+          }
         </Box>
         <article>
           <div dangerouslySetInnerHTML={{ __html: html }}></div>

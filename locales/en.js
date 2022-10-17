@@ -16,6 +16,7 @@ export default {
   PUBLICATIONS: 'Publications',
   INVITED_SEMINARS: 'Invited Seminars',
   TALKS: 'Talks',
+  OTHER_TALKS: 'Talks',
   AWARDS: 'Awards',
   ABSTRACT: 'Abstract',
   TALKS_AND_AWARDS: 'Talks and Awards',

@@ -50,7 +50,7 @@ const Research = ({ headerData, publications, seminars, talks, awards }) => {
       </Box>
       <Box sx={{ flexGrow: 1 }}>
         <Typography gutterBottom variant="h5">
-          {t.TALKS}
+          {t.OTHER_TALKS}
         </Typography>
         <TalkList talks={talks} seeMore />
       </Box>

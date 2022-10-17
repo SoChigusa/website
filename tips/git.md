@@ -7,7 +7,7 @@ image: 'Git-logo.svg'
 
 ---
 
-Logo by <a href="https://git-scm.com/" target="_blank">Git</a>
+ロゴ： <a href="https://git-scm.com/" target="_blank">Git</a>
 
 ## latexdiffを使う
 
