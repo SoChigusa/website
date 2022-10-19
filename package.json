@@ -12,6 +12,8 @@
     "@mui/material": "^5.10.3",
     "better-react-mathjax": "^2.0.2",
     "bibtex-parser-js": "^0.0.2",
+    "firebase": "^9.12.1",
+    "firebase-admin": "^11.2.0",
     "github-markdown-css": "^5.1.0",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.6.0",

@@ -12,11 +12,11 @@ const PublicationCard = ({ publication, expanded, handle }) => {
   const { t } = useLocale();
 
   // extract publication information
-  const authorOrig = publication.entryTags.AUTHOR;
-  const titleOrig = publication.entryTags.TITLE.slice(1, -1);
-  const eprint = publication.entryTags.EPRINT;
-  const date = publication.entryTags.date;
-  const abstract = mathjaxInline(publication.entryTags.abstract);
+  const authorOrig = publication.content.entryTags.AUTHOR;
+  const titleOrig = publication.content.entryTags.TITLE.slice(1, -1);
+  const eprint = publication.content.entryTags.EPRINT;
+  const date = publication.content.entryTags.date;
+  const abstract = mathjaxInline(publication.content.entryTags.abstract);
   const noimage = 'https://placehold.jp/32/003060/e0e0e0/286x180.png?text=No Image'
 
   // from [Family], [First] to [First] [Family]
@@ -48,7 +48,7 @@ const PublicationCard = ({ publication, expanded, handle }) => {
               <CardMedia
                 component='img'
                 sx={{ height: { md: 360, lg: 360 }, width: '94%', padding: '3%', objectFit: 'contain' }}
-                image={publication.entryTags.imageExist ? `/publicationImages/${eprint}.svg` : noimage}
+                image={publication.content.entryTags.imageExist ? `/publicationImages/${eprint}.svg` : noimage}
                 alt={title}
               />
             </Box>
@@ -82,7 +82,7 @@ const PublicationCard = ({ publication, expanded, handle }) => {
                         </Box>
                       </Tooltip>
                     </Link>
-                    <Like />
+                    <Like initialCount={publication.likes} eprint={eprint} />
                   </Stack>
                 </Box>
               </CardContent>

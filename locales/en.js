@@ -8,6 +8,7 @@ export default {
   SEE_MORE_TIPS: 'See more',
   SEE_MORE: 'See more',
   GO_BACK: 'Go back',
+  LIKE: 'Like',
   OPEN_PDF: 'Open PDF',
   SEE_ON_ARXIV: 'See on arXiv',
   SEE_ON_INSPIRE_HEP: 'See on inspire hep',

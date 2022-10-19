@@ -3,6 +3,7 @@ import { useState } from "react";
 import useLocale from "../../utils/useLocale";
 import createHeaderData from "../../utils/createHeaderData";
 import extractPublicationData from "../../utils/extractPublicationData";
+import setDatabase from "../../utils/db/setDatabase";
 import { Box, Stack, Typography } from "@mui/material";
 import ArticlesMeta from "../../components/meta/articles";
 import PublicationCard from "../../components/PublicationCard";
@@ -11,7 +12,8 @@ import InspireHEPButton from "../../components/InspireHEPButton";
 
 export async function getStaticProps({ params }) {
   const headerData = createHeaderData();
-  const publications = await extractPublicationData();
+  var publications = await extractPublicationData();
+  publications = await setDatabase({ publications });
   return { props: { headerData, publications }, };
 }
 
@@ -39,10 +41,10 @@ const Publications = ({ headerData, publications }) => {
       <Box sx={{ flexGrow: 1 }}>
         {publications.map((publication) => (
           <PublicationCard
-            key={publication.citationKey}
+            key={publication.content.citationKey}
             publication={publication}
-            expanded={expanded === publication.entryTags.EPRINT}
-            handle={handleChange(publication.entryTags.EPRINT)}
+            expanded={expanded === publication.content.entryTags.EPRINT}
+            handle={handleChange(publication.content.entryTags.EPRINT)}
           />
         ))}
         <Stack spacing={2} direction="row" sx={{ my: 2 }}>

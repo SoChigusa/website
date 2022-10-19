@@ -8,6 +8,7 @@ export default {
   SEE_MORE_TIPS: 'もっと見る',
   SEE_MORE: '詳細',
   GO_BACK: '戻る',
+  LIKE: 'いいね',
   OPEN_PDF: 'PDFを開く',
   SEE_ON_ARXIV: 'arXivで見る',
   SEE_ON_INSPIRE_HEP: 'inspire HEPで見る',
