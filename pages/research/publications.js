@@ -17,7 +17,7 @@ export async function getStaticProps({ params }) {
   return { props: { headerData, publications }, };
 }
 
-const Publications = ({ headerData, publications }) => {
+const Publications = ({ publications }) => {
   const { t } = useLocale();
 
   // state to organize accordions

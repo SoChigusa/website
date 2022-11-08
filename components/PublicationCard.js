@@ -82,7 +82,7 @@ const PublicationCard = ({ publication, expanded, handle }) => {
                         </Box>
                       </Tooltip>
                     </Link>
-                    <Like initialCount={publication.likes} eprint={eprint} />
+                    <Like likes={publication.likes} likedUsers={publication.likedUsers} eprint={eprint} />
                   </Stack>
                 </Box>
               </CardContent>

@@ -1,17 +1,35 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import useSWR, { SWRConfig } from "swr";
 import useLocale from '../utils/useLocale';
 import updateCounter from '../utils/db/updateCounter';
 import { Favorite, FavoriteBorder } from '@mui/icons-material';
 import { Box, IconButton, Tooltip, Typography } from '@mui/material';
 
-const Like = ({ sx, initialCount = 0, eprint }) => {
+const Like = ({ sx, likes = 0, likedUsers = [], eprint }) => {
+  const fetcher = url => fetch(url).then(res => res.json());
+  const { data } = useSWR('/api/getIp', fetcher);
+  const ip = data ? data.ip : '127.0.0.1';
+
   const { t } = useLocale();
   const [isLiked, setIsLiked] = useState(false);
-  const [count, setCount] = useState(initialCount);
+  const [count, setCount] = useState(likes);
+
+  useEffect(() => {
+    setIsLiked(likedUsers.includes(ip));
+  }, []);
+
   const handleLike = async () => {
-    setCount(isLiked ? count - 1 : count + 1);
-    setIsLiked(!isLiked);
-    await updateCounter({ n: isLiked ? -1 : 1, eprint: eprint });
+    if (data) {
+      if (isLiked) {
+        setCount(count - 1);
+        likedUsers.splice(likedUsers.indexOf(ip), 1);
+      } else {
+        setCount(count + 1);
+        likedUsers.push(ip);
+      }
+      setIsLiked(!isLiked);
+      await updateCounter({ n: isLiked ? -1 : 1, likedUsers, eprint });
+    }
   };
 
   return (

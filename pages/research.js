@@ -20,7 +20,6 @@ export async function getStaticProps({ params }) {
 
 const Research = ({ publications, seminars, talks, awards }) => {
   const { t } = useLocale();
-
   return (
     <>
       <ArticlesMeta

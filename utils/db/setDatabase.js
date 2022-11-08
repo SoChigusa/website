@@ -1,10 +1,10 @@
-import database from './index';
+import { database } from './index';
 
 const setDatabase = async ({ publications }) => {
   const newPublications = [];
 
   // constrain the number of requests to MAX_NUMBER_OF_REQUEST
-  const MAX_NUMBER_OF_REQUEST = 3;
+  const MAX_NUMBER_OF_REQUEST = 1;
   const num_pub = publications.length;
   let cnt = 0;
   let promises = [];
@@ -14,7 +14,7 @@ const setDatabase = async ({ publications }) => {
 
         if (index < num_pub) {
           const publication = publications[index];
-          const eprint = publication.entryTags.EPRINT
+          const eprint = publication.entryTags.EPRINT;
 
           const data = {
             likes: 0,
