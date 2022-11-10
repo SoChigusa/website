@@ -18,7 +18,6 @@ const PaginationBar = ({ totalPages, current_page = 1 }) => {
         renderItem={(item) => (
           <Link href={`/tips/page/${item.page}`}>
             <PaginationItem
-              component='a'
               {...item}
             />
           </Link>

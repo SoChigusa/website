@@ -24,7 +24,7 @@ const TalkList = ({ talks, seeMore = false, filters = ['all', true, true, true, 
           const seminar = (talk.Type == 'Seminar');
           if (seminar) {
             return (
-              <ListItem>
+              <ListItem key={talk.Title + talk.Date}>
                 <ListItemIcon>
                   <Mic color="secondary" />
                 </ListItemIcon>
@@ -33,7 +33,7 @@ const TalkList = ({ talks, seeMore = false, filters = ['all', true, true, true, 
             );
           } else if (award) {
             return (
-              <ListItem>
+              <ListItem key={talk.Title + talk.Date}>
                 <ListItemIcon>
                   <EmojiEvents color="warning" />
                 </ListItemIcon>
@@ -42,7 +42,7 @@ const TalkList = ({ talks, seeMore = false, filters = ['all', true, true, true, 
             )
           } else {
             return (
-              <ListItem>
+              <ListItem key={talk.Title + talk.Date}>
                 <ListItemIcon>
                   <SpeakerPhone color="primary" />
                 </ListItemIcon>

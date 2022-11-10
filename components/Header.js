@@ -94,8 +94,8 @@ const Header = ({ headerData, slug, existTranslation }) => {
             >
               {pages.map((page) => {
                 return (
-                  <Link href={page.url} color='inherit'>
-                    <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+                  <Link key={page.name} href={page.url} color='inherit'>
+                    <MenuItem onClick={handleCloseNavMenu}>
                       <Typography textAlign="center">{page.name}</Typography>
                     </MenuItem>
                   </Link>
@@ -130,9 +130,8 @@ const Header = ({ headerData, slug, existTranslation }) => {
             {pages.map((page) => {
               if (page.name == t.TIPS) {
                 return (
-                  <>
+                  <Box key='tips'>
                     <Button
-                      key='tips'
                       onClick={handleOpenDropdown}
                       endIcon={<ExpandMore />}
                       sx={{ my: 2, color: 'white' }}
@@ -160,11 +159,10 @@ const Header = ({ headerData, slug, existTranslation }) => {
                     >
                       {
                         newTips.map((post) => (
-                          <Link href={`/tips/${post.slug}`} color='inherit'>
+                          <Link key={post.slug} href={`/tips/${post.slug}`} color='inherit'>
                             <MenuItem
                               key={post.slug}
                               onClick={handleCloseDropdown}
-                              component='a'
                             >
                               <Typography textAlign="center">{post.frontMatter.title}</Typography>
                             </MenuItem>
@@ -176,25 +174,25 @@ const Header = ({ headerData, slug, existTranslation }) => {
                         <MenuItem
                           key='more'
                           onClick={handleCloseDropdown}
-                          component='a'
                         >
                           <Typography textAlign="center">{t.SEE_MORE_TIPS}</Typography>
                         </MenuItem>
                       </Link>
                     </Menu>
-                  </>
+                  </Box>
                 );
               } else {
                 return (
-                  <Link href={page.url} color='inherit'>
-                    <Button
-                      key={page.name}
-                      onClick={handleCloseNavMenu}
-                      sx={{ my: 2, color: 'white' }}
-                    >
-                      {page.name}
-                    </Button>
-                  </Link>
+                  <Box key={page.name}>
+                    <Link href={page.url} color='inherit'>
+                      <Button
+                        onClick={handleCloseNavMenu}
+                        sx={{ my: 2, color: 'white' }}
+                      >
+                        {page.name}
+                      </Button>
+                    </Link>
+                  </Box>
                 );
               }
             })}

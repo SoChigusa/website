@@ -7,21 +7,17 @@ const PostCard = ({ post }) => {
     <Grid item xs={6} sm={4} md={3}>
       <Card sx={{ height: '100%' }}>
         <Link href={`/tips/${post.slug}`}>
-          <a>
-            <CardMedia
-              component='img'
-              style={{ height: 120, width: '88%', padding: '6%', objectFit: 'contain' }}
-              image={`/logos/${post.frontMatter.image}`}
-              alt={post.frontMatter.title}
-            />
-          </a>
+          <CardMedia
+            component='img'
+            style={{ height: 120, width: '88%', padding: '6%', objectFit: 'contain' }}
+            image={`/logos/${post.frontMatter.image}`}
+            alt={post.frontMatter.title}
+          />
         </Link>
         <CardContent>
           <Typography variant="body1" component="div">
             <Link href={`/tips/${post.slug}`}>
-              <a>
-                {post.frontMatter.title}
-              </a>
+              {post.frontMatter.title}
             </Link>
           </Typography>
           <Typography gutterBottom variant="body2" color="text.secondary">

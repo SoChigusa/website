@@ -14,7 +14,6 @@ export async function getStaticProps({ params }) {
   const headerData = createHeaderData();
   const publications = await extractPublicationData({ slice: 6 });
   await setDatabase({ publications });
-  console.log(publications);
   const [seminars, talks, awards] = await extractTalkData({ slice: 3, separate: true });
   return { props: { headerData, publications, seminars, talks, awards }, };
 }

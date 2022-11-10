@@ -26,7 +26,7 @@ const PublicationCardSmall = publication => {
   };
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box key={eprint} sx={{ display: 'flex' }}>
       <Box sx={{ display: { xs: 'none', sm: 'block', md: 'none', lg: 'block' }, width: 196, height: 144, padding: 2 }}>
         <Link href='research/publications' query={query}>
           <Image
