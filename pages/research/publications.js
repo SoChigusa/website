@@ -12,8 +12,8 @@ import InspireHEPButton from "../../components/InspireHEPButton";
 
 export async function getStaticProps({ params }) {
   const headerData = createHeaderData();
-  var publications = await extractPublicationData();
-  publications = await setDatabase({ publications });
+  const publications = await extractPublicationData();
+  await setDatabase({ publications });
   return { props: { headerData, publications }, };
 }
 
@@ -41,10 +41,10 @@ const Publications = ({ publications }) => {
       <Box sx={{ flexGrow: 1 }}>
         {publications.map((publication) => (
           <PublicationCard
-            key={publication.content.citationKey}
+            key={publication.citationKey}
             publication={publication}
-            expanded={expanded === publication.content.entryTags.EPRINT}
-            handle={handleChange(publication.content.entryTags.EPRINT)}
+            expanded={expanded === publication.entryTags.EPRINT}
+            handle={handleChange(publication.entryTags.EPRINT)}
           />
         ))}
         <Stack spacing={2} direction="row" sx={{ my: 2 }}>

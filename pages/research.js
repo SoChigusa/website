@@ -12,8 +12,9 @@ import InspireHEPButton from "../components/InspireHEPButton";
 
 export async function getStaticProps({ params }) {
   const headerData = createHeaderData();
-  var publications = await extractPublicationData({ slice: 6 });
-  publications = await setDatabase({ publications });
+  const publications = await extractPublicationData({ slice: 6 });
+  await setDatabase({ publications });
+  console.log(publications);
   const [seminars, talks, awards] = await extractTalkData({ slice: 3, separate: true });
   return { props: { headerData, publications, seminars, talks, awards }, };
 }
@@ -36,7 +37,7 @@ const Research = ({ publications, seminars, talks, awards }) => {
           {t.PUBLICATIONS}
         </Typography>
         {publications.map((publication) => (
-          <PublicationCard key={publication.content.citationKey} publication={publication} />
+          <PublicationCard key={publication.citationKey} publication={publication} />
         ))}
         <Stack spacing={2} direction="row" sx={{ my: 2 }}>
           <SeeMoreButton href='research/publications' />

@@ -1,10 +1,9 @@
 import { database } from './index';
 
 const setDatabase = async ({ publications }) => {
-  const newPublications = [];
 
   // constrain the number of requests to MAX_NUMBER_OF_REQUEST
-  const MAX_NUMBER_OF_REQUEST = 1;
+  const MAX_NUMBER_OF_REQUEST = 3;
   const num_pub = publications.length;
   let cnt = 0;
   let promises = [];
@@ -25,11 +24,6 @@ const setDatabase = async ({ publications }) => {
           if (!docSnap.exists) {
             await docRef.set(data);
           }
-          newPublications.push({
-            content: publication,
-            likes: docSnap.get('likes'),
-            likedUsers: docSnap.get('likedUsers'),
-          });
 
           // next
           loop(cnt++);
@@ -42,8 +36,6 @@ const setDatabase = async ({ publications }) => {
     promises.push(p);
   }
   await Promise.all(promises);
-
-  return newPublications;
 };
 
 export default setDatabase;
