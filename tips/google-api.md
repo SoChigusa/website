@@ -126,7 +126,7 @@ SPREADSHEET_KEY = 'スプレッドシートキー'
 worksheet = gc.open_by_key(SPREADSHEET_KEY).sheet1
 ```
 
-JSONファイルのパスと、スプレッドシートキー（https://docs.google.com/spreadsheets/d/[Spreadsheet_Key]/edit#gid=xxx）を上のコードに埋める。
+JSONファイルのパスと、スプレッドシートキー（~docs.google.com/spreadsheets/d/[Spreadsheet_Key]/edit#gid=xxx）を上のコードに埋める。
 
 ### 値の読み取り
 
