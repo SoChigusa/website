@@ -107,7 +107,7 @@ export default function Post({ url, slug, frontMatter, html, existTranslation })
           <div dangerouslySetInnerHTML={{ __html: html }}></div>
         </article>
       </div>
-      <Like sx={{ marginBottom: 2 }} />
+      <Like sx={{ marginBottom: 2 }} id={{ collection: 'posts', document: slug }} />
       <Stack direction='row' spacing={1}>
         <Typography variant='h6'>
           {t.SHARE_THIS_POST}

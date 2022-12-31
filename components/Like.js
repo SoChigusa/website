@@ -6,14 +6,14 @@ import updateCounter from '../utils/db/updateCounter';
 import { Favorite, FavoriteBorder } from '@mui/icons-material';
 import { Box, IconButton, Tooltip, Typography } from '@mui/material';
 
-const fetcher = async ({ apiKey, eprint }) => {
-  const counterData = await getCounter({ eprint });
+const fetcher = async ({ apiKey, id }) => {
+  const counterData = await getCounter(id);
   const ipData = await fetch(apiKey).then(res => res.json());
   return { counterData, ipData };
 };
 
-const Like = ({ sx, eprint }) => {
-  const { data } = useSWR({ apiKey: '/api/getIp', eprint }, fetcher);
+const Like = ({ sx, id }) => {
+  const { data } = useSWR({ apiKey: '/api/getIp', id }, fetcher);
   const ip = data ? data.ipData.ip : '127.0.0.1';
   const likes = data ? data.counterData.likes : 0;
   const likedUsers = data ? data.counterData.likedUsers : [];
@@ -41,7 +41,7 @@ const Like = ({ sx, eprint }) => {
         likedUsers.push(ip);
       }
       setIsLiked(!isLiked);
-      await updateCounter({ n: isLiked ? -1 : 1, likedUsers, eprint });
+      await updateCounter({ n: isLiked ? -1 : 1, likedUsers, id });
     }
   };
 
