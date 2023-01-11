@@ -226,7 +226,9 @@ const Header = ({ headerData, slug, existTranslation }) => {
 
           {/* Avatar */}
           <Link href='https://twitter.com/SoChigusa' target='_blank'>
-            <Avatar alt="So Chigusa" src="/avatars/1.jpg" />
+            <Tooltip title={t.FOLLOW_ME} placement="bottom" arrow>
+              <Avatar alt="So Chigusa" src="/avatars/1.jpg" />
+            </Tooltip>
           </Link>
 
         </Toolbar>
