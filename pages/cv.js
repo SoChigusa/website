@@ -1,21 +1,25 @@
 import createHeaderData from "../utils/createHeaderData";
+import extractTalkData from "../utils/extractTalkData";
+import compileCV from "../utils/compileCV";
 import useLocale from "../utils/useLocale";
 import ArticlesMeta from "../components/meta/articles";
 import CVTable from "../components/CVTable";
 import Link from "../components/Link";
-import { Button, Grid, IconButton, Stack, Tooltip, Typography } from "@mui/material";
-import { Article } from "@mui/icons-material";
+import { Box, Button, Grid, Stack, Typography } from "@mui/material";
+import { Article, List } from "@mui/icons-material";
 
 export async function getStaticProps({ params }) {
   const headerData = createHeaderData();
-  return { props: { headerData, }, };
+  const [seminars, talks, awards] = await extractTalkData({ separate: true });
+  const personalInfo = compileCV({ seminars: seminars, talks: talks, awards: awards });
+  return { props: { headerData, personalInfo, }, };
 }
 
 const createData = (name, content) => {
   return { name: name, content: content };
 };
 
-const cv = () => {
+const cv = ({ personalInfo }) => {
   const { t } = useLocale();
   const rows_personal_data_1 = [
     createData(t.NAME_FIRST, t.NAME_FIRST_CONTENT),
@@ -23,7 +27,7 @@ const cv = () => {
     createData(t.DATE_OF_BIRTH, t.DATE_OF_BIRTH_CONTENT),
     createData(t.PLACE_OF_BIRTH, t.PLACE_OF_BIRTH_CONTENT),
     createData(t.NATIONALITY, t.NATIONALITY_CONTENT),
-    createData(t.AGE, 30),
+    createData(t.AGE, personalInfo.age),
     createData(t.SEX, t.SEX_CONTENT),
   ];
   const rows_personal_data_2 = [
@@ -58,7 +62,7 @@ const cv = () => {
   ];
 
   return (
-    <>
+    <Box gutterBottom>
       <ArticlesMeta
         title="CV of So Chigusa"
         description="CV of So Chigusa"
@@ -79,21 +83,19 @@ const cv = () => {
               {t.RESEARCH_ACHIEVEMENTS}
             </Typography>
             <Link href="./research">
-              <Button variant="contained">
+              <Button variant="outlined" startIcon={<List />}>
                 {t.SEE_RESEARCH_ACTIVITIES}
               </Button>
             </Link >
           </Grid>
         </Grid>
-        <a href="/cv.pdf">
-          <Tooltip title={t.OPEN_CV_PDF} placement="bottom" arrow>
-            <IconButton aria-label={t.OPEN_PDF}>
-              <Article />
-            </IconButton>
-          </Tooltip>
-        </a>
+        <Link href="../cv.pdf">
+          <Button variant="outlined" startIcon={<Article />}>
+            {t.OPEN_CV_PDF}
+          </Button>
+        </Link>
       </Stack>
-    </>
+    </Box>
   )
 };
 

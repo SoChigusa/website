@@ -59,7 +59,12 @@ const compileCV = ({ seminars, talks, awards }) => {
       console.log(err);
     else
       console.log("cv.pdf generated successfully!");
-  })
+  });
+
+  // copy file for ja locale
+  fs.copyFileSync("public/cv.pdf", "public/ja/cv.pdf");
+
+  return { age: age };
 };
 
 export default compileCV;

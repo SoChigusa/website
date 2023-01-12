@@ -1,5 +1,8 @@
+import useLocale from "../utils/useLocale";
 import styled from "@emotion/styled";
-import { Grid, Paper, Table, TableBody, TableCell, TableContainer, TableRow, Typography } from "@mui/material";
+import Link from "./Link";
+import { Grid, IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableRow, Tooltip, Typography } from "@mui/material";
+import { Email } from "@mui/icons-material";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   '&:nth-of-type(odd)': {
@@ -21,6 +24,34 @@ const TitleBlock = ({ title }) => {
   }
 };
 
+const MyTableCell = ({ name, content }) => {
+  const { t } = useLocale();
+  if (name == t.EMAIL) {
+    return (
+      <TableCell align="left">
+        {content}
+        <a href="mailto:SoChigusa@lbl.gov">
+          <Tooltip title={t.EMAIL_ME} placement="bottom" arrow>
+            <IconButton aria-label={t.EMAIL} size="small" color="primary">
+              <Email fontSize="inherit" />
+            </IconButton>
+          </Tooltip>
+        </a>
+      </TableCell>
+    );
+  } else if (name == t.WEBPAGE) {
+    return (
+      <TableCell align="left">
+        <Link href={content}>{content}</Link>
+      </TableCell>
+    )
+  } else {
+    return (
+      <TableCell align="left">{content}</TableCell>
+    );
+  }
+}
+
 const CVTable = ({ title = '', rows }) => {
   return (
     <Grid item xs={12} md={6}>
@@ -34,7 +65,7 @@ const CVTable = ({ title = '', rows }) => {
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
                 <StyledTableCell component="th" scope="row">{row.name}</StyledTableCell>
-                <TableCell align="left">{row.content}</TableCell>
+                <MyTableCell name={row.name} content={row.content} />
               </TableRow>
             ))}
           </TableBody>

@@ -6,7 +6,7 @@ const InspireHEPButton = () => {
   const { t } = useLocale();
   return (
     <Link href="https://inspirehep.net/authors/1474093#with-citation-summary" target='_blank' >
-      <Button variant="contained">
+      <Button variant="outlined">
         {t.SEE_ON_INSPIRE_HEP}
       </Button>
     </Link >

@@ -35,6 +35,7 @@ export default {
   LATEST_UPDATE: '最終更新',
   SHARE_THIS_POST: 'この投稿をシェアする：',
   OPEN_CV_PDF: 'PDFで見る',
+  EMAIL_ME: 'メールを送る',
 
   // Personal Data in CV
   PERSONAL_DATA: '個人の情報',

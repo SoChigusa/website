@@ -35,6 +35,7 @@ export default {
   LATEST_UPDATE: 'Latest update',
   SHARE_THIS_POST: 'Share this post:',
   OPEN_CV_PDF: 'Open in PDF',
+  EMAIL_ME: 'Email me',
 
   // Personal Data in CV
   PERSONAL_DATA: 'Personal data',
