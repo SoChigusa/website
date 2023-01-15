@@ -1,14 +1,20 @@
 export default {
+  // Header Menu
   HOME: 'Home',
   CV: 'CV',
   RESEARCH: 'Research',
-  NOTE: 'Note',
   TIPS: 'Tips',
-  GIT: 'Git',
+  REPOSITORIES: 'Repositories',
   SEE_MORE_TIPS: 'See more',
+  TRANSLATE: '日本語で表示',
+  FOLLOW_ME: 'Follow me on Twitter!',
+
+  // General Buttons
   SEE_MORE: 'See more',
   GO_BACK: 'Go back',
   LIKE: 'Like',
+
+  // Research
   OPEN_PDF: 'Open PDF',
   SEE_ON_ARXIV: 'See on arXiv',
   SEE_ON_INSPIRE_HEP: 'See on inspire hep',
@@ -30,14 +36,17 @@ export default {
   CONFERENCE_TYPES: 'Conference types',
   INTERNATIONAL: 'International',
   DOMESTIC: 'Domestic (Japan)',
-  TRANSLATE: '日本語で表示',
-  FOLLOW_ME: 'Follow me on Twitter!',
+
+  // Tips
   LATEST_UPDATE: 'Latest update',
   SHARE_THIS_POST: 'Share this post:',
+
+  // CV
   OPEN_CV_PDF: 'Open in PDF',
   EMAIL_ME: 'Email me',
 
-  // Personal Data in CV
+  // ----- Information in CV below -----
+  // Personal Data
   PERSONAL_DATA: 'Personal data',
   NAME_FIRST: 'First Name',
   NAME_SECOND: 'Last Name',
@@ -96,4 +105,26 @@ export default {
   HA_2_CONTENT: 'Best Poster Award @ HPNP 2019 (Feb. 22, 2019)',
   RESEARCH_ACHIEVEMENTS: 'Research achievements',
   SEE_RESEARCH_ACTIVITIES: 'See my achievement list',
+
+  // Repositories
+  PUBLIC_REPOSITORIES: 'Public repositories',
+  REPOSITORIES_PUBLIC_CODES: 'Public codes based on my research',
+  REPOSITORIES_RESEARCH_TOOLS: 'Research tools',
+
+  // ----- Information in repository page below -----
+  // ELVAS
+  ELVAS_DESCRIPTION_1: 'A C++ package for the calculation of the decay rate of a false vacuum at the one-loop level',
+  ELVAS_DESCRIPTION_2: 'The calculation is based on our papers',
+  ELVAS_DESCRIPTION_3: '',
+  ELVAS_AND: 'and',
+  ELVAS_ACKNOWLEGEMENT_1: 'Photo from',
+  ELVAS_ACKNOWLEGEMENT_2: 'Released on a GitHub account owned by one of my collaborators,',
+  ELVAS_YUTARO: 'Yutaro Shoji',
+  ELVAS_ACKNOWLEGEMENT_3: '',
+
+  // Dimensions
+  DIMENSIONS_DESCRIPTION: 'A CLI tool to multiply several quantities with different units and show the result with a given unit',
+
+  // LaTeX2Grammarly
+  L2G_DESCRIPTION: 'A CLI tool to transform a LaTeX draft into a text file compatible with Grammarly by substituting LaTeX commands',
 }

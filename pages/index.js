@@ -4,7 +4,6 @@ import extractTalkData from "../utils/extractTalkData";
 import useLocale from "../utils/useLocale";
 import { Box, Grid, Typography } from "@mui/material";
 import IndexMeta from '../components/meta';
-import TemporalAlert from "../components/TemporalAlert";
 import RecentResearchTab from "../components/RecentResearchTab";
 import NewestPublication from "../components/NewestPublication";
 
@@ -22,7 +21,6 @@ export default function Home({ headerData, publications, talks }) {
   return (
     <>
       <IndexMeta />
-      <TemporalAlert />
       <Typography gutterBottom variant="h4">
         {t.RECENT_ACTIVITIES}
       </Typography>

@@ -5,7 +5,7 @@ import useLocale from "../utils/useLocale";
 import ArticlesMeta from "../components/meta/articles";
 import CVTable from "../components/CVTable";
 import Link from "../components/Link";
-import { Box, Button, Grid, Stack, Typography } from "@mui/material";
+import { Button, Grid, Stack, Typography } from "@mui/material";
 import { Article, List } from "@mui/icons-material";
 
 export async function getStaticProps({ params }) {
@@ -62,14 +62,14 @@ const cv = ({ personalInfo }) => {
   ];
 
   return (
-    <Box gutterBottom>
+    <>
       <ArticlesMeta
         title="CV of So Chigusa"
         description="CV of So Chigusa"
         url="/cv"
         img=""
       />
-      <Stack spacing={2}>
+      <Stack spacing={2} direction="column">
         <Grid container spacing={2}>
           <CVTable title={t.PERSONAL_DATA} rows={rows_personal_data_1} />
           <CVTable rows={rows_personal_data_2} />
@@ -95,7 +95,7 @@ const cv = ({ personalInfo }) => {
           </Button>
         </Link>
       </Stack>
-    </Box>
+    </>
   )
 };
 

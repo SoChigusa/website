@@ -1,18 +1,24 @@
 export default {
+  // Header Menu
   HOME: 'トップページ',
   CV: '履歴書',
   RESEARCH: '研究活動',
-  NOTE: 'ノート',
   TIPS: 'メモ',
-  GIT: 'プロジェクト',
+  REPOSITORIES: 'リポジトリ',
   SEE_MORE_TIPS: 'もっと見る',
+  TRANSLATE: 'Show in English',
+  FOLLOW_ME: 'ツイッターでフォローしてね！',
+
+  // General Buttons
   SEE_MORE: '詳細',
   GO_BACK: '戻る',
   LIKE: 'いいね',
+
+  // Research
   OPEN_PDF: 'PDFを開く',
   SEE_ON_ARXIV: 'arXivで見る',
   SEE_ON_INSPIRE_HEP: 'inspire HEPで見る',
-  RECENT_ACTIVITIES: '最近の研究活動',
+  RECENT_ACTIVITIES: '最近の活動成果',
   RESEARCH_ACTIVITIES: '最近の研究成果',
   PUBLICATIONS: '論文リスト',
   INVITED_SEMINARS: 'セミナー講演',
@@ -30,13 +36,16 @@ export default {
   CONFERENCE_TYPES: '会議・研究会の種類',
   INTERNATIONAL: '国際会議',
   DOMESTIC: '日本国内の会議',
-  TRANSLATE: 'Show in English',
-  FOLLOW_ME: 'ツイッターでフォローしてね！',
+
+  // Tips
   LATEST_UPDATE: '最終更新',
   SHARE_THIS_POST: 'この投稿をシェアする：',
+
+  // CV
   OPEN_CV_PDF: 'PDFで見る',
   EMAIL_ME: 'メールを送る',
 
+  // ----- Information in CV below -----
   // Personal Data in CV
   PERSONAL_DATA: '個人の情報',
   NAME_FIRST: '姓',
@@ -96,4 +105,26 @@ export default {
   HA_2_CONTENT: 'Best Poster Award @ HPNP 2019 (2019年2月22日)',
   RESEARCH_ACHIEVEMENTS: '研究業績',
   SEE_RESEARCH_ACTIVITIES: '業績一覧を見る',
+
+  // Repositories
+  PUBLIC_REPOSITORIES: '公開リポジトリ一覧',
+  REPOSITORIES_PUBLIC_CODES: '研究成果に基づくパブリックコード',
+  REPOSITORIES_RESEARCH_TOOLS: '研究用のツール',
+
+  // ----- Information in repository page below -----
+  // ELVAS
+  ELVAS_DESCRIPTION_1: '真空崩壊率を 1ループレベルで計算するための c++ パッケージ',
+  ELVAS_DESCRIPTION_2: '計算の詳細は我々の論文',
+  ELVAS_DESCRIPTION_3: 'にある通り',
+  ELVAS_AND: '＆',
+  ELVAS_ACKNOWLEGEMENT_1: '写真のクレジットは',
+  ELVAS_ACKNOWLEGEMENT_2: 'コラボレーターの',
+  ELVAS_YUTARO: '庄司裕太郎',
+  ELVAS_ACKNOWLEGEMENT_3: 'さんの GitHub アカウントで公開中',
+
+  // Dimensions
+  DIMENSIONS_DESCRIPTION: '異なる単位で表された複数の量のかけ算を行った結果を指定の単位で返す、単位換算用のコマンドラインツール',
+
+  // LaTeX2Grammarly
+  L2G_DESCRIPTION: 'LaTeX で書かれた原稿ファイル内のコマンド部分を書き換えることで、Grammarly への入力に適したテキストファイルを作成するコマンドラインツール',
 }

@@ -13,9 +13,8 @@ const Header = ({ headerData, slug, existTranslation }) => {
     { name: t.HOME, url: '/' },
     { name: t.CV, url: '/cv' },
     { name: t.RESEARCH, url: '/research' },
-    { name: t.NOTE, url: '/note' },
     { name: t.TIPS, url: '/tips' },
-    { name: t.GIT, url: '/git' },
+    { name: t.REPOSITORIES, url: '/repositories' },
   ];
   const newTips = locale === 'en' ? headerData.tips_en.slice(0, 6) : headerData.tips_ja.slice(0, 6);
 
