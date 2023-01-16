@@ -20,12 +20,13 @@ export default function Home() {
         url="/repositories"
         img=""
       />
-      <Stack spacing={2}>
-        <Typography gutterBottom variant="h4">
-          {t.PUBLIC_REPOSITORIES}
-        </Typography>
 
-        <Typography gutterBottom variant="h5">
+      <Typography gutterBottom variant="h4">
+        {t.PUBLIC_REPOSITORIES}
+      </Typography>
+
+      <Stack spacing={2}>
+        <Typography variant="h5">
           {t.REPOSITORIES_PUBLIC_CODES}
         </Typography>
         <RepositoryCard
@@ -45,13 +46,13 @@ export default function Home() {
           </>
         </RepositoryCard>
 
-        <Typography gutterBottom variant="h5">
+        <Typography variant="h5">
           {t.REPOSITORIES_RESEARCH_TOOLS}
         </Typography>
         <RepositoryCard
           name="Dimensions"
           href="https://github.com/SoChigusa/Dimensions.git"
-          imgType="svg"
+          imgType="png"
         >
           <>
             {t.DIMENSIONS_DESCRIPTION}

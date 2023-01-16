@@ -76,7 +76,7 @@ export default {
   EDUCATION_MASTER_DATE: '2017年3月23日',
   EDUCATION_MASTER: '東京大学理学系研究科物理学専攻 修士（理学）',
   EDUCATION_BACHELOR_DATE: '2015年3月25日',
-  EDUCATION_BACHELOR: '東京大学理学系研究科物理学専攻 学士（理学）',
+  EDUCATION_BACHELOR: '東京大学理学部物理学科 学士（理学）',
 
   // Professional / Teaching experiences
   PROFESSIONAL_EXPERIENCES: '職歴',

@@ -1,10 +1,20 @@
 import { Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 import Link from "./Link";
 
-const PostCard = ({ post }) => {
+const PostCard = ({ post, isIndexPage = false }) => {
+  let xs, sm, md;
+  if (isIndexPage) { // layout for index.js
+    xs = 12;
+    sm = 12;
+    md = 6;
+  } else { // layout for tips.js
+    xs = 6;
+    sm = 4;
+    md = 3;
+  }
 
   return (
-    <Grid item xs={6} sm={4} md={3}>
+    <Grid item xs={xs} sm={sm} md={md}>
       <Card sx={{ height: '100%' }}>
         <Link href={`/tips/${post.slug}`}>
           <CardMedia
