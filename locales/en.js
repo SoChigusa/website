@@ -10,6 +10,7 @@ export default {
   FOLLOW_ME: 'Follow me on Twitter!',
 
   // General Buttons
+  LIST_PAGE: 'List page',
   SEE_MORE: 'See more',
   GO_BACK: 'Go back',
   LIKE: 'Like',

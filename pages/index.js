@@ -2,11 +2,14 @@ import createHeaderData from "../utils/createHeaderData";
 import extractPublicationData from "../utils/extractPublicationData";
 import extractTalkData from "../utils/extractTalkData";
 import useLocale from "../utils/useLocale";
-import { Box, Grid, Stack, Typography } from "@mui/material";
+import { Box, Button, Grid, IconButton, Stack, Tooltip, Typography } from "@mui/material";
 import IndexMeta from '../components/meta';
 import RecentResearchTab from "../components/RecentResearchTab";
 import NewestPublication from "../components/NewestPublication";
 import PostCard from "../components/PostCard";
+import Link from "next/link";
+import { AlignVerticalCenter, List } from "@mui/icons-material";
+import { alignProperty } from "@mui/material/styles/cssUtils";
 
 export async function getStaticProps({ params }) {
   const headerData = createHeaderData();
@@ -14,6 +17,19 @@ export async function getStaticProps({ params }) {
   const talks = await extractTalkData({ slice: 8 });
   return { props: { headerData, publications, talks }, };
 }
+
+const IndexSubTitle = ({ title, href, buttonText }) => (
+  <Stack spacing={2} direction='row' sx={{ alignItems: 'center' }} mb={2}>
+    <Typography variant="h5" sx={{ display: 'inline' }}>
+      {title}
+    </Typography>
+    <Link href={href}>
+      <Button variant="outlined" startIcon={<List />}>
+        {buttonText}
+      </Button>
+    </Link>
+  </Stack>
+);
 
 export default function Home({ headerData, publications, talks }) {
   const { locale, t } = useLocale();
@@ -28,9 +44,8 @@ export default function Home({ headerData, publications, talks }) {
         {t.RECENT_ACTIVITIES}
       </Typography>
 
-      <Typography gutterBottom variant="h5">
-        {t.RESEARCH}
-      </Typography>
+
+      <IndexSubTitle title={t.RESEARCH} href='research' buttonText={t.LIST_PAGE} />
       <Stack spacing={2} sx={{ flexDirection: { xs: 'column', md: 'row' } }}>
         <Box sx={{ width: { xs: '100%', md: '48%' } }}>
           <NewestPublication publication={publications[0]} />
@@ -40,9 +55,7 @@ export default function Home({ headerData, publications, talks }) {
         </Box>
       </Stack>
 
-      <Typography gutterBottom variant="h5">
-        {t.TIPS}
-      </Typography>
+      <IndexSubTitle title={t.TIPS} href='tips' buttonText={t.LIST_PAGE} />
       <Grid container spacing={2}>
         {posts.map((post) => (
           <PostCard key={post.slug} post={post} isIndexPage />

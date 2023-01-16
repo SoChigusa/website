@@ -2,24 +2,37 @@ import { Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 import Link from "./Link";
 
 const PostCard = ({ post, isIndexPage = false }) => {
-  let xs, sm, md;
+  let xs, sm, md, sx, sx_media;
   if (isIndexPage) { // layout for index.js
     xs = 12;
     sm = 12;
     md = 6;
+    sx = {
+      display: 'flex',
+      flexDirection: { xs: 'column', sm: 'row', md: 'column', lg: 'row' },
+      height: '100%'
+    };
+    sx_media = {
+      height: 212,
+      width: { xs: '88%', sm: 320, md: '88%', lg: 320 },
+      px: { xs: '6%', sm: 0, md: '6%', lg: 0 },
+      objectFit: 'contain'
+    };
   } else { // layout for tips.js
     xs = 6;
     sm = 4;
     md = 3;
+    sx = { display: 'flex', flexDirection: 'column', height: '100%' };
+    sx_media = { height: 120, width: '88%', padding: '6%', objectFit: 'contain' };
   }
 
   return (
     <Grid item xs={xs} sm={sm} md={md}>
-      <Card sx={{ height: '100%' }}>
+      <Card sx={sx}>
         <Link href={`/tips/${post.slug}`}>
           <CardMedia
             component='img'
-            style={{ height: 120, width: '88%', padding: '6%', objectFit: 'contain' }}
+            sx={sx_media}
             image={`/logos/${post.frontMatter.image}`}
             alt={post.frontMatter.title}
           />

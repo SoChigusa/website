@@ -10,6 +10,7 @@ export default {
   FOLLOW_ME: 'ツイッターでフォローしてね！',
 
   // General Buttons
+  LIST_PAGE: '一覧を見る',
   SEE_MORE: '詳細',
   GO_BACK: '戻る',
   LIKE: 'いいね',
@@ -72,9 +73,9 @@ export default {
   // Education
   EDUCATION: '学位',
   EDUCATION_DOCTOR_DATE: '2020年3月23日',
-  EDUCATION_DOCTOR: '東京大学理学系研究科物理学専攻 博士（理学）',
+  EDUCATION_DOCTOR: '東京大学大学院理学系研究科物理学専攻 博士（理学）',
   EDUCATION_MASTER_DATE: '2017年3月23日',
-  EDUCATION_MASTER: '東京大学理学系研究科物理学専攻 修士（理学）',
+  EDUCATION_MASTER: '東京大学大学院理学系研究科物理学専攻 修士（理学）',
   EDUCATION_BACHELOR_DATE: '2015年3月25日',
   EDUCATION_BACHELOR: '東京大学理学部物理学科 学士（理学）',
 
