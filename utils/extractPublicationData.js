@@ -17,21 +17,22 @@ const extractPublicationData = async ({ slice = -1 } = {}) => {
 
         if (index < num_pub) {
           let publication = publications[index];
-          const eprint = publication.entryTags.EPRINT
-          const isExist = fs.existsSync(`public/publicationImages/${eprint}.svg`);
-          publication.entryTags["imageExist"] = isExist;
-
-          const html = await fetch(`https://arxiv.org/abs/${publication.entryTags.EPRINT}`).then((data) => {
-            return data.text();
-          });
-          const root = parse(html);
-          const metas = root.querySelectorAll('meta');
-          const meta_date = metas.filter(meta => meta.rawAttributes.name == 'citation_date')[0];
-          const date = meta_date.rawAttributes.content;
-          const meta_abstract = metas.filter(meta => meta.rawAttributes.name == 'citation_abstract')[0];
-          const abstract = meta_abstract.rawAttributes.content;
-          publication.entryTags["date"] = date;
-          publication.entryTags["abstract"] = abstract;
+          const eprint = publication.entryTags.EPRINT;
+          publication.entryTags["isExist"] = !(typeof eprint === "undefined");
+          publication.entryTags["imageExist"] = fs.existsSync(`public/publicationImages/${eprint}.svg`);
+          if (publication.entryTags.isExist) {
+            const html = await fetch(`https://arxiv.org/abs/${publication.entryTags.EPRINT}`).then((data) => {
+              return data.text();
+            });
+            const root = parse(html);
+            const metas = root.querySelectorAll('meta');
+            const meta_date = metas.filter(meta => meta.rawAttributes.name == 'citation_date')[0];
+            const date = meta_date.rawAttributes.content;
+            const meta_abstract = metas.filter(meta => meta.rawAttributes.name == 'citation_abstract')[0];
+            const abstract = meta_abstract.rawAttributes.content;
+            publication.entryTags["date"] = date;
+            publication.entryTags["abstract"] = abstract;
+          }
           publications[index] = publication;
 
           // next
@@ -46,6 +47,8 @@ const extractPublicationData = async ({ slice = -1 } = {}) => {
   }
   await Promise.all(promises);
 
+  // avoid papers w/o preprints such as PhD thesis
+  publications = publications.filter(publication => publication.entryTags.isExist);
   return publications;
 }
 

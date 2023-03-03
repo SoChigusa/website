@@ -2,14 +2,13 @@ import createHeaderData from "../utils/createHeaderData";
 import extractPublicationData from "../utils/extractPublicationData";
 import extractTalkData from "../utils/extractTalkData";
 import useLocale from "../utils/useLocale";
-import { Box, Button, Grid, IconButton, Stack, Tooltip, Typography } from "@mui/material";
+import { Box, Button, Grid, Stack, Typography } from "@mui/material";
+import { List } from "@mui/icons-material";
 import IndexMeta from '../components/meta';
 import RecentResearchTab from "../components/RecentResearchTab";
 import NewestPublication from "../components/NewestPublication";
 import PostCard from "../components/PostCard";
 import Link from "next/link";
-import { AlignVerticalCenter, List } from "@mui/icons-material";
-import { alignProperty } from "@mui/material/styles/cssUtils";
 
 export async function getStaticProps({ params }) {
   const headerData = createHeaderData();
