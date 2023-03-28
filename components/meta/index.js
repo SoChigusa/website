@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 
 const homeURL = 'https://website-sochigusa.vercel.app';
 
-export default function IndexMeta({ title = "So Chigusa's webpage", description = "So Chigusa, a researcher of the particle physics" }) {
+export default function IndexMeta({ title = "So Chigusa's website", description = "So Chigusa, a researcher of the theoretical particle physics" }) {
   const { locale } = useRouter();
   const url_head = locale === 'en' ? '' : '/ja';
   return (
