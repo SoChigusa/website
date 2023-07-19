@@ -51,7 +51,7 @@ export default function Home() {
         </Typography>
         <RepositoryCard
           name="Dimensions"
-          href="https://github.com/SoChigusa/Dimensions.git"
+          href="https://dimensions-sochigusa.vercel.app"
           imgType="png"
         >
           <>

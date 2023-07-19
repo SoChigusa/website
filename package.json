@@ -6,10 +6,10 @@
     "start": "next start"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.4",
-    "@emotion/styled": "^11.10.4",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.10.3",
-    "@mui/material": "^5.10.3",
+    "@mui/material": "^5.14.1",
     "better-react-mathjax": "^2.0.2",
     "bibtex-parser-js": "^0.0.2",
     "firebase": "^9.12.1",
