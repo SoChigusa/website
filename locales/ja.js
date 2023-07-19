@@ -124,7 +124,7 @@ export default {
   ELVAS_ACKNOWLEGEMENT_3: 'さんの GitHub アカウントで公開中',
 
   // Dimensions
-  DIMENSIONS_DESCRIPTION: '異なる単位で表された複数の量のかけ算を行った結果を指定の単位で返す、単位換算用のコマンドラインツール',
+  DIMENSIONS_DESCRIPTION: '異なる単位で表された複数の量のかけ算を行った結果を指定の単位で返す、単位換算用のウェブアプリ',
 
   // LaTeX2Grammarly
   L2G_DESCRIPTION: 'LaTeX で書かれた原稿ファイル内のコマンド部分を書き換えることで、Grammarly への入力に適したテキストファイルを作成するコマンドラインツール',

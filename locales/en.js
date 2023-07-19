@@ -124,7 +124,7 @@ export default {
   ELVAS_ACKNOWLEGEMENT_3: '',
 
   // Dimensions
-  DIMENSIONS_DESCRIPTION: 'A CLI tool to multiply several quantities with different units and show the result with a given unit',
+  DIMENSIONS_DESCRIPTION: 'Web application that multiplies several quantities with different units and show the result in a given unit',
 
   // LaTeX2Grammarly
   L2G_DESCRIPTION: 'A CLI tool to transform a LaTeX draft into a text file compatible with Grammarly by substituting LaTeX commands',
