@@ -12,196 +12,103 @@
 
 \usepackage{hyperref}
 \usepackage{tgtermes}
+\usepackage{float}
 
-\setlength{\textwidth}{16.5cm}
-\setlength{\textheight}{20.5cm}
-\setlength{\oddsidemargin}{0cm}
-\setlength{\evensidemargin}{0cm}
-\setlength{\topmargin}{0cm}
-\setlength{\footskip}{0cm}
+% set margin
+\usepackage[margin=1in]{geometry}
 
-\renewcommand{\arraystretch}{1.2}
-\renewcommand{\baselinestretch}{1.1}
+% remove the page number
+\pagestyle{empty}
 
-\renewcommand{\topfraction}{1.0}
-\renewcommand{\bottomfraction}{1.0}
+% set section title all caps
+\usepackage{titlesec}
+\titleformat*{\section}{\normalsize\bf\MakeUppercase}
+\titleformat*{\subsection}{\normalsize}
+\titlespacing*{\section}{0pt}{0pt}{-.5em}
+\titlespacing*{\subsection}{0pt}{0pt}{-1em}
 
-\renewcommand{\refname}{Publications}
+% publications title
+\renewcommand{\refname}{PUBLICATIONS\vspace*{1em}}
+
+% base line stretch
+\renewcommand{\baselinestretch}{1.2}
 
 \allowdisplaybreaks[1]
 
-\title{\vspace{-2cm}\textbf{Curriculum Vitae}}
-\author{So Chigusa}
+% customize the title
+\usepackage{titling}
+\pretitle{\vspace{-1in}\begin{center}}
+\title{{\Large So Chigusa}}
+\posttitle{
+  \par
+  \vspace{1em}
+  {\large Curriculum Vitae}
+  \end{center}
+}
+\preauthor{\begin{center}}
+\author{1 Cyclotron Rd, Berkeley, CA 94704 / (510)-486-4000 / \href{mailto:SoChigusa@lbl.gov}{SoChigusa@lbl.gov}}
+\postauthor{\end{center}}
+\date{\vspace{-.5in}}
 
 \begin{document}
-\large
 \maketitle
 
-\newcommand{\lsim}{\stackrel{<}{_\sim}}
-\newcommand{\gsim}{\stackrel{>}{_\sim}}
-
-\newcommand{\rem}[1]{{$\spadesuit$\bf #1$\spadesuit$}}
-
-% \renewcommand{\theequation}{\thesection.\arabic{equation}}
-
-\renewcommand{\thefootnote}{\arabic{footnote})}
-\setcounter{footnote}{0}
-
-\vspace{-5mm}
-\subsection*{Personal Data}
-
-\vspace{-3mm}
-
+\section*{Education}
 \begin{table}[h]
- \begin{tabular}{ll}
-  First Name: & So % (颯)
-      \\
-  Last Name: & Chigusa % (千草)
-      \\
-  Date of Birth: & May 22, 1992 \\
-  Place of Birth: & Kobe, Japan \\
-  Nationality: & Japanese \\
-  % Age here
-  Sex: & Male \\
+ \begin{tabular}{llll}
+  2020 & Ph.D. in Physics, Department of Physics, University of Tokyo \\
+  2017 & M.A. in Physics, Department of Physics, University of Tokyo \\
+  2015 & B.A. in Physics, Department of Physics, University of Tokyo
  \end{tabular}
 \end{table}
 
-\vspace{-5mm}
+\section*{Professional appointments}
 \begin{table}[h]
- \begin{tabular}{ll}
-  Affiliation: & Lawrence Berkeley National Laboratory \\
-  Postcode: & 94720-8099 \\
-  Address: & 1 Cyclotron Rd, Berkeley, CA \\
-  Phone: & +1-510-486-4000 \\
-  E-mail: &
-      \href{mailto:SoChigusa@lbl.gov}{SoChigusa@lbl.gov}
-      \\
-  Webpage: & \url{https://website-sochigusa.vercel.app/} \\
- \end{tabular}
-\end{table}
-\vspace{-5mm}
-
-\subsection*{Education}
-\vspace{-3mm}
-\begin{table}[h]
- \begin{tabular}{lll}
-  \hline \hline
-  Date & Degree & Institution \\ \hline
-  Mar. 23, 2020 & Doctor of Philosophy (Physics) & University of Tokyo \\
-  Mar. 23, 2017 & Master of Science (Physics) & University of Tokyo \\
-  Mar. 25, 2015 & Bachelor of Science (Physics) & University of Tokyo \\
-  \hline \hline
- \end{tabular}
-\end{table}
-
-\newpage
-\subsection*{Professional experiences}
-\vspace{-3mm}
-\begin{table}[h]
-\begin{tabular}{ll}
-  \begin{tabular}{l}
-    Sep. 2020 -- :
-  \end{tabular} &
-  \begin{tabular}{l}
-    Postdoc, Lawrence Berkeley National Laboratoy
-  \end{tabular}\\
-  \begin{tabular}{l}
-   Apr. 2020 -- Aug. 2022:
-  \end{tabular} &
-  \begin{tabular}{l}
-   Postdoc, High Energy Accelerator Research Organization (KEK)
-  \end{tabular}\\
-  \begin{tabular}{l}
-   Apr. 2015 -- Mar. 2020 :\\
-  \quad
-  \end{tabular} &
-  \begin{tabular}{l}
-   Ph.D. Student, Department of Physics, University of Tokyo\\
-   (Dr. Takeo Moroi)
+  \begin{tabular}{ll}
+    2020 & Postdoctoral Fellow, Lawrence Berkeley National Laboratoy \\
+    2020 & Postdoctoral Fellow, High Energy Accelerator Research Organization (KEK)
   \end{tabular}
- \end{tabular}
 \end{table}
-\vspace{-5mm}
 
-\subsection*{Teaching experiences}
-\vspace{-3mm}
-\begin{table}[h]
- \begin{tabular}{ll}
-  \begin{tabular}{l}
-   Apr. 2015 -- Sep. 2015 :\\
-   \quad
-  \end{tabular} &
-  \begin{tabular}{l}
-   Teaching Assistant for Undergraduate Class ``Quantum Mechanics II''\\
-   at Department of Physics, University of Tokyo
+\section*{Awards and Honors}
+% Awards here
+
+\section*{Grants and Fellowships}
+\begin{table}[H]
+  \begin{tabular}{ll}
+    2020 & Research Fellowships for Young Scientists (PD), JSPS (3100000 JPY) \\
+    2017 & Research Fellowships for Young Scientists (DC1), JSPS (2800000 JPY) \\
+    2015 & Program for Leading Graduate Schools, MEXT
   \end{tabular}
- \end{tabular}
 \end{table}
-\vspace{-5mm}
 
-\subsection*{Grants}
-\vspace{-3mm}
-\begin{table}[h]
- \begin{tabular}{ll}
-  \begin{tabular}{l}
-   Apr. 2020 -- Aug. 2022:\\
-   \quad
-  \end{tabular} &
-  \begin{tabular}{l}
-   JSPS, Research Fellowships for Young Scientists (PD)\\
-   Amount: 3100000 JPY
-  \end{tabular}\\
-  \begin{tabular}{l}
-   Apr. 2017 -- Mar. 2020 :\\
-   \quad
-  \end{tabular} &
-  \begin{tabular}{l}
-   JSPS, Research Fellowships for Young Scientists (DC1)\\
-   Amount: 2800000 JPY
-  \end{tabular}\\
-  \begin{tabular}{l}
-   Oct. 2015 -- Mar. 2020 :
-  \end{tabular} &
-  \begin{tabular}{l}
-   MEXT, Program for Leading Graduate Schools
+\section*{Teaching experiences}
+\begin{table}[H]
+  \begin{tabular}{lp{6in}}
+    2015 & Teaching Assistant for an undergraduate course ``Quantum Mechanics II'', Department of Physics, University of Tokyo, Apr.--Sep.
   \end{tabular}
- \end{tabular}
 \end{table}
-\vspace{-5mm}
 
-\subsection*{Honors and Awards}
-\begin{enumerate}
- % Awards here
-\end{enumerate}
-
-\bibliographystyle{/Users/sochigusa/works/website/research/JHEP.bst}
-\bibliography{/Users/sochigusa/works/website/research/publications.bib}
+\bibliographystyle{JHEP.bst}
+\bibliography{publications.bib}
 \nocite{*}
 
 \subsection*{Invited Seminar Presentations}
-\begin{enumerate}
- % Seminars here
-\end{enumerate}
+% Seminars here
 
 \subsection*{Presentations at International Conferences}
 \subsubsection*{(Oral)}
-\begin{enumerate}
- % International Oral here
-\end{enumerate}
+% International Oral here
+
 \subsubsection*{(Poster)}
-\begin{enumerate}
- % International Poster here
-\end{enumerate}
+% International Poster here
 
 \subsection*{Presentations at Domestic Conferences}
 \subsubsection*{(Oral)}
-\begin{enumerate}
- % Domestic Oral here
-\end{enumerate}
+% Domestic Oral here
+
 \subsubsection*{(Poster)}
-\begin{enumerate}
- % Domestic Poster here
-\end{enumerate}
+% Domestic Poster here
 
 % \subsection*{Poster Presentations at International Summer Schools}
 % \begin{enumerate}

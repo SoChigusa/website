@@ -2,15 +2,25 @@ import fs from 'fs';
 import latexmk from 'node-latexmk';
 
 const deformTalkInformation = ({ talks, format }) => {
+  let header = "";
+  if (format == 'award')
+    header = `\\begin{table}[h]\\begin{tabular}{ll}`;
+  else
+    header = `\\begin{enumerate}`;
   const talks_src = talks.map(talk => {
     if (format == 'award')
-      return `\\item ${talk.Title}, ${talk.Date}`;
+      return `${talk.Title} \& ${talk.Date} \\\\`;
     else if (format == 'seminar')
       return `\\item \`\`${talk.Title}\'\', ${talk.Date}, ${talk.Place}`;
     else if (format == 'talk')
       return `\\item \`\`${talk.Title}\'\', ${talk.Date}, ${talk.Conference}, ${talk.Place}`;
   });
-  return talks_src.join();
+  let footer = "";
+  if (format == 'award')
+    footer = `\\end{tabular}\\end{table}`;
+  else
+    footer = `\\end{enumerate}`;
+  return header + talks_src.join() + footer;
 };
 
 const compileCV = ({ seminars, talks, awards }) => {
