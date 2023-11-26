@@ -19,6 +19,7 @@ export default {
   OPEN_PDF: 'Open PDF',
   SEE_ON_ARXIV: 'See on arXiv',
   SEE_ON_INSPIRE_HEP: 'See on inspire hep',
+  RESEARCH_INTERESTS: 'Research Interests',
   RECENT_ACTIVITIES: 'Recent Activities',
   RESEARCH_ACTIVITIES: 'Research Activities',
   PUBLICATIONS: 'Publications',

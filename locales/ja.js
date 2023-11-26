@@ -19,6 +19,7 @@ export default {
   OPEN_PDF: 'PDFを開く',
   SEE_ON_ARXIV: 'arXivで見る',
   SEE_ON_INSPIRE_HEP: 'inspire HEPで見る',
+  RESEARCH_INTERESTS: '研究概要',
   RECENT_ACTIVITIES: '最近の活動成果',
   RESEARCH_ACTIVITIES: '最近の研究成果',
   PUBLICATIONS: '論文リスト',

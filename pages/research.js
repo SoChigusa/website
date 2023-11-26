@@ -3,22 +3,28 @@ import extractPublicationData from "../utils/extractPublicationData";
 import extractTalkData from "../utils/extractTalkData";
 import setDatabase from "../utils/db/setDatabase";
 import useLocale from "../utils/useLocale";
-import { Box, Stack, Typography } from "@mui/material";
+import tailorResearchStatement from "../utils/tailorResearchStatement";
+import { Box, Stack, Typography, Tooltip, IconButton } from "@mui/material";
+import { Article } from "@mui/icons-material";
+import Link from "../components/Link";
 import ArticlesMeta from "../components/meta/articles";
 import PublicationCard from "../components/PublicationCard";
 import TalkList from "../components/TalkList";
 import SeeMoreButton from "../components/SeeMoreButton";
 import InspireHEPButton from "../components/InspireHEPButton";
+import { MathJax } from "better-react-mathjax";
+import StatementCard from "../components/StatementCard";
 
 export async function getStaticProps({ params }) {
   const headerData = createHeaderData();
   const publications = await extractPublicationData({ slice: 6 });
   await setDatabase({ collection: 'publications', publications });
   const [seminars, talks, awards] = await extractTalkData({ slice: 3, separate: true });
-  return { props: { headerData, publications, seminars, talks, awards }, };
+  const [summary, statement] = tailorResearchStatement();
+  return { props: { headerData, publications, seminars, talks, awards, summary, statement }, };
 }
 
-const Research = ({ publications, seminars, talks, awards }) => {
+const Research = ({ publications, seminars, talks, awards, summary, statement }) => {
   const { t } = useLocale();
   return (
     <>
@@ -31,6 +37,32 @@ const Research = ({ publications, seminars, talks, awards }) => {
       <Typography gutterBottom variant="h4">
         {t.RESEARCH_ACTIVITIES}
       </Typography>
+      <Box sx={{ flexGrow: 1 }}>
+        <Typography gutterBottom variant="h5">
+          {t.RESEARCH_INTERESTS}
+        </Typography>
+        <Box sx={{ marginBottom: 2 }}>
+          <Stack spacing={1}>
+            <Typography gutterBottom variant="body1">
+              <MathJax>
+                {summary}
+              </MathJax>
+            </Typography>
+            <Box>
+              {statement.map(element => (
+                <StatementCard key={element.title} statement={element} />
+              ))}
+            </Box>
+            <Link href='rs.pdf'>
+              <Tooltip title={t.OPEN_PDF} placement="bottom" arrow>
+                <IconButton aria-label={t.OPEN_PDF}>
+                  <Article />
+                </IconButton>
+              </Tooltip>
+            </Link>
+          </Stack>
+        </Box>
+      </Box >
       <Box sx={{ flexGrow: 1 }}>
         <Typography gutterBottom variant="h5">
           {t.PUBLICATIONS}
