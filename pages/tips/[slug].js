@@ -69,11 +69,17 @@ export default function Post({ url, slug, frontMatter, html, existTranslation })
         img={`/logos/${frontMatter.image}`}
       />
       <div className="markdown-body">
-        <h1>{frontMatter.title}</h1>
+        <Typography gutterBottom variant="h1">
+          {frontMatter.title}
+        </Typography>
         <Stack spacing={2} direction='row'>
           <Box sx={{ display: { xs: 'none', md: 'block' }, width: '70%' }}>
-            <span>{t.LATEST_UPDATE}: {frontMatter.date}</span>
-            <p>{frontMatter.description}</p>
+            <Typography>
+              {t.LATEST_UPDATE}: {frontMatter.date}
+            </Typography>
+            <Typography>
+              {frontMatter.description}
+            </Typography>
             {!existTranslation ?
               (
                 <Typography variant='caption' display='block' color='secondary'>
@@ -104,12 +110,12 @@ export default function Post({ url, slug, frontMatter, html, existTranslation })
           }
         </Box>
         <article>
-          <div dangerouslySetInnerHTML={{ __html: html }}></div>
+          <Typography dangerouslySetInnerHTML={{ __html: html }}></Typography>
         </article>
       </div>
       <Like sx={{ marginBottom: 2 }} id={{ collection: 'posts', document: slug }} />
       <Stack direction='row' spacing={1}>
-        <Typography variant='h6'>
+        <Typography variant='subtitle1'>
           {t.SHARE_THIS_POST}
         </Typography>
         <TwitterShareButton

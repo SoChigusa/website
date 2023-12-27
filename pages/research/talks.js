@@ -58,7 +58,10 @@ const Talks = ({ headerData, all_talks }) => {
       <Box sx={{ flexGrow: 1, marginBottom: 1 }}>
         <Stack spacing={1}>
           <FormControl>
-            <FormLabel id='talks-filter'>{t.FILTER}</FormLabel>
+            <FormLabel id='talks-filter'>
+              <Typography variant="h6">{t.FILTER}
+              </Typography>
+            </FormLabel>
             <RadioGroup
               aria-labelledby="talks-filter"
               value={filter}
@@ -73,7 +76,11 @@ const Talks = ({ headerData, all_talks }) => {
             </RadioGroup>
           </FormControl>
           <FormControl>
-            <FormLabel id='talk-types'>{t.TALK_TYPES}</FormLabel>
+            <FormLabel id='talk-types'>
+              <Typography variant="h6">
+                {t.TALK_TYPES}
+              </Typography>
+            </FormLabel>
             <FormGroup row>
               <FormControlLabel
                 control={
@@ -100,7 +107,11 @@ const Talks = ({ headerData, all_talks }) => {
             </FormGroup>
           </FormControl>
           <FormControl>
-            <FormLabel id='conference-types'>{t.CONFERENCE_TYPES}</FormLabel>
+            <FormLabel id='conference-types'>
+              <Typography variant="h6">
+                {t.CONFERENCE_TYPES}
+              </Typography>
+            </FormLabel>
             <FormGroup row>
               <FormControlLabel
                 control={

@@ -10,7 +10,7 @@ const StatementCard = ({ statement, expanded, handle }) => {
         aria-controls={statement.title}
         id={statement.title}
       >
-        <Typography variant="subtitle1" color="primary">
+        <Typography variant="button" color="primary">
           {statement.title}
         </Typography>
       </AccordionSummary>

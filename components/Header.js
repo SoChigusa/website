@@ -95,7 +95,7 @@ const Header = ({ headerData, slug, existTranslation }) => {
                 return (
                   <Link key={page.name} href={page.url} color='inherit'>
                     <MenuItem onClick={handleCloseNavMenu}>
-                      <Typography textAlign="center">{page.name}</Typography>
+                      <Typography textAlign="center" variant="button">{page.name}</Typography>
                     </MenuItem>
                   </Link>
                 );

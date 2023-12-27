@@ -24,7 +24,9 @@ const IndexSubTitle = ({ title, href, buttonText }) => (
     </Typography>
     <Link href={href}>
       <Button variant="outlined" startIcon={<List />}>
-        {buttonText}
+        <Typography variant="button" sx={{ display: 'inline' }}>
+          {buttonText}
+        </Typography>
       </Button>
     </Link>
   </Stack>

@@ -40,7 +40,10 @@ const NewestPublication = ({ publication }) => {
       </Link>
       <CardContent sx={{ width: '94%', px: '3%' }}>
         <Link href={`research/publications`} query={query}>
-          <Typography variant="h6" component="div">
+          <Typography variant="h6" component="div" fontFamily={['"Times New Roman"',
+            '"Hiragino Mincho ProN"',
+            '"MS P明朝"',
+            'serif',].join(',')}>
             {title}
           </Typography>
         </Link>
