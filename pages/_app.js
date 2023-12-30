@@ -32,6 +32,9 @@ function MyApp({ Component, pageProps }) {
       h6: {
         fontFamily: sanserifFamily,
       },
+      body1: {
+        fontSize: 17,
+      },
       button: {
         fontFamily: sanserifFamily,
       },

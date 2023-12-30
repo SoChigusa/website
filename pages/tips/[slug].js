@@ -99,8 +99,8 @@ export default function Post({ url, slug, frontMatter, html, existTranslation })
           </Box>
         </Stack>
         <Box sx={{ display: { xs: 'block', md: 'none' }, mt: 2 }}>
-          <span>{t.LATEST_UPDATE}: {frontMatter.date}</span>
-          <p>{frontMatter.description}</p>
+          <Typography variant='body1'>{t.LATEST_UPDATE}: {frontMatter.date}</Typography>
+          <Typography variant='body1'>{frontMatter.description}</Typography>
           {!existTranslation ?
             (
               <Typography variant='caption' display='block' color='secondary'>
@@ -110,7 +110,7 @@ export default function Post({ url, slug, frontMatter, html, existTranslation })
           }
         </Box>
         <article>
-          <Typography dangerouslySetInnerHTML={{ __html: html }}></Typography>
+          <Typography variant='body1' component='div' dangerouslySetInnerHTML={{ __html: html }}></Typography>
         </article>
       </div>
       {/* <Like sx={{ marginBottom: 2 }} id={{ collection: 'posts', document: slug }} /> */}

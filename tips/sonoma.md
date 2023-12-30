@@ -70,6 +70,10 @@ Github ウェブサイト内の Settings / Developer Settings / Personal access 
 
 Github のアカウントと連携して設定を同期するために、左下の「設定＞設定の同期をオンにする」で Github を選択し、ログインする。
 
+### Python バージョン管理
+
+[公式サイト](https://github.com/conda-forge/miniforge?tab=readme-ov-file#download)から Miniforge をダウンロードしてインストール。問題なく動く。
+
 ### Web 開発関連
 
 Node.js を[公式サイト](https://nodejs.org/)からダウンロード、動く。
@@ -104,6 +108,13 @@ brew install inkscape
 - MacTeX no GUI をインストール。問題なし。
 - Inkscape の設定は[このページ](inkscape.html)を参照して行う。
 
+### Madgraph
+
+[公式サイト](https://launchpad.net/mg5amcnlo)から最新版の `v3.5.3` をダウンロードして、[ここ](madgraph)にまとめた通りの手順でセットアップを試みる。
+
+`install lhapdf6` が正常に終了しておらず、`lhapdf-config` 等の実行ファイルが生成されていなかったので、[Systematics Module](madgraph#20180819-systematics-module-を使う) の節の記述に従って手動でインストールし、パスも通しておく。
+こうすることで初めて `pythia8` のインストールを完了することができ、無事に動くことを確認。
+
 ### SNS
 
 * [Zoom](https://zoom.us/download)をインストール、動く。
@@ -116,3 +127,4 @@ brew install inkscape
 
 * [DeepL](https://www.deepl.com/app)、動く。
 * [Grammarly](https://www.grammarly.com/desktop/mac)、動く。
+* [TeamViewer](https://www.teamviewer.com/ja/)、`TeamViewer Full Client` を選択してインストール。動く。
