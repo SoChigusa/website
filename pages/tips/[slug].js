@@ -7,7 +7,7 @@ import { FacebookIcon, FacebookShareButton, HatenaIcon, HatenaShareButton, LineI
 import { Box, Stack, Typography } from '@mui/material';
 import createHeaderData from '../../utils/createHeaderData';
 import GoBackButton from '../../components/GoBackButton';
-import Like from '../../components/Like';
+// import Like from '../../components/Like';
 import ArticlesMeta from '../../components/meta/articles';
 import hljs from 'highlight.js';
 
@@ -113,7 +113,7 @@ export default function Post({ url, slug, frontMatter, html, existTranslation })
           <Typography dangerouslySetInnerHTML={{ __html: html }}></Typography>
         </article>
       </div>
-      <Like sx={{ marginBottom: 2 }} id={{ collection: 'posts', document: slug }} />
+      {/* <Like sx={{ marginBottom: 2 }} id={{ collection: 'posts', document: slug }} /> */}
       <Stack direction='row' spacing={1}>
         <Typography variant='subtitle1'>
           {t.SHARE_THIS_POST}

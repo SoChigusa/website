@@ -1,7 +1,7 @@
 ---
 
 title: 'Inkscapeでお絵かき'
-date: '2020-12-12'
+date: '2023-12-30'
 description: 'フリーソフトの Inkscape を用いたイラスト作成に関する tips'
 image: 'Inkscape_Logo.svg'
 
@@ -23,13 +23,19 @@ Inkscape はフリーのドローソフトの最高峰である（自分比）�
 アプリケーションディレクトリに放り込むだけのインストール方法も可能だが、extensionフォルダの場所がわからなかったので、`homebrew`で入れ直した。
 
 ```shell
-brew update
-brew cask install inkscape
+brew install inkscape
 ```
 
 ## TexTextの導入
 
 他に要求されたパッケージもないため導入は非常に楽で、[公式サイトの記述](https://textext.github.io/textext/install/macos.html)に従うだけ。
+
+1. [ここ](zip-file for MacOS)から最新版のパッケージをダウンロードする
+2. 展開したファイルのパスで、以下のコマンドを実行してインストール
+
+```shell
+python3 setup.py --pdflatex-executable=$(which pdflatex) --skip-requirements-check
+```
 
 ### 数式のプロット
 
