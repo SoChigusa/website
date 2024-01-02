@@ -15,17 +15,18 @@ const StatementCard = ({ statement, expanded, handle }) => {
         </Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <Typography gutterBottom variant="body1">
-          <MathJax>
-            {statement.content.map((paragraph, index) => (
-              <Box key={statement.title + index.toString()}>
-                {<div dangerouslySetInnerHTML={{ __html: paragraph }} />}
-              </Box>
-            ))}
-          </MathJax>
-        </Typography>
+        <MathJax>
+          {statement.content.map((paragraph, index) => (
+            <Typography
+              key={statement.title + index.toString()}
+              gutterBottom
+              variant="body1"
+              dangerouslySetInnerHTML={{ __html: paragraph }}
+            />
+          ))}
+        </MathJax>
       </AccordionDetails>
-    </Accordion>
+    </Accordion >
   );
 };
 

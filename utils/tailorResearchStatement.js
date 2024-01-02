@@ -18,6 +18,21 @@ const mapID2URL = bbl => {
   return id2url;
 }
 
+const replaceLaTeX = (latex_src, from, to) => {
+  var latex_res = latex_src
+  const items = latex_src.split('\\' + from + '\{');
+  const contents = items.slice(1).map(item => {
+    const substring = item.split('\}');
+    return substring[0];
+  });
+  contents.map(content => {
+    const latex = '\\' + from + '\{' + content + '\}';
+    const html = '<' + to + '>' + content + '</' + to + '>';
+    latex_res = latex_res.replace(latex, html);
+  });
+  return latex_res;
+}
+
 const tailorResearchStatement = () => {
 
   // open and copy files
@@ -35,6 +50,10 @@ const tailorResearchStatement = () => {
     const linkitem = '<a href="' + info['url'] + '" target="_blank">[' + (index + 1).toString() + ']</a>';
     latex_src = latex_src.replaceAll(citeitem, linkitem);
   });
+
+  // replace italic words to html format
+  latex_src = replaceLaTeX(latex_src, 'textit', 'i');
+  latex_src = replaceLaTeX(latex_src, 'textbf', 'b');
 
   // strip the main text
   const documentIndex = latex_src.indexOf('\\begin{document}');

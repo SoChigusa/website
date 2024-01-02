@@ -43,11 +43,9 @@ const Research = ({ publications, seminars, talks, awards, summary, statement })
         </Typography>
         <Box sx={{ marginBottom: 2 }}>
           <Stack spacing={1}>
-            <Typography gutterBottom variant="body1">
-              <MathJax>
-                {summary}
-              </MathJax>
-            </Typography>
+            <MathJax>
+              <Typography gutterBottom variant="body1" dangerouslySetInnerHTML={{ __html: summary }} />
+            </MathJax>
             <Box>
               {statement.map(element => (
                 <StatementCard key={element.title} statement={element} />
