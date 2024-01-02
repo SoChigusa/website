@@ -107,7 +107,7 @@ const Header = ({ headerData, slug, existTranslation }) => {
           <Box sx={{ display: { xs: 'flex', md: 'none' }, mx: 'auto' }}>
             <SchoolIcon sx={{ mr: 1 }} />
             <Typography
-              variant="h5"
+              variant="h6"
               noWrap
               component="div"
               sx={{
