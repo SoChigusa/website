@@ -4,7 +4,7 @@ import 'highlight.js/styles/panda-syntax-light.css';
 import '../styles/globals.css'
 import { MathJaxContext } from 'better-react-mathjax';
 import { ThemeProvider } from '@emotion/react';
-import { createTheme } from '@mui/material';
+import { createTheme, responsiveFontSizes } from '@mui/material';
 
 function MyApp({ Component, pageProps }) {
   const serifFamily = [
@@ -20,7 +20,7 @@ function MyApp({ Component, pageProps }) {
     '"游ゴシック"',
     'san-serif',
   ].join(',');
-  const theme = createTheme({
+  var theme = createTheme({
     typography: {
       fontFamily: serifFamily,
       h4: {
@@ -40,6 +40,7 @@ function MyApp({ Component, pageProps }) {
       },
     },
   });
+  theme = responsiveFontSizes(theme);
 
   const config = {
     tex: {
