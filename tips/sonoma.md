@@ -1,7 +1,7 @@
 ---
 
 title: 'macOS Sonoma クリーンインストール'
-date: '2023-12-31'
+date: '2024-01-06'
 description: 'macOS Sonoma をクリーンインストールした際の tips'
 image: 'Apple_logo_black.svg'
 
@@ -123,8 +123,25 @@ brew install inkscape
 * [Zulip](https://zulip.com/)をインストール、動く。
 * [Mattermost](https://mattermost.com/apps/)をインストール、動く。
 
-### その他便利ツール
+### 研究用ツール
 
 * [DeepL](https://www.deepl.com/app)、動く。
 * [Grammarly](https://www.grammarly.com/desktop/mac)、動く。
 * [TeamViewer](https://www.teamviewer.com/ja/)、`TeamViewer Full Client` を選択してインストール。動く。
+
+### その他
+
+外付けの blu-ray ドライブを用いて blu-ray ディスクを再生できるようになるための設定。
+
+[VLC Player](https://www.videolan.org/vlc/download-macosx.ja.html) をインストール。
+AACS 方式で暗号化されたディスクの中身を復号するために、[ここ](https://vlc-bluray.whoknowsmy.name/)の指示に従って `~/Library/Preferences/aacs/keydb.cfg` および `/usr/local/lib/libaacs.dylib` を用意する。
+ただし、arm64 上で動くダイナミックライブラリは上記サイトの通りに手に入るものと異なり、`homebrew` を用いて
+
+```shell
+brew install libaacs
+cd /opt/homebrew/Cellar/libaacs
+sudo cp libaacs.0.dylib /usr/local/lib
+```
+
+で手に入るものであることに注意。
+最後に、（これが必要な操作だったか曖昧になってしまったが念の為）`VLC Player` のパッケージ内、`(Path-to-VLC-Player)/Contents/MacOS/lib` にも `libaacs.dylib` を配置しておく。
