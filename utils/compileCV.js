@@ -1,26 +1,47 @@
 import fs from 'fs';
 import latexmk from 'node-latexmk';
 
+const dateInput2formattedDate = dateString => {
+  const dateList = dateString.split('/');
+  const month = parseInt(dateList[1], 10);
+  const date = parseInt(dateList[2], 10);
+  const formattedDate = new Date(new Date().getFullYear(), month - 1, date);
+  const options = { month: 'short', day: 'numeric' };
+  const formattedString = formattedDate.toLocaleString('en-US', options);
+  return { year: dateList[0], date: formattedString };
+};
+
 const deformTalkInformation = ({ talks, format }) => {
   let header = "";
   if (format == 'award')
     header = `\\begin{table}[h]\\begin{tabular}{ll}`;
+  else if (format == 'seminar' || format == 'talk')
+    header = `\\begin{table}[H]\\begin{tabular}{lp{6in}}`;
   else
     header = `\\begin{enumerate}`;
   const talks_src = talks.map(talk => {
+    const formattedDate = dateInput2formattedDate(talk.Date);
     if (format == 'award')
       return `${talk.Title} \& ${talk.Date} \\\\`;
     else if (format == 'seminar')
-      return `\\item \`\`${talk.Title}\'\', ${talk.Date}, ${talk.Place}`;
-    else if (format == 'talk')
-      return `\\item \`\`${talk.Title}\'\', ${talk.Date}, ${talk.Conference}, ${talk.Place}`;
+      return `${formattedDate.year} \& \`\`${talk.Title}\'\', ${talk.Place}, ${formattedDate.date} \\\\`;
+    else if (format == 'talk') {
+      let note = '';
+      if (talk.Symposium === 'true')
+        note = ' \\textbf{(Symposium talk)}';
+      else if (talk.Invited === 'true')
+        note = ' \\textbf{(Invited)}';
+      return `${formattedDate.year} \& \`\`${talk.Title}${note}\'\', ${talk.Conference}, ${talk.Place}, ${formattedDate.date} \\\\`;
+    }
   });
   let footer = "";
   if (format == 'award')
     footer = `\\end{tabular}\\end{table}`;
+  else if (format == 'seminar' || format == 'talk')
+    footer = `\\end{tabular}\\end{table}`;
   else
     footer = `\\end{enumerate}`;
-  return header + talks_src.join() + footer;
+  return header + talks_src.join('') + footer;
 };
 
 const compileCV = ({ seminars, talks, awards }) => {
