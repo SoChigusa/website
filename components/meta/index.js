@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { useRouter } from "next/router";
 import useLocale from "../../utils/useLocale";
 
 const homeURL = 'https://website-sochigusa.vercel.app';

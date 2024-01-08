@@ -1,3 +1,4 @@
+import ReactGA from "react-ga4";
 import Layout from '../components/Layout';
 import 'github-markdown-css/github-markdown-light.css';
 import 'highlight.js/styles/panda-syntax-light.css';
@@ -5,6 +6,21 @@ import '../styles/globals.css'
 import { MathJaxContext } from 'better-react-mathjax';
 import { ThemeProvider } from '@emotion/react';
 import { createTheme, responsiveFontSizes } from '@mui/material';
+import { useRouter } from 'next/router';
+import { useEffect } from "react";
+
+const usePageTracking = () => {
+  const router = useRouter();
+
+  useEffect(() => {
+    // Google Analytics
+    ReactGA.initialize("G-WYZ5SV33BD");
+    ReactGA.send({
+      hitType: "pageview",
+      page: router.pathname + router.query.slug + router.query.page,
+    });
+  }, [router]);
+};
 
 function MyApp({ Component, pageProps }) {
   const serifFamily = [
@@ -48,6 +64,7 @@ function MyApp({ Component, pageProps }) {
     }
   };
 
+  usePageTracking();
   return (
     <ThemeProvider theme={theme}>
       <MathJaxContext config={config}>
