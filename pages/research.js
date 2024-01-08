@@ -63,7 +63,7 @@ const Research = ({ publications, seminars, talks, awards, summary, statement })
       </Box >
       <Box sx={{ flexGrow: 1 }}>
         <Typography gutterBottom variant="h5">
-          {t.PUBLICATIONS}
+          {t.RECENT_PUBLICATIONS}
         </Typography>
         {publications.map((publication) => (
           <PublicationCard key={publication.citationKey} publication={publication} />
@@ -73,13 +73,13 @@ const Research = ({ publications, seminars, talks, awards, summary, statement })
           <InspireHEPButton />
         </Stack>
       </Box>
-      <Box sx={{ flexGrow: 1 }}>
+      <Box sx={{ flexGrow: 1, my: 2 }}>
         <Typography gutterBottom variant="h5">
           {t.INVITED_SEMINARS}
         </Typography>
         <TalkList talks={seminars} seeMore />
       </Box>
-      <Box sx={{ flexGrow: 1 }}>
+      <Box sx={{ flexGrow: 1, my: 2 }}>
         <Typography gutterBottom variant="h5">
           {t.OTHER_TALKS}
         </Typography>

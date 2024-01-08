@@ -8,7 +8,7 @@ export default function Layout({ children, headerData, slug, existTranslation })
     <>
       <Header headerData={headerData} slug={slug} existTranslation={existTranslation} />
       <main>
-        <Container maxWidth='lg'>
+        <Container maxWidth='lg' sx={{ paddingBottom: '2rem' }}>
           <MathJaxContext>{children}</MathJaxContext>
         </Container>
       </main>

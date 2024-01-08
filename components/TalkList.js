@@ -2,9 +2,9 @@ import { EmojiEvents, Mic, SpeakerPhone } from "@mui/icons-material";
 import { List, ListItem, ListItemIcon, ListItemText } from "@mui/material";
 import SeeMoreButton from './SeeMoreButton';
 
-const TalkList = ({ talks, seeMore = false, filters = ['all', true, true, true, true] } = []) => {
+const TalkList = ({ talks, seeMore = false, filters = ['all', true, true, 'all', true, true] } = []) => {
   // filter talk information
-  const [filter, oral, poster, international, domestic] = filters;
+  const [filter, oral, poster, invitation, international, domestic] = filters;
   let filtered = talks;
   if (filter == 'seminar') filtered = filtered.filter(talk => talk.Type == 'Seminar');
   else if (filter == 'award') filtered = filtered.filter(talk => (talk.Type == 'Award'));
@@ -12,6 +12,7 @@ const TalkList = ({ talks, seeMore = false, filters = ['all', true, true, true, 
     filtered = filtered.filter(talk => (talk.Type != 'Seminar' && talk.Type != 'Award'));
     if (!oral) filtered = filtered.filter(talk => (!talk.Type.match('Oral')));
     if (!poster) filtered = filtered.filter(talk => (!talk.Type.match('Poster')));
+    if (invitation == 'invited') filtered = filtered.filter(talk => (talk.Invited == 'true' || talk.Symposium == 'true'));
     if (!international) filtered = filtered.filter(talk => (!talk.Type.match('International')));
     if (!domestic) filtered = filtered.filter(talk => (!talk.Type.match('Domestic')));
   }
@@ -41,12 +42,17 @@ const TalkList = ({ talks, seeMore = false, filters = ['all', true, true, true, 
               </ListItem>
             )
           } else {
+            let note = '';
+            if (talk.Symposium === 'true')
+              note = ' (Symposium talk)';
+            else if (talk.Invited === 'true')
+              note = ' (Invited)';
             return (
               <ListItem key={talk.Title + talk.Date}>
                 <ListItemIcon>
                   <SpeakerPhone color="primary" />
                 </ListItemIcon>
-                <ListItemText primary={talk.Title} secondary={`${talk.Conference} \@ ${talk.Place} (${talk.Date})`} />
+                <ListItemText primary={talk.Title + note} secondary={`${talk.Conference} \@ ${talk.Place} (${talk.Date})`} />
               </ListItem>
             );
           }

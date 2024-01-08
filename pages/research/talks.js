@@ -14,12 +14,104 @@ export async function getStaticProps({ params }) {
   return { props: { headerData, all_talks }, };
 }
 
+const TalksFilters = ({ t, handle, handleChange }) => {
+  if (handle.filter == 'talk') {
+    return (
+      <Stack>
+        <FormControl>
+          <FormLabel id='talk-types'>
+            <Typography variant="h6">
+              {t.TALK_TYPES}
+            </Typography>
+          </FormLabel>
+          <FormGroup row>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  inputProps={{ 'aria-label': t.ORAL }}
+                  onChange={handleChange.oral}
+                  checked={handle.oral}
+                />
+              }
+              label={t.ORAL}
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  inputProps={{ 'aria-label': t.POSTER }}
+                  onChange={handleChange.poster}
+                  checked={handle.poster}
+                />
+              }
+              label={t.POSTER}
+            />
+          </FormGroup>
+        </FormControl>
+        <FormControl>
+          <FormLabel id='talks-invitations'>
+            <Typography variant="h6">{t.INVITATIONS}
+            </Typography>
+          </FormLabel>
+          <RadioGroup
+            aria-labelledby="talks-invitations"
+            value={handle.invitation}
+            name='talks-invitations'
+            onChange={handleChange.invitation}
+            row
+          >
+            <FormControlLabel
+              value='all'
+              control={<Radio />}
+              label={t.ALL}
+            />
+            <FormControlLabel
+              value='invited'
+              control={<Radio />}
+              label={t.INVITED}
+            />
+          </RadioGroup>
+        </FormControl>
+        <FormControl>
+          <FormLabel id='conference-types'>
+            <Typography variant="h6">
+              {t.CONFERENCE_TYPES}
+            </Typography>
+          </FormLabel>
+          <FormGroup row>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  inputProps={{ 'aria-label': t.INTERNATIONAL }}
+                  onChange={handleChange.international}
+                  checked={handle.international}
+                />
+              }
+              label={t.INTERNATIONAL}
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  inputProps={{ 'aria-label': t.DOMESTIC }}
+                  onChange={handleChange.domestic}
+                  checked={handle.domestic}
+                />
+              }
+              label={t.DOMESTIC}
+            />
+          </FormGroup>
+        </FormControl>
+      </Stack>
+    );
+  } else {
+    return (<></>);
+  }
+};
+
 const Talks = ({ headerData, all_talks }) => {
   const { t } = useLocale();
 
   // filters
   const [filter, setFilter] = useState('all');
-  const is_disabled = 'disable'
   const handleChangeFilter = event => {
     setFilter(event.target.value);
   };
@@ -32,6 +124,12 @@ const Talks = ({ headerData, all_talks }) => {
   };
   const handleChangePoster = () => {
     setPoster(!poster);
+  };
+
+  // invitations
+  const [invitation, setInvitation] = useState('all');
+  const handleChangeInvitation = event => {
+    setInvitation(event.target.value);
   };
 
   // conference types
@@ -75,73 +173,17 @@ const Talks = ({ headerData, all_talks }) => {
               <FormControlLabel value='award' control={<Radio />} label={t.AWARDS} />
             </RadioGroup>
           </FormControl>
-          <FormControl>
-            <FormLabel id='talk-types'>
-              <Typography variant="h6">
-                {t.TALK_TYPES}
-              </Typography>
-            </FormLabel>
-            <FormGroup row>
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    inputProps={{ 'aria-label': t.ORAL }}
-                    onChange={handleChangeOral}
-                    checked={oral}
-                    disabled={(filter != 'talk')}
-                  />
-                }
-                label={t.ORAL}
-              />
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    inputProps={{ 'aria-label': t.POSTER }}
-                    onChange={handleChangePoster}
-                    checked={poster}
-                    disabled={(filter != 'talk')}
-                  />
-                }
-                label={t.POSTER}
-              />
-            </FormGroup>
-          </FormControl>
-          <FormControl>
-            <FormLabel id='conference-types'>
-              <Typography variant="h6">
-                {t.CONFERENCE_TYPES}
-              </Typography>
-            </FormLabel>
-            <FormGroup row>
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    inputProps={{ 'aria-label': t.INTERNATIONAL }}
-                    onChange={handleChangeInternational}
-                    checked={international}
-                    disabled={(filter != 'talk')}
-                  />
-                }
-                label={t.INTERNATIONAL}
-              />
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    inputProps={{ 'aria-label': t.DOMESTIC }}
-                    onChange={handleChangeDomestic}
-                    checked={domestic}
-                    disabled={(filter != 'talk')}
-                  />
-                }
-                label={t.DOMESTIC}
-              />
-            </FormGroup>
-          </FormControl>
+          <TalksFilters
+            filter={filter}
+            t={t}
+            handle={{ filter: filter, oral: oral, poster: poster, invitation: invitation, international: international, domestic: domestic }}
+            handleChange={{ filter: handleChangeFilter, oral: handleChangeOral, poster: handleChangePoster, invitation: handleChangeInvitation, international: handleChangeInternational, domestic: handleChangeDomestic }}
+          />
         </Stack>
       </Box>
       <Divider />
       <Box sx={{ flexGrow: 1, marginTop: 1 }}>
-        <TalkList talks={all_talks} icon filters={[filter, oral, poster, international, domestic]} />
+        <TalkList talks={all_talks} icon filters={[filter, oral, poster, invitation, international, domestic]} />
         <GoBackButton gutterLeft gutterBottom href='../research' />
       </Box>
     </>
