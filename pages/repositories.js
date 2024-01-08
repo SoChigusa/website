@@ -15,8 +15,8 @@ export default function Home() {
   return (
     <>
       <ArticlesMeta
-        title="Github repositories of So Chigusa"
-        description="Summary of projects shared on github by So Chigusa (et al)"
+        title={t.REPOSITORIES_TITLE}
+        description={t.REPOSITORIES_DESCRIPTION}
         url="/repositories"
         img=""
       />

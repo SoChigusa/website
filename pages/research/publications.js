@@ -30,8 +30,8 @@ const Publications = ({ publications }) => {
   return (
     <>
       <ArticlesMeta
-        title="Publications of So Chigusa"
-        description="Summary of publications of So Chigusa"
+        title={t.PUBLICATIONS_TITLE}
+        description={t.PUBLICATIONS_DESCRIPTION}
         url="/research/publications"
         img=""
       />

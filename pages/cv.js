@@ -64,8 +64,8 @@ const cv = ({ personalInfo }) => {
   return (
     <>
       <ArticlesMeta
-        title="CV of So Chigusa"
-        description="CV of So Chigusa"
+        title={t.CV_TITLE}
+        description={t.CV_DESCRIPTION}
         url="/cv"
         img=""
       />

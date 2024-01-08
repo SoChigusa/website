@@ -145,8 +145,8 @@ const Talks = ({ headerData, all_talks }) => {
   return (
     <>
       <ArticlesMeta
-        title="Talks by So Chigusa"
-        description="Summary of talks by So Chigusa"
+        title={t.TALKS_TITLE}
+        description={t.TALKS_DESCRIPTION}
         url="/research/talks"
         img=""
       />

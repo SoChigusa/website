@@ -6,6 +6,8 @@ import ArticlesMeta from "../../../components/meta/articles";
 import PaginationBar from '../../../components/PaginationBar';
 import { PAGE_SIZE, range } from '../../../components/PaginationBar';
 import PostCard from '../../../components/PostCard';
+import useLocale from '../../../utils/useLocale';
+import { string } from 'sharp/lib/is';
 
 export async function getStaticProps({ params }) {
   const headerData = createHeaderData();
@@ -40,7 +42,7 @@ export async function getStaticPaths() {
 }
 
 const Page = ({ headerData, current_page }) => {
-  const { locale } = useRouter();
+  const { locale, t } = useLocale();
   const totalPosts = locale === 'en' ? headerData.tips_en : headerData.tips_ja;
   const totalPages = Math.ceil(totalPosts.length / PAGE_SIZE);
   const posts = totalPosts.slice(
@@ -51,8 +53,8 @@ const Page = ({ headerData, current_page }) => {
   return (
     <>
       <ArticlesMeta
-        title="Tips by So Chigusa"
-        description="Summary of tips written by So Chigusa"
+        title={t.TIPS_TITLE + ' (' + t.PAGE + ' ' + current_page.toString() + ')'}
+        description={t.TIPS_DESCRIPTION}
         url={`/tips/page/${current_page}`}
         img=""
       />

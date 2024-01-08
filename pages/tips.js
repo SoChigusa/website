@@ -6,6 +6,7 @@ import ArticlesMeta from "../components/meta/articles";
 import PaginationBar from '../components/PaginationBar';
 import { PAGE_SIZE } from '../components/PaginationBar';
 import PostCard from '../components/PostCard';
+import useLocale from "../utils/useLocale";
 
 export async function getStaticProps() {
   const headerData = createHeaderData();
@@ -18,7 +19,7 @@ export async function getStaticProps() {
 };
 
 const Tips = ({ headerData }) => {
-  const { locale } = useRouter();
+  const { locale, t } = useLocale();
   const totalPosts = locale === 'en' ? headerData.tips_en : headerData.tips_ja;
   const totalPages = Math.ceil(totalPosts.length / PAGE_SIZE);
   const posts = totalPosts.slice(0, PAGE_SIZE);
@@ -26,8 +27,8 @@ const Tips = ({ headerData }) => {
   return (
     <>
       <ArticlesMeta
-        title="Tips by So Chigusa"
-        description="Summary of tips written by So Chigusa"
+        title={t.TIPS_TITLE}
+        description={t.TIPS_DESCRIPTION}
         url="/tips"
         img=""
       />

@@ -1,4 +1,8 @@
 export default {
+  // Meta
+  TITLE: '千草颯のホームページ',
+  DESCRIPTION: '理論素粒子物理学の研究者、千草颯のホームページ',
+
   // Header Menu
   HOME: 'トップページ',
   CV: '履歴書',
@@ -16,24 +20,30 @@ export default {
   LIKE: 'いいね',
 
   // Research
+  RESEARCH_TITLE: '研究活動【千草颯】',
+  RESEARCH_DESCRIPTION: '研究活動のまとめ（論文、講演、受賞歴）【千草颯】',
   OPEN_PDF: 'PDFを開く',
   SEE_ON_ARXIV: 'arXivで見る',
   SEE_ON_INSPIRE_HEP: 'inspire HEPで見る',
   RESEARCH_INTERESTS: '研究概要',
   RECENT_ACTIVITIES: '最近の活動成果',
   RESEARCH_ACTIVITIES: '最近の研究成果',
-  PUBLICATIONS: '最近の論文リスト',
-  PUBLICATIONS: '論文リスト',
+  RECENT_PUBLICATIONS: '最近の論文一覧',
+  PUBLICATIONS_TITLE: '論文一覧【千草颯】',
+  PUBLICATIONS_DESCRIPTION: '論文一覧【千草颯】',
+  PUBLICATIONS: '論文一覧',
   INVITED_SEMINARS: 'セミナー講演',
-  TALKS: 'トーク',
-  OTHER_TALKS: 'その他トーク',
+  TALKS: '講演',
+  OTHER_TALKS: '一般講演',
   AWARDS: '受賞歴',
   ABSTRACT: '論文要旨',
-  TALKS_AND_AWARDS: 'トークや受賞歴の一覧',
+  TALKS_TITLE: '講演や受賞歴の一覧【千草颯】',
+  TALKS_DESCRIPTION: '講演や受賞歴の一覧【千草颯】',
+  TALKS_AND_AWARDS: '講演や受賞歴の一覧',
   FILTER: 'フィルター',
   ALL: '全て',
   SEMINARS: 'セミナー講演',
-  TALK_TYPES: 'トークの種類',
+  TALK_TYPES: '講演の種類',
   ORAL: '口頭発表',
   POSTER: 'ポスター発表',
   INVITATIONS: '招待の有無',
@@ -43,10 +53,15 @@ export default {
   DOMESTIC: '日本国内の会議',
 
   // Tips
+  TIPS_TITLE: 'メモ【千草颯】',
+  TIPS_DESCRIPTION: '公開されたメモ書きの一覧【千草颯】',
+  PAGE: 'ページ',
   LATEST_UPDATE: '最終更新',
   SHARE_THIS_POST: 'この投稿をシェアする：',
 
   // CV
+  CV_TITLE: '履歴書【千草颯】',
+  CV_DESCRIPTION: '履歴書【千草颯】',
   OPEN_CV_PDF: 'PDFで見る',
   EMAIL_ME: 'メールを送る',
 
@@ -112,6 +127,8 @@ export default {
   SEE_RESEARCH_ACTIVITIES: '業績一覧を見る',
 
   // Repositories
+  REPOSITORIES_TITLE: '公開リポジトリ一覧【千草颯】',
+  REPOSITORIES_DESCRIPTION: 'Github 上に公開されたリポジトリ一覧【千草颯】',
   PUBLIC_REPOSITORIES: '公開リポジトリ一覧',
   REPOSITORIES_PUBLIC_CODES: '研究成果に基づくパブリックコード',
   REPOSITORIES_RESEARCH_TOOLS: '研究用のツール',

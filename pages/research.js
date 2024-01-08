@@ -29,8 +29,8 @@ const Research = ({ publications, seminars, talks, awards, summary, statement })
   return (
     <>
       <ArticlesMeta
-        title="Research works by So Chigusa"
-        description="Summary of research works of So Chigusa: publications, talks, and awards"
+        title={t.RESEARCH_TITLE}
+        description={t.RESEARCH_DESCRIPTION}
         url="/research"
         img=""
       />

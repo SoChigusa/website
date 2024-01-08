@@ -1,4 +1,8 @@
 export default {
+  // Meta
+  TITLE: 'So Chigusa\'s website',
+  DESCRIPTION: 'So Chigusa, a researcher of the theoretical particle physics',
+
   // Header Menu
   HOME: 'Home',
   CV: 'CV',
@@ -16,6 +20,8 @@ export default {
   LIKE: 'Like',
 
   // Research
+  RESEARCH_TITLE: 'Research works by So Chigusa',
+  RESEARCH_DESCRIPTION: 'Summary of research works of So Chigusa: publications, talks, and awards',
   OPEN_PDF: 'Open PDF',
   SEE_ON_ARXIV: 'See on arXiv',
   SEE_ON_INSPIRE_HEP: 'See on inspire hep',
@@ -23,12 +29,16 @@ export default {
   RECENT_ACTIVITIES: 'Recent Activities',
   RESEARCH_ACTIVITIES: 'Research Activities',
   RECENT_PUBLICATIONS: 'Recent Publications',
+  PUBLICATIONS_TITLE: 'Publications of So Chigusa',
+  PUBLICATIONS_DESCRIPTION: 'Summary of publications of So Chigusa',
   PUBLICATIONS: 'Publications',
   INVITED_SEMINARS: 'Invited Seminars',
   TALKS: 'Talks',
   OTHER_TALKS: 'Talks',
   AWARDS: 'Awards',
   ABSTRACT: 'Abstract',
+  TALKS_TITLE: 'Talks and Awards of So Chigusa',
+  TALKS_DESCRIPTION: 'Summary of Talks and Awards of So Chigusa',
   TALKS_AND_AWARDS: 'Talks and Awards',
   FILTER: 'Filter',
   ALL: 'All',
@@ -43,10 +53,15 @@ export default {
   DOMESTIC: 'Domestic (Japan)',
 
   // Tips
+  TIPS_TITLE: 'Tips by So Chigusa',
+  TIPS_DESCRIPTION: 'Summary of tips written by So Chigusa',
+  PAGE: 'Page',
   LATEST_UPDATE: 'Latest update',
   SHARE_THIS_POST: 'Share this post:',
 
   // CV
+  CV_TITLE: 'CV of So Chigusa',
+  CV_DESCRIPTION: 'CV of So Chigusa',
   OPEN_CV_PDF: 'Open in PDF',
   EMAIL_ME: 'Email me',
 
@@ -112,6 +127,8 @@ export default {
   SEE_RESEARCH_ACTIVITIES: 'See my achievement list',
 
   // Repositories
+  REPOSITORIES_TITLE: 'Github repositories of So Chigusa',
+  REPOSITORIES_DESCRIPTION: 'Summary of projects shared on github by So Chigusa (et al)',
   PUBLIC_REPOSITORIES: 'Public repositories',
   REPOSITORIES_PUBLIC_CODES: 'Public codes based on my research',
   REPOSITORIES_RESEARCH_TOOLS: 'Research tools',
