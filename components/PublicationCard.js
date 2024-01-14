@@ -78,6 +78,7 @@ const PublicationCard = ({ publication, expanded, handle }) => {
                             src='/logos/ArXiv_logo_2022.png'
                             width={80}
                             height={36}
+                            alt='arXiv logo'
                           />
                         </Box>
                       </Tooltip>

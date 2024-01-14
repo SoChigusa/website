@@ -2,7 +2,7 @@ import useLocale from "../utils/useLocale";
 import NextLink from "next/link";
 import { Link as MUILink } from "@mui/material";
 
-const Link = ({ children, href, target, localeChange = false, color = 'primary', query = {} }) => {
+const Link = ({ children, href, target, localeChange = false, color = 'primary', query = {} }: { children: any, href: string, target?: string, localeChange?: boolean, color?: string, query?: any }) => {
   if (target == '_blank') {
     return (
       <MUILink href={href} color={color} underline="none" target='_blank' rel="noreferrer">

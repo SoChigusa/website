@@ -95,6 +95,7 @@ export default function Post({ url, slug, frontMatter, html, existTranslation })
               width={1200}
               height={675}
               objectFit='contain'
+              alt='logo'
             />
           </Box>
         </Stack>

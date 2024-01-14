@@ -3,7 +3,7 @@ import { Button, IconButton, Tooltip } from "@mui/material";
 import useLocale from "../utils/useLocale";
 import Link from "./Link";
 
-const SeeMoreButton = ({ href }) => {
+const SeeMoreButton = ({ href }: { href: string }) => {
   const { t } = useLocale();
   return (
     <Link href={href}>
