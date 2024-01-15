@@ -27,7 +27,7 @@ const replaceLaTeX = (latex_src: string, from: string, to: string) => {
     return substring[0];
   });
   contents.map(content => {
-    const latex = `\\${from}\{content\}`;
+    const latex = `\\${from}\{${content}\}`;
     const html = `<${to}>${content}</${to}>`;
     latex_res = latex_res.replace(latex, html);
   });

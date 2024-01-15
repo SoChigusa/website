@@ -11,7 +11,6 @@ import GoBackButton from '../../components/GoBackButton';
 import ArticlesMeta from '../../components/meta/articles';
 import hljs from 'highlight.js';
 import { GetStaticPropsContext } from 'next';
-import { markedHighlight } from 'marked-highlight';
 
 export async function getStaticProps({ params, locale }: GetStaticPropsContext) {
   // const ip = await marked.setOptions({
@@ -25,7 +24,7 @@ export async function getStaticProps({ params, locale }: GetStaticPropsContext) 
     const [lang, fileName] = typeof codeInfo === 'undefined' ? [undefined, undefined] : codeInfo.split(':');
     const langClass = lang === undefined ? 'bash' : (hljs.getLanguage(lang) ? lang : 'plaintext');
     const codeBlockClass = fileName === undefined ? 'code-block-no-info' : 'code-block';
-    const highlightedCode = hljs.highlight('bash', code).value;
+    const highlightedCode = hljs.highlight(langClass, code).value;
 
     let codeBlock = `<code class="hljs ${codeBlockClass} language-${langClass}">${highlightedCode}</code>`
     if (fileName !== undefined) {

@@ -1,15 +1,15 @@
 import fs from 'fs';
 import matter from 'gray-matter';
 
-const createSortedPosts = ({ dirName }: { dirName: string }) => {
-  const allFiles = fs.readdirSync(dirName, { withFileTypes: true });
-  const files = allFiles.filter(dirent => dirent.isFile()).map(({ name }) => name);
-  const posts = files.map((fileName) => {
-    const slug = fileName.replace(/\.md$/, '');
-    const fileContent = fs.readFileSync(`${dirName}/${fileName}`, 'utf-8');
-    const { data } = matter(fileContent);
+const createSortedPosts = ({ dirName }: { dirName: string }): Post[] => {
+  const allFiles: fs.Dirent[] = fs.readdirSync(dirName, { withFileTypes: true });
+  const files: string[] = allFiles.filter(dirent => dirent.isFile()).map(({ name }) => name);
+  const posts: Post[] = files.map((fileName) => {
+    const slug: string = fileName.replace(/\.md$/, '');
+    const fileContent: string = fs.readFileSync(`${dirName}/${fileName}`, 'utf-8');
+    const frontMatter: FrontMatter = matter(fileContent).data;
     return {
-      frontMatter: data,
+      frontMatter: frontMatter,
       slug,
     };
   });
@@ -19,9 +19,9 @@ const createSortedPosts = ({ dirName }: { dirName: string }) => {
   );
 };
 
-const createHeaderData = () => {
-  const posts_ja = createSortedPosts({ dirName: 'tips' });
-  const posts_en = createSortedPosts({ dirName: 'tips/en' });
+const createHeaderData = (): HeaderData => {
+  const posts_ja: Post[] = createSortedPosts({ dirName: 'tips' });
+  const posts_en: Post[] = createSortedPosts({ dirName: 'tips/en' });
   return {
     tips_ja: posts_ja,
     tips_en: posts_en,

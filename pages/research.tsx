@@ -14,11 +14,11 @@ import SeeMoreButton from "../components/SeeMoreButton";
 import InspireHEPButton from "../components/InspireHEPButton";
 import { MathJax } from "better-react-mathjax";
 import StatementCard from "../components/StatementCard";
-import { GetStaticPropsContext } from "next";
+import { GetStaticProps } from "next";
 
-export async function getStaticProps({ params }: GetStaticPropsContext) {
-  const headerData = createHeaderData();
-  const publications = await extractPublicationData({ slice: 6 });
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const headerData: HeaderData = createHeaderData();
+  const publications: Publication[] = await extractPublicationData({ slice: 6 });
   await setDatabase({ collection: 'publications', publications });
   const [seminars, talks, awards] = await extractTalkData({ slice: 3, separate: true });
   const [summary, statement] = tailorResearchStatement();
