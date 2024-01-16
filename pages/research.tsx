@@ -20,13 +20,16 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const headerData: HeaderData = createHeaderData();
   const publications: Publication[] = await extractPublicationData({ slice: 6 });
   await setDatabase({ collection: 'publications', publications });
-  const [seminars, talks, awards] = await extractTalkData({ slice: 3, separate: true });
-  const [summary, statement] = tailorResearchStatement();
-  return { props: { headerData, publications, seminars, talks, awards, summary, statement }, };
+  const talk_list: TalkList = await extractTalkData({ slice: 3 });
+  const latex_RS: LatexRS = tailorResearchStatement();
+  return { props: { headerData, publications, talk_list, latex_RS }, };
 }
 
-const Research = ({ publications, seminars, talks, awards, summary, statement }: { publications: Array<any>, seminars: Array<any>, talks: Array<any>, awards: Array<any>, summary: string, statement: Array<any> }) => {
+const Research = ({ publications, talk_list, latex_RS }: { publications: Publication[], talk_list: TalkList, latex_RS: LatexRS }) => {
   const { t } = useLocale();
+  const seminars: Talk[] = talk_list.seminars;
+  const talks: Talk[] = talk_list.talks;
+  const awards: Talk[] = talk_list.awards;
   return (
     <>
       <ArticlesMeta
@@ -45,11 +48,11 @@ const Research = ({ publications, seminars, talks, awards, summary, statement }:
         <Box sx={{ marginBottom: 2 }}>
           <Stack spacing={1}>
             <MathJax>
-              <Typography gutterBottom variant="body1" dangerouslySetInnerHTML={{ __html: summary }} />
+              <Typography gutterBottom variant="body1" dangerouslySetInnerHTML={{ __html: latex_RS.summary }} />
             </MathJax>
             <Box>
-              {statement.map(element => (
-                <StatementCard key={element.title} statement={element} />
+              {latex_RS.statements.map(statement => (
+                <StatementCard key={statement.title} statement={statement} />
               ))}
             </Box>
             <Link href='rs.pdf'>

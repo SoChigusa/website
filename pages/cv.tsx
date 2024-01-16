@@ -11,8 +11,8 @@ import { GetStaticPropsContext } from "next";
 
 export async function getStaticProps({ params }: GetStaticPropsContext) {
   const headerData = createHeaderData();
-  const [seminars, talks, awards] = await extractTalkData({ separate: true });
-  const personalInfo = compileCV({ seminars: seminars, talks: talks, awards: awards });
+  const talk_list: TalkList = await extractTalkData({});
+  const personalInfo = compileCV({ talk_list: talk_list });
   return { props: { headerData, personalInfo, }, };
 }
 

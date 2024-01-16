@@ -25,4 +25,37 @@ interface EntryTags {
 
 interface Publication {
   entryTags: EntryTags
+  citationKey: string
+}
+
+interface Talk {
+  Type: string
+  Date: string
+  Title: string
+  Conference: string
+  Place: string
+  Invited: string
+  Symposium: string
+}
+
+interface TalkList {
+  all: Talk[]
+  seminars: Talk[]
+  talks: Talk[]
+  awards: Talk[]
+}
+
+interface MapID2URL {
+  id: string
+  url: string
+}
+
+interface Statement {
+  title: string
+  contents: string[]
+}
+
+interface LatexRS {
+  summary: string
+  statements: Statement[]
 }

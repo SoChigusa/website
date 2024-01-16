@@ -11,8 +11,8 @@ import { GetStaticPropsContext } from "next";
 
 export async function getStaticProps({ params }: GetStaticPropsContext) {
   const headerData = createHeaderData();
-  const all_talks = await extractTalkData();
-  return { props: { headerData, all_talks }, };
+  const talk_list: TalkList = await extractTalkData({});
+  return { props: { headerData, talk_list }, };
 }
 
 const TalksFilters = ({ t, handle, handleChange }: { t: any, handle: any, handleChange: any }) => {
@@ -108,7 +108,7 @@ const TalksFilters = ({ t, handle, handleChange }: { t: any, handle: any, handle
   }
 };
 
-const Talks = ({ headerData, all_talks }: { headerData: any, all_talks: any }) => {
+const Talks = ({ headerData, talk_list }: { headerData: any, talk_list: any }) => {
   const { t } = useLocale();
 
   // filters
@@ -183,7 +183,7 @@ const Talks = ({ headerData, all_talks }: { headerData: any, all_talks: any }) =
       </Box>
       <Divider />
       <Box sx={{ flexGrow: 1, marginTop: 1 }}>
-        <TalkList talks={all_talks} filters={[filter, oral, poster, invitation, international, domestic]} />
+        <TalkList talks={talk_list.all} filters={[filter, oral, poster, invitation, international, domestic]} />
         <GoBackButton gutterLeft gutterBottom href='../research' />
       </Box>
     </>

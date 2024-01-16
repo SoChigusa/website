@@ -16,7 +16,7 @@ const StatementCard = ({ statement, expanded, handle }: { statement: any, expand
       </AccordionSummary>
       <AccordionDetails>
         <MathJax>
-          {statement.content.map((paragraph: string, index: number) => (
+          {statement.contents.map((paragraph: string, index: number) => (
             <Typography
               key={statement.title + index.toString()}
               gutterBottom
