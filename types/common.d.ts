@@ -59,3 +59,8 @@ interface LatexRS {
   summary: string
   statements: Statement[]
 }
+
+// Copies of Default Types
+
+type AccordionOnChange = ((event: SyntheticEvent<Element, Event>, expanded: boolean) => void) | undefined;
+type LinkQuery = string | ParsedUrlQueryInput | null | undefined;
