@@ -2,9 +2,9 @@ import { Accordion, AccordionDetails, AccordionSummary, Box, Typography } from "
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { MathJax } from "better-react-mathjax";
 
-const StatementCard = ({ statement, expanded, handle }: { statement: any, expanded?: boolean, handle?: any }) => {
+const StatementCard = ({ statement, expanded, onChange }: { statement: Statement, expanded?: boolean, onChange?: AccordionOnChange }) => {
   return (
-    <Accordion expanded={expanded} onChange={handle}>
+    <Accordion expanded={expanded} onChange={onChange}>
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
         aria-controls={statement.title}

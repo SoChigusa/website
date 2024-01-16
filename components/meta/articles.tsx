@@ -5,7 +5,7 @@ const homeURL = 'https://website-sochigusa.vercel.app';
 
 export default function ArticlesMeta({ title, description, url, img }: { title: string, description: string, url: string, img: string }) {
   const { locale } = useLocale();
-  const url_head = locale === 'en' ? '' : '/ja';
+  const url_head: string = locale === 'en' ? '' : '/ja';
   return (
     <Head>
       <meta property="og:type" content="article" />

@@ -6,7 +6,8 @@ const homeURL = 'https://website-sochigusa.vercel.app';
 export default function IndexMeta({ title = "[Default Title]", description = "[Default Description]" }) {
   const { locale, t } = useLocale();
   const url_head = locale === 'en' ? '' : '/ja';
-  let new_title = title, new_description = description;
+  let new_title = title;
+  let new_description = description;
   if (new_title === "[Default Title]")
     new_title = t.TITLE;
   if (new_description === "[Default Description]")

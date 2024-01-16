@@ -3,7 +3,7 @@ import NextLink from "next/link";
 import { Link as MUILink } from "@mui/material";
 import { ReactNode } from "react";
 
-const Link = ({ children, href, target, localeChange = false, color = 'primary', query = {} }: { children: ReactNode, href: string, target?: string, localeChange?: boolean, color?: string, query?: any }) => {
+const Link = ({ children, href, target, localeChange = false, color = 'primary', query = {} }: { children: ReactNode, href: string, target?: string, localeChange?: boolean, color?: string, query?: LinkQuery }) => {
   if (target == '_blank') {
     return (
       <MUILink href={href} color={color} underline="none" target='_blank' rel="noreferrer">
