@@ -1,5 +1,5 @@
 import { ReadMore } from "@mui/icons-material";
-import { Button, IconButton, Tooltip } from "@mui/material";
+import { Button } from "@mui/material";
 import useLocale from "../utils/useLocale";
 import Link from "./Link";
 

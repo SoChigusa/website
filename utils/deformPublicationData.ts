@@ -1,6 +1,6 @@
-const deformAuthorNames = (authors: string) => {
-  const authorList = authors.split(' and ');
-  const authorListNew = authorList.map((author) => {
+const deformAuthorNames = (authors: string): string => {
+  const authorList: string[] = authors.split(' and ');
+  const authorListNew: string[] = authorList.map((author) => {
     const names = author.split(', ');
     return `${names[1]} ${names[0]}`;
   })
@@ -14,8 +14,8 @@ const latexReplacement = (titleOrig: string) => {
   return title;
 }
 
-const mathjaxInline = (latex: string) => {
-  let pieces = latex.split('\$');
+const mathjaxInline = (latex: string): string => {
+  let pieces: string[] = latex.split('\$');
   let i = -1;
   const n = pieces.length;
   pieces = pieces.map((piece: string) => {

@@ -16,7 +16,9 @@ interface HeaderData {
 }
 
 interface EntryTags {
-  EPRINT: string | undefined
+  EPRINT: string
+  AUTHOR: string
+  TITLE: string
   date: string
   abstract: string
   isExist: boolean
@@ -45,6 +47,24 @@ interface TalkList {
   awards: Talk[]
 }
 
+interface TalkFilters {
+  filter: string
+  oral: boolean
+  poster: boolean
+  invitation: string
+  international: boolean
+  domestic: boolean
+}
+
+interface TalkFiltersOnChange {
+  filter: RadioOnChange
+  oral: CheckboxOnChange
+  poster: CheckboxOnChange
+  invitation: RadioOnChange
+  international: CheckboxOnChange
+  domestic: CheckboxOnChange
+}
+
 interface MapID2URL {
   id: string
   url: string
@@ -63,4 +83,6 @@ interface LatexRS {
 // Copies of Default Types
 
 type AccordionOnChange = ((event: SyntheticEvent<Element, Event>, expanded: boolean) => void) | undefined;
+type RadioOnChange = ((event: ChangeEvent<HTMLInputElement>, value: string) => void) | undefined;
+type CheckboxOnChange = ((event: ChangeEvent<HTMLInputElement>, checked: boolean) => void) | undefined;
 type LinkQuery = string | ParsedUrlQueryInput | null | undefined;

@@ -8,22 +8,22 @@ import Image from "next/image";
 import { deformAuthorNames, latexReplacement, mathjaxInline } from "../utils/deformPublicationData";
 import { Article } from "@mui/icons-material";
 
-const PublicationCard = ({ publication, expanded, handle }: { publication: any, expanded?: boolean, handle?: any }) => {
+const PublicationCard = ({ publication, expanded, handle }: { publication: Publication, expanded?: boolean, handle?: AccordionOnChange }) => {
   const { t } = useLocale();
 
   // extract publication information
-  const authorOrig = publication.entryTags.AUTHOR;
-  const titleOrig = publication.entryTags.TITLE.slice(1, -1);
-  const eprint = publication.entryTags.EPRINT;
-  const date = publication.entryTags.date;
-  const abstract = mathjaxInline(publication.entryTags.abstract);
-  const noimage = 'https://placehold.jp/32/003060/e0e0e0/286x180.png?text=No Image'
+  const authorOrig: string = publication.entryTags.AUTHOR;
+  const titleOrig: string = publication.entryTags.TITLE.slice(1, -1);
+  const eprint: string | undefined = publication.entryTags.EPRINT;
+  const date: string = publication.entryTags.date;
+  const abstract: string = mathjaxInline(publication.entryTags.abstract);
+  const noimage: string = 'https://placehold.jp/32/003060/e0e0e0/286x180.png?text=No Image';
 
   // from [Family], [First] to [First] [Family]
-  const author = deformAuthorNames(authorOrig);
+  const author: string = deformAuthorNames(authorOrig);
 
   // replace specific latex commands in my paper titles
-  const title = mathjaxInline(latexReplacement(titleOrig));
+  const title: string = mathjaxInline(latexReplacement(titleOrig));
 
   return (
     <Accordion expanded={expanded} onChange={handle}>
@@ -58,7 +58,7 @@ const PublicationCard = ({ publication, expanded, handle }: { publication: any, 
                   {t.ABSTRACT}
                 </Typography>
                 <Typography gutterBottom variant="body1">
-                  <MathJax >
+                  <MathJax>
                     {abstract}
                   </MathJax>
                 </Typography>

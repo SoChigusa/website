@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import useLocale from "../../utils/useLocale";
 import createHeaderData from "../../utils/createHeaderData";
 import extractTalkData from "../../utils/extractTalkData";
@@ -7,16 +7,18 @@ import { Stack } from "@mui/system";
 import GoBackButton from "../../components/GoBackButton";
 import ArticlesMeta from "../../components/meta/articles";
 import TalkList from "../../components/TalkList";
-import { GetStaticPropsContext } from "next";
+import { GetStaticProps } from "next";
 
-export async function getStaticProps({ params }: GetStaticPropsContext) {
-  const headerData = createHeaderData();
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const headerData: HeaderData = createHeaderData();
   const talk_list: TalkList = await extractTalkData({});
   return { props: { headerData, talk_list }, };
 }
 
-const TalksFilters = ({ t, handle, handleChange }: { t: any, handle: any, handleChange: any }) => {
-  if (handle.filter == 'talk') {
+const AddFiltersForTalks = ({ talkFilters, talkFiltersOnChange }: { talkFilters: TalkFilters, talkFiltersOnChange: TalkFiltersOnChange }) => {
+  const { t } = useLocale();
+
+  if (talkFilters.filter === 'talk') {
     return (
       <Stack>
         <FormControl>
@@ -30,8 +32,8 @@ const TalksFilters = ({ t, handle, handleChange }: { t: any, handle: any, handle
               control={
                 <Checkbox
                   inputProps={{ 'aria-label': t.ORAL }}
-                  onChange={handleChange.oral}
-                  checked={handle.oral}
+                  onChange={talkFiltersOnChange.oral}
+                  checked={talkFilters.oral}
                 />
               }
               label={t.ORAL}
@@ -40,8 +42,8 @@ const TalksFilters = ({ t, handle, handleChange }: { t: any, handle: any, handle
               control={
                 <Checkbox
                   inputProps={{ 'aria-label': t.POSTER }}
-                  onChange={handleChange.poster}
-                  checked={handle.poster}
+                  onChange={talkFiltersOnChange.poster}
+                  checked={talkFilters.poster}
                 />
               }
               label={t.POSTER}
@@ -55,9 +57,9 @@ const TalksFilters = ({ t, handle, handleChange }: { t: any, handle: any, handle
           </FormLabel>
           <RadioGroup
             aria-labelledby="talks-invitations"
-            value={handle.invitation}
+            value={talkFilters.invitation}
             name='talks-invitations'
-            onChange={handleChange.invitation}
+            onChange={talkFiltersOnChange.invitation}
             row
           >
             <FormControlLabel
@@ -83,8 +85,8 @@ const TalksFilters = ({ t, handle, handleChange }: { t: any, handle: any, handle
               control={
                 <Checkbox
                   inputProps={{ 'aria-label': t.INTERNATIONAL }}
-                  onChange={handleChange.international}
-                  checked={handle.international}
+                  onChange={talkFiltersOnChange.international}
+                  checked={talkFilters.international}
                 />
               }
               label={t.INTERNATIONAL}
@@ -93,8 +95,8 @@ const TalksFilters = ({ t, handle, handleChange }: { t: any, handle: any, handle
               control={
                 <Checkbox
                   inputProps={{ 'aria-label': t.DOMESTIC }}
-                  onChange={handleChange.domestic}
-                  checked={handle.domestic}
+                  onChange={talkFiltersOnChange.domestic}
+                  checked={talkFilters.domestic}
                 />
               }
               label={t.DOMESTIC}
@@ -108,12 +110,12 @@ const TalksFilters = ({ t, handle, handleChange }: { t: any, handle: any, handle
   }
 };
 
-const Talks = ({ headerData, talk_list }: { headerData: any, talk_list: any }) => {
+const Talks = ({ talk_list }: { talk_list: TalkList }) => {
   const { t } = useLocale();
 
   // filters
   const [filter, setFilter] = useState('all');
-  const handleChangeFilter = (event: any) => {
+  const handleChangeFilter: RadioOnChange = event => {
     setFilter(event.target.value);
   };
 
@@ -129,7 +131,7 @@ const Talks = ({ headerData, talk_list }: { headerData: any, talk_list: any }) =
 
   // invitations
   const [invitation, setInvitation] = useState('all');
-  const handleChangeInvitation = (event: any) => {
+  const handleChangeInvitation: RadioOnChange = event => {
     setInvitation(event.target.value);
   };
 
@@ -141,6 +143,24 @@ const Talks = ({ headerData, talk_list }: { headerData: any, talk_list: any }) =
   };
   const handleChangeDomestic = () => {
     setDomestic(!domestic);
+  };
+
+  // filter variables
+  const talkFilters: TalkFilters = {
+    filter: filter,
+    oral: oral,
+    poster: poster,
+    invitation: invitation,
+    international: international,
+    domestic: domestic
+  };
+  const talkFiltersOnChange: TalkFiltersOnChange = {
+    filter: handleChangeFilter,
+    oral: handleChangeOral,
+    poster: handleChangePoster,
+    invitation: handleChangeInvitation,
+    international: handleChangeInternational,
+    domestic: handleChangeDomestic
   };
 
   return (
@@ -158,7 +178,8 @@ const Talks = ({ headerData, talk_list }: { headerData: any, talk_list: any }) =
         <Stack spacing={1}>
           <FormControl>
             <FormLabel id='talks-filter'>
-              <Typography variant="h6">{t.FILTER}
+              <Typography variant="h6">
+                {t.FILTER}
               </Typography>
             </FormLabel>
             <RadioGroup
@@ -174,16 +195,15 @@ const Talks = ({ headerData, talk_list }: { headerData: any, talk_list: any }) =
               <FormControlLabel value='award' control={<Radio />} label={t.AWARDS} />
             </RadioGroup>
           </FormControl>
-          <TalksFilters
-            t={t}
-            handle={{ filter: filter, oral: oral, poster: poster, invitation: invitation, international: international, domestic: domestic }}
-            handleChange={{ filter: handleChangeFilter, oral: handleChangeOral, poster: handleChangePoster, invitation: handleChangeInvitation, international: handleChangeInternational, domestic: handleChangeDomestic }}
+          <AddFiltersForTalks
+            talkFilters={talkFilters}
+            talkFiltersOnChange={talkFiltersOnChange}
           />
         </Stack>
       </Box>
       <Divider />
       <Box sx={{ flexGrow: 1, marginTop: 1 }}>
-        <TalkList talks={talk_list.all} filters={[filter, oral, poster, invitation, international, domestic]} />
+        <TalkList talks={talk_list.all} filters={talkFilters} />
         <GoBackButton gutterLeft gutterBottom href='../research' />
       </Box>
     </>

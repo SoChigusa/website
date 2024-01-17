@@ -1,4 +1,4 @@
-import { useRouter } from "next/router";
+import { NextRouter, useRouter } from "next/router";
 import { useState } from "react";
 import useLocale from "../../utils/useLocale";
 import createHeaderData from "../../utils/createHeaderData";
@@ -9,23 +9,24 @@ import ArticlesMeta from "../../components/meta/articles";
 import PublicationCard from "../../components/PublicationCard";
 import GoBackButton from "../../components/GoBackButton";
 import InspireHEPButton from "../../components/InspireHEPButton";
-import { GetStaticPropsContext } from "next";
+import { GetStaticProps } from "next";
 
-export async function getStaticProps({ params }: GetStaticPropsContext) {
-  const headerData = createHeaderData();
-  const publications = await extractPublicationData();
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const headerData: HeaderData = createHeaderData();
+  const publications: Publication[] = await extractPublicationData();
   await setDatabase({ collection: 'publications', publications });
   return { props: { headerData, publications }, };
 }
 
-const Publications = ({ publications }: { publications: any }) => {
+const Publications = ({ publications }: { publications: Publication[] }) => {
   const { t } = useLocale();
 
   // state to organize accordions
-  const router = useRouter();
+  const router: NextRouter = useRouter();
   const [expanded, setExpanded] = useState(router.query.expanded);
-  const handleChange = (panel: any) => (event: any, newExpanded: boolean) => {
-    setExpanded(newExpanded ? panel : false);
+  type HandlePanelOnChange = (panel: string) => AccordionOnChange;
+  const handlePanelOnChange: HandlePanelOnChange = panel => (event, newExpanded) => {
+    setExpanded(newExpanded ? panel : '');
   };
 
   return (
@@ -45,7 +46,7 @@ const Publications = ({ publications }: { publications: any }) => {
             key={publication.citationKey}
             publication={publication}
             expanded={expanded === publication.entryTags.EPRINT}
-            handle={handleChange(publication.entryTags.EPRINT)}
+            handle={handlePanelOnChange(publication.entryTags.EPRINT)}
           />
         ))}
         <Stack spacing={2} direction="row" sx={{ my: 2 }}>

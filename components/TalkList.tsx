@@ -2,9 +2,18 @@ import { EmojiEvents, Mic, SpeakerPhone } from "@mui/icons-material";
 import { List, ListItem, ListItemIcon, ListItemText } from "@mui/material";
 import SeeMoreButton from './SeeMoreButton';
 
-const TalkList = ({ talks, seeMore = false, filters = ['all', true, true, 'all', true, true] }: { talks: any, seeMore?: boolean, filters?: any }) => {
+const defaultFilters: TalkFilters = {
+  filter: 'all',
+  oral: true,
+  poster: true,
+  invitation: 'all',
+  international: true,
+  domestic: true,
+};
+
+const TalkList = ({ talks, seeMore = false, filters = defaultFilters }: { talks: Talk[], seeMore?: boolean, filters?: TalkFilters }) => {
   // filter talk information
-  const [filter, oral, poster, invitation, international, domestic] = filters;
+  const { filter, oral, poster, invitation, international, domestic } = filters;
   let filtered = talks;
   if (filter == 'seminar') filtered = filtered.filter((talk: any) => talk.Type == 'Seminar');
   else if (filter == 'award') filtered = filtered.filter((talk: any) => (talk.Type == 'Award'));
@@ -20,9 +29,9 @@ const TalkList = ({ talks, seeMore = false, filters = ['all', true, true, 'all',
   return (
     <>
       <List dense sx={{ width: '100%', bgcolor: 'background.paper', py: 0 }}>
-        {filtered.map((talk: any) => {
-          const award = (talk.Type == 'Award');
-          const seminar = (talk.Type == 'Seminar');
+        {filtered.map((talk: Talk) => {
+          const award = (talk.Type === 'Award');
+          const seminar = (talk.Type === 'Seminar');
           if (seminar) {
             return (
               <ListItem key={talk.Title + talk.Date}>

@@ -1,5 +1,5 @@
 import useLocale from "../utils/useLocale";
-import { useRouter } from "next/router";
+import { NextRouter, useRouter } from "next/router";
 import { ArrowBack } from "@mui/icons-material";
 import { IconButton, Link, Tooltip } from "@mui/material";
 import React from "react";
@@ -8,9 +8,9 @@ const GoBackButton = ({ gutterLeft = false, gutterBottom = false, browserBack = 
   const { t } = useLocale();
 
   // margin left / bottom adjustment
-  const ml = (gutterLeft ? 1 : 0);
-  const mb = (gutterBottom ? 5 : 1);
-  const router = useRouter();
+  const ml: number = (gutterLeft ? 1 : 0);
+  const mb: number = (gutterBottom ? 5 : 1);
+  const router: NextRouter = useRouter();
 
   if (browserBack) {
     return (
