@@ -16,13 +16,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return { props: { headerData, personalInfo, }, };
 };
 
-const createData = (name: string, content: string) => {
+const createData = (name: string, content: string): CVTableData => {
   return { name: name, content: content };
 };
 
 const cv = ({ personalInfo }: { personalInfo: PersonalInfo }) => {
   const { t } = useLocale();
-  const rows_personal_data_1 = [
+  const rows_personal_data_1: CVTableData[] = [
     createData(t.NAME_FIRST, t.NAME_FIRST_CONTENT),
     createData(t.NAME_SECOND, t.NAME_SECOND_CONTENT),
     createData(t.DATE_OF_BIRTH, t.DATE_OF_BIRTH_CONTENT),
@@ -31,7 +31,7 @@ const cv = ({ personalInfo }: { personalInfo: PersonalInfo }) => {
     createData(t.AGE, personalInfo.age.toString()),
     createData(t.SEX, t.SEX_CONTENT),
   ];
-  const rows_personal_data_2 = [
+  const rows_personal_data_2: CVTableData[] = [
     createData(t.AFFILIATION, t.AFFILIATION_CONTENT),
     createData(t.POSTCODE, '94720-8099'),
     createData(t.ADDRESS, '1 Cyclotron Rd, Berkeley, CA'),
@@ -39,25 +39,25 @@ const cv = ({ personalInfo }: { personalInfo: PersonalInfo }) => {
     createData(t.EMAIL, 'SoChigusa[at]lbl.gov'),
     createData(t.WEBPAGE, 'https://website-sochigusa.vercel.app/'),
   ];
-  const rows_education = [
+  const rows_education: CVTableData[] = [
     createData(t.EDUCATION_DOCTOR_DATE, t.EDUCATION_DOCTOR),
     createData(t.EDUCATION_MASTER_DATE, t.EDUCATION_MASTER),
     createData(t.EDUCATION_BACHELOR_DATE, t.EDUCATION_BACHELOR),
   ];
-  const rows_professional_experience = [
+  const rows_professional_experience: CVTableData[] = [
     createData(t.PE_3_DATE, t.PE_3_CONTENT),
     createData(t.PE_2_DATE, t.PE_2_CONTENT),
     createData(t.PE_1_DATE, t.PE_1_CONTENT),
   ];
-  const rows_teaching_experience = [
+  const rows_teaching_experience: CVTableData[] = [
     createData(t.TE_1_DATE, t.TE_1_CONTENT),
   ];
-  const rows_grants = [
+  const rows_grants: CVTableData[] = [
     createData(t.GRANT_1_DATE, t.GRANT_1_CONTENT),
     createData(t.GRANT_2_DATE, t.GRANT_2_CONTENT),
     createData(t.GRANT_3_DATE, t.GRANT_3_CONTENT),
   ];
-  const rows_honors_and_awards = [
+  const rows_honors_and_awards: CVTableData[] = [
     createData('1.', t.HA_1_CONTENT),
     createData('2.', t.HA_2_CONTENT),
   ];

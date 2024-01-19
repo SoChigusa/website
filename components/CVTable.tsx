@@ -26,7 +26,7 @@ const TitleBlock = ({ title }: { title: string }) => {
 
 const MyTableCell = ({ name, content }: { name: string, content: string }) => {
   const { t } = useLocale();
-  if (name == t.EMAIL) {
+  if (name === t.EMAIL) {
     return (
       <TableCell align="left">
         {content}
@@ -39,7 +39,7 @@ const MyTableCell = ({ name, content }: { name: string, content: string }) => {
         </a>
       </TableCell>
     );
-  } else if (name == t.WEBPAGE) {
+  } else if (name === t.WEBPAGE) {
     return (
       <TableCell align="left">
         <Link href={content}>{content}</Link>
@@ -52,7 +52,7 @@ const MyTableCell = ({ name, content }: { name: string, content: string }) => {
   }
 }
 
-const CVTable = ({ title = '', rows }: { title?: string, rows: Array<any> }) => {
+const CVTable = ({ title = '', rows }: { title?: string, rows: CVTableData[] }) => {
   return (
     <Grid item xs={12} md={6}>
       <TitleBlock title={title} />

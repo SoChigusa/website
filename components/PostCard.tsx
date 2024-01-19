@@ -1,8 +1,12 @@
-import { Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
+import { Card, CardContent, CardMedia, Grid, SxProps, Theme, Typography } from "@mui/material";
 import Link from "./Link";
 
-const PostCard = ({ post, isIndexPage = false }: { post: any, isIndexPage?: boolean }) => {
-  let xs, sm, md, sx, sx_media;
+const PostCard = ({ post, isIndexPage = false }: { post: Post, isIndexPage?: boolean }) => {
+  let xs: number;
+  let sm: number;
+  let md: number;
+  let sx: SxProps<Theme>;
+  let sx_media: SxProps<Theme>;
   if (isIndexPage) { // layout for index.js
     xs = 12;
     sm = 12;

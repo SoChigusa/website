@@ -9,13 +9,13 @@ import RecentResearchTab from "../components/RecentResearchTab";
 import NewestPublication from "../components/NewestPublication";
 import PostCard from "../components/PostCard";
 import Link from "next/link";
-import { GetStaticPropsContext } from "next";
+import { GetStaticProps } from "next";
 
-export async function getStaticProps({ params }: GetStaticPropsContext) {
-  const headerData = createHeaderData();
-  const publications = await extractPublicationData({ slice: 4 });
-  const talks = await extractTalkData({ slice: 8 });
-  return { props: { headerData, publications, talks }, };
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const headerData: HeaderData = createHeaderData();
+  const publications: Publication[] = await extractPublicationData({ slice: 4 });
+  const talk_list: TalkList = await extractTalkData({ slice: 8 });
+  return { props: { headerData, publications, talk_list }, };
 }
 
 const IndexSubTitle = ({ title, href, buttonText }: { title: string, href: string, buttonText: string }) => (
@@ -33,11 +33,11 @@ const IndexSubTitle = ({ title, href, buttonText }: { title: string, href: strin
   </Stack>
 );
 
-export default function Home({ headerData, publications, talks }: { headerData: any, publications: any, talks: any }) {
+export default function Home({ headerData, publications, talk_list }: { headerData: HeaderData, publications: Publication[], talk_list: TalkList }) {
   const { locale, t } = useLocale();
-  const publications_recent = publications.slice(1);
-  const totalPosts = locale === 'en' ? headerData.tips_en : headerData.tips_ja;
-  const posts = totalPosts.slice(0, 2);
+  const publications_recent: Publication[] = publications.slice(1);
+  const totalPosts: Post[] = locale === 'en' ? headerData.tips_en : headerData.tips_ja;
+  const posts: Post[] = totalPosts.slice(0, 2);
 
   return (
     <>
@@ -46,14 +46,13 @@ export default function Home({ headerData, publications, talks }: { headerData: 
         {t.RECENT_ACTIVITIES}
       </Typography>
 
-
       <IndexSubTitle title={t.RESEARCH} href='research' buttonText={t.LIST_PAGE} />
       <Stack spacing={2} sx={{ flexDirection: { xs: 'column', md: 'row' } }}>
         <Box sx={{ width: { xs: '100%', md: '48%' } }}>
           <NewestPublication publication={publications[0]} />
         </Box>
         <Box sx={{ width: { xs: '100%', md: '48%' } }}>
-          <RecentResearchTab publications={publications_recent} talks={talks} />
+          <RecentResearchTab publications={publications_recent} talks={talk_list.all} />
         </Box>
       </Stack>
 

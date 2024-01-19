@@ -12,7 +12,7 @@ const Link = ({ children, href, target, localeChange = false, color = 'primary',
     );
   } else {
     if (localeChange) {
-      var newLocale = '';
+      let newLocale = '';
       const { locale } = useLocale();
       if (locale === 'en')
         newLocale = 'ja';

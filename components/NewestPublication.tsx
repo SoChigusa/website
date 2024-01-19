@@ -5,26 +5,26 @@ import Link from "./Link";
 
 const ABSTRACT_MAX_LENGTH = 300
 
-const NewestPublication = ({ publication }: { publication: any }) => {
-  const authorOrig = publication.entryTags.AUTHOR;
-  const titleOrig = publication.entryTags.TITLE.slice(1, -1);
-  const eprint = publication.entryTags.EPRINT;
-  const date = publication.entryTags.date;
+const NewestPublication = ({ publication }: { publication: Publication }) => {
+  const authorOrig: string = publication.entryTags.AUTHOR;
+  const titleOrig: string = publication.entryTags.TITLE.slice(1, -1);
+  const eprint: string = publication.entryTags.EPRINT;
+  const date: string = publication.entryTags.date;
   const noimage = 'https://placehold.jp/32/003060/e0e0e0/286x180.png?text=No Image'
 
   // shrink abstract
-  var abstract = mathjaxInline(publication.entryTags.abstract)
-  abstract = abstract.substr(0, ABSTRACT_MAX_LENGTH);
-  abstract = abstract.substr(0, Math.min(abstract.length, abstract.lastIndexOf(" "))) + '...';
+  let abstract: string = mathjaxInline(publication.entryTags.abstract)
+  abstract = abstract.substring(0, ABSTRACT_MAX_LENGTH);
+  abstract = abstract.substring(0, Math.min(abstract.length, abstract.lastIndexOf(" "))) + '...';
 
   // from [Family], [First] to [First] [Family]
-  const author = deformAuthorNames(authorOrig);
+  const author: string = deformAuthorNames(authorOrig);
 
   // replace specific latex commands in my paper titles
-  const title = latexReplacement(titleOrig);
+  const title: string = latexReplacement(titleOrig);
 
   // query for Link
-  const query = {
+  const query: LinkQuery = {
     expanded: eprint
   };
 
@@ -39,7 +39,7 @@ const NewestPublication = ({ publication }: { publication: any }) => {
         />
       </Link>
       <CardContent sx={{ width: '94%', px: '3%' }}>
-        <Link href={`research/publications`} query={query}>
+        <Link href='research/publications' query={query}>
           <Typography variant="h6" component="div" fontFamily={['"Times New Roman"',
             '"Hiragino Mincho ProN"',
             '"MS P明朝"',

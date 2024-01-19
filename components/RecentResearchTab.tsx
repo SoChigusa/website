@@ -7,21 +7,21 @@ import { deformAuthorNames, latexReplacement } from "../utils/deformPublicationD
 import Link from "./Link";
 import TalkList from "./TalkList";
 
-const PublicationCardSmall = (publication: any) => {
-  const authorOrig = publication.entryTags.AUTHOR;
-  const titleOrig = publication.entryTags.TITLE.slice(1, -1);
-  const eprint = publication.entryTags.EPRINT;
-  const date = publication.entryTags.date;
+const PublicationCardSmall = (publication: Publication) => {
+  const authorOrig: string = publication.entryTags.AUTHOR;
+  const titleOrig: string = publication.entryTags.TITLE.slice(1, -1);
+  const eprint: string = publication.entryTags.EPRINT;
+  const date: string = publication.entryTags.date;
   const noimage = 'https://placehold.jp/32/003060/e0e0e0/286x180.png?text=No Image'
 
   // from [Family], [First] to [First] [Family]
-  const author = deformAuthorNames(authorOrig);
+  const author: string = deformAuthorNames(authorOrig);
 
   // replace specific latex commands in my paper titles
-  const title = latexReplacement(titleOrig);
+  const title: string = latexReplacement(titleOrig);
 
   // query for Link
-  const query = {
+  const query: LinkQuery = {
     expanded: eprint
   };
 
@@ -54,14 +54,14 @@ const PublicationCardSmall = (publication: any) => {
           </Typography>
         </Stack>
       </Box>
-    </Box >
+    </Box>
   );
 };
 
-const RecentResearchTab = ({ publications, talks }: { publications: Array<any>, talks: any }) => {
+const RecentResearchTab = ({ publications, talks }: { publications: Publication[], talks: Talk[] }) => {
   const { t } = useLocale();
   const [tab, setTab] = React.useState(0);
-  const handleChange = (event: any, newTab: number) => {
+  const handleChange: TabOnChange = (event, newTab) => {
     setTab(newTab);
   };
 
@@ -77,13 +77,13 @@ const RecentResearchTab = ({ publications, talks }: { publications: Array<any>, 
         <Tab label={t.TALKS} />
       </Tabs>
       {
-        tab === 0 &&
+        tab == 0 &&
         publications.map(publication => {
           return (PublicationCardSmall(publication))
         })
       }
       {
-        tab === 1 && (
+        tab == 1 && (
           <TalkList talks={talks} />
         )
       }

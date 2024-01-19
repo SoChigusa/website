@@ -84,9 +84,15 @@ interface PersonalInfo {
   age: number
 }
 
+interface CVTableData {
+  name: string
+  content: string
+}
+
 // Copies of Default Types
 
 type AccordionOnChange = ((event: SyntheticEvent<Element, Event>, expanded: boolean) => void) | undefined;
 type RadioOnChange = ((event: ChangeEvent<HTMLInputElement>, value: string) => void) | undefined;
 type CheckboxOnChange = ((event: ChangeEvent<HTMLInputElement>, checked: boolean) => void) | undefined;
+type TabOnChange = ((event: React.SyntheticEvent<Element, Event>, value: any) => void) | undefined;
 type LinkQuery = string | ParsedUrlQueryInput | null | undefined;
