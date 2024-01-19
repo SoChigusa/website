@@ -80,6 +80,10 @@ interface LatexRS {
   statements: Statement[]
 }
 
+interface PersonalInfo {
+  age: number
+}
+
 // Copies of Default Types
 
 type AccordionOnChange = ((event: SyntheticEvent<Element, Event>, expanded: boolean) => void) | undefined;

@@ -7,20 +7,20 @@ import CVTable from "../components/CVTable";
 import Link from "../components/Link";
 import { Button, Grid, Stack, Typography } from "@mui/material";
 import { Article, List } from "@mui/icons-material";
-import { GetStaticPropsContext } from "next";
+import { GetStaticProps } from "next";
 
-export async function getStaticProps({ params }: GetStaticPropsContext) {
-  const headerData = createHeaderData();
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const headerData: HeaderData = createHeaderData();
   const talk_list: TalkList = await extractTalkData({});
-  const personalInfo = compileCV({ talk_list: talk_list });
+  const personalInfo: PersonalInfo = compileCV({ talk_list: talk_list });
   return { props: { headerData, personalInfo, }, };
-}
+};
 
 const createData = (name: string, content: string) => {
   return { name: name, content: content };
 };
 
-const cv = ({ personalInfo }: { personalInfo: any }) => {
+const cv = ({ personalInfo }: { personalInfo: PersonalInfo }) => {
   const { t } = useLocale();
   const rows_personal_data_1 = [
     createData(t.NAME_FIRST, t.NAME_FIRST_CONTENT),
@@ -28,7 +28,7 @@ const cv = ({ personalInfo }: { personalInfo: any }) => {
     createData(t.DATE_OF_BIRTH, t.DATE_OF_BIRTH_CONTENT),
     createData(t.PLACE_OF_BIRTH, t.PLACE_OF_BIRTH_CONTENT),
     createData(t.NATIONALITY, t.NATIONALITY_CONTENT),
-    createData(t.AGE, personalInfo.age),
+    createData(t.AGE, personalInfo.age.toString()),
     createData(t.SEX, t.SEX_CONTENT),
   ];
   const rows_personal_data_2 = [

@@ -45,7 +45,7 @@ const deformTalkInformation = ({ talks, format }: { talks: Talk[], format: strin
   return header + talks_src.join('') + footer;
 };
 
-const compileCV = ({ talk_list }: { talk_list: TalkList }) => {
+const compileCV = ({ talk_list }: { talk_list: TalkList }): PersonalInfo => {
   let latex_src: string = fs.readFileSync('research/cv_template.tex', 'utf-8');
   const seminars: Talk[] = talk_list.seminars;
   const talks: Talk[] = talk_list.talks;

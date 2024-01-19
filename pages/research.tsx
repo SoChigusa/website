@@ -27,9 +27,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 const Research = ({ publications, talk_list, latex_RS }: { publications: Publication[], talk_list: TalkList, latex_RS: LatexRS }) => {
   const { t } = useLocale();
-  const seminars: Talk[] = talk_list.seminars;
-  const talks: Talk[] = talk_list.talks;
-  const awards: Talk[] = talk_list.awards;
+
   return (
     <>
       <ArticlesMeta
@@ -81,19 +79,19 @@ const Research = ({ publications, talk_list, latex_RS }: { publications: Publica
         <Typography gutterBottom variant="h5">
           {t.INVITED_SEMINARS}
         </Typography>
-        <TalkList talks={seminars} seeMore />
+        <TalkList talks={talk_list.seminars} seeMore />
       </Box>
       <Box sx={{ flexGrow: 1, my: 2 }}>
         <Typography gutterBottom variant="h5">
           {t.OTHER_TALKS}
         </Typography>
-        <TalkList talks={talks} seeMore />
+        <TalkList talks={talk_list.talks} seeMore />
       </Box>
       <Box sx={{ flexGrow: 1, mb: 5 }}>
         <Typography gutterBottom variant="h5">
           {t.AWARDS}
         </Typography>
-        <TalkList talks={awards} />
+        <TalkList talks={talk_list.awards} />
       </Box>
     </>
   )
