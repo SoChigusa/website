@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import createHeaderData from '../utils/createHeaderData';
 import setDatabase from "../utils/db/setDatabase";
 import { Box, Grid } from "@mui/material";
@@ -7,9 +6,10 @@ import PaginationBar from '../components/PaginationBar';
 import { PAGE_SIZE } from '../components/PaginationBar';
 import PostCard from '../components/PostCard';
 import useLocale from "../utils/useLocale";
+import { GetStaticProps } from 'next';
 
-export async function getStaticProps() {
-  const headerData = createHeaderData();
+export const getStaticProps: GetStaticProps = async () => {
+  const headerData: HeaderData = createHeaderData();
   await setDatabase({ collection: 'posts', posts: headerData.tips_ja });
   return {
     props: {
@@ -18,11 +18,11 @@ export async function getStaticProps() {
   };
 };
 
-const Tips = ({ headerData }: { headerData: any }) => {
+const Tips = ({ headerData }: { headerData: HeaderData }) => {
   const { locale, t } = useLocale();
-  const totalPosts = locale === 'en' ? headerData.tips_en : headerData.tips_ja;
-  const totalPages = Math.ceil(totalPosts.length / PAGE_SIZE);
-  const posts = totalPosts.slice(0, PAGE_SIZE);
+  const totalPosts: Post[] = locale === 'en' ? headerData.tips_en : headerData.tips_ja;
+  const total_page: number = Math.ceil(totalPosts.length / PAGE_SIZE);
+  const posts: Post[] = totalPosts.slice(0, PAGE_SIZE);
 
   return (
     <>
@@ -39,7 +39,7 @@ const Tips = ({ headerData }: { headerData: any }) => {
           ))}
         </Grid>
       </Box>
-      <PaginationBar totalPages={totalPages} />
+      <PaginationBar total_page={total_page} />
     </>
   )
 };

@@ -1,14 +1,14 @@
 import createHeaderData from "../utils/createHeaderData";
 import ArticlesMeta from "../components/meta/articles";
 import TemporalAlert from "../components/TemporalAlert";
-import { GetStaticPropsContext } from "next";
+import { GetStaticProps } from "next";
 
-export async function getStaticProps({ params }: GetStaticPropsContext) {
-  const headerData = createHeaderData();
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const headerData: HeaderData = createHeaderData();
   return { props: { headerData, }, };
 }
 
-export default function Home({ headerData }: { headerData: any }) {
+export default function Home({ headerData }: { headerData: HeaderData }) {
   return (
     <>
       <ArticlesMeta

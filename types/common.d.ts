@@ -1,15 +1,3 @@
-interface FrontMatter {
-  title: string
-  date: string
-  description: string
-  image: string
-}
-
-interface Post {
-  frontMatter: FrontMatter
-  slug: string
-}
-
 interface HeaderData {
   tips_ja: Post[]
   tips_en: Post[]
@@ -87,6 +75,26 @@ interface PersonalInfo {
 interface CVTableData {
   name: string
   content: string
+}
+
+interface FrontMatter {
+  title: string
+  date: string
+  description: string
+  image: string
+}
+
+interface Post {
+  frontMatter: FrontMatter
+  slug: string
+}
+
+interface PostPath {
+  params: {
+    slug?: string
+    page?: string
+  }
+  locale: string
 }
 
 // Copies of Default Types
