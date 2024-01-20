@@ -110,7 +110,7 @@ const AddFiltersForTalks = ({ talkFilters, talkFiltersOnChange }: { talkFilters:
   }
 };
 
-const Talks = ({ talk_list }: { talk_list: TalkList }) => {
+const Talks = ({ talk_list }: MyPageProps) => {
   const { t } = useLocale();
 
   // filters

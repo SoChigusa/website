@@ -1,3 +1,10 @@
+interface MyPageProps {
+  headerData: HeaderData
+  publications: Publication[]
+  talk_list: TalkList
+  latex_RS: LatexRS
+}
+
 interface HeaderData {
   tips_ja: Post[]
   tips_en: Post[]
@@ -104,3 +111,4 @@ type RadioOnChange = ((event: ChangeEvent<HTMLInputElement>, value: string) => v
 type CheckboxOnChange = ((event: ChangeEvent<HTMLInputElement>, checked: boolean) => void) | undefined;
 type TabOnChange = ((event: React.SyntheticEvent<Element, Event>, value: any) => void) | undefined;
 type LinkQuery = string | ParsedUrlQueryInput | null | undefined;
+type MenuOnClose = ((event: {}, reason: "backdropClick" | "escapeKeyDown") => void) | undefined;

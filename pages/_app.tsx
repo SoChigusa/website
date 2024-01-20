@@ -5,13 +5,13 @@ import 'highlight.js/styles/panda-syntax-light.css';
 import '../styles/globals.css'
 import { MathJaxContext } from 'better-react-mathjax';
 import { ThemeProvider } from '@emotion/react';
-import { createTheme, responsiveFontSizes } from '@mui/material';
-import { useRouter } from 'next/router';
+import { Theme, createTheme, responsiveFontSizes } from '@mui/material';
+import { NextRouter, useRouter } from 'next/router';
 import { useEffect } from "react";
 import { AppProps } from "next/app";
 
 const usePageTracking = () => {
-  const router = useRouter();
+  const router: NextRouter = useRouter();
 
   useEffect(() => {
     // Google Analytics
@@ -24,20 +24,20 @@ const usePageTracking = () => {
 };
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const serifFamily = [
+  const serifFamily: string = [
     '"Times New Roman"',
     '"Hiragino Mincho ProN"',
     '"MS P明朝"',
     'serif',
   ].join(',');
-  const sanserifFamily = [
+  const sanserifFamily: string = [
     '"Helvetica Neue"',
     '"Hiragino Sans"',
     '"Arial"',
     '"游ゴシック"',
     'san-serif',
   ].join(',');
-  var theme = createTheme({
+  let theme: Theme = createTheme({
     typography: {
       fontFamily: serifFamily,
       h4: {
@@ -59,7 +59,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   });
   theme = responsiveFontSizes(theme);
 
-  const config = {
+  const config: MathjaxContextConfig = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']]
     }

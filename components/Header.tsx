@@ -1,24 +1,24 @@
-import { useState } from "react";
+import { MouseEventHandler, useState } from "react";
 import useLocale from "../utils/useLocale";
-import { AppBar, Box, Toolbar, Typography, Button, Menu, IconButton, Container, MenuItem, Avatar, Divider, Tooltip, Breadcrumbs, SelectChangeEvent } from "@mui/material";
+import { AppBar, Box, Toolbar, Typography, Button, Menu, IconButton, Container, MenuItem, Avatar, Divider, Tooltip, Breadcrumbs } from "@mui/material";
 import SchoolIcon from '@mui/icons-material/School';
 import MenuIcon from "@mui/icons-material/Menu";
 import TranslateIcon from '@mui/icons-material/Translate';
 import { ExpandMore, NavigateNext } from "@mui/icons-material";
 import Link from "./Link";
-import { useRouter } from "next/router";
+import { NextRouter, useRouter } from "next/router";
 
 const BreadcrumbFromURL = () => {
   const { t } = useLocale();
-  const router = useRouter();
-  const path = router.pathname;
-  const breadcrumbs = path.split('/').filter(breadcrumb => breadcrumb != '[page]');
-  const elements = breadcrumbs.map(breadcrumb => {
-    const position = path.indexOf(breadcrumb);
+  const router: NextRouter = useRouter();
+  const path: string = router.pathname;
+  const breadcrumbs: string[] = path.split('/').filter(breadcrumb => breadcrumb != '[page]');
+  const elements: MapID2URL[] = breadcrumbs.map(breadcrumb => {
+    const position: number = path.indexOf(breadcrumb);
     let prefix = '/';
     if (position != 0)
       prefix = path.substring(0, position);
-    let id = breadcrumb;
+    let id: string = breadcrumb;
     if (breadcrumb == '') id = t.HOME;
     else if (breadcrumb == 'cv') id = t.CV;
     else if (breadcrumb == 'research') id = t.RESEARCH;
@@ -62,32 +62,41 @@ const BreadcrumbFromURL = () => {
   );
 }
 
-const Header = ({ headerData, slug, existTranslation }: { headerData: any, slug: any, existTranslation: boolean }) => {
+const Header = ({ headerData, slug, existTranslation }: { headerData: HeaderData, slug: string, existTranslation: boolean }) => {
   const { locale, t } = useLocale();
-  const pages = [
-    { name: t.HOME, url: '/' },
-    { name: t.CV, url: '/cv' },
-    { name: t.RESEARCH, url: '/research' },
-    { name: t.TIPS, url: '/tips' },
-    { name: t.REPOSITORIES, url: '/repositories' },
+  const pages: MapID2URL[] = [
+    { id: t.HOME, url: '/' },
+    { id: t.CV, url: '/cv' },
+    { id: t.RESEARCH, url: '/research' },
+    { id: t.TIPS, url: '/tips' },
+    { id: t.REPOSITORIES, url: '/repositories' },
   ];
-  const newTips = locale === 'en' ? headerData.tips_en.slice(0, 6) : headerData.tips_ja.slice(0, 6);
+  const newTips: Post[] = locale === 'en' ? headerData.tips_en.slice(0, 6) : headerData.tips_ja.slice(0, 6);
 
   // for menu icon button
-  const [anchorElNav, setAnchorElNav] = useState(null);
-  const handleOpenNavMenu = (event: any) => {
+  const [anchorElNav, setAnchorElNav] = useState<EventTarget & HTMLButtonElement | null>(null);
+  const handleOpenNavMenu: MouseEventHandler<HTMLButtonElement> = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu: MenuOnClose = () => {
+    setAnchorElNav(null);
+  };
+  const handleMenuButtonOnClick: MouseEventHandler<HTMLButtonElement> = (event) => {
+    setAnchorElNav(null);
+  };
+  const handleMenuLIOnClick: MouseEventHandler<HTMLLIElement> = (event) => {
     setAnchorElNav(null);
   };
 
   // for tips dropdown
-  const [anchorElDropdown, setAnchorElDropdown] = useState(null);
-  const handleOpenDropdown = (event: any) => {
+  const [anchorElDropdown, setAnchorElDropdown] = useState<EventTarget & HTMLButtonElement | null>(null);
+  const handleOpenDropdown: MouseEventHandler<HTMLButtonElement> = (event) => {
     setAnchorElDropdown(event.currentTarget);
   };
-  const handleCloseDropdown = () => {
+  const handleCloseDropdown: MenuOnClose = () => {
+    setAnchorElDropdown(null);
+  };
+  const handleTipsOnClick: MouseEventHandler<HTMLLIElement> = (event) => {
     setAnchorElDropdown(null);
   };
 
@@ -149,9 +158,9 @@ const Header = ({ headerData, slug, existTranslation }: { headerData: any, slug:
               >
                 {pages.map((page) => {
                   return (
-                    <Link key={page.name} href={page.url} color='inherit'>
-                      <MenuItem onClick={handleCloseNavMenu}>
-                        <Typography textAlign="center" variant="button">{page.name}</Typography>
+                    <Link key={page.id} href={page.url} color='inherit'>
+                      <MenuItem onClick={handleMenuLIOnClick}>
+                        <Typography textAlign="center" variant="button">{page.id}</Typography>
                       </MenuItem>
                     </Link>
                   );
@@ -183,7 +192,7 @@ const Header = ({ headerData, slug, existTranslation }: { headerData: any, slug:
             {/* Menu for medium size window */}
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               {pages.map((page) => {
-                if (page.name == t.TIPS) {
+                if (page.id === t.TIPS) {
                   return (
                     <Box key='tips'>
                       <Button
@@ -217,7 +226,7 @@ const Header = ({ headerData, slug, existTranslation }: { headerData: any, slug:
                             <Link key={post.slug} href={`/tips/${post.slug}`} color='inherit'>
                               <MenuItem
                                 key={post.slug}
-                                onClick={handleCloseDropdown}
+                                onClick={handleTipsOnClick}
                               >
                                 <Typography textAlign="center">{post.frontMatter.title}</Typography>
                               </MenuItem>
@@ -228,7 +237,7 @@ const Header = ({ headerData, slug, existTranslation }: { headerData: any, slug:
                         <Link href='/tips' color='inherit'>
                           <MenuItem
                             key='more'
-                            onClick={handleCloseDropdown}
+                            onClick={handleTipsOnClick}
                           >
                             <Typography textAlign="center">{t.SEE_MORE_TIPS}</Typography>
                           </MenuItem>
@@ -238,13 +247,13 @@ const Header = ({ headerData, slug, existTranslation }: { headerData: any, slug:
                   );
                 } else {
                   return (
-                    <Box key={page.name}>
+                    <Box key={page.id}>
                       <Link href={page.url} color='inherit'>
                         <Button
-                          onClick={handleCloseNavMenu}
+                          onClick={handleMenuButtonOnClick}
                           sx={{ my: 2, color: 'white' }}
                         >
-                          {page.name}
+                          {page.id}
                         </Button>
                       </Link>
                     </Box>

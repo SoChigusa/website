@@ -4,12 +4,12 @@ import ArticlesMeta from "../components/meta/articles";
 import Link from "../components/Link";
 import RepositoryCard from "../components/RepositoryCard";
 import { Stack, Typography } from "@mui/material";
-import { GetStaticPropsContext } from "next";
+import { GetStaticProps } from "next";
 
-export async function getStaticProps({ params }: GetStaticPropsContext) {
-  const headerData = createHeaderData();
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const headerData: HeaderData = createHeaderData();
   return { props: { headerData, }, };
-}
+};
 
 export default function Home() {
   const { t } = useLocale();

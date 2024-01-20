@@ -33,7 +33,7 @@ const IndexSubTitle = ({ title, href, buttonText }: { title: string, href: strin
   </Stack>
 );
 
-export default function Home({ headerData, publications, talk_list }: { headerData: HeaderData, publications: Publication[], talk_list: TalkList }) {
+export default function Home({ headerData, publications, talk_list }: MyPageProps) {
   const { locale, t } = useLocale();
   const publications_recent: Publication[] = publications.slice(1);
   const totalPosts: Post[] = locale === 'en' ? headerData.tips_en : headerData.tips_ja;

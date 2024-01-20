@@ -8,7 +8,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return { props: { headerData, }, };
 }
 
-export default function Home({ headerData }: { headerData: HeaderData }) {
+export default function Home({ headerData }: MyPageProps) {
   return (
     <>
       <ArticlesMeta

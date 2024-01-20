@@ -25,7 +25,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return { props: { headerData, publications, talk_list, latex_RS }, };
 }
 
-const Research = ({ publications, talk_list, latex_RS }: { publications: Publication[], talk_list: TalkList, latex_RS: LatexRS }) => {
+const Research = ({ publications, talk_list, latex_RS }: MyPageProps) => {
   const { t } = useLocale();
 
   return (

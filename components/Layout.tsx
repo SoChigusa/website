@@ -3,7 +3,7 @@ import Header from './Header';
 import { MathJaxContext } from 'better-react-mathjax';
 import { Container } from '@mui/material';
 
-export default function Layout({ children, headerData, slug, existTranslation }: { children: ReactNode, headerData: any, slug: any, existTranslation: boolean }) {
+export default function Layout({ children, headerData, slug, existTranslation }: { children: ReactNode, headerData: HeaderData, slug: string, existTranslation: boolean }) {
   return (
     <>
       <Header headerData={headerData} slug={slug} existTranslation={existTranslation} />

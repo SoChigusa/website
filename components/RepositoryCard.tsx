@@ -3,10 +3,10 @@ import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
 import useLocale from "../utils/useLocale";
 import { ReactNode, Children } from "react";
 
-const RepositoryCard = ({ children, name, href, imgType }: { children: Array<ReactNode> | ReactNode, name: string, href: string, imgType: string }) => {
+const RepositoryCard = ({ children, name, href, imgType }: { children: ReactNode[] | ReactNode, name: string, href: string, imgType: string }) => {
   const { t } = useLocale();
 
-  const childList: Array<ReactNode> = [children].flat();
+  const childList: ReactNode[] = [children].flat();
   let body = (<></>);
   let footer = (<></>);
   if (Children.count(children) > 1) { // with footer

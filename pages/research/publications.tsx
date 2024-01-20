@@ -13,12 +13,12 @@ import { GetStaticProps } from "next";
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const headerData: HeaderData = createHeaderData();
-  const publications: Publication[] = await extractPublicationData();
+  const publications: Publication[] = await extractPublicationData({});
   await setDatabase({ collection: 'publications', publications });
   return { props: { headerData, publications }, };
 }
 
-const Publications = ({ publications }: { publications: Publication[] }) => {
+const Publications = ({ publications }: MyPageProps) => {
   const { t } = useLocale();
 
   // state to organize accordions

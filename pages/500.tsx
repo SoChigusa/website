@@ -1,11 +1,12 @@
 import createHeaderData from '../utils/createHeaderData';
 import Head from 'next/head';
 import ErrorPage from 'next/error'
+import { GetStaticProps } from 'next';
 
-export async function getStaticProps({ params }: { params: any }) {
-  const headerData = createHeaderData();
+export const getStaticProps: GetStaticProps = ({ params }) => {
+  const headerData: HeaderData = createHeaderData();
   return { props: { headerData, }, };
-}
+};
 
 const Custom500 = () => {
   return (

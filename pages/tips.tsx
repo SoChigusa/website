@@ -18,7 +18,7 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-const Tips = ({ headerData }: { headerData: HeaderData }) => {
+const Tips = ({ headerData }: MyPageProps) => {
   const { locale, t } = useLocale();
   const totalPosts: Post[] = locale === 'en' ? headerData.tips_en : headerData.tips_ja;
   const total_page: number = Math.ceil(totalPosts.length / PAGE_SIZE);

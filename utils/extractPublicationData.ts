@@ -2,7 +2,7 @@ import fs from "fs";
 import { toJSON } from "bibtex-parser-js";
 import parse, { HTMLElement } from "node-html-parser";
 
-const extractPublicationData = async ({ slice = -1 } = {}) => {
+const extractPublicationData = async ({ slice = -1 }) => {
   const bib: string = fs.readFileSync(`research/publications.bib`, 'utf-8');
   let publications: Publication[] = (slice >= 0 ? toJSON(bib).slice(0, slice) : toJSON(bib));
 
