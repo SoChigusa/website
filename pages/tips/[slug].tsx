@@ -13,12 +13,7 @@ import hljs from 'highlight.js';
 import { GetStaticPaths, GetStaticProps } from 'next';
 
 export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
-  // const ip = await marked.setOptions({
-  //   highlight: (code) => {
-  //     return hljs.highlightAuto(code).value
-  //   },
-  // });
-
+  // highligh settings
   const renderer = new marked.Renderer();
   renderer.code = (code, codeInfo) => {
     const [lang, fileName] = typeof codeInfo === 'undefined' ? [undefined, undefined] : codeInfo.split(':');

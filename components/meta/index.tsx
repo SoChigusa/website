@@ -26,6 +26,7 @@ export default function IndexMeta({ title = "[Default Title]", description = "[D
       <meta name="twitter:title" content={new_title} />
       <meta name="twitter:description" content={new_description} />
       {/* <meta name="twitter:image" content="Image" /> */}
+      <meta name="description" content={description} />
       <title>{new_title}</title>
     </Head>
   );

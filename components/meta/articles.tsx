@@ -20,6 +20,7 @@ export default function ArticlesMeta({ title, description, url, img }: { title: 
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={`${homeURL}${img}`} />
+      <meta name="description" content={description} />
       <title>{title}</title>
     </Head>
   );
