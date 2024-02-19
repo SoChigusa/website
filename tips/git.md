@@ -11,7 +11,7 @@ image: 'Git-logo.svg'
 
 ## latexdiffを使う
 
-gitに対応した`latexdiff-vc`を用いてgitレポジトリの任意のバージョンとのdiffが取れる。より詳しくは[別記事](latexdiff.html)を参照のこと。
+gitに対応した`latexdiff-vc`を用いてgitレポジトリの任意のバージョンとのdiffが取れる。より詳しくは[別記事](latexdiff)を参照のこと。
 
 ## mergeの活用
 
