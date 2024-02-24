@@ -1,7 +1,7 @@
 ---
 
 title: '快適な latexdiff 生活'
-date: '2024-02-21'
+date: '2024-02-24'
 description: 'latexdiff の使用法に関する tips'
 image: 'LaTeX_project_logo_bird.svg'
 
@@ -15,10 +15,36 @@ Logo by <a href="https://latex-project.org/" target="_blank">The LaTeX Project</
 latexdiff-vc -e utf8 --exclude-textcmd="section,subsection,subsubsection" --git --flatten --force -d diff -r (commit / HEAD) (filename)
 ```
 
-さらに、このコマンドで生成される latex ソースファイルは元のソースファイルと別の場所におかれるため、以下のようなコマンドをプリアンブルの一番下に追加して図のパスを指定しておく。
+さらに、このコマンドで生成される latex ソースファイルは元のソースファイルと別の場所におかれるため、図やスタイルファイルのパスを通しておく必要がある。
+図については以下のようなコマンドでパスを通す。
 
 ``` latex
 \graphicspath{{../}}
+```
+
+スタイルファイルはあらかじめインストールしておくのが吉。`.sty` のインストール手順は
+
+``` shell
+kpsewhich -var-value TEXMF
+```
+
+で規定の置き場所を特定した後（今回は `/usr/local/texlive/2023/texmf-dist` を選択）、スタイルファイルを置くためのフォルダの作成、スタイルファイルの配置、リストの更新を行う。例として `jhephub.sty` を置いた際の作業は
+
+``` shell
+cd /usr/local/texlive/2023/texmf-dist/tex/latex
+sudo mkdir jhephub
+sudo cp **/jhephub.sty jhephub/
+sudo mktexlsr
+```
+
+`.bst` のインストール手順も同様で
+
+```shell
+kpsewhich -var-value BSTINPUTS
+cd /usr/local/texlive/2023/texmf-dist/bibtex/bst
+sudo mkdir jhep
+sudo cp **/jhep.bst jhep/
+sudo mktexlsr
 ```
 
 ### git との連携
