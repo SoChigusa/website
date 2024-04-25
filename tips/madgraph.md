@@ -1,7 +1,7 @@
 ---
 
 title: 'Madgraph の導入から計算まで'
-date: '2022-08-18'
+date: '2024-04-24'
 description: 'Madgraph の導入方法、使い方、トラブルシューティングに関する tips'
 image: 'Feynmann_Diagram_Gluon_Radiation.svg'
 
@@ -28,12 +28,31 @@ image: 'Feynmann_Diagram_Gluon_Radiation.svg'
 次に、`bin/mg5_aMC`から dependency のインストール
 
 ``` shell
- install boost
- install lhapdf6
- install zlib
- install hepmc
- install pythia8
+install boost
+install lhapdf6
+install zlib
+install hepmc
+install pythia8
 ```
+
+`delphes` のインストールの際には、`~/.bash_profile` に以下の設定が必要。
+（正しく設定されていない場合、設定の詳細がエラーメッセージとして出力されて install が進まない）
+
+``` shell
+export ROOTSYS=<root installation path>
+export PATH=$PATH:$ROOTSYS/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ROOTSYS/lib
+export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:$ROOTSYS/lib
+```
+
+設定を行なって `source ~/.bash_profile` したら、`bin/mg5_aMC` に戻って
+
+``` shell
+install Delphes
+```
+
+ただし、macOS > 10 では[ページ下部](#delphes-on-mac-os--10)に示すコンパイルエラーが発生するので、以下の記述に従って修正が必要。
+**(2024/4/24)修正の必要性を再確認。**
 
 ## 用法 ##
 
@@ -60,7 +79,7 @@ image: 'Feynmann_Diagram_Gluon_Radiation.svg'
 
 等々。
 
-## (2022/8/18) Delphes on Mac OS 11, 12
+## Delphes on Mac OS > 10
 
 Mac (arm) OS 12 にて Delphes をインストールしようとしたところ、以下のエラーに遭遇した。
 

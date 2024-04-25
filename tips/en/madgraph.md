@@ -1,7 +1,7 @@
 ---
 
 title: 'Install and simulate with Madgraph'
-date: '2022-08-18'
+date: '2024-04-24'
 description: 'Tips on how to introduce, use, and solve problems about Madgraph'
 image: 'Feynmann_Diagram_Gluon_Radiation.svg'
 
@@ -24,6 +24,25 @@ Next, install all the necessary dependencies as
  install hepmc
  install pythia8
 ```
+
+To install `delphes`, we need to add the following lines to `~/.bash_profile`; without the following lines, madgraph just outputs error messages with detailed description of what to do and does not process installation.
+
+``` shell
+export ROOTSYS=<root installation path>
+export PATH=$PATH:$ROOTSYS/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ROOTSYS/lib
+export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:$ROOTSYS/lib
+```
+
+After executing `source ~/.bash_profile`, relaunch `bin/mg5_aMC` and
+
+``` shell
+install Delphes
+```
+
+For macOS > 10, a compile error detailed [below](#delphes-on-mac-os--10) arises.
+We need to fix it according to the description there.
+**(2024/4/24)Fix is still needed!**
 
 ## How to use
 
@@ -48,7 +67,7 @@ Here are some examples of the workflow.
  launch
 ```
 
-## (2022/8/18) Delphes on Mac OS 11, 12
+## Delphes on Mac OS > 10
 
 I encountered the following error when I tried to install Delphes on Mac (arm) OS 12.
 
