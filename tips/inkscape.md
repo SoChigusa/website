@@ -1,6 +1,6 @@
 ---
 
-title: 'Inkscapeでお絵かき'
+title: 'Inkscape でお絵かき'
 date: '2023-12-30'
 description: 'フリーソフトの Inkscape を用いたイラスト作成に関する tips'
 image: 'Inkscape_Logo.svg'
