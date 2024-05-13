@@ -5,9 +5,9 @@ const extractTalkData = async ({ slice = -1 }) => {
   json = json.filter(talk => talk.Type != '');
 
   let all_talks: Talk[] = json.reverse();
-  let seminars: Talk[] = json.filter(talk => talk.Type == 'Seminar').reverse();
-  let talks: Talk[] = json.filter(talk => (talk.Type != 'Seminar' && talk.Type != 'Award')).reverse();
-  let awards: Talk[] = json.filter(talk => talk.Type == 'Award').reverse();
+  let seminars: Talk[] = json.filter(talk => talk.Type == 'Seminar');
+  let talks: Talk[] = json.filter(talk => (talk.Type != 'Seminar' && talk.Type != 'Award'));
+  let awards: Talk[] = json.filter(talk => talk.Type == 'Award');
   if (slice >= 0) {
     all_talks = all_talks.slice(0, slice);
     seminars = seminars.slice(0, slice);
