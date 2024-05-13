@@ -23,6 +23,12 @@ interface EntryTags {
 interface Publication {
   entryTags: EntryTags
   citationKey: string
+  YouTube?: string
+}
+
+interface Materials {
+  eprint: string
+  YouTube?: string
 }
 
 interface Talk {

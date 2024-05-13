@@ -24,6 +24,7 @@ export default {
   RESEARCH_DESCRIPTION: '研究活動のまとめ（論文、講演、受賞歴）【千草颯】',
   OPEN_PDF: 'PDFを開く',
   SEE_ON_ARXIV: 'arXivで見る',
+  WATCH_ON_YOUTUBE: 'YouTubeで見る',
   SEE_ON_INSPIRE_HEP: 'inspire HEPで見る',
   RESEARCH_INTERESTS: '研究概要',
   RECENT_ACTIVITIES: '最近の活動成果',

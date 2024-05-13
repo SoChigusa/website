@@ -24,6 +24,7 @@ export default {
   RESEARCH_DESCRIPTION: 'Summary of research works of So Chigusa: publications, talks, and awards',
   OPEN_PDF: 'Open PDF',
   SEE_ON_ARXIV: 'See on arXiv',
+  WATCH_ON_YOUTUBE: 'Watch on YouTube',
   SEE_ON_INSPIRE_HEP: 'See on inspire hep',
   RESEARCH_INTERESTS: 'Research Interests',
   RECENT_ACTIVITIES: 'Recent Activities',

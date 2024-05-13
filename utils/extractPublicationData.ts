@@ -3,6 +3,8 @@ import { toJSON } from "bibtex-parser-js";
 import parse, { HTMLElement } from "node-html-parser";
 
 const extractPublicationData = async ({ slice = -1 }) => {
+  const materials: Materials[] = JSON.parse(fs.readFileSync(`research/materials.json`, 'utf-8'));
+  const eprints: string[] = materials.map(material => material.eprint);
   const bib: string = fs.readFileSync(`research/publications.bib`, 'utf-8');
   let publications: Publication[] = (slice >= 0 ? toJSON(bib).slice(0, slice) : toJSON(bib));
 
@@ -17,7 +19,7 @@ const extractPublicationData = async ({ slice = -1 }) => {
 
         if (index < num_pub) {
           let publication = publications[index];
-          const eprint = publication.entryTags.EPRINT;
+          const eprint: string = publication.entryTags.EPRINT;
           publication.entryTags["isExist"] = !(typeof eprint === "undefined");
           publication.entryTags["imageExist"] = fs.existsSync(`public/publicationImages/${eprint}.svg`);
           if (publication.entryTags.isExist) {
@@ -33,6 +35,16 @@ const extractPublicationData = async ({ slice = -1 }) => {
             publication.entryTags["date"] = date;
             publication.entryTags["abstract"] = abstract;
           }
+
+          // additional materials
+          const i = eprints.indexOf(eprint);
+          if (i !== -1) {
+            if ('YouTube' in materials[i]) {
+              publication.YouTube = materials[i].YouTube;
+            }
+          }
+
+          // save
           publications[index] = publication;
 
           // next

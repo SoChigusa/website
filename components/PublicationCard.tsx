@@ -2,7 +2,7 @@ import useLocale from '../utils/useLocale';
 import { MathJax } from "better-react-mathjax";
 import { Accordion, AccordionDetails, AccordionSummary, Box, Card, CardContent, CardMedia, Grid, IconButton, Stack, Tooltip, Typography } from "@mui/material";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Like from './Like';
+// import Like from './Like';
 import Link from "./Link";
 import Image from "next/image";
 import { deformAuthorNames, latexReplacement, mathjaxInline } from "../utils/deformPublicationData";
@@ -24,6 +24,28 @@ const PublicationCard = ({ publication, expanded, handle }: { publication: Publi
 
   // replace specific latex commands in my paper titles
   const title: string = mathjaxInline(latexReplacement(titleOrig));
+
+  const YouTubeLink = () => {
+    if ('YouTube' in publication) {
+      const href = publication.YouTube as string;
+      return (
+        <Link href={href} target="_blank">
+          <Tooltip title={t.WATCH_ON_YOUTUBE} placement="bottom" arrow>
+            <Box sx={{ mt: '4px' }}>
+              <Image
+                src='/logos/YouTube_Logo_2017.svg'
+                width={100}
+                height={32}
+                alt='YouTube logo'
+              />
+            </Box>
+          </Tooltip>
+        </Link>
+      );
+    } else {
+      return <></>;
+    }
+  };
 
   return (
     <Accordion expanded={expanded} onChange={handle}>
@@ -64,6 +86,7 @@ const PublicationCard = ({ publication, expanded, handle }: { publication: Publi
                 </Typography>
                 <Box sx={{ float: 'right', marginBottom: 2, marginRight: 2 }}>
                   <Stack spacing={2} direction='row'>
+                    <YouTubeLink />
                     <Link href={`https://arxiv.org/pdf/${eprint}.pdf`} target="_blank">
                       <Tooltip title={t.OPEN_PDF} placement="bottom" arrow>
                         <IconButton aria-label={t.OPEN_PDF}>
