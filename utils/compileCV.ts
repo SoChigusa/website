@@ -19,7 +19,7 @@ const deformTalkInformation = ({ talks, format }: { talks: Talk[], format: strin
     header = `\\begin{table}[H]\\begin{tabular}{lp{6in}}`;
   else
     header = `\\begin{enumerate}`;
-  const talks_src: string[] = talks.reverse().map(talk => {
+  const talks_src: string[] = talks.map(talk => {
     const { year, date }: { year: string, date: string } = dateInput2formattedDate(talk.Date);
     if (format == 'award')
       return `${talk.Title} \& ${talk.Date} \\\\`;
