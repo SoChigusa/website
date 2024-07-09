@@ -191,7 +191,7 @@ const Talks = ({ talk_list }: MyPageProps) => {
             >
               <FormControlLabel value='all' control={<Radio />} label={t.ALL} />
               <FormControlLabel value='seminar' control={<Radio />} label={t.SEMINARS} />
-              <FormControlLabel value='talk' control={<Radio />} label={t.TALKS} />
+              <FormControlLabel value='talk' control={<Radio />} label={t.OTHER_TALKS} />
               <FormControlLabel value='award' control={<Radio />} label={t.AWARDS} />
             </RadioGroup>
           </FormControl>

@@ -22,6 +22,8 @@ export default {
   // Research
   RESEARCH_TITLE: '研究活動【千草颯】',
   RESEARCH_DESCRIPTION: '研究活動のまとめ（論文、講演、受賞歴）【千草颯】',
+  SHOW_POSTER: 'ポスターを表示',
+  SHOW_SLIDE: 'スライドを表示',
   OPEN_PDF: 'PDFを開く',
   SEE_ON_ARXIV: 'arXivで見る',
   WATCH_ON_YOUTUBE: 'YouTubeで見る',

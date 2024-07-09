@@ -22,6 +22,8 @@ export default {
   // Research
   RESEARCH_TITLE: 'Research works by So Chigusa',
   RESEARCH_DESCRIPTION: 'Summary of research works of So Chigusa: publications, talks, and awards',
+  SHOW_POSTER: 'Show poster',
+  SHOW_SLIDE: 'Show slide',
   OPEN_PDF: 'Open PDF',
   SEE_ON_ARXIV: 'See on arXiv',
   WATCH_ON_YOUTUBE: 'Watch on YouTube',

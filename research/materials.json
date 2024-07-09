@@ -1,6 +1,39 @@
 [
   {
+    "eprint": "2310.19881",
+    "slideName": "QVPS"
+  },
+  {
     "eprint": "2302.12756",
-    "YouTube": "https://www.youtube.com/watch?v=hxXoFMkd29s"
+    "YouTube": "https://www.youtube.com/watch?v=hxXoFMkd29s",
+    "slideName": "NV_center"
+  },
+  {
+    "eprint": "2102.07910",
+    "posterName": "FCC-AMSB"
+  },
+  {
+    "eprint": "2102.06179",
+    "slideName": "cond_mat-PITT-PACC"
+  },
+  {
+    "eprint": "2001.10666",
+    "slideName": "cond_mat-PITT-PACC"
+  },
+  {
+    "eprint": "1912.00592",
+    "posterName": "FCC-AMSB"
+  },
+  {
+    "eprint": "1904.11162",
+    "posterName": "WIMP-Loop"
+  },
+  {
+    "eprint": "1901.10389",
+    "posterName": "FCC-AMSB"
+  },
+  {
+    "eprint": "1810.07349",
+    "posterName": "WIMP-Loop"
   }
 ]

@@ -24,11 +24,15 @@ interface Publication {
   entryTags: EntryTags
   citationKey: string
   YouTube?: string
+  posterName?: string
+  slideName?: string
 }
 
 interface Materials {
   eprint: string
   YouTube?: string
+  posterName?: string
+  slideName?: string
 }
 
 interface Talk {

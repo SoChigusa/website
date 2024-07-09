@@ -1,12 +1,14 @@
 import useLocale from '../utils/useLocale';
 import { MathJax } from "better-react-mathjax";
 import { Accordion, AccordionDetails, AccordionSummary, Box, Card, CardContent, CardMedia, Grid, IconButton, Stack, Tooltip, Typography } from "@mui/material";
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 // import Like from './Like';
 import Link from "./Link";
 import Image from "next/image";
 import { deformAuthorNames, latexReplacement, mathjaxInline } from "../utils/deformPublicationData";
 import { Article } from "@mui/icons-material";
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import NewspaperIcon from '@mui/icons-material/Newspaper';
+import SummarizeIcon from '@mui/icons-material/Summarize';
 
 const PublicationCard = ({ publication, expanded, handle }: { publication: Publication, expanded?: boolean, handle?: AccordionOnChange }) => {
   const { t } = useLocale();
@@ -46,6 +48,38 @@ const PublicationCard = ({ publication, expanded, handle }: { publication: Publi
       return <></>;
     }
   };
+
+  const PosterLink = () => {
+    if ('posterName' in publication) {
+      return (
+        <Link href={`/posters/${publication.posterName}.pdf`} target="_blank">
+          <Tooltip title={t.SHOW_POSTER} placement="bottom" arrow>
+            <IconButton aria-label={t.SHOW_POSTER}>
+              <NewspaperIcon />
+            </IconButton>
+          </Tooltip>
+        </Link>
+      );
+    } else {
+      return <></>;
+    }
+  }
+
+  const SlideLink = () => {
+    if ('slideName' in publication) {
+      return (
+        <Link href={`/slides/${publication.slideName}.pdf`} target="_blank">
+          <Tooltip title={t.SHOW_SLIDE} placement="bottom" arrow>
+            <IconButton aria-label={t.SHOW_SLIDE}>
+              <SummarizeIcon />
+            </IconButton>
+          </Tooltip>
+        </Link>
+      );
+    } else {
+      return <></>;
+    }
+  }
 
   return (
     <Accordion expanded={expanded} onChange={handle}>
@@ -87,6 +121,8 @@ const PublicationCard = ({ publication, expanded, handle }: { publication: Publi
                 <Box sx={{ float: 'right', marginBottom: 2, marginRight: 2 }}>
                   <Stack spacing={2} direction='row'>
                     <YouTubeLink />
+                    <PosterLink />
+                    <SlideLink />
                     <Link href={`https://arxiv.org/pdf/${eprint}.pdf`} target="_blank">
                       <Tooltip title={t.OPEN_PDF} placement="bottom" arrow>
                         <IconButton aria-label={t.OPEN_PDF}>
