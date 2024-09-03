@@ -64,6 +64,10 @@ xcode-select --install
 Github ウェブサイト内の Settings / Developer Settings / Personal access tokens からトークンを発行してターミナルに Github ログイン情報を覚えさせる。
 アクティブプロジェクトのリポジトリを全て `git pull` しておく。
 
+**9/1/2024 追記**
+
+新しい GitHub personal token である "fine-grained personal access token (beta)" が導入されていてちょっと戸惑ったので追記。設定に迷ったら "Repository > All repositories" および "Permissions > Repository permissions > Contents > Read and write" を設定しておけば良いと思う。
+
 ### VSCode
 
 [公式サイト](https://code.visualstudio.com/)からダウンロードしてインストール、動く。
@@ -88,7 +92,7 @@ npm install
 
 ### Homebrew
 
-[公式サイト](https://brew.sh/index_ja)の言うとおり、
+[公式サイト](https://brew.sh/ja/)の言うとおり、
 
 ``` shell
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -106,7 +110,7 @@ brew install inkscape
 
 - `root v6.30/02` をインストール。問題なく動く。
 - MacTeX no GUI をインストール。問題なし。
-- Inkscape の設定は[このページ](inkscape.html)を参照して行う。
+- Inkscape の設定は[このページ](inkscape)を参照して行う。
 
 ### Madgraph
 
