@@ -1,197 +1,97 @@
 
 \providecommand{\href}[2]{#2}\begingroup\raggedright\begin{thebibliography}{10}
 
+\bibitem{Chigusa:2024psk}
+S.~Chigusa, M.~Hazumi, E.D.~Herbschleb, Y.~Matsuzaki, N.~Mizuochi and K.~Nakayama, \emph{{Nuclear Spin Metrology with Nitrogen Vacancy Center in Diamond for Axion Dark Matter Detection}},  \href{https://arxiv.org/abs/2407.07141}{{\ttfamily 2407.07141}}.
+
 \bibitem{Bauer:2023ujy}
-C.W.~Bauer, S.~Chigusa and M.~Yamazaki, \emph{{Quantum Parton Shower with
-  Kinematics}},  \href{https://arxiv.org/abs/2310.19881}{{\ttfamily
-  2310.19881}}.
+C.W.~Bauer, S.~Chigusa and M.~Yamazaki, \emph{{Quantum parton shower with kinematics}}, \href{https://doi.org/10.1103/PhysRevA.109.032432}{\emph{Phys. Rev. A} {\bfseries 109} (2024) 032432} [\href{https://arxiv.org/abs/2310.19881}{{\ttfamily 2310.19881}}].
 
 \bibitem{Chigusa:2023bga}
-S.~Chigusa, A.~Ito, K.~Nakayama and V.~Takhistov, \emph{{Effects of Finite
-  Material Size On Axion-magnon Conversion}},
-  \href{https://arxiv.org/abs/2310.17704}{{\ttfamily 2310.17704}}.
+S.~Chigusa, A.~Ito, K.~Nakayama and V.~Takhistov, \emph{{Effects of finite material size on axion-magnon conversion}}, \href{https://doi.org/10.1007/JHEP01(2024)185}{\emph{JHEP} {\bfseries 01} (2024) 185} [\href{https://arxiv.org/abs/2310.17704}{{\ttfamily 2310.17704}}].
 
 \bibitem{Chigusa:2023rrz}
-S.~Chigusa, S.~Girmohanta, Y.~Nakai and Y.~Zhang, \emph{{Aiming for Tops of
-  ALPs with a Muon Collider}},
-  \href{https://arxiv.org/abs/2310.11018}{{\ttfamily 2310.11018}}.
+S.~Chigusa, S.~Girmohanta, Y.~Nakai and Y.~Zhang, \emph{{Aiming for tops of ALPs with a muon collider}}, \href{https://doi.org/10.1007/JHEP01(2024)077}{\emph{JHEP} {\bfseries 01} (2024) 077} [\href{https://arxiv.org/abs/2310.11018}{{\ttfamily 2310.11018}}].
 
 \bibitem{Chigusa:2023szl}
-S.~Chigusa, D.~Kondo, H.~Murayama, R.~Okabe and H.~Sudo, \emph{{Axion detection
-  via superfluid $^3$He ferromagnetic phase and quantum measurement
-  techniques}},  \href{https://arxiv.org/abs/2309.09160}{{\ttfamily
-  2309.09160}}.
+S.~Chigusa, D.~Kondo, H.~Murayama, R.~Okabe and H.~Sudo, \emph{{Axion detection via superfluid $^3$He ferromagnetic phase and quantum measurement techniques}},  \href{https://arxiv.org/abs/2309.09160}{{\ttfamily 2309.09160}}.
 
 \bibitem{Chigusa:2023hmz}
-S.~Chigusa, T.~Moroi, K.~Nakayama and T.~Sichanugrist, \emph{{Dark matter
-  detection using nuclear magnetization in magnet with hyperfine interaction}},
-   \href{https://arxiv.org/abs/2307.08577}{{\ttfamily 2307.08577}}.
+S.~Chigusa, T.~Moroi, K.~Nakayama and T.~Sichanugrist, \emph{{Dark matter detection using nuclear magnetization in magnet with hyperfine interaction}}, \href{https://doi.org/10.1103/PhysRevD.108.095007}{\emph{Phys. Rev. D} {\bfseries 108} (2023) 095007} [\href{https://arxiv.org/abs/2307.08577}{{\ttfamily 2307.08577}}].
 
 \bibitem{Chigusa:2023mqy}
-S.~Chigusa, T.~Moroi and Y.~Shoji, \emph{{Stability of Electroweak Vacuum and
-  Supersymmetric Contribution to Muon g-2}},
-  \href{https://arxiv.org/abs/2306.16596}{{\ttfamily 2306.16596}}.
+S.~Chigusa, T.~Moroi and Y.~Shoji, \emph{{Stability of electroweak vacuum and supersymmetric contribution to muon g \ensuremath{-} 2}}, \href{https://doi.org/10.1007/JHEP11(2023)027}{\emph{JHEP} {\bfseries 11} (2023) 027} [\href{https://arxiv.org/abs/2306.16596}{{\ttfamily 2306.16596}}].
 
 \bibitem{Chigusa:2023hms}
-S.~Chigusa, M.~Hazumi, E.D.~Herbschleb, N.~Mizuochi and K.~Nakayama,
-  \emph{{Light Dark Matter Search with Nitrogen-Vacancy Centers in Diamonds}},
-  \href{https://arxiv.org/abs/2302.12756}{{\ttfamily 2302.12756}}.
+S.~Chigusa, M.~Hazumi, E.D.~Herbschleb, N.~Mizuochi and K.~Nakayama, \emph{{Light Dark Matter Search with Nitrogen-Vacancy Centers in Diamonds}},  \href{https://arxiv.org/abs/2302.12756}{{\ttfamily 2302.12756}}.
 
 \bibitem{Chigusa:2022act}
-S.~Chigusa and M.~Yamazaki, \emph{{Quantum simulations of dark sector
-  showers}}, \href{https://doi.org/10.1016/j.physletb.2022.137466}{\emph{Phys.
-  Lett. B} {\bfseries 834} (2022) 137466}
-  [\href{https://arxiv.org/abs/2204.12500}{{\ttfamily 2204.12500}}].
+S.~Chigusa and M.~Yamazaki, \emph{{Quantum simulations of dark sector showers}}, \href{https://doi.org/10.1016/j.physletb.2022.137466}{\emph{Phys. Lett. B} {\bfseries 834} (2022) 137466} [\href{https://arxiv.org/abs/2204.12500}{{\ttfamily 2204.12500}}].
 
 \bibitem{Chigusa:2022xpq}
-S.~Chigusa, T.~Moroi and Y.~Shoji, \emph{{Upper bound on the smuon mass from
-  vacuum stability in the light of muon g \ensuremath{-} 2 anomaly}},
-  \href{https://doi.org/10.1016/j.physletb.2022.137163}{\emph{Phys. Lett. B}
-  {\bfseries 831} (2022) 137163}
-  [\href{https://arxiv.org/abs/2203.08062}{{\ttfamily 2203.08062}}].
+S.~Chigusa, T.~Moroi and Y.~Shoji, \emph{{Upper bound on the smuon mass from vacuum stability in the light of muon g \ensuremath{-} 2 anomaly}}, \href{https://doi.org/10.1016/j.physletb.2022.137163}{\emph{Phys. Lett. B} {\bfseries 831} (2022) 137163} [\href{https://arxiv.org/abs/2203.08062}{{\ttfamily 2203.08062}}].
 
 \bibitem{Chigusa:2022svv}
-S.~Chigusa, S.~Li, Y.~Nakai, W.~Zhang, Y.~Zhang and J.~Zheng, \emph{{Deeply
-  learned preselection of Higgs dijet decays at future lepton colliders}},
-  \href{https://doi.org/10.1016/j.physletb.2022.137301}{\emph{Phys. Lett. B}
-  {\bfseries 833} (2022) 137301}
-  [\href{https://arxiv.org/abs/2202.02534}{{\ttfamily 2202.02534}}].
+S.~Chigusa, S.~Li, Y.~Nakai, W.~Zhang, Y.~Zhang and J.~Zheng, \emph{{Deeply learned preselection of Higgs dijet decays at future lepton colliders}}, \href{https://doi.org/10.1016/j.physletb.2022.137301}{\emph{Phys. Lett. B} {\bfseries 833} (2022) 137301} [\href{https://arxiv.org/abs/2202.02534}{{\ttfamily 2202.02534}}].
 
 \bibitem{Chigusa:2021glp}
-S.~Chigusa, K.~Hamaguchi, T.~Moroi, A.~Niki and K.~Ono, \emph{{Studying squark
-  mass spectrum through gluino decay at 100 TeV future hadron colliders}},
-  \href{https://doi.org/10.1016/j.physletb.2021.136332}{\emph{Phys. Lett. B}
-  {\bfseries 817} (2021) 136332}
-  [\href{https://arxiv.org/abs/2102.07910}{{\ttfamily 2102.07910}}].
+S.~Chigusa, K.~Hamaguchi, T.~Moroi, A.~Niki and K.~Ono, \emph{{Studying squark mass spectrum through gluino decay at 100 TeV future hadron colliders}}, \href{https://doi.org/10.1016/j.physletb.2021.136332}{\emph{Phys. Lett. B} {\bfseries 817} (2021) 136332} [\href{https://arxiv.org/abs/2102.07910}{{\ttfamily 2102.07910}}].
 
 \bibitem{Chigusa:2021mci}
-S.~Chigusa, T.~Moroi and K.~Nakayama, \emph{{Axion/hidden-photon dark matter
-  conversion into condensed matter axion}},
-  \href{https://doi.org/10.1007/JHEP08(2021)074}{\emph{JHEP} {\bfseries 08}
-  (2021) 074} [\href{https://arxiv.org/abs/2102.06179}{{\ttfamily
-  2102.06179}}].
+S.~Chigusa, T.~Moroi and K.~Nakayama, \emph{{Axion/hidden-photon dark matter conversion into condensed matter axion}}, \href{https://doi.org/10.1007/JHEP08(2021)074}{\emph{JHEP} {\bfseries 08} (2021) 074} [\href{https://arxiv.org/abs/2102.06179}{{\ttfamily 2102.06179}}].
 
 \bibitem{Chigusa:2020rks}
-S.~Chigusa, Y.~Nakai and J.~Zheng, \emph{{Implications of gravitational waves
-  for supersymmetric grand unification}},
-  \href{https://doi.org/10.1103/PhysRevD.104.035031}{\emph{Phys. Rev. D}
-  {\bfseries 104} (2021) 035031}
-  [\href{https://arxiv.org/abs/2011.04090}{{\ttfamily 2011.04090}}].
+S.~Chigusa, Y.~Nakai and J.~Zheng, \emph{{Implications of gravitational waves for supersymmetric grand unification}}, \href{https://doi.org/10.1103/PhysRevD.104.035031}{\emph{Phys. Rev. D} {\bfseries 104} (2021) 035031} [\href{https://arxiv.org/abs/2011.04090}{{\ttfamily 2011.04090}}].
 
 \bibitem{Chigusa:2020jbn}
-S.~Chigusa, T.~Moroi and Y.~Shoji, \emph{{Precise Calculation of the Decay Rate
-  of False Vacuum with Multi-Field Bounce}},
-  \href{https://doi.org/10.1007/JHEP11(2020)006}{\emph{JHEP} {\bfseries 11}
-  (2020) 006} [\href{https://arxiv.org/abs/2007.14124}{{\ttfamily
-  2007.14124}}].
+S.~Chigusa, T.~Moroi and Y.~Shoji, \emph{{Precise Calculation of the Decay Rate of False Vacuum with Multi-Field Bounce}}, \href{https://doi.org/10.1007/JHEP11(2020)006}{\emph{JHEP} {\bfseries 11} (2020) 006} [\href{https://arxiv.org/abs/2007.14124}{{\ttfamily 2007.14124}}].
 
 \bibitem{Chigusa:2020bgq}
-S.~Chigusa, M.~Endo and K.~Kohri, \emph{{Constraints on electron-scattering
-  interpretation of XENON1T excess}},
-  \href{https://doi.org/10.1088/1475-7516/2020/10/035}{\emph{JCAP} {\bfseries
-  10} (2020) 035} [\href{https://arxiv.org/abs/2007.01663}{{\ttfamily
-  2007.01663}}].
+S.~Chigusa, M.~Endo and K.~Kohri, \emph{{Constraints on electron-scattering interpretation of XENON1T excess}}, \href{https://doi.org/10.1088/1475-7516/2020/10/035}{\emph{JCAP} {\bfseries 10} (2020) 035} [\href{https://arxiv.org/abs/2007.01663}{{\ttfamily 2007.01663}}].
 
 \bibitem{Chigusa:2020gfs}
-S.~Chigusa, T.~Moroi and K.~Nakayama, \emph{{Detecting light boson dark matter
-  through conversion into a magnon}},
-  \href{https://doi.org/10.1103/PhysRevD.101.096013}{\emph{Phys. Rev. D}
-  {\bfseries 101} (2020) 096013}
-  [\href{https://arxiv.org/abs/2001.10666}{{\ttfamily 2001.10666}}].
+S.~Chigusa, T.~Moroi and K.~Nakayama, \emph{{Detecting light boson dark matter through conversion into a magnon}}, \href{https://doi.org/10.1103/PhysRevD.101.096013}{\emph{Phys. Rev. D} {\bfseries 101} (2020) 096013} [\href{https://arxiv.org/abs/2001.10666}{{\ttfamily 2001.10666}}].
 
 \bibitem{Chigusa:2020jsl}
-S.~Chigusa, \emph{{Probing Electroweakly Interacting Massive Particles with
-  Drell-Yan Process at 100 TeV Colliders}}, Ph.D. thesis, Tokyo U., 2020.
+S.~Chigusa, \emph{{Probing Electroweakly Interacting Massive Particles with Drell-Yan Process at 100 TeV Colliders}}, Ph.D. thesis, Tokyo U., 2020.
 
 \bibitem{Chigusa:2019zae}
-S.~Chigusa, Y.~Hosomi, T.~Moroi and M.~Saito, \emph{{Determining Wino Lifetime
-  in Supersymmetric Model at Future 100 TeV pp Colliders}},
-  \href{https://doi.org/10.1016/j.physletb.2020.135260}{\emph{Phys. Lett. B}
-  {\bfseries 803} (2020) 135260}
-  [\href{https://arxiv.org/abs/1912.00592}{{\ttfamily 1912.00592}}].
+S.~Chigusa, Y.~Hosomi, T.~Moroi and M.~Saito, \emph{{Determining Wino Lifetime in Supersymmetric Model at Future 100 TeV pp Colliders}}, \href{https://doi.org/10.1016/j.physletb.2020.135260}{\emph{Phys. Lett. B} {\bfseries 803} (2020) 135260} [\href{https://arxiv.org/abs/1912.00592}{{\ttfamily 1912.00592}}].
 
 \bibitem{Chigusa:2019rra}
-S.~Chigusa, T.~Moroi and K.~Nakayama, \emph{{Signals of Axion Like Dark Matter
-  in Time Dependent Polarization of Light}},
-  \href{https://doi.org/10.1016/j.physletb.2020.135288}{\emph{Phys. Lett. B}
-  {\bfseries 803} (2020) 135288}
-  [\href{https://arxiv.org/abs/1911.09850}{{\ttfamily 1911.09850}}].
+S.~Chigusa, T.~Moroi and K.~Nakayama, \emph{{Signals of Axion Like Dark Matter in Time Dependent Polarization of Light}}, \href{https://doi.org/10.1016/j.physletb.2020.135288}{\emph{Phys. Lett. B} {\bfseries 803} (2020) 135288} [\href{https://arxiv.org/abs/1911.09850}{{\ttfamily 1911.09850}}].
 
 \bibitem{Chigusa:2019wxb}
-S.~Chigusa, T.~Moroi and Y.~Shoji, \emph{{Bounce Configuration from Gradient
-  Flow}}, \href{https://doi.org/10.1016/j.physletb.2019.135115}{\emph{Phys.
-  Lett. B} {\bfseries 800} (2020) 135115}
-  [\href{https://arxiv.org/abs/1906.10829}{{\ttfamily 1906.10829}}].
+S.~Chigusa, T.~Moroi and Y.~Shoji, \emph{{Bounce Configuration from Gradient Flow}}, \href{https://doi.org/10.1016/j.physletb.2019.135115}{\emph{Phys. Lett. B} {\bfseries 800} (2020) 135115} [\href{https://arxiv.org/abs/1906.10829}{{\ttfamily 1906.10829}}].
 
 \bibitem{Chigusa:2019jrz}
-S.~Chigusa, S.~Kasuya and K.~Nakayama, \emph{{Novel Flavon Stabilization with
-  Trimaximal Neutrino Mixing}},
-  \href{https://doi.org/10.1103/PhysRevD.100.015030}{\emph{Phys. Rev. D}
-  {\bfseries 100} (2019) 015030}
-  [\href{https://arxiv.org/abs/1905.11517}{{\ttfamily 1905.11517}}].
+S.~Chigusa, S.~Kasuya and K.~Nakayama, \emph{{Novel Flavon Stabilization with Trimaximal Neutrino Mixing}}, \href{https://doi.org/10.1103/PhysRevD.100.015030}{\emph{Phys. Rev. D} {\bfseries 100} (2019) 015030} [\href{https://arxiv.org/abs/1905.11517}{{\ttfamily 1905.11517}}].
 
 \bibitem{Abe:2019egv}
-T.~Abe, S.~Chigusa, Y.~Ema and T.~Moroi, \emph{{Indirect studies of
-  electroweakly interacting particles at 100 TeV hadron colliders}},
-  \href{https://doi.org/10.1103/PhysRevD.100.055018}{\emph{Phys. Rev. D}
-  {\bfseries 100} (2019) 055018}
-  [\href{https://arxiv.org/abs/1904.11162}{{\ttfamily 1904.11162}}].
+T.~Abe, S.~Chigusa, Y.~Ema and T.~Moroi, \emph{{Indirect studies of electroweakly interacting particles at 100 TeV hadron colliders}}, \href{https://doi.org/10.1103/PhysRevD.100.055018}{\emph{Phys. Rev. D} {\bfseries 100} (2019) 055018} [\href{https://arxiv.org/abs/1904.11162}{{\ttfamily 1904.11162}}].
 
 \bibitem{Asai:2019wst}
-S.~Asai, S.~Chigusa, T.~Kaji, T.~Moroi, M.~Saito, R.~Sawada et~al.,
-  \emph{{Studying gaugino masses in supersymmetric model at future 100 TeV $pp$
-  collider}}, \href{https://doi.org/10.1007/JHEP05(2019)179}{\emph{JHEP}
-  {\bfseries 05} (2019) 179}
-  [\href{https://arxiv.org/abs/1901.10389}{{\ttfamily 1901.10389}}].
+S.~Asai, S.~Chigusa, T.~Kaji, T.~Moroi, M.~Saito, R.~Sawada et~al., \emph{{Studying gaugino masses in supersymmetric model at future 100 TeV $pp$ collider}}, \href{https://doi.org/10.1007/JHEP05(2019)179}{\emph{JHEP} {\bfseries 05} (2019) 179} [\href{https://arxiv.org/abs/1901.10389}{{\ttfamily 1901.10389}}].
 
 \bibitem{Chigusa:2018vxz}
-S.~Chigusa, Y.~Ema and T.~Moroi, \emph{{Probing electroweakly interacting
-  massive particles with Drell\textendash{}Yan process at 100 TeV hadron
-  colliders}},
-  \href{https://doi.org/10.1016/j.physletb.2018.12.011}{\emph{Phys. Lett. B}
-  {\bfseries 789} (2019) 106}
-  [\href{https://arxiv.org/abs/1810.07349}{{\ttfamily 1810.07349}}].
+S.~Chigusa, Y.~Ema and T.~Moroi, \emph{{Probing electroweakly interacting massive particles with Drell\textendash{}Yan process at 100 TeV hadron colliders}}, \href{https://doi.org/10.1016/j.physletb.2018.12.011}{\emph{Phys. Lett. B} {\bfseries 789} (2019) 106} [\href{https://arxiv.org/abs/1810.07349}{{\ttfamily 1810.07349}}].
 
 \bibitem{Chigusa:2018yua}
-S.~Chigusa, S.~Kasuya and K.~Nakayama, \emph{{Flavon Stabilization in Models
-  with Discrete Flavor Symmetry}},
-  \href{https://doi.org/10.1016/j.physletb.2018.11.051}{\emph{Phys. Lett. B}
-  {\bfseries 788} (2019) 494}
-  [\href{https://arxiv.org/abs/1810.05791}{{\ttfamily 1810.05791}}].
+S.~Chigusa, S.~Kasuya and K.~Nakayama, \emph{{Flavon Stabilization in Models with Discrete Flavor Symmetry}}, \href{https://doi.org/10.1016/j.physletb.2018.11.051}{\emph{Phys. Lett. B} {\bfseries 788} (2019) 494} [\href{https://arxiv.org/abs/1810.05791}{{\ttfamily 1810.05791}}].
 
 \bibitem{Chigusa:2018hhl}
-S.~Chigusa and K.~Nakayama, \emph{{Anomalous Discrete Flavor Symmetry and
-  Domain Wall Problem}},
-  \href{https://doi.org/10.1016/j.physletb.2018.11.027}{\emph{Phys. Lett. B}
-  {\bfseries 788} (2019) 249}
-  [\href{https://arxiv.org/abs/1808.09601}{{\ttfamily 1808.09601}}].
+S.~Chigusa and K.~Nakayama, \emph{{Anomalous Discrete Flavor Symmetry and Domain Wall Problem}}, \href{https://doi.org/10.1016/j.physletb.2018.11.027}{\emph{Phys. Lett. B} {\bfseries 788} (2019) 249} [\href{https://arxiv.org/abs/1808.09601}{{\ttfamily 1808.09601}}].
 
 \bibitem{Chigusa:2018uuj}
-S.~Chigusa, T.~Moroi and Y.~Shoji, \emph{{Decay Rate of Electroweak Vacuum in
-  the Standard Model and Beyond}},
-  \href{https://doi.org/10.1103/PhysRevD.97.116012}{\emph{Phys. Rev. D}
-  {\bfseries 97} (2018) 116012}
-  [\href{https://arxiv.org/abs/1803.03902}{{\ttfamily 1803.03902}}].
+S.~Chigusa, T.~Moroi and Y.~Shoji, \emph{{Decay Rate of Electroweak Vacuum in the Standard Model and Beyond}}, \href{https://doi.org/10.1103/PhysRevD.97.116012}{\emph{Phys. Rev. D} {\bfseries 97} (2018) 116012} [\href{https://arxiv.org/abs/1803.03902}{{\ttfamily 1803.03902}}].
 
 \bibitem{Chigusa:2017dux}
-S.~Chigusa, T.~Moroi and Y.~Shoji, \emph{{State-of-the-Art Calculation of the
-  Decay Rate of Electroweak Vacuum in the Standard Model}},
-  \href{https://doi.org/10.1103/PhysRevLett.119.211801}{\emph{Phys. Rev. Lett.}
-  {\bfseries 119} (2017) 211801}
-  [\href{https://arxiv.org/abs/1707.09301}{{\ttfamily 1707.09301}}].
+S.~Chigusa, T.~Moroi and Y.~Shoji, \emph{{State-of-the-Art Calculation of the Decay Rate of Electroweak Vacuum in the Standard Model}}, \href{https://doi.org/10.1103/PhysRevLett.119.211801}{\emph{Phys. Rev. Lett.} {\bfseries 119} (2017) 211801} [\href{https://arxiv.org/abs/1707.09301}{{\ttfamily 1707.09301}}].
 
 \bibitem{Chigusa:2017drd}
-S.~Chigusa and T.~Moroi, \emph{{Bottom-Tau Unification in Supersymmetric SU(5)
-  Models with Extra Matters}},
-  \href{https://doi.org/10.1093/ptep/ptx062}{\emph{PTEP} {\bfseries 2017}
-  (2017) 063B05} [\href{https://arxiv.org/abs/1702.00790}{{\ttfamily
-  1702.00790}}].
+S.~Chigusa and T.~Moroi, \emph{{Bottom-Tau Unification in Supersymmetric SU(5) Models with Extra Matters}}, \href{https://doi.org/10.1093/ptep/ptx062}{\emph{PTEP} {\bfseries 2017} (2017) 063B05} [\href{https://arxiv.org/abs/1702.00790}{{\ttfamily 1702.00790}}].
 
 \bibitem{Chigusa:2016ody}
-S.~Chigusa and T.~Moroi, \emph{{Bottom-tau unification in a supersymmetric
-  model with anomaly-mediation}},
-  \href{https://doi.org/10.1103/PhysRevD.94.035016}{\emph{Phys. Rev. D}
-  {\bfseries 94} (2016) 035016}
-  [\href{https://arxiv.org/abs/1604.02156}{{\ttfamily 1604.02156}}].
+S.~Chigusa and T.~Moroi, \emph{{Bottom-tau unification in a supersymmetric model with anomaly-mediation}}, \href{https://doi.org/10.1103/PhysRevD.94.035016}{\emph{Phys. Rev. D} {\bfseries 94} (2016) 035016} [\href{https://arxiv.org/abs/1604.02156}{{\ttfamily 1604.02156}}].
 
 \end{thebibliography}\endgroup
