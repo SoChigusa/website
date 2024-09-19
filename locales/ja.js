@@ -90,7 +90,7 @@ export default {
   PLACE_OF_BIRTH_CONTENT: '兵庫県神戸市',
   NATIONALITY_CONTENT: '日本',
   SEX_CONTENT: '男',
-  AFFILIATION_CONTENT: 'ローレンス・バークレー国立研究所',
+  AFFILIATION_CONTENT: 'マサチューセッツ工科大学',
 
   // Education
   EDUCATION: '学位',
@@ -108,8 +108,10 @@ export default {
   PE_1_CONTENT: '東京大学大学院 物理学専攻 修士・博士課程（指導教員：諸井健夫教授）',
   PE_2_DATE: '2020年4月〜2022年8月',
   PE_2_CONTENT: '高エネルギー加速器研究機構（KEK）学振特別研究員',
-  PE_3_DATE: '2020年9月〜',
+  PE_3_DATE: '2020年9月〜2024年8月',
   PE_3_CONTENT: 'ローレンス・バークレー国立研究所 ポスドク',
+  PE_4_DATE: '2024年9月〜',
+  PE_4_CONTENT: 'マサチューセッツ工科大学 ポスドク',
   TE_1_DATE: '2015年4月〜2015年9月',
   TE_1_CONTENT: '東京大学 物理学科 学部生向け講義「量子力学II」TA',
 

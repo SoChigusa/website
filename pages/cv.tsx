@@ -33,10 +33,10 @@ const cv = ({ personalInfo }: { personalInfo: PersonalInfo }) => {
   ];
   const rows_personal_data_2: CVTableData[] = [
     createData(t.AFFILIATION, t.AFFILIATION_CONTENT),
-    createData(t.POSTCODE, '94720-8099'),
-    createData(t.ADDRESS, '1 Cyclotron Rd, Berkeley, CA'),
-    createData(t.PHONE, '+1-510-486-4000'),
-    createData(t.EMAIL, 'SoChigusa[at]lbl.gov'),
+    createData(t.POSTCODE, '02139-4301'),
+    createData(t.ADDRESS, '77 Massachusetts Avenue, Cambridge, MA'),
+    createData(t.PHONE, '+1-617-253-4800'),
+    createData(t.EMAIL, 'schigusa[at]mit.edu'),
     createData(t.WEBPAGE, 'https://website-sochigusa.vercel.app/'),
   ];
   const rows_education: CVTableData[] = [
@@ -45,6 +45,7 @@ const cv = ({ personalInfo }: { personalInfo: PersonalInfo }) => {
     createData(t.EDUCATION_BACHELOR_DATE, t.EDUCATION_BACHELOR),
   ];
   const rows_professional_experience: CVTableData[] = [
+    createData(t.PE_4_DATE, t.PE_4_CONTENT),
     createData(t.PE_3_DATE, t.PE_3_CONTENT),
     createData(t.PE_2_DATE, t.PE_2_CONTENT),
     createData(t.PE_1_DATE, t.PE_1_CONTENT),

@@ -90,7 +90,7 @@ export default {
   PLACE_OF_BIRTH_CONTENT: 'Kobe, Japan',
   NATIONALITY_CONTENT: 'Japanese',
   SEX_CONTENT: 'Male',
-  AFFILIATION_CONTENT: 'Lawrence Berkeley National Laboratory',
+  AFFILIATION_CONTENT: 'Massachusetts Institute of Technology',
 
   // Education
   EDUCATION: 'Education',
@@ -108,8 +108,10 @@ export default {
   PE_1_CONTENT: 'Ph.D. Student, Department of Physics, University of Tokyo (Supervisor: Dr. Takeo Moroi)',
   PE_2_DATE: 'Apr. 2020–-Aug. 2022',
   PE_2_CONTENT: 'Postdoc, High Energy Accelerator Research Organization (KEK)',
-  PE_3_DATE: 'Sep. 2020–-',
-  PE_3_CONTENT: 'Postdoc, Lawrence Berkeley National Laboratoy',
+  PE_3_DATE: 'Sep. 2020–-Aug. 2024',
+  PE_3_CONTENT: 'Postdoc, Lawrence Berkeley National Laboratory',
+  PE_4_DATE: 'Sep. 2024–-',
+  PE_4_CONTENT: 'Postdoc, Massachusets Institute of Technology',
   TE_1_DATE: 'Apr. 2015–-Sep. 2015',
   TE_1_CONTENT: 'Teaching Assistant for Undergraduate Class “Quantum Mechanics II” at Department of Physics, University of Tokyo',
 
