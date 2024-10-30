@@ -1,6 +1,9 @@
 
 \providecommand{\href}[2]{#2}\begingroup\raggedright\begin{thebibliography}{10}
 
+\bibitem{Sichanugrist:2024wfk}
+T.~Sichanugrist, H.~Fukuda, T.~Moroi, K.~Nakayama, S.~Chigusa, N.~Mizuochi et~al., \emph{{Entanglement-enhanced AC magnetometry in the presence of Markovian noises}},  \href{https://arxiv.org/abs/2410.21699}{{\ttfamily 2410.21699}}.
+
 \bibitem{Chigusa:2024psk}
 S.~Chigusa, M.~Hazumi, E.D.~Herbschleb, Y.~Matsuzaki, N.~Mizuochi and K.~Nakayama, \emph{{Nuclear Spin Metrology with Nitrogen Vacancy Center in Diamond for Axion Dark Matter Detection}},  \href{https://arxiv.org/abs/2407.07141}{{\ttfamily 2407.07141}}.
 
