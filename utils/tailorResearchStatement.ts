@@ -19,10 +19,10 @@ const mapID2URL = (bbl: string): MapID2URL[] => {
     }
   }).filter(entry => entry.id !== 'undefined');
   return id2url;
-}
+};
 
 const replaceLaTeX = (latex_src: string, from: string, to: string) => {
-  let latex_res = latex_src
+  let latex_res = latex_src;
   const items: string[] = latex_src.split(`\\${from}\{`);
   const contents: string[] = items.slice(1).map(item => {
     const substring = item.split('\}');
@@ -33,6 +33,34 @@ const replaceLaTeX = (latex_src: string, from: string, to: string) => {
     const html = `<${to}>${content}</${to}>`;
     latex_res = latex_res.replace(latex, html);
   });
+  return latex_res;
+};
+
+const replaceLaTeXFigure = (latex_src: string, sectionIndex: number) => {
+  const figureNumber = sectionIndex + 1;
+  const figureRegex = /\\begin{figure}[\s\S]*?\\includegraphics(?:\[.*?\])?{([^}]+)}[\s\S]*?\\caption{([^}]+)}[\s\S]*?\\label{([^}]+)}[\s\S]*?\\end{figure}/g;
+
+  // figure replacement
+  const labels: string[] = [];
+  let latex_res = latex_src.replace(
+    figureRegex,
+    (match: string, filePath: string, caption: string, labelKey: string) => {
+      const fileName = filePath.split(/[/\\]/).pop();
+      const figureLetter = String.fromCharCode(97 + labels.length);
+      labels.push(labelKey);
+      return `
+    <img width="480" src="/rs/${fileName}" alt="Fig. ${figureNumber}${figureLetter}: ${caption}" style="display: block; margin: auto; margin-top: 10px;" />
+    <span style="display: block; font-size: 0.9em; margin-bottom: 20px;">Fig. ${figureNumber}${figureLetter}: ${caption}</span>
+    `;
+    });
+
+  // cref replacement
+  labels.forEach((label, index) => {
+    const figureLetter = String.fromCharCode(97 + index);
+    const refRegex = new RegExp(`\\\\cref{${label}}`, "g");
+    latex_res = latex_res.replace(refRegex, `Fig. ${sectionIndex + 1}${figureLetter}`);
+  });
+
   return latex_res;
 }
 
@@ -82,6 +110,7 @@ const tailorResearchStatement = () => {
     } else {
       content = lines.slice(pos + 1, subsectionPositions[index + 1]).join('\n')
     }
+    content = replaceLaTeXFigure(content, index);
     return content.split('\n\n');
   };
   const statements: Statement[] = subsectionPositions

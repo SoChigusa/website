@@ -18,6 +18,8 @@
 \usepackage{mhchem}
 \usepackage{cite}
 
+\usepackage{cleveref}
+
 % set margin
 \usepackage[margin=1in]{geometry}
 
@@ -28,16 +30,16 @@
 \usepackage{titlesec}
 \titleformat*{\section}{\large\bf}
 \titleformat*{\subsection}{\normalsize\bf}
-\titlespacing*{\section}{0pt}{2em}{1em}
-\titlespacing*{\subsection}{0pt}{2em}{1em}
+\titlespacing*{\section}{0pt}{1.6em}{1em}
+\titlespacing*{\subsection}{0pt}{1.6em}{1em}
 
 % publications title
 \renewcommand{\refname}{References}
 
 % base line stretch
 \renewcommand{\baselinestretch}{1.1}
+\allowdisplaybreaks[1]
 
-\allowdisplaybreaks[4]
 
 % customize the title
 \usepackage{titling}
@@ -49,8 +51,8 @@
 \preauthor{\vspace{0.5em}}
 \author{
   \indent{\large So Chigusa}\\
-  \indent\textit{sochigusa@lbl.gov}\\
-  \indent\textit{Lawrence Berkeley National Laboratory, 1 Cyclotron Rd, Berkeley, CA 94704, USA}
+  \indent\textit{schigusa@mit.edu}\\
+  \indent\textit{Massachusetts Institute of Technology, 77 Massachusetts Avenue, Cambridge, MA 02139}
 }
 \postauthor{}
 \date{\vspace{-3em}}
@@ -58,82 +60,100 @@
 \begin{document}
 \maketitle
 
-Nowadays, the improvement of technologies in quantum science is so rapid that various new approaches to problems are becoming available in a short period.
-These new approaches include \textbf{quantum sensing} techniques to detect a faint signal and \textbf{quantum computation} that allows us to simulate the dynamics of quantum systems by directly manipulating quantum states.
-Given this situation, it is incumbent on theoretical particle physicists to stay in touch with new technologies and to develop ways to use them in the search for beyond the standard model physics.
-I have been working along this line; I mainly study the phenomenology of the standard model and beyond, including the \textbf{dark matter} search and important quantum corrections to the \textbf{parton shower} process using various quantum technologies. 
-My main research directions are categorized as \textit{(i) direct detection of light dark matter with quantum sensing techniques} and \textit{(ii) construction of quantum algorithms applicable to systems such as parton shower}.
-In addition, as \textit{(iii) other directions}, I work on several different approaches to further explore beyond the standard model physics, including \textbf{false vacuum decay} rate calculation and \textbf{collider phenomenology}.
+My research area lies at the intersection of quantum science and theoretical particle physics.
+The rapid advancement of quantum science technologies is continuously introducing new solutions to problems.
+These include \textbf{quantum metrology} techniques for detecting faint signals and \textbf{quantum computation} for simulating dynamics by directly manipulating quantum states.
+In light of this, I believe it crucial to explore how these advancements can be used to investigate physics.
+With this in mind, I am researching: \textit{(i) direct detection of light dark matter using quantum metrology}, and \textit{(ii) quantum algorithms to simulate parton shower dynamics}.
 
-\subsection*{Direct detection of light dark matter with quantum sensing techniques}
+\subsection*{Direct detection of light dark matter using quantum metrology}
 
-The conventional dark matter direct detection programs, which mainly focus on the $\mathrm{GeV}$-mass region, give us no sign of dark matter so far.
-This motivates the community to explore different dark matter mass window, which is widely open, especially towards the lighter region.
-However, direct detection of light dark matter is challenging because of the low excitation energy and the small event rate.
-Quantum sensing techniques are useful to detect such a faint signal and also to amplify it to improve the sensitivity.
+One of my research areas focuses on developing methods to explore \textbf{light dark matter} using quantum metrology techniques.
+Conventional dark matter direct detection programs, which primarily focus on the $\mathrm{GeV}$-mass region, have yet to provide any evidence of dark matter.
+This has motivated the community to explore a broader mass range, including the sub-$\mathrm{GeV}$ scale, which remains largely unexplored, in part due to the challenges like low excitation energy and small event rates.
+Quantum metrology techniques offer promising ways for detecting such faint signals.
+By leveraging these advanced techniques, I aim to overcome current limitations in sensitivity and frequency coverage, paving the way for new approaches in light dark matter search.
 
-If the dark matter has a wavelength longer than the interatomic spacing, the dark matter collision with a material excites collective modes such as phonons and magnons.
-Along this line, I worked on three different approaches using different collective excitation signal of spins, i.e., the \textbf{magnon excitation} \cite{Chigusa:2020gfs}, the \textbf{axion-like excitation} \cite{Chigusa:2021mci}, and the \textbf{nuclear magnon excitation} \cite{Chigusa:2023hmz}, each of which probe different dark matter couplings.
-Many ongoing experiments are searching for spin excitations with the same or similar ideas, which might discover the dark matter.
-In addition, as part of an attempt to accurately identify the background events of many ongoing experiments based on phonons, I studied the \textbf{lattice defects} as a possible source of $\mathrm{eV}$-scale background events \cite{Frenkel}.
+Among light dark matter candidates, I primarily focus on a pseudo-scalar candidate often referred to as \textbf{axion dark matter}, which is strongly motivated from a high-energy theoretical perspective.
+The axion provides a compelling solution to the puzzle of conserved CP symmetry in the strong interaction sector.
+It can also naturally emerge from an ultraviolet completion of the theory including gravity, the string theory.
+From a metrological perspective, the axion is particularly intriguing because its interaction with ordinary fields mimics electromagnetic fields while exhibiting several distinctive features that allow it to be distinguished from conventional electromagnetic fields.
+These features include a spin-dependent coupling strength entirely uncorrelated with the gyromagnetic ratio and a signal coherence time directly correlated with its frequency.
+In this context, my research aims to develop quantum metrology protocols that fully exploit these distinctive characteristics of the axion dark matter signal to maximize its detection potential.
+In \cref{fig:summary}, I provide a summary plot illustrating the frequency coverage of various approaches I have investigated.
+Below, I will detail these approaches with reference to this figure.
 
-In this context, more specialized quantum sensing techniques are useful to develop a new approach with different target frequency or to enhance the dark matter signal.
-In Ref. \cite{Chigusa:2023hms}, I proposed the light dark matter search based on the \textbf{nitrogen-vacancy center} magnetometry, which has a broad frequency coverage.
-Recently, an experiment based on this idea has been launched in the International Center for Quantum-field Measurement Systems for Studies of the Universe and Particles (QUP).
-I also studied the possibility of enhancing the nuclear-magnon signal excited in superfluid $\mathrm{^3He}$ with \textbf{squeezing} and revealed the condition for sensitivity improvement \cite{Chigusa:2023szl}.
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.8\hsize]{../public/rs/Summary_Plot_2024.png}
+  \caption{
+    Summary of the frequency coverage of various approaches discussed in the main text.
+    The prospects for the pseudo-scalar (axion) dark matter are shown for the purpose of demonstration.
+    Each result, represented by a solid or dashed line, should be compared with the current constraint, which is plotted as a dashed line of the same color corresponding to the same coupling.
+  }
+  \label{fig:summary}
+\end{figure}
 
-Similarly to \cite{Chigusa:2023szl}, squeezing of the spin state could have potential to enhance sensitivities of the setups using spin excitation considered in \cite{Chigusa:2020gfs}, \cite{Chigusa:2021mci}, \cite{Chigusa:2023hmz}.
-Thus, it is useful to consider what kind of measurement can be performed to profit from this approach.
-Another important ingredient of quantum sensing techniques is \textbf{entanglement}.
-If $N$ qubits are available for measurement, entanglement allows the event rate to scale ideally as $\propto N^2$, contrary to the naive anticipation $\propto N$.
-Since the recent technologies have already achieved entanglement among multiple qubits, it is an important task to think of the best setup with entanglement taking account of non-trivial effects on experimental parameters such as increased decoherence time.
-New ideas should be proposed not only to improve sensitivity but also to explore a \textbf{broad mass range} or to explore \textbf{various dark matter couplings}.
-Finally, similar ideas are applicable to other targets including cosmic axion background and high-frequency gravitational waves, as partly discussed in \cite{Chigusa:2023bga}.
+I have explored three distinct approaches utilizing different collective excitations of spins: \textbf{magnon} \cite{Chigusa:2020gfs}, \textbf{axion} \cite{Chigusa:2021mci}, and \textbf{nuclear magnon} \cite{Chigusa:2023hmz}, each probing different dark matter couplings.
+The frequency coverage of these approaches is shown by solid lines in \cref{fig:summary}.
+If the dark matter mass lies in the challenging sub-$\mathrm{THz}$ range, approaches using these excitations provide one of the few valuable detection opportunities.
+Many ongoing experiments, including QUAX and TOORAD experiments, are currently searching for spin excitations with similar concepts, which may ultimately lead to the discovery of dark matter.
 
-\subsection*{Construction of quantum algorithms applicable to systems such as parton shower}
+In Refs. \cite{Chigusa:2023hms}, \cite{Chigusa:2024psk}, I proposed a light dark matter search using \textbf{nitrogen-vacancy center} magnetometry.
+This specialized quantum metrology technique aids in developing new approaches with broad frequency coverage and/or improved sensitivity, which are briefly summarized in dashed lines in \cref{fig:summary}.
+My approach leverages the sensitivity of nitrogen-vacancy centers to various spin species, clearly shown by different colors of dashed lines, and offers a novel way to distinguish magnetic noise from dark matter signals.
+Recently, we launched an experiment based on these ideas at the International Center for Quantum-field Measurement Systems for Studies of the Universe and Particles (QUP).
+This experimental collaboration has published a paper on a data analysis method for incoherent signals \cite{10.1063/5.0223678}, motivated by dark matter, and is now moving towards cryogenic experimental operation.
 
-Nowadays, quantum computing resources with a sizable number of qubits are open to the public.
-Combined with the rapid improvement of technologies that promises the near-future potential of quantum computers as a tool to investigate the dynamics of quantum systems, now is the time to study possible quantum algorithms we can equip on the current and near-future quantum computers.
+Among the quantum techniques designed to surpass the standard quantum limit and approach the Heisenberg limit, I focus on \textbf{squeezing} and \textbf{entanglement}.
+I explored the possibility of enhancing the nuclear magnon signal excited in superfluid $\mathrm{^3He}$ through squeezing and identified conditions where this improves sensitivity \cite{Chigusa:2023szl}.
+These conditions must be carefully examined to assess the potential of squeezing for spin-based dark matter searches, including \cite{Chigusa:2020gfs}, \cite{Chigusa:2021mci}, \cite{Chigusa:2023hmz}, where the signal coherence time is limited.
+Regarding entanglement, while certain entangled states, such as the \textbf{Greenberger–Horne–Zeilinger state}, are known as a way to achieve the Heisenberg limit, they are often vulnerable to Markovian noise, negating the advantage of entanglement.
+I investigated this issue in the context of dark matter searches \cite{Sichanugrist:2024wfk}, identifying situations where entangled states can enhance sensitivity even in the presence of noise, leaving further optimization as a future direction.
 
-Parton shower algorithm is a classical approach to computing the multi-emission cross sections, which has been widely used for collider and astroparticle physics simulations.
-However, because the algorithm is based on the classical probability distribution, important \textbf{quantum interference effects} are not incorporated under the existence of a non-trivial flavor structure of fermions, which could significantly modify the particle multiplicity distribution \cite{Chigusa:2022act}.
-In addition, due to the flavor index assignment, the number of diagrams we need to calculate grows exponentially as particle multiplicity increases, and the computational cost of classical calculation also increases exponentially.
-Motivated by this, I investigated a \textbf{quantum parton shower algorithm} using a veto procedure.
-This is the first quantum algorithm that operates on polynomial computational resources while accounting for quantum interference effects and reconstructing full kinematics information \cite{Bauer:2023ujy}.
+My future project plans involve the continued development of metrology techniques to expand their applicability to new physics.
+I intend to develop metrology techniques that integrate \textbf{error correction} and \textbf{quantum correlation}, extensively studied in particular in the context of quantum computation and clock synchronization, to enhance sensitivity to signals with multiple unknown properties.
+Additionally, building on the methodologies developed for light dark matter detection, I plan to apply similar concepts to other targets, such as \textbf{high-frequency gravitational waves} and the \textbf{cosmic axion background}.
+These efforts will position my research to contribute significantly to the broader field of quantum metrology and its applications in uncovering new physics.
 
-The quantum veto algorithm studied in \cite{Bauer:2023ujy} still has a large room for improvement in both computational and physical aspects.
-Although the evolution variable of parton shower, the virtuality, is discretized in the current algorithm, one can in principle sample the virtuality by using the exponentiated probability density as is done in classical parton shower algorithms, which speeds up the simulation further.
-Also, a physically more involved algorithm with soft interference could be constructed if the history information, the list of partons that emit at each step, is stored in qubits.
-Finally, this research project can be extended to simulation of non-perturbative dynamics, which is often difficult to treat in conventional methods.
-When direct observation of the dynamics is difficult, such as in the case of false vacuum decay, the quantum simulation itself could serve as a proof of concept.
+\subsection*{Quantum algorithms to simulate parton shower dynamics}
 
-It is also important to combine quantum algorithms with quantum sensing to, e.g., improve the sensitivity to the light dark matter signal.
-One example of the possibly useful algorithms is the \textbf{amplitude amplification}, which allows the probability for signal detection to scale ideally as $\propto N^2$ with the $N$ repeated measurements.
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.6\hsize]{../public/rs/shower_annotated.png}
+  \caption{
+    A schematic illustration of a multi-emission process that incorporates quantum interference effects beyond the classical parton shower treatment.
+    The leading-order contribution to inclusive parton shower dynamics is fully captured by blue cones, which represent collinear emissions and can be treated independently.
+    At the next-to-leading order, however, soft interference effects, depicted by orange lines in the figure, must be considered, potentially leading to global event-wise entanglement.
+  }
+  \label{fig:shower}
+\end{figure}
 
-\subsection*{Other directions}
+Another direction of my research focuses on developing quantum algorithms to study quantum dynamics.
+Today, quantum computing resources with a substantial number of qubits are publicly accessible, and their availability is steadily increasing.
+Given this, now is the ideal time to explore quantum algorithms for physics research.
+Leveraging this opportunity, my research aims to push the boundaries of quantum simulations to better understand complex physical systems.
 
-The observed value of the Higgs mass $M_h \simeq 125\,\mathrm{GeV}$ results in the Higgs self-coupling $\lambda$ running to negative according to the standard model renormalization group flow, which indicates that the electroweak vacuum of the standard model is not absolutely stable.
-Whether the lifetime of the electroweak vacuum is longer than the age of the universe or not, the so-called \textbf{electroweak vacuum stability}, should be properly judged to test if the physics of the standard model and beyond is compatible with our universe.
-On the other hand, false vacuum decay rate calculation at the next-to-leading order tends to contain complicated differential equations that are computationally hard to solve and divergences sourced from symmetries that are conceptually difficult to treat.
+As an important example of systems with intriguing quantum properties, I work on \textbf{parton showers}.
+The original parton shower algorithm is a classical approach that has been widely used for multi-emission processes (see \cref{fig:shower} for a schematic illustration) in collider and astroparticle physics.
+However, it fails to incorporate important \textbf{quantum interference effects}, which can significantly alter the particle multiplicity distribution, especially in the presence of a non-trivial flavor structure \cite{Chigusa:2022act}.
+To address this issue, I developed a \textbf{quantum parton shower algorithm} using a veto procedure \cite{Bauer:2023ujy}, which can incorporate the exponentially growing number of diagrams while utilizing polynomial quantum resources.
+This is the first quantum algorithm capable of reconstructing full kinematic information, making an important first step towards realistic quantum simulations of parton shower dynamics.
 
-In \cite{Chigusa:2017dux}, \cite{Chigusa:2018uuj}, I overcame these technical difficulties and obtained a semi-analytic one-loop expression of the electroweak vacuum decay rate in the standard model and beyond without additional Higgs bosons.
-This result allows us to calculate the decay rate much faster and more precisely than in the past.
-I generalized this result in \cite{Chigusa:2020jbn} and provided the first semi-analytic expression of the one-loop vacuum decay rate in the general gauge theory.
-I used this expression to test the electroweak vacuum decay in a setup of the minimal supersymmetric standard model that can resolve the possible muon $g-2$ tension and obtained an upper bound on the mass of certain new particles \cite{Chigusa:2022xpq}, \cite{Chigusa:2023mqy}; a part of the allowed mass range can be searched for by the future collider experiments.
-
-One of the recently evolving computational tools is \textbf{machine learning}, which is suitable for analyzing the huge and complicated data of collider experiments.
-I adopted this tool to achieve better preselection of the Higgs boson at future lepton colliders, which will be the basis technology for the Higgs study program.
-I compared the performance of this approach with that of the traditional boosted decision tree approach and concluded that $\mathcal{O}(10)\,\%$ improvement can be expected \cite{Chigusa:2022svv}.
-Also, a large amount of effort has been devoted to realizing the muon collider, which has the potential to reach higher energy than electron-positron colliders, while maintaining cleaner signals than hadron colliders.
-I explored a way to look for a new particle that couples dominantly to top quarks through four-top events and the resonance peak search in the muon collider.
-I showed that the tendency of having more \textbf{boosted top jets} is a clear advantage of the high-energy muon collider against the large hadron collider, despite the challenges such as the beam-induced background \cite{Chigusa:2023rrz}.
+I plan to further develop quantum algorithms addressing both computational and physical aspects.
+The sampling method for the evolution variable, the virtuality, can be optimized to reduce the gate cost, although it distorts quantum states due to the artificial veto procedure.
+I am developing an algorithm to restore the correct quantum state with an improved sampling method.
+Additionally, I intend to develop algorithms that incorporate next-to-leading order effects, extending beyond the collinear emissions represented by blue cones in \cref{fig:shower}.
+To achieve this, \textbf{soft interference effects} must be properly accounted for by storing the emission history in qubits.
+This approach fully leverages the advantages of quantum computing because of the possibility of global event-wise entanglement, illustrated by the orange lines in \cref{fig:shower} that connect the blue cones.
+By developing these algorithms, I aim to create a comprehensive toolkit for quantum simulations of scattering processes at high-energy colliders, properly incorporating quantum interference effects.
 
 \subsection*{Conclusion}
 
-The field of quantum science is now in an interesting time with many new experimental technologies and theoretical ideas coming out daily.
-I intend to take full advantage of the opportunity to develop new ideas for phenomenological studies of particle physics based on the rapid developments in quantum science, aiming to unravel the nature of the universe.
+The program for exploring new physics should evolve alongside rapid technological advancements of quantum science.
+By incorporating advanced quantum metrology techniques and developing quantum algorithms, I aim to develop innovative approaches for exploring physics with the ultimate goal of contributing to a deeper understanding of the universe's fundamental mysteries.
 
-\bibliographystyle{/Users/sochigusa/works/website/research/JHEP.bst}
+\bibliographystyle{JHEP}
 \bibliography{publications.bib}
 
 \end{document}
