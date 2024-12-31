@@ -19,9 +19,9 @@ const History = ({ latex_RS_history }: MyPageProps) => {
   return (
     <>
       <ArticlesMeta
-        title={t.RESEARCH_TITLE}
-        description={t.RESEARCH_DESCRIPTION}
-        url="/research"
+        title={t.RS_HISTORY_TITLE}
+        description={t.RS_HISTORY_DESCRIPTION}
+        url="/research/history"
         img=""
       />
       <Typography gutterBottom variant="h4">
@@ -43,6 +43,9 @@ const History = ({ latex_RS_history }: MyPageProps) => {
                     <StatementCard key={statement.title} statement={statement} />
                   ))}
                 </Box>
+                <MathJax>
+                  <Typography gutterBottom variant="body1" dangerouslySetInnerHTML={{ __html: latex_RS.conclusion }} />
+                </MathJax>
               </Stack>
             </Box>
           </Box>

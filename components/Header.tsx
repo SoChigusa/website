@@ -22,6 +22,7 @@ const BreadcrumbFromURL = () => {
     if (breadcrumb == '') id = t.HOME;
     else if (breadcrumb == 'cv') id = t.CV;
     else if (breadcrumb == 'research') id = t.RESEARCH;
+    else if (breadcrumb == 'history') id = t.RS_HISTORY;
     else if (breadcrumb == 'publications') id = t.PUBLICATIONS;
     else if (breadcrumb == 'talks') id = t.TALKS;
     else if (breadcrumb == 'tips') id = t.TIPS;

@@ -84,6 +84,7 @@ interface Statement {
 interface LatexRS {
   summary: string
   statements: Statement[]
+  conclusion: string
   year?: number
 }
 

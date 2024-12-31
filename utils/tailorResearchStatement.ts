@@ -122,10 +122,17 @@ const tailorResearchStatement = (baseName: string = 'research/research_statement
       contents: extractContents(pos!, index)
     }));
 
+  // conclusion
+  let conclusion = '';
+  if (statements[statements.length - 1].title == 'Conclusion') {
+    conclusion = statements[statements.length - 1].contents.join('\n\n');
+    statements.pop();
+  }
+
   if (baseName == 'research/research_statement') {
-    return { summary, statements };
+    return { summary, statements, conclusion };
   } else {
-    return { summary, statements, year: Number(baseName.split('/').pop()) };
+    return { summary, statements, conclusion, year: Number(baseName.split('/').pop()) };
   }
 };
 

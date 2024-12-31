@@ -54,6 +54,9 @@ const Research = ({ publications, talk_list, latex_RS }: MyPageProps) => {
                 <StatementCard key={statement.title} statement={statement} />
               ))}
             </Box>
+            <MathJax>
+              <Typography gutterBottom variant="body1" dangerouslySetInnerHTML={{ __html: latex_RS.conclusion }} />
+            </MathJax>
             <Stack direction="row" spacing={1}>
               <Link href='rs.pdf'>
                 <Tooltip title={t.OPEN_PDF} placement="bottom" arrow>
