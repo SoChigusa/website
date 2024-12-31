@@ -1,4 +1,5 @@
 import fs from 'fs';
+import * as path from 'path';
 
 const mapID2URL = (bbl: string): MapID2URL[] => {
   const items: string[] = bbl.split('\\bibitem\{');
@@ -64,15 +65,17 @@ const replaceLaTeXFigure = (latex_src: string, sectionIndex: number) => {
   return latex_res;
 }
 
-const tailorResearchStatement = () => {
+const tailorResearchStatement = (baseName: string = 'research/research_statement') => {
 
   // open and copy files
-  let latex_src: string = fs.readFileSync('research/research_statement.tex', 'utf-8');
-  let bbl_src: string = fs.readFileSync('research/research_statement.bbl', 'utf-8');
-  const pdf: Buffer = fs.readFileSync('research/research_statement.pdf');
-  fs.writeFileSync('public/rs.pdf', pdf);
-  fs.writeFileSync('public/ja/rs.pdf', pdf);
-  console.log('copied the research statement to the public directory')
+  let latex_src: string = fs.readFileSync(`${baseName}.tex`, 'utf-8');
+  let bbl_src: string = fs.readFileSync(`${baseName}.bbl`, 'utf-8');
+  if (baseName == 'research/research_statement') {
+    const pdf: Buffer = fs.readFileSync(`${baseName}.pdf`);
+    fs.writeFileSync('public/rs.pdf', pdf);
+    fs.writeFileSync('public/ja/rs.pdf', pdf);
+    console.log('copied the research statement to the public directory');
+  }
 
   // replace citations to links
   const id2url: MapID2URL[] = mapID2URL(bbl_src);
@@ -119,7 +122,21 @@ const tailorResearchStatement = () => {
       contents: extractContents(pos!, index)
     }));
 
-  return { summary, statements };
+  if (baseName == 'research/research_statement') {
+    return { summary, statements };
+  } else {
+    return { summary, statements, year: Number(baseName.split('/').pop()) };
+  }
 };
+
+export const tailorRSHistory = (): LatexRS[] => {
+  const files = fs.readdirSync('research/history');
+  const texFiles = files.filter(file => path.extname(file) === '.tex');
+  const latex_RS_history = texFiles.map(file => {
+    const baseName = path.basename(file, '.tex');
+    return tailorResearchStatement(`research/history/${baseName}`);
+  });
+  return latex_RS_history;
+}
 
 export default tailorResearchStatement;

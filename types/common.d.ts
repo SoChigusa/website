@@ -3,6 +3,7 @@ interface MyPageProps {
   publications: Publication[]
   talk_list: TalkList
   latex_RS: LatexRS
+  latex_RS_history: LatexRS[]
 }
 
 interface HeaderData {
@@ -83,6 +84,7 @@ interface Statement {
 interface LatexRS {
   summary: string
   statements: Statement[]
+  year?: number
 }
 
 interface PersonalInfo {
