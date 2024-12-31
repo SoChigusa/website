@@ -49,7 +49,7 @@ const replaceLaTeXFigure = (latex_src: string, sectionIndex: number) => {
       const figureLetter = String.fromCharCode(97 + labels.length);
       labels.push(labelKey);
       return `
-    <img width="480" src="/rs/${fileName}" alt="Fig. ${figureNumber}${figureLetter}: ${caption}" style="display: block; margin: auto; margin-top: 10px;" />
+    <img src="/rs/${fileName}" alt="Fig. ${figureNumber}${figureLetter}: ${caption}" style="display: block; width: 100%; max-width: 480px; margin: auto; margin-top: 10px;" />
     <span style="display: block; font-size: 0.9em; margin-bottom: 20px;">Fig. ${figureNumber}${figureLetter}: ${caption}</span>
     `;
     });
