@@ -29,8 +29,6 @@ const extractPublicationData = async ({ slice = -1 }) => {
             const root: HTMLElement = parse(html);
             const metas: HTMLElement[] = root.querySelectorAll('meta');
             const meta_date: HTMLElement = metas.filter(meta => meta.rawAttributes.name == 'citation_date')[0];
-            console.log(publication.entryTags.EPRINT);
-            console.log(meta_date);
             const date: string = meta_date.rawAttributes.content;
             const meta_abstract: HTMLElement = metas.filter(meta => meta.rawAttributes.name == 'citation_abstract')[0];
             const abstract: string = meta_abstract.rawAttributes.content;
