@@ -5,7 +5,7 @@ import { Accordion, AccordionDetails, AccordionSummary, Box, Card, CardContent, 
 import Link from "./Link";
 import Image from "next/image";
 import { deformAuthorNames, latexReplacement, mathjaxInline } from "../utils/deformPublicationData";
-import { Article } from "@mui/icons-material";
+import { Article, Science } from "@mui/icons-material";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 import SummarizeIcon from '@mui/icons-material/Summarize';
@@ -20,6 +20,7 @@ const PublicationCard = ({ publication, expanded, handle }: { publication: Publi
   const date: string = publication.entryTags.date;
   const abstract: string = mathjaxInline(publication.entryTags.abstract);
   const noimage: string = 'https://placehold.jp/32/003060/e0e0e0/286x180.png?text=No Image';
+  const url: string | undefined = publication.entryTags.URL;
 
   // from [Family], [First] to [First] [Family]
   const author: string = deformAuthorNames(authorOrig);
@@ -90,7 +91,7 @@ const PublicationCard = ({ publication, expanded, handle }: { publication: Publi
       >
         <Stack spacing={1}>
           <Typography variant="subtitle1" color="primary">
-            {title} [arXiv: {eprint}]
+            {title} {eprint ? `[arXiv: ${eprint}]` : ""}
           </Typography>
           <Typography variant="subtitle2" sx={{ color: 'text.secondary' }}>
             {author} ({date})
@@ -104,7 +105,7 @@ const PublicationCard = ({ publication, expanded, handle }: { publication: Publi
               <CardMedia
                 component='img'
                 sx={{ height: { md: 360, lg: 360 }, width: '94%', padding: '3%', objectFit: 'contain' }}
-                image={publication.entryTags.imageExist ? `/publicationImages/${eprint}.svg` : noimage}
+                image={publication.entryTags.imagePath === "noimage" ? noimage : publication.entryTags.imagePath}
                 alt={title}
               />
             </Box>
@@ -123,25 +124,35 @@ const PublicationCard = ({ publication, expanded, handle }: { publication: Publi
                     <YouTubeLink />
                     <PosterLink />
                     <SlideLink />
-                    <Link href={`https://arxiv.org/pdf/${eprint}.pdf`} target="_blank">
-                      <Tooltip title={t.OPEN_PDF} placement="bottom" arrow>
-                        <IconButton aria-label={t.OPEN_PDF}>
-                          <Article />
-                        </IconButton>
-                      </Tooltip>
-                    </Link>
-                    <Link href={`https://arxiv.org/abs/${eprint}`} target="_blank">
-                      <Tooltip title={t.SEE_ON_ARXIV} placement="bottom" arrow>
-                        <Box sx={{ mt: '4px' }}>
-                          <Image
-                            src='/logos/ArXiv_logo_2022.png'
-                            width={80}
-                            height={36}
-                            alt='arXiv logo'
-                          />
-                        </Box>
-                      </Tooltip>
-                    </Link>
+                    {eprint ?
+                      <Link href={`https://arxiv.org/pdf/${eprint}.pdf`} target="_blank">
+                        <Tooltip title={t.OPEN_PDF} placement="bottom" arrow>
+                          <IconButton aria-label={t.OPEN_PDF}>
+                            <Article />
+                          </IconButton>
+                        </Tooltip>
+                      </Link> : <></>}
+                    {eprint ?
+                      <Link href={`https://arxiv.org/abs/${eprint}`} target="_blank">
+                        <Tooltip title={t.SEE_ON_ARXIV} placement="bottom" arrow>
+                          <Box sx={{ mt: '4px' }}>
+                            <Image
+                              src='/logos/ArXiv_logo_2022.png'
+                              width={80}
+                              height={36}
+                              alt='arXiv logo'
+                            />
+                          </Box>
+                        </Tooltip>
+                      </Link> :
+                      <Link href={url ? url : "/404"} target="_blank">
+                        <Tooltip title={t.SEE_ON_PUBLISHER} placement="bottom" arrow>
+                          <IconButton aria-label={t.SEE_ON_PUBLISHER}>
+                            <Science />
+                          </IconButton>
+                        </Tooltip>
+                      </Link>
+                    }
                     {/* <Like id={{ collection: 'publications', document: eprint }} /> */}
                   </Stack>
                 </Box>

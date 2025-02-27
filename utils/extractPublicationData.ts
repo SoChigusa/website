@@ -20,8 +20,8 @@ const extractPublicationData = async ({ slice = -1 }) => {
         if (index < num_pub) {
           let publication = publications[index];
           const eprint: string = publication.entryTags.EPRINT;
-          publication.entryTags["isExist"] = !(typeof eprint === "undefined");
-          publication.entryTags["imageExist"] = fs.existsSync(`public/publicationImages/${eprint}.svg`);
+          publication.entryTags.isExist = !(typeof eprint === "undefined");
+          let path = `/publicationImages/${eprint}.svg`;
           if (publication.entryTags.isExist) {
             const html: string = await fetch(`https://arxiv.org/abs/${publication.entryTags.EPRINT}`).then((data) => {
               return data.text();
@@ -29,11 +29,25 @@ const extractPublicationData = async ({ slice = -1 }) => {
             const root: HTMLElement = parse(html);
             const metas: HTMLElement[] = root.querySelectorAll('meta');
             const meta_date: HTMLElement = metas.filter(meta => meta.rawAttributes.name == 'citation_date')[0];
+            console.log(publication.entryTags.EPRINT);
+            console.log(meta_date);
             const date: string = meta_date.rawAttributes.content;
             const meta_abstract: HTMLElement = metas.filter(meta => meta.rawAttributes.name == 'citation_abstract')[0];
             const abstract: string = meta_abstract.rawAttributes.content;
-            publication.entryTags["date"] = date;
-            publication.entryTags["abstract"] = abstract;
+            publication.entryTags.date = date;
+            publication.entryTags.abstract = abstract;
+          } else { // specific for non-arXiv papers
+            publication.entryTags.isExist = true;
+            publication.entryTags.date = publication.entryTags.DATE ? publication.entryTags.DATE : "";
+            publication.entryTags.abstract = publication.entryTags.ABSTRACT ? publication.entryTags.ABSTRACT : "";
+            path = `/publicationImages/${publication.entryTags.IMAGEID}.svg`;
+          }
+
+          // image existance check
+          if (fs.existsSync(`public${path}`)) {
+            publication.entryTags.imagePath = path;
+          } else {
+            publication.entryTags.imagePath = "noimage";
           }
 
           // additional materials

@@ -29,6 +29,7 @@ export default {
   SEE_ON_ARXIV: 'arXivで見る',
   WATCH_ON_YOUTUBE: 'YouTubeで見る',
   SEE_ON_INSPIRE_HEP: 'inspire HEPで見る',
+  SEE_ON_PUBLISHER: '出版社のウェブサイトで見る',
   RESEARCH_INTERESTS: '研究概要',
   RECENT_ACTIVITIES: '最近の活動成果',
   RESEARCH_ACTIVITIES: '最近の研究成果',

@@ -3,7 +3,7 @@ import { useState } from "react";
 import useLocale from "../../utils/useLocale";
 import createHeaderData from "../../utils/createHeaderData";
 import extractPublicationData from "../../utils/extractPublicationData";
-import setDatabase from "../../utils/db/setDatabase";
+// import setDatabase from "../../utils/db/setDatabase";
 import { Box, Stack, Typography } from "@mui/material";
 import ArticlesMeta from "../../components/meta/articles";
 import PublicationCard from "../../components/PublicationCard";
@@ -14,7 +14,7 @@ import { GetStaticProps } from "next";
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const headerData: HeaderData = createHeaderData();
   const publications: Publication[] = await extractPublicationData({});
-  await setDatabase({ collection: 'publications', publications });
+  // await setDatabase({ collection: 'publications', publications });
   return { props: { headerData, publications }, };
 }
 

@@ -18,7 +18,11 @@ interface EntryTags {
   date: string
   abstract: string
   isExist: boolean
-  imageExist: boolean
+  imagePath: string
+  DATE?: string
+  ABSTRACT?: string
+  URL?: string
+  IMAGEID?: string
 }
 
 interface Publication {

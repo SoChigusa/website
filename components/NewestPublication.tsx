@@ -34,7 +34,7 @@ const NewestPublication = ({ publication }: { publication: Publication }) => {
         <CardMedia
           component='img'
           sx={{ height: { md: 280, lg: 360 }, width: '76%', px: '12%', pt: 2, pb: '0', objectFit: 'contain' }}
-          image={publication.entryTags.imageExist ? `/publicationImages/${eprint}.svg` : noimage}
+          image={publication.entryTags.imagePath === "noimage" ? noimage : publication.entryTags.imagePath}
           alt='newest publication'
         />
       </Link>

@@ -1,7 +1,7 @@
 import createHeaderData from "../utils/createHeaderData";
 import extractPublicationData from "../utils/extractPublicationData";
 import extractTalkData from "../utils/extractTalkData";
-import setDatabase from "../utils/db/setDatabase";
+// import setDatabase from "../utils/db/setDatabase";
 import useLocale from "../utils/useLocale";
 import tailorResearchStatement from "../utils/tailorResearchStatement";
 import { Box, Stack, Typography, Tooltip, IconButton } from "@mui/material";
@@ -20,7 +20,7 @@ import { GetStaticProps } from "next";
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const headerData: HeaderData = createHeaderData();
   const publications: Publication[] = await extractPublicationData({ slice: 6 });
-  await setDatabase({ collection: 'publications', publications });
+  // await setDatabase({ collection: 'publications', publications });
   const talk_list: TalkList = await extractTalkData({ slice: 3 });
   const latex_RS: LatexRS = tailorResearchStatement();
   return { props: { headerData, publications, talk_list, latex_RS }, };

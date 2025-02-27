@@ -33,7 +33,7 @@ const PublicationCardSmall = (publication: Publication) => {
             width={196}
             height={144}
             layout='fixed'
-            src={publication.entryTags.imageExist ? `/publicationImages/${eprint}.svg` : noimage}
+            src={publication.entryTags.imagePath === "noimage" ? noimage : publication.entryTags.imagePath}
             alt={eprint}
           />
         </Link>

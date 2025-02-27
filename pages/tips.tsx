@@ -1,5 +1,5 @@
 import createHeaderData from '../utils/createHeaderData';
-import setDatabase from "../utils/db/setDatabase";
+// import setDatabase from "../utils/db/setDatabase";
 import { Box, Grid } from "@mui/material";
 import ArticlesMeta from "../components/meta/articles";
 import PaginationBar from '../components/PaginationBar';
@@ -10,7 +10,7 @@ import { GetStaticProps } from 'next';
 
 export const getStaticProps: GetStaticProps = async () => {
   const headerData: HeaderData = createHeaderData();
-  await setDatabase({ collection: 'posts', posts: headerData.tips_ja });
+  // await setDatabase({ collection: 'posts', posts: headerData.tips_ja });
   return {
     props: {
       headerData,

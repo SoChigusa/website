@@ -1,23 +1,32 @@
 
 \providecommand{\href}[2]{#2}\begingroup\raggedright\begin{thebibliography}{10}
 
+\bibitem{Herbschleb:2024pbk}
+E.D.~Herbschleb, S.~Chigusa, R.~Kawase, H.~Kawashima, M.~Hazumi, K.~Nakayama et~al., \emph{{Robust sensing via the standard deviation with a quantum sensor}}, \href{https://doi.org/10.1063/5.0223678}{\emph{APL Quantum} {\bfseries 1} (2024) 046106}.
+
+\bibitem{Sichanugrist:2024wfk}
+T.~Sichanugrist, H.~Fukuda, T.~Moroi, K.~Nakayama, S.~Chigusa, N.~Mizuochi et~al., \emph{{Entanglement-enhanced AC magnetometry in the presence of Markovian noises}},  \href{https://arxiv.org/abs/2410.21699}{{\ttfamily 2410.21699}}.
+
+\bibitem{Chigusa:2024psk}
+S.~Chigusa, M.~Hazumi, E.D.~Herbschleb, Y.~Matsuzaki, N.~Mizuochi and K.~Nakayama, \emph{{Nuclear Spin Metrology with Nitrogen Vacancy Center in Diamond for Axion Dark Matter Detection}},  \href{https://arxiv.org/abs/2407.07141}{{\ttfamily 2407.07141}}.
+
 \bibitem{Bauer:2023ujy}
-C.W.~Bauer, S.~Chigusa and M.~Yamazaki, \emph{{Quantum Parton Shower with Kinematics}},  \href{https://arxiv.org/abs/2310.19881}{{\ttfamily 2310.19881}}.
+C.W.~Bauer, S.~Chigusa and M.~Yamazaki, \emph{{Quantum parton shower with kinematics}}, \href{https://doi.org/10.1103/PhysRevA.109.032432}{\emph{Phys. Rev. A} {\bfseries 109} (2024) 032432} [\href{https://arxiv.org/abs/2310.19881}{{\ttfamily 2310.19881}}].
 
 \bibitem{Chigusa:2023bga}
-S.~Chigusa, A.~Ito, K.~Nakayama and V.~Takhistov, \emph{{Effects of Finite Material Size On Axion-magnon Conversion}},  \href{https://arxiv.org/abs/2310.17704}{{\ttfamily 2310.17704}}.
+S.~Chigusa, A.~Ito, K.~Nakayama and V.~Takhistov, \emph{{Effects of finite material size on axion-magnon conversion}}, \href{https://doi.org/10.1007/JHEP01(2024)185}{\emph{JHEP} {\bfseries 01} (2024) 185} [\href{https://arxiv.org/abs/2310.17704}{{\ttfamily 2310.17704}}].
 
 \bibitem{Chigusa:2023rrz}
-S.~Chigusa, S.~Girmohanta, Y.~Nakai and Y.~Zhang, \emph{{Aiming for Tops of ALPs with a Muon Collider}},  \href{https://arxiv.org/abs/2310.11018}{{\ttfamily 2310.11018}}.
+S.~Chigusa, S.~Girmohanta, Y.~Nakai and Y.~Zhang, \emph{{Aiming for tops of ALPs with a muon collider}}, \href{https://doi.org/10.1007/JHEP01(2024)077}{\emph{JHEP} {\bfseries 01} (2024) 077} [\href{https://arxiv.org/abs/2310.11018}{{\ttfamily 2310.11018}}].
 
 \bibitem{Chigusa:2023szl}
-S.~Chigusa, D.~Kondo, H.~Murayama, R.~Okabe and H.~Sudo, \emph{{Axion detection via superfluid $^3$He ferromagnetic phase and quantum measurement techniques}},  \href{https://arxiv.org/abs/2309.09160}{{\ttfamily 2309.09160}}.
+S.~Chigusa, D.~Kondo, H.~Murayama, R.~Okabe and H.~Sudo, \emph{{Axion detection via superfluid $^{3}$He ferromagnetic phase and quantum measurement techniques}}, \href{https://doi.org/10.1007/JHEP09(2024)191}{\emph{JHEP} {\bfseries 09} (2024) 191} [\href{https://arxiv.org/abs/2309.09160}{{\ttfamily 2309.09160}}].
 
 \bibitem{Chigusa:2023hmz}
-S.~Chigusa, T.~Moroi, K.~Nakayama and T.~Sichanugrist, \emph{{Dark matter detection using nuclear magnetization in magnet with hyperfine interaction}},  \href{https://arxiv.org/abs/2307.08577}{{\ttfamily 2307.08577}}.
+S.~Chigusa, T.~Moroi, K.~Nakayama and T.~Sichanugrist, \emph{{Dark matter detection using nuclear magnetization in magnet with hyperfine interaction}}, \href{https://doi.org/10.1103/PhysRevD.108.095007}{\emph{Phys. Rev. D} {\bfseries 108} (2023) 095007} [\href{https://arxiv.org/abs/2307.08577}{{\ttfamily 2307.08577}}].
 
 \bibitem{Chigusa:2023mqy}
-S.~Chigusa, T.~Moroi and Y.~Shoji, \emph{{Stability of Electroweak Vacuum and Supersymmetric Contribution to Muon g-2}},  \href{https://arxiv.org/abs/2306.16596}{{\ttfamily 2306.16596}}.
+S.~Chigusa, T.~Moroi and Y.~Shoji, \emph{{Stability of electroweak vacuum and supersymmetric contribution to muon g \ensuremath{-} 2}}, \href{https://doi.org/10.1007/JHEP11(2023)027}{\emph{JHEP} {\bfseries 11} (2023) 027} [\href{https://arxiv.org/abs/2306.16596}{{\ttfamily 2306.16596}}].
 
 \bibitem{Chigusa:2023hms}
 S.~Chigusa, M.~Hazumi, E.D.~Herbschleb, N.~Mizuochi and K.~Nakayama, \emph{{Light Dark Matter Search with Nitrogen-Vacancy Centers in Diamonds}},  \href{https://arxiv.org/abs/2302.12756}{{\ttfamily 2302.12756}}.
