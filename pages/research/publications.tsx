@@ -45,8 +45,8 @@ const Publications = ({ publications }: MyPageProps) => {
           <PublicationCard
             key={publication.citationKey}
             publication={publication}
-            expanded={expanded === publication.entryTags.EPRINT}
-            handle={handlePanelOnChange(publication.entryTags.EPRINT)}
+            expanded={expanded === publication.entryTags.TITLE}
+            handle={handlePanelOnChange(publication.entryTags.TITLE)}
           />
         ))}
         <Stack spacing={2} direction="row" sx={{ my: 2 }}>
