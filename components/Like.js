@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import useSWR, { SWRConfig } from "swr";
+import useSWR from "swr";
 import useLocale from '../utils/useLocale';
 import getCounter from '../utils/db/getCounter';
 import updateCounter from '../utils/db/updateCounter';
@@ -16,7 +16,7 @@ const Like = ({ sx, id }) => {
   const { data } = useSWR({ apiKey: '/api/getIp', id }, fetcher);
   const ip = data ? data.ipData.ip : '127.0.0.1';
   const likes = data ? data.counterData.likes : 0;
-  const likedUsers = data ? data.counterData.likedUsers : [];
+  const likedUsers = useMemo(() => data ? data.counterData.likedUsers : [], [data]);
 
   const { t } = useLocale();
   const [isLiked, setIsLiked] = useState(likedUsers.includes(ip));
@@ -29,7 +29,7 @@ const Like = ({ sx, id }) => {
       setCount(newLikes);
       setIsLiked(newIsLiked);
     }
-  }, [data]);
+  }, [data, ip, likedUsers]);
 
   const handleLike = async () => {
     if (data) {

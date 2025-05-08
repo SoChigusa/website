@@ -7,7 +7,7 @@ import { deformAuthorNames, latexReplacement } from "../utils/deformPublicationD
 import Link from "./Link";
 import TalkList from "./TalkList";
 
-const PublicationCardSmall = (publication: Publication) => {
+const PublicationCardSmall = ({ publication }: { publication: Publication }) => {
   const authorOrig: string = publication.entryTags.AUTHOR;
   const titleOrig: string = publication.entryTags.TITLE.slice(1, -1);
   const eprint: string = publication.entryTags.EPRINT;
@@ -78,8 +78,8 @@ const RecentResearchTab = ({ publications, talks }: { publications: Publication[
       </Tabs>
       {
         tab == 0 &&
-        publications.map(publication => {
-          return (PublicationCardSmall(publication))
+        publications.map((publication, index) => {
+          return <PublicationCardSmall key={publication.entryTags.EPRINT} publication={publication} />
         })
       }
       {
