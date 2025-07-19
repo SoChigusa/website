@@ -1,11 +1,20 @@
 
 \providecommand{\href}[2]{#2}\begingroup\raggedright\begin{thebibliography}{10}
 
+\bibitem{Chigusa:2025rqs}
+S.~Chigusa, T.~Kasamaki, T.~Kusano, T.~Moroi, K.~Nakayama, N.~Ozawa et~al., \emph{{Dark matter detection using optically trapped Rydberg atom tweezer arrays}},  \href{https://arxiv.org/abs/2507.12860}{{\ttfamily 2507.12860}}.
+
+\bibitem{Chigusa:2025otr}
+S.~Chigusa, S.~Girmohanta, Y.~Nakai and Y.~Zhang, \emph{{Interplay of ALP couplings at a muon collider}}, \href{https://doi.org/10.1007/JHEP07(2025)003}{\emph{JHEP} {\bfseries 07} (2025) 003} [\href{https://arxiv.org/abs/2502.18912}{{\ttfamily 2502.18912}}].
+
+\bibitem{Herbschleb:2024pbk}
+E.D.~Herbschleb, S.~Chigusa, R.~Kawase, H.~Kawashima, M.~Hazumi, K.~Nakayama et~al., \emph{{Robust sensing via the standard deviation with a quantum sensor}}, \href{https://doi.org/10.1063/5.0223678}{\emph{APL Quantum} {\bfseries 1} (2024) 046106}.
+
 \bibitem{Sichanugrist:2024wfk}
-T.~Sichanugrist, H.~Fukuda, T.~Moroi, K.~Nakayama, S.~Chigusa, N.~Mizuochi et~al., \emph{{Entanglement-enhanced AC magnetometry in the presence of Markovian noises}},  \href{https://arxiv.org/abs/2410.21699}{{\ttfamily 2410.21699}}.
+T.~Sichanugrist, H.~Fukuda, T.~Moroi, K.~Nakayama, S.~Chigusa, N.~Mizuochi et~al., \emph{{Entanglement-enhanced ac magnetometry in the presence of Markovian noise}}, \href{https://doi.org/10.1103/PhysRevA.111.042605}{\emph{Phys. Rev. A} {\bfseries 111} (2025) 042605} [\href{https://arxiv.org/abs/2410.21699}{{\ttfamily 2410.21699}}].
 
 \bibitem{Chigusa:2024psk}
-S.~Chigusa, M.~Hazumi, E.D.~Herbschleb, Y.~Matsuzaki, N.~Mizuochi and K.~Nakayama, \emph{{Nuclear Spin Metrology with Nitrogen Vacancy Center in Diamond for Axion Dark Matter Detection}},  \href{https://arxiv.org/abs/2407.07141}{{\ttfamily 2407.07141}}.
+S.~Chigusa, M.~Hazumi, E.D.~Herbschleb, Y.~Matsuzaki, N.~Mizuochi and K.~Nakayama, \emph{{Nuclear spin metrology with nitrogen vacancy center in diamond for axion dark matter detection}}, \href{https://doi.org/10.1103/PhysRevD.111.075028}{\emph{Phys. Rev. D} {\bfseries 111} (2025) 075028} [\href{https://arxiv.org/abs/2407.07141}{{\ttfamily 2407.07141}}].
 
 \bibitem{Bauer:2023ujy}
 C.W.~Bauer, S.~Chigusa and M.~Yamazaki, \emph{{Quantum parton shower with kinematics}}, \href{https://doi.org/10.1103/PhysRevA.109.032432}{\emph{Phys. Rev. A} {\bfseries 109} (2024) 032432} [\href{https://arxiv.org/abs/2310.19881}{{\ttfamily 2310.19881}}].
@@ -17,22 +26,22 @@ S.~Chigusa, A.~Ito, K.~Nakayama and V.~Takhistov, \emph{{Effects of finite mater
 S.~Chigusa, S.~Girmohanta, Y.~Nakai and Y.~Zhang, \emph{{Aiming for tops of ALPs with a muon collider}}, \href{https://doi.org/10.1007/JHEP01(2024)077}{\emph{JHEP} {\bfseries 01} (2024) 077} [\href{https://arxiv.org/abs/2310.11018}{{\ttfamily 2310.11018}}].
 
 \bibitem{Chigusa:2023szl}
-S.~Chigusa, D.~Kondo, H.~Murayama, R.~Okabe and H.~Sudo, \emph{{Axion detection via superfluid $^3$He ferromagnetic phase and quantum measurement techniques}},  \href{https://arxiv.org/abs/2309.09160}{{\ttfamily 2309.09160}}.
+S.~Chigusa, D.~Kondo, H.~Murayama, R.~Okabe and H.~Sudo, \emph{{Axion detection via superfluid $^{3}$He ferromagnetic phase and quantum measurement techniques}}, \href{https://doi.org/10.1007/JHEP09(2024)191}{\emph{JHEP} {\bfseries 09} (2024) 191} [\href{https://arxiv.org/abs/2309.09160}{{\ttfamily 2309.09160}}].
 
 \bibitem{Chigusa:2023hmz}
 S.~Chigusa, T.~Moroi, K.~Nakayama and T.~Sichanugrist, \emph{{Dark matter detection using nuclear magnetization in magnet with hyperfine interaction}}, \href{https://doi.org/10.1103/PhysRevD.108.095007}{\emph{Phys. Rev. D} {\bfseries 108} (2023) 095007} [\href{https://arxiv.org/abs/2307.08577}{{\ttfamily 2307.08577}}].
 
 \bibitem{Chigusa:2023mqy}
-S.~Chigusa, T.~Moroi and Y.~Shoji, \emph{{Stability of electroweak vacuum and supersymmetric contribution to muon g \ensuremath{-} 2}}, \href{https://doi.org/10.1007/JHEP11(2023)027}{\emph{JHEP} {\bfseries 11} (2023) 027} [\href{https://arxiv.org/abs/2306.16596}{{\ttfamily 2306.16596}}].
+S.~Chigusa, T.~Moroi and Y.~Shoji, \emph{{Stability of electroweak vacuum and supersymmetric contribution to muon g {\ensuremath{-}} 2}}, \href{https://doi.org/10.1007/JHEP11(2023)027}{\emph{JHEP} {\bfseries 11} (2023) 027} [\href{https://arxiv.org/abs/2306.16596}{{\ttfamily 2306.16596}}].
 
-\bibitem{Chigusa:2023hms}
-S.~Chigusa, M.~Hazumi, E.D.~Herbschleb, N.~Mizuochi and K.~Nakayama, \emph{{Light Dark Matter Search with Nitrogen-Vacancy Centers in Diamonds}},  \href{https://arxiv.org/abs/2302.12756}{{\ttfamily 2302.12756}}.
+\bibitem{Chigusa:2023roq}
+S.~Chigusa, M.~Hazumi, E.D.~Herbschleb, N.~Mizuochi and K.~Nakayama, \emph{{Light dark matter search with nitrogen-vacancy centers in diamonds}}, \href{https://doi.org/10.1007/JHEP03(2025)083}{\emph{JHEP} {\bfseries 03} (2025) 083} [\href{https://arxiv.org/abs/2302.12756}{{\ttfamily 2302.12756}}].
 
 \bibitem{Chigusa:2022act}
 S.~Chigusa and M.~Yamazaki, \emph{{Quantum simulations of dark sector showers}}, \href{https://doi.org/10.1016/j.physletb.2022.137466}{\emph{Phys. Lett. B} {\bfseries 834} (2022) 137466} [\href{https://arxiv.org/abs/2204.12500}{{\ttfamily 2204.12500}}].
 
 \bibitem{Chigusa:2022xpq}
-S.~Chigusa, T.~Moroi and Y.~Shoji, \emph{{Upper bound on the smuon mass from vacuum stability in the light of muon g \ensuremath{-} 2 anomaly}}, \href{https://doi.org/10.1016/j.physletb.2022.137163}{\emph{Phys. Lett. B} {\bfseries 831} (2022) 137163} [\href{https://arxiv.org/abs/2203.08062}{{\ttfamily 2203.08062}}].
+S.~Chigusa, T.~Moroi and Y.~Shoji, \emph{{Upper bound on the smuon mass from vacuum stability in the light of muon g {\ensuremath{-}} 2 anomaly}}, \href{https://doi.org/10.1016/j.physletb.2022.137163}{\emph{Phys. Lett. B} {\bfseries 831} (2022) 137163} [\href{https://arxiv.org/abs/2203.08062}{{\ttfamily 2203.08062}}].
 
 \bibitem{Chigusa:2022svv}
 S.~Chigusa, S.~Li, Y.~Nakai, W.~Zhang, Y.~Zhang and J.~Zheng, \emph{{Deeply learned preselection of Higgs dijet decays at future lepton colliders}}, \href{https://doi.org/10.1016/j.physletb.2022.137301}{\emph{Phys. Lett. B} {\bfseries 833} (2022) 137301} [\href{https://arxiv.org/abs/2202.02534}{{\ttfamily 2202.02534}}].
@@ -77,7 +86,7 @@ T.~Abe, S.~Chigusa, Y.~Ema and T.~Moroi, \emph{{Indirect studies of electroweakl
 S.~Asai, S.~Chigusa, T.~Kaji, T.~Moroi, M.~Saito, R.~Sawada et~al., \emph{{Studying gaugino masses in supersymmetric model at future 100 TeV $pp$ collider}}, \href{https://doi.org/10.1007/JHEP05(2019)179}{\emph{JHEP} {\bfseries 05} (2019) 179} [\href{https://arxiv.org/abs/1901.10389}{{\ttfamily 1901.10389}}].
 
 \bibitem{Chigusa:2018vxz}
-S.~Chigusa, Y.~Ema and T.~Moroi, \emph{{Probing electroweakly interacting massive particles with Drell\textendash{}Yan process at 100 TeV hadron colliders}}, \href{https://doi.org/10.1016/j.physletb.2018.12.011}{\emph{Phys. Lett. B} {\bfseries 789} (2019) 106} [\href{https://arxiv.org/abs/1810.07349}{{\ttfamily 1810.07349}}].
+S.~Chigusa, Y.~Ema and T.~Moroi, \emph{{Probing electroweakly interacting massive particles with Drell{\textendash}Yan process at 100 TeV hadron colliders}}, \href{https://doi.org/10.1016/j.physletb.2018.12.011}{\emph{Phys. Lett. B} {\bfseries 789} (2019) 106} [\href{https://arxiv.org/abs/1810.07349}{{\ttfamily 1810.07349}}].
 
 \bibitem{Chigusa:2018yua}
 S.~Chigusa, S.~Kasuya and K.~Nakayama, \emph{{Flavon Stabilization in Models with Discrete Flavor Symmetry}}, \href{https://doi.org/10.1016/j.physletb.2018.11.051}{\emph{Phys. Lett. B} {\bfseries 788} (2019) 494} [\href{https://arxiv.org/abs/1810.05791}{{\ttfamily 1810.05791}}].
