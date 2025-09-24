@@ -268,3 +268,43 @@ GitHub のスタイルシートを [ここ](https://github.com/sindresorhus/gith
 ### チートシート5（個人設定）
 
 - プレビュー `Alt + k`（markdown preview と競合するようなのでショートカットを分けてある）
+
+## ssh 接続の環境を整える
+
+VS Code Server の要求を満たすサーバーなら、拡張機能 "Remote-SSH" を使えばいい。
+接続したいサーバーが要求を満たしていなかったので、そんな時にも使える代替案を試した。
+
+方針：`SSHFS` を用いてファイルをローカルにマウントし、VS Code で編集する。実行は適宜、別のターミナルウィンドウ上で行う。
+
+まず、`FUSE` と `sshfs` の mac 拡張、`sshfs-mac` をインストールする。
+
+``` bash
+brew install macfuse
+brew tap macos-fuse-t/homebrew-cask
+brew install fuse-t
+brew install fuse-t-sshfs
+```
+
+マウントポイントを作成する。
+
+``` bash
+mkdir -p ~/mnt
+```
+
+マウント用のコマンド。
+
+``` bash
+sshfs <host name/alias> ~/mnt \
+  -o reconnect \
+  -o volname=<volume name> \
+  -o ServerAliveInterval=30 \
+  -o ServerAliveCountMax=5
+```
+
+アンマウント用のコマンド。
+
+``` bash
+umount ~/mnt
+# もし失敗したら強制アンマウント
+diskutil unmount force ~/mnt
+```
