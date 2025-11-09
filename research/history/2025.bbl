@@ -1,5 +1,5 @@
 
-\providecommand{\href}[2]{#2}\begingroup\raggedright\begin{thebibliography}{10}
+\providecommand{\href}[2]{#2}\begingroup\raggedright\begin{thebibliography}{1}
 
 \bibitem{Chigusa:2020gfs}
 S.~Chigusa, T.~Moroi and K.~Nakayama, \emph{{Detecting light boson dark matter through conversion into a magnon}}, \href{https://doi.org/10.1103/PhysRevD.101.096013}{\emph{Phys. Rev. D} {\bfseries 101} (2020) 096013} [\href{https://arxiv.org/abs/2001.10666}{{\ttfamily 2001.10666}}].
@@ -10,23 +10,14 @@ S.~Chigusa, T.~Moroi and K.~Nakayama, \emph{{Axion/hidden-photon dark matter con
 \bibitem{Chigusa:2023hmz}
 S.~Chigusa, T.~Moroi, K.~Nakayama and T.~Sichanugrist, \emph{{Dark matter detection using nuclear magnetization in magnet with hyperfine interaction}}, \href{https://doi.org/10.1103/PhysRevD.108.095007}{\emph{Phys. Rev. D} {\bfseries 108} (2023) 095007} [\href{https://arxiv.org/abs/2307.08577}{{\ttfamily 2307.08577}}].
 
-\bibitem{Chigusa:2023roq}
-S.~Chigusa, M.~Hazumi, E.D.~Herbschleb, N.~Mizuochi and K.~Nakayama, \emph{{Light dark matter search with nitrogen-vacancy centers in diamonds}}, \href{https://doi.org/10.1007/JHEP03(2025)083}{\emph{JHEP} {\bfseries 03} (2025) 083} [\href{https://arxiv.org/abs/2302.12756}{{\ttfamily 2302.12756}}].
-
 \bibitem{Chigusa:2024psk}
 S.~Chigusa, M.~Hazumi, E.D.~Herbschleb, Y.~Matsuzaki, N.~Mizuochi and K.~Nakayama, \emph{{Nuclear spin metrology with nitrogen vacancy center in diamond for axion dark matter detection}}, \href{https://doi.org/10.1103/PhysRevD.111.075028}{\emph{Phys. Rev. D} {\bfseries 111} (2025) 075028} [\href{https://arxiv.org/abs/2407.07141}{{\ttfamily 2407.07141}}].
-
-\bibitem{Herbschleb:2024pbk}
-E.D.~Herbschleb, S.~Chigusa, R.~Kawase, H.~Kawashima, M.~Hazumi, K.~Nakayama et~al., \emph{{Robust sensing via the standard deviation with a quantum sensor}}, \href{https://doi.org/10.1063/5.0223678}{\emph{APL Quantum} {\bfseries 1} (2024) 046106}.
 
 \bibitem{Chigusa:2023szl}
 S.~Chigusa, D.~Kondo, H.~Murayama, R.~Okabe and H.~Sudo, \emph{{Axion detection via superfluid $^{3}$He ferromagnetic phase and quantum measurement techniques}}, \href{https://doi.org/10.1007/JHEP09(2024)191}{\emph{JHEP} {\bfseries 09} (2024) 191} [\href{https://arxiv.org/abs/2309.09160}{{\ttfamily 2309.09160}}].
 
 \bibitem{Sichanugrist:2024wfk}
 T.~Sichanugrist, H.~Fukuda, T.~Moroi, K.~Nakayama, S.~Chigusa, N.~Mizuochi et~al., \emph{{Entanglement-enhanced ac magnetometry in the presence of Markovian noise}}, \href{https://doi.org/10.1103/PhysRevA.111.042605}{\emph{Phys. Rev. A} {\bfseries 111} (2025) 042605} [\href{https://arxiv.org/abs/2410.21699}{{\ttfamily 2410.21699}}].
-
-\bibitem{Chigusa:2025xxx}
-S.~Chigusa, M.~Hazumi, E.D.~Herbschleb, Y.~Matsuzaki, N.~Mizuochi and K.~Nakayama, \emph{{Hybrid-spin decoupling for noise-resilient DC quantum sensing}}, {\emph{(to appear)} }.
 
 \bibitem{Chigusa:2022act}
 S.~Chigusa and M.~Yamazaki, \emph{{Quantum simulations of dark sector showers}}, \href{https://doi.org/10.1016/j.physletb.2022.137466}{\emph{Phys. Lett. B} {\bfseries 834} (2022) 137466} [\href{https://arxiv.org/abs/2204.12500}{{\ttfamily 2204.12500}}].
