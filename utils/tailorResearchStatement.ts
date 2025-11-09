@@ -138,7 +138,9 @@ const tailorResearchStatement = (baseName: string = 'research/research_statement
 
 export const tailorRSHistory = (): LatexRS[] => {
   const files = fs.readdirSync('research/history');
-  const texFiles = files.filter(file => path.extname(file) === '.tex');
+  const texFiles = files
+    .filter(file => path.extname(file) === '.tex')
+    .reverse();
   const latex_RS_history = texFiles.map(file => {
     const baseName = path.basename(file, '.tex');
     return tailorResearchStatement(`research/history/${baseName}`);
