@@ -16,6 +16,7 @@ import InspireHEPButton from "../components/InspireHEPButton";
 import { MathJax } from "better-react-mathjax";
 import StatementCard from "../components/StatementCard";
 import { GetStaticProps } from "next";
+import GoogleScholarButton from "../components/GoogleScholarButton";
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const headerData: HeaderData = createHeaderData();
@@ -60,14 +61,14 @@ const Research = ({ publications, talk_list, latex_RS }: MyPageProps) => {
             <Stack direction="row" spacing={1}>
               <Link href='rs.pdf'>
                 <Tooltip title={t.OPEN_PDF} placement="bottom" arrow>
-                  <IconButton aria-label={t.OPEN_PDF}>
+                  <IconButton aria-label={t.OPEN_PDF} color="primary">
                     <Article />
                   </IconButton>
                 </Tooltip>
               </Link>
               <Link href="research/history">
                 <Tooltip title={t.SHOW_RS_HISTORY} placement="bottom" arrow>
-                  <IconButton aria-label={t.SHOW_RS_HISTORY}>
+                  <IconButton aria-label={t.SHOW_RS_HISTORY} color="primary">
                     <HistoryIcon />
                   </IconButton>
                 </Tooltip>
@@ -83,8 +84,14 @@ const Research = ({ publications, talk_list, latex_RS }: MyPageProps) => {
         {publications.map((publication) => (
           <PublicationCard key={publication.citationKey} publication={publication} />
         ))}
-        <Stack spacing={2} direction="row" sx={{ my: 2 }}>
+        <Stack
+          spacing={2}
+          direction="row"
+          alignItems="center"
+          sx={{ my: 2 }}
+        >
           <SeeMoreButton href='research/publications' />
+          <GoogleScholarButton />
           <InspireHEPButton />
         </Stack>
       </Box>

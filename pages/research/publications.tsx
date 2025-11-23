@@ -10,6 +10,7 @@ import PublicationCard from "../../components/PublicationCard";
 import GoBackButton from "../../components/GoBackButton";
 import InspireHEPButton from "../../components/InspireHEPButton";
 import { GetStaticProps } from "next";
+import GoogleScholarButton from "../../components/GoogleScholarButton";
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const headerData: HeaderData = createHeaderData();
@@ -49,8 +50,13 @@ const Publications = ({ publications }: MyPageProps) => {
             handle={handlePanelOnChange(publication.entryTags.TITLE)}
           />
         ))}
-        <Stack spacing={2} direction="row" sx={{ my: 2 }}>
+        <Stack
+          spacing={2}
+          direction="row"
+          sx={{ my: 2 }}
+        >
           <GoBackButton gutterLeft gutterBottom href='../research' />
+          <GoogleScholarButton />
           <InspireHEPButton />
         </Stack>
       </Box>

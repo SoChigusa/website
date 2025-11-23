@@ -28,6 +28,7 @@ export default {
   SHOW_RS_HISTORY: 'Show research interests history',
   SEE_ON_ARXIV: 'See on arXiv',
   WATCH_ON_YOUTUBE: 'Watch on YouTube',
+  SEE_ON_GOOGLESCHOLAR: 'See on Google Scholar',
   SEE_ON_INSPIRE_HEP: 'See on inspire hep',
   SEE_ON_PUBLISHER: 'See on the publisher\'s website',
   RESEARCH_INTERESTS: 'Research Interests',

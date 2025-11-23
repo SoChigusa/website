@@ -28,6 +28,7 @@ export default {
   SHOW_RS_HISTORY: '研究の興味の変遷を見る',
   SEE_ON_ARXIV: 'arXivで見る',
   WATCH_ON_YOUTUBE: 'YouTubeで見る',
+  SEE_ON_GOOGLESCHOLAR: 'Google Scholarで見る',
   SEE_ON_INSPIRE_HEP: 'inspire HEPで見る',
   SEE_ON_PUBLISHER: '出版社のウェブサイトで見る',
   RESEARCH_INTERESTS: '研究概要',
