@@ -1,6 +1,9 @@
 
 \providecommand{\href}[2]{#2}\begingroup\raggedright\begin{thebibliography}{10}
 
+\bibitem{Chigusa:2025ihd}
+S.~Chigusa, M.~Hazumi, E.D.~Herbschleb, Y.~Matsuzaki, N.~Mizuochi and K.~Nakayama, \emph{{Hybrid-spin decoupling for noise-resilient DC quantum sensing}},  \href{https://arxiv.org/abs/2511.16732}{{\ttfamily 2511.16732}}.
+
 \bibitem{Chigusa:2025rqs}
 S.~Chigusa, T.~Kasamaki, T.~Kusano, T.~Moroi, K.~Nakayama, N.~Ozawa et~al., \emph{{Dark matter detection using optically trapped Rydberg atom tweezer arrays}},  \href{https://arxiv.org/abs/2507.12860}{{\ttfamily 2507.12860}}.
 
