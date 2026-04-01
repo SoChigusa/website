@@ -16,7 +16,7 @@ const deformTalkInformation = ({ talks, format }: { talks: Talk[], format: strin
   if (format == 'award')
     header = `\\begin{table}[h]\\begin{tabular}{ll}`;
   else if (format == 'seminar' || format == 'talk')
-    header = `\\begin{table}[H]\\begin{tabular}{lp{6in}}`;
+    header = `\\begin{longtable}[H]{lp{6in}}`;
   else
     header = `\\begin{enumerate}`;
   const talks_src: string[] = talks.map(talk => {
@@ -39,7 +39,7 @@ const deformTalkInformation = ({ talks, format }: { talks: Talk[], format: strin
   if (format == 'award')
     footer = `\\end{tabular}\\end{table}`;
   else if (format == 'seminar' || format == 'talk')
-    footer = `\\end{tabular}\\end{table}`;
+    footer = `\\end{longtable}`;
   else
     footer = `\\end{enumerate}`;
   return header + talks_src.join('') + footer;
