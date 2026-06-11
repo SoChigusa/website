@@ -290,7 +290,7 @@ const Header = ({ headerData, slug, existTranslation }: { headerData: HeaderData
             </Box>
 
             {/* Avatar */}
-            <Link href='https://twitter.com/SoChigusa' target='_blank'>
+            <Link href='https://www.facebook.com/profile.php?id=100007905904884' target='_blank'>
               <Tooltip title={t.FOLLOW_ME} placement="bottom" arrow>
                 <Avatar alt="So Chigusa" src="/avatars/1.jpg" />
               </Tooltip>

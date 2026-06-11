@@ -11,7 +11,7 @@ export default {
   REPOSITORIES: 'Repositories',
   SEE_MORE_TIPS: 'See more',
   TRANSLATE: '日本語で表示',
-  FOLLOW_ME: 'Follow me on Twitter!',
+  FOLLOW_ME: 'Follow me on Facebook!',
 
   // General Buttons
   LIST_PAGE: 'List page',

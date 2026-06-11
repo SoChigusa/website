@@ -11,7 +11,7 @@ export default {
   REPOSITORIES: 'リポジトリ',
   SEE_MORE_TIPS: 'もっと見る',
   TRANSLATE: 'Show in English',
-  FOLLOW_ME: 'ツイッターでフォローしてね！',
+  FOLLOW_ME: 'Facebookでフォローしてね！',
 
   // General Buttons
   LIST_PAGE: '一覧を見る',
