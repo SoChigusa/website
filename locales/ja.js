@@ -143,7 +143,6 @@ export default {
   PUBLIC_REPOSITORIES: '公開リポジトリ一覧',
   REPOSITORIES_PUBLIC_CODES: '研究成果に基づくパブリックコード',
   REPOSITORIES_RESEARCH_TOOLS: '研究用のツール',
-
   // ----- Information in repository page below -----
   // ELVAS
   ELVAS_DESCRIPTION_1: '真空崩壊率を 1ループレベルで計算するための c++ パッケージ',
