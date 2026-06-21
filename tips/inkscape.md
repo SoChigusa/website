@@ -30,7 +30,7 @@ brew install inkscape
 
 他に要求されたパッケージもないため導入は非常に楽で、[公式サイトの記述](https://textext.github.io/textext/install/macos.html)に従うだけ。
 
-1. [ここ](zip-file for MacOS)から最新版のパッケージをダウンロードする
+1. [ここ](https://github.com/textext/textext/releases/download/1.12.0/TexText-MacOS-1.12.0.zip)から最新版のパッケージをダウンロードする
 2. 展開したファイルのパスで、以下のコマンドを実行してインストール
 
 ```shell
