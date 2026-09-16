@@ -29,6 +29,7 @@ interface Publication {
   entryTags: EntryTags
   citationKey: string
   YouTube?: string
+  record?: string
   posterName?: string
   slideName?: string
 }
@@ -36,6 +37,7 @@ interface Publication {
 interface Materials {
   eprint: string
   YouTube?: string
+  record?: string
   posterName?: string
   slideName?: string
 }

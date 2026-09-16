@@ -9,6 +9,7 @@ import { Article, Science } from "@mui/icons-material";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 import SummarizeIcon from '@mui/icons-material/Summarize';
+import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
 
 const PublicationCard = ({ publication, expanded, handle }: { publication: Publication, expanded?: boolean, handle?: AccordionOnChange }) => {
   const { t } = useLocale();
@@ -48,6 +49,20 @@ const PublicationCard = ({ publication, expanded, handle }: { publication: Publi
     } else {
       return <></>;
     }
+  };
+
+  const RecordLink = () => {
+    if (!publication.record) {
+      return null;
+    }
+
+    return (
+      <Tooltip title={t.WATCH_RECORDING} placement="bottom" arrow>
+        <IconButton href={publication.record} target="_blank" rel="noreferrer" aria-label={t.WATCH_RECORDING}>
+          <VideoLibraryIcon />
+        </IconButton>
+      </Tooltip>
+    );
   };
 
   const PosterLink = () => {
@@ -122,6 +137,7 @@ const PublicationCard = ({ publication, expanded, handle }: { publication: Publi
                 <Box sx={{ float: 'right', marginBottom: 2, marginRight: 2 }}>
                   <Stack spacing={2} direction='row'>
                     <YouTubeLink />
+                    <RecordLink />
                     <PosterLink />
                     <SlideLink />
                     {eprint ?
