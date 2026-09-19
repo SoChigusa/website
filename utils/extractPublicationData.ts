@@ -54,6 +54,9 @@ const extractPublicationData = async ({ slice = -1 }) => {
             if ('YouTube' in materials[i]) {
               publication.YouTube = materials[i].YouTube;
             }
+            if ('record' in materials[i]) {
+              publication.record = materials[i].record;
+            }
             if ('posterName' in materials[i]) {
               publication.posterName = materials[i].posterName;
             }

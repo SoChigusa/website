@@ -1,6 +1,9 @@
 
 \providecommand{\href}[2]{#2}\begingroup\raggedright\begin{thebibliography}{10}
 
+\bibitem{Chigusa:2026}
+S.~Chigusa, \emph{{Adaptive detection of Rabi signals under composite hypotheses}},  \href{https://arxiv.org/abs/2609.16119}{{\ttfamily 2609.16119}}.
+
 \bibitem{Chigusa:2025azs}
 S.~Chigusa, S.~Knapen, T.~Opferkuch, I.~Savoray, C.~Scherb and W.L.~Xu, \emph{{Searches for electroweak states at future plasma wakefield colliders}},  \href{https://arxiv.org/abs/2512.09995}{{\ttfamily 2512.09995}}.
 
@@ -8,7 +11,7 @@ S.~Chigusa, S.~Knapen, T.~Opferkuch, I.~Savoray, C.~Scherb and W.L.~Xu, \emph{{S
 S.~Chigusa, M.~Hazumi, E.D.~Herbschleb, Y.~Matsuzaki, N.~Mizuochi and K.~Nakayama, \emph{{Hybrid-spin decoupling for noise-resilient DC quantum sensing}},  \href{https://arxiv.org/abs/2511.16732}{{\ttfamily 2511.16732}}.
 
 \bibitem{Chigusa:2025rqs}
-S.~Chigusa, T.~Kasamaki, T.~Kusano, T.~Moroi, K.~Nakayama, N.~Ozawa et~al., \emph{{Dark matter detection using optically trapped Rydberg atom tweezer arrays}},  \href{https://arxiv.org/abs/2507.12860}{{\ttfamily 2507.12860}}.
+S.~Chigusa, T.~Kasamaki, T.~Kusano, T.~Moroi, K.~Nakayama, N.~Ozawa et~al., \emph{{Detecting Dark Matter Using Optically Trapped Rydberg Atom Tweezer Arrays}}, \href{https://doi.org/10.1103/s41f-6nw2}{\emph{Phys. Rev. Lett.} {\bfseries 136} (2026) 151801} [\href{https://arxiv.org/abs/2507.12860}{{\ttfamily 2507.12860}}].
 
 \bibitem{Chigusa:2025otr}
 S.~Chigusa, S.~Girmohanta, Y.~Nakai and Y.~Zhang, \emph{{Interplay of ALP couplings at a muon collider}}, \href{https://doi.org/10.1007/JHEP07(2025)003}{\emph{JHEP} {\bfseries 07} (2025) 003} [\href{https://arxiv.org/abs/2502.18912}{{\ttfamily 2502.18912}}].
