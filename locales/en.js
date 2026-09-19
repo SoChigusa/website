@@ -9,6 +9,7 @@ export default {
   RESEARCH: 'Research',
   TIPS: 'Tips',
   REPOSITORIES: 'Repositories',
+  IMAGE_CAPTIONS: 'Caption This!',
   SEE_MORE_TIPS: 'See more',
   TRANSLATE: '日本語で表示',
   FOLLOW_ME: 'Follow me on Facebook!',
@@ -18,6 +19,13 @@ export default {
   SEE_MORE: 'See more',
   GO_BACK: 'Go back',
   LIKE: 'Like',
+
+  // Image captions
+  IMAGE_CAPTIONS_TITLE: 'Caption This! | So Chigusa',
+  IMAGE_CAPTIONS_DESCRIPTION: 'A gallery of images with short comments by So Chigusa',
+  IMAGE_CAPTIONS_EMPTY: 'No images yet.',
+  IMAGE_CAPTIONS_DISCLAIMER: 'This is not an ōgiri contest!',
+  IMAGE_CAPTIONS_OPEN_IMAGE: 'Open larger image',
 
   // Research
   RESEARCH_TITLE: 'Research works by So Chigusa',

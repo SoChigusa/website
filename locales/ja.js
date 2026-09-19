@@ -9,6 +9,7 @@ export default {
   RESEARCH: '研究活動',
   TIPS: 'メモ',
   REPOSITORIES: 'リポジトリ',
+  IMAGE_CAPTIONS: '画像で一言',
   SEE_MORE_TIPS: 'もっと見る',
   TRANSLATE: 'Show in English',
   FOLLOW_ME: 'Facebookでフォローしてね！',
@@ -18,6 +19,13 @@ export default {
   SEE_MORE: '詳細',
   GO_BACK: '戻る',
   LIKE: 'いいね',
+
+  // Image captions
+  IMAGE_CAPTIONS_TITLE: '画像で一言【千草颯】',
+  IMAGE_CAPTIONS_DESCRIPTION: '画像と一言コメントを集めたギャラリー【千草颯】',
+  IMAGE_CAPTIONS_EMPTY: 'まだ画像はありません。',
+  IMAGE_CAPTIONS_DISCLAIMER: '大喜利じゃないよ！',
+  IMAGE_CAPTIONS_OPEN_IMAGE: '画像を拡大表示',
 
   // Research
   RESEARCH_TITLE: '研究活動【千草颯】',

@@ -27,6 +27,7 @@ const BreadcrumbFromURL = () => {
     else if (breadcrumb == 'talks') id = t.TALKS;
     else if (breadcrumb == 'tips') id = t.TIPS;
     else if (breadcrumb == 'repositories') id = t.REPOSITORIES;
+    else if (breadcrumb == 'image-captions') id = t.IMAGE_CAPTIONS;
     else if (breadcrumb == '[slug]') id = [router.query.slug].join('');
     else if (breadcrumb == 'page') id = `${t.PAGE} ${router.query.page}`;
     return {
@@ -70,6 +71,7 @@ const Header = ({ headerData, slug, existTranslation }: { headerData: HeaderData
     { id: t.CV, url: '/cv' },
     { id: t.RESEARCH, url: '/research' },
     { id: t.TIPS, url: '/tips' },
+    { id: t.IMAGE_CAPTIONS, url: '/image-captions' },
     { id: t.REPOSITORIES, url: '/repositories' },
   ];
   const newTips: Post[] = locale === 'en' ? headerData.tips_en.slice(0, 6) : headerData.tips_ja.slice(0, 6);
