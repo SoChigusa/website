@@ -12,6 +12,7 @@
     "@mui/material": "^5.14.1",
     "better-react-mathjax": "^2.0.3",
     "bibtex-parser-js": "^0.0.2",
+    "exif-reader": "^1.0.3",
     "firebase": "^9.12.1",
     "firebase-admin": "^11.2.0",
     "github-markdown-css": "^5.1.0",

@@ -23,6 +23,7 @@ export default {
   // Image captions
   IMAGE_CAPTIONS_TITLE: 'Caption This! | So Chigusa',
   IMAGE_CAPTIONS_DESCRIPTION: 'A gallery of images with short comments by So Chigusa',
+  IMAGE_CAPTIONS_SECTION: 'Caption This!',
   IMAGE_CAPTIONS_EMPTY: 'No images yet.',
   IMAGE_CAPTIONS_DISCLAIMER: 'This is not an ōgiri contest!',
   IMAGE_CAPTIONS_OPEN_IMAGE: 'Open larger image',

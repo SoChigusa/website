@@ -3,7 +3,6 @@ import useLocale from "../utils/useLocale";
 import ArticlesMeta from "../components/meta/articles";
 import Link from "../components/Link";
 import RepositoryCard from "../components/RepositoryCard";
-import MindDriftFeed from "../components/MindDriftFeed";
 import { Stack, Typography } from "@mui/material";
 import { GetStaticProps } from "next";
 
@@ -13,7 +12,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 export default function Home() {
-  const { locale, t } = useLocale();
+  const { t } = useLocale();
   return (
     <>
       <ArticlesMeta
@@ -26,8 +25,6 @@ export default function Home() {
       <Typography gutterBottom variant="h4">
         {t.PUBLIC_REPOSITORIES}
       </Typography>
-
-      {locale === 'ja' ? <MindDriftFeed /> : null}
 
       <Stack spacing={2}>
         <Typography variant="h5">

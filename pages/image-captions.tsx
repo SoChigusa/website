@@ -2,6 +2,7 @@ import { Box, ButtonBase, Card, CardContent, Dialog, DialogContent, Grid, Paper,
 import { GetStaticProps } from 'next';
 import { useState } from 'react';
 import ArticlesMeta from '../components/meta/articles';
+import MindDriftFeed from '../components/MindDriftFeed';
 import createHeaderData from '../utils/createHeaderData';
 import loadImageCaptions, { LocalizedImageCaption } from '../utils/loadImageCaptions';
 import useLocale from '../utils/useLocale';
@@ -13,7 +14,7 @@ interface ImageCaptionsPageProps {
 
 export const getStaticProps: GetStaticProps<ImageCaptionsPageProps> = async ({ locale }) => {
   const headerData = createHeaderData();
-  const imageCaptions = loadImageCaptions(locale === 'ja' ? 'ja' : 'en');
+  const imageCaptions = await loadImageCaptions(locale === 'ja' ? 'ja' : 'en');
 
   return {
     props: {
@@ -24,7 +25,7 @@ export const getStaticProps: GetStaticProps<ImageCaptionsPageProps> = async ({ l
 };
 
 export default function ImageCaptions({ imageCaptions }: ImageCaptionsPageProps) {
-  const { t } = useLocale();
+  const { locale, t } = useLocale();
   const [selectedImage, setSelectedImage] = useState<LocalizedImageCaption | null>(null);
   const closeImageDialog = () => setSelectedImage(null);
 
@@ -41,6 +42,16 @@ export default function ImageCaptions({ imageCaptions }: ImageCaptionsPageProps)
         <Typography component="h1" gutterBottom variant="h4">
           {t.IMAGE_CAPTIONS}
         </Typography>
+
+        {locale === 'ja' ? (
+          <>
+            <MindDriftFeed />
+            <Typography component="h2" gutterBottom variant="h5">
+              {t.IMAGE_CAPTIONS_SECTION}
+            </Typography>
+          </>
+        ) : null}
+
         <Typography
           color="text.secondary"
           component="p"
