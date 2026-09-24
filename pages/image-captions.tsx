@@ -45,6 +45,13 @@ export default function ImageCaptions({ imageCaptions }: ImageCaptionsPageProps)
 
         {locale === 'ja' ? (
           <>
+            <Typography
+              color="text.secondary"
+              component="p"
+              sx={{ fontSize: '0.875rem', mb: 2, mt: -0.5 }}
+            >
+              Twitter アカウントが凍結されたので、こちらでつぶやき始めました。
+            </Typography>
             <MindDriftFeed />
             <Typography component="h2" gutterBottom variant="h5">
               {t.IMAGE_CAPTIONS_SECTION}
