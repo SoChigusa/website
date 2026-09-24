@@ -1,7 +1,5 @@
 import fs from 'fs';
 import path from 'path';
-import exifReader from 'exif-reader';
-import sharp from 'sharp';
 
 export type ImageCaptionLocale = 'en' | 'ja';
 
@@ -16,12 +14,6 @@ interface ImageCaptionRecord {
   fileName: string;
   alt: Record<ImageCaptionLocale, string>;
   comment: Record<ImageCaptionLocale, string>;
-}
-
-interface ParsedExif {
-  exif?: {
-    DateTimeOriginal?: Date;
-  };
 }
 
 const dataPath = path.join(process.cwd(), 'data', 'image-captions.json');
@@ -74,33 +66,14 @@ const parseImageCaptionRecord = (value: unknown, index: number): ImageCaptionRec
   };
 };
 
-const readCapturedAt = async (imagePath: string): Promise<number | null> => {
-  try {
-    const metadata = await sharp(imagePath).metadata();
-    if (!metadata.exif) return null;
-
-    const capturedAt = (exifReader(metadata.exif) as ParsedExif).exif?.DateTimeOriginal;
-    return capturedAt instanceof Date && !Number.isNaN(capturedAt.getTime())
-      ? capturedAt.getTime()
-      : null;
-  } catch {
-    return null;
-  }
-};
-
-const readFileSequence = (fileName: string): number | null => {
-  const match = fileName.match(/(\d+)(?=\.[^.]+$)/);
-  return match ? Number.parseInt(match[1], 10) : null;
-};
-
-export default async function loadImageCaptions(locale: ImageCaptionLocale): Promise<LocalizedImageCaption[]> {
+export default function loadImageCaptions(locale: ImageCaptionLocale): LocalizedImageCaption[] {
   const rawData: unknown = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
   if (!Array.isArray(rawData)) {
     throw new Error('image-captions.json: the top-level value must be an array.');
   }
 
   const seenFileNames = new Set<string>();
-  const records = await Promise.all(rawData.map(async (value, index) => {
+  const records = rawData.map((value, index) => {
     const record = parseImageCaptionRecord(value, index);
     if (seenFileNames.has(record.fileName)) {
       throw new Error(`image-captions.json: duplicate fileName "${record.fileName}".`);
@@ -112,24 +85,12 @@ export default async function loadImageCaptions(locale: ImageCaptionLocale): Pro
       throw new Error(`image-captions.json: image "public/image-captions/${record.fileName}" does not exist.`);
     }
 
-    return {
-      record,
-      originalIndex: index,
-      capturedAt: await readCapturedAt(imagePath),
-      fileSequence: readFileSequence(record.fileName),
-    };
-  }));
-
-  const allImagesHaveCapturedAt = records.every(({ capturedAt }) => capturedAt !== null);
+    return record;
+  });
 
   return records
-    .sort((left, right) => (
-      (allImagesHaveCapturedAt
-        ? (right.capturedAt as number) - (left.capturedAt as number)
-        : (right.fileSequence ?? Number.NEGATIVE_INFINITY) - (left.fileSequence ?? Number.NEGATIVE_INFINITY))
-      || left.originalIndex - right.originalIndex
-    ))
-    .map(({ record }) => ({
+    .reverse()
+    .map((record) => ({
       fileName: record.fileName,
       src: `/image-captions/${encodeURIComponent(record.fileName)}`,
       alt: record.alt[locale],
