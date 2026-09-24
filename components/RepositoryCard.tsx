@@ -3,7 +3,7 @@ import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
 import useLocale from "../utils/useLocale";
 import { ReactNode, Children } from "react";
 
-const RepositoryCard = ({ children, name, href, imgType }: { children: ReactNode[] | ReactNode, name: string, href: string, imgType: string }) => {
+const RepositoryCard = ({ children, name, href, imgType, imgFit = 'cover' }: { children: ReactNode[] | ReactNode, name: string, href: string, imgType: string, imgFit?: 'cover' | 'contain' }) => {
   const { t } = useLocale();
 
   const childList: ReactNode[] = [children].flat();
@@ -33,7 +33,12 @@ const RepositoryCard = ({ children, name, href, imgType }: { children: ReactNode
       <Link href={href} target="_blank">
         <CardMedia
           component='img'
-          sx={{ width: { xs: '100%', md: 320 }, height: 212 }}
+          sx={{
+            width: { xs: '100%', md: 320 },
+            height: 212,
+            objectFit: imgFit,
+            bgcolor: imgFit === 'contain' ? 'common.white' : undefined,
+          }}
           image={`/repositoryImages/${name}.${imgType}`}
           title={name}
         />

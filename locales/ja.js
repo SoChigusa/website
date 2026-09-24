@@ -8,7 +8,7 @@ export default {
   CV: '履歴書',
   RESEARCH: '研究活動',
   TIPS: 'メモ',
-  REPOSITORIES: 'リポジトリ',
+  REPOSITORIES: 'プロジェクト',
   IMAGE_CAPTIONS: '画像で一言',
   SEE_MORE_TIPS: 'もっと見る',
   TRANSLATE: 'Show in English',
@@ -147,11 +147,12 @@ export default {
   SEE_RESEARCH_ACTIVITIES: '業績一覧を見る',
 
   // Repositories
-  REPOSITORIES_TITLE: '公開リポジトリ一覧【千草颯】',
-  REPOSITORIES_DESCRIPTION: 'Github 上に公開されたリポジトリ一覧【千草颯】',
-  PUBLIC_REPOSITORIES: '公開リポジトリ一覧',
+  REPOSITORIES_TITLE: 'プロジェクト一覧【千草颯】',
+  REPOSITORIES_DESCRIPTION: '千草颯が公開している研究コード、ツール、その他のプロジェクト一覧',
+  PUBLIC_REPOSITORIES: 'プロジェクト一覧',
   REPOSITORIES_PUBLIC_CODES: '研究成果に基づくパブリックコード',
   REPOSITORIES_RESEARCH_TOOLS: '研究用のツール',
+  REPOSITORIES_POMERA: 'ポメラ関連',
   // ----- Information in repository page below -----
   // ELVAS
   ELVAS_DESCRIPTION_1: '真空崩壊率を 1ループレベルで計算するための c++ パッケージ',
@@ -168,4 +169,8 @@ export default {
 
   // LaTeX2Grammarly
   L2G_DESCRIPTION: 'LaTeX で書かれた原稿ファイル内のコマンド部分を書き換えることで、Grammarly への入力に適したテキストファイルを作成するコマンドラインツール',
+
+  // PomeraHub
+  POMERAHUB_DESCRIPTION: 'ポメラからメール送信した文章を、GitHub リポジトリに Markdown ファイルとして自動保存するためのツール',
+  POMERAHUB_IMAGE_CREDIT: '製品画像：',
 }

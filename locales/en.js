@@ -8,7 +8,7 @@ export default {
   CV: 'CV',
   RESEARCH: 'Research',
   TIPS: 'Tips',
-  REPOSITORIES: 'Repositories',
+  REPOSITORIES: 'Projects',
   IMAGE_CAPTIONS: 'Caption This!',
   SEE_MORE_TIPS: 'See more',
   TRANSLATE: '日本語で表示',
@@ -147,11 +147,12 @@ export default {
   SEE_RESEARCH_ACTIVITIES: 'See my achievement list',
 
   // Repositories
-  REPOSITORIES_TITLE: 'Github repositories of So Chigusa',
-  REPOSITORIES_DESCRIPTION: 'Summary of projects shared on github by So Chigusa (et al)',
-  PUBLIC_REPOSITORIES: 'Public repositories',
+  REPOSITORIES_TITLE: 'Projects by So Chigusa',
+  REPOSITORIES_DESCRIPTION: 'Research codes, tools, and other projects shared by So Chigusa',
+  PUBLIC_REPOSITORIES: 'Projects',
   REPOSITORIES_PUBLIC_CODES: 'Public codes based on my research',
   REPOSITORIES_RESEARCH_TOOLS: 'Research tools',
+  REPOSITORIES_POMERA: 'Pomera projects',
 
   // ----- Information in repository page below -----
   // ELVAS
@@ -169,4 +170,8 @@ export default {
 
   // LaTeX2Grammarly
   L2G_DESCRIPTION: 'A CLI tool to transform a LaTeX draft into a text file compatible with Grammarly by substituting LaTeX commands',
+
+  // PomeraHub
+  POMERAHUB_DESCRIPTION: 'A tool that turns text sent by email from a Pomera into Markdown files stored automatically in a GitHub repository',
+  POMERAHUB_IMAGE_CREDIT: 'Product image:',
 }

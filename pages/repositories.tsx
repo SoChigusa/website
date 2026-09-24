@@ -71,6 +71,26 @@ export default function Home() {
             {t.L2G_DESCRIPTION}
           </>
         </RepositoryCard>
+
+        <Typography variant="h5">
+          {t.REPOSITORIES_POMERA}
+        </Typography>
+        <RepositoryCard
+          name="PomeraHub"
+          href="https://github.com/SoChigusa/PomeraHub"
+          imgType="png"
+          imgFit="contain"
+        >
+          <>
+            {t.POMERAHUB_DESCRIPTION}
+          </>
+          <>
+            {t.POMERAHUB_IMAGE_CREDIT}{' '}
+            <Link href="https://www.kingjim.co.jp/pomera/dm250/" target="_blank">
+              KING JIM
+            </Link>
+          </>
+        </RepositoryCard>
       </Stack>
     </>
   )
