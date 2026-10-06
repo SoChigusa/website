@@ -97,5 +97,16 @@
       "ja": "みりんで年確されます",
       "en": "Mirin is Japanese cooking wine. Did you know?"
     }
+  },
+  {
+    "fileName": "IMG_5037.png",
+    "alt": {
+      "ja": "ドラック切れ対策",
+      "en": "Out of drugs"
+    },
+    "comment": {
+      "ja": "マウスのBluetooth接続が切れるから相談しただけなんよ……",
+      "en": "Asked about mouse drag, NOT about drug (same pronunciation)!"
+    }
   }
 ]
