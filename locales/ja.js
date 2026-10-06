@@ -77,6 +77,9 @@ export default {
   PAGE: 'ページ',
   LATEST_UPDATE: '最終更新',
   SHARE_THIS_POST: 'この投稿をシェアする：',
+  COPY_CODE: 'コードをコピー',
+  CODE_COPIED: 'コピーしました',
+  CODE_COPY_FAILED: 'コピーできませんでした。コードを選択してコピーしてください。',
 
   // CV
   CV_TITLE: '履歴書【千草颯】',

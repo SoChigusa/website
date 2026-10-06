@@ -77,6 +77,9 @@ export default {
   PAGE: 'Page',
   LATEST_UPDATE: 'Latest update',
   SHARE_THIS_POST: 'Share this post:',
+  COPY_CODE: 'Copy code',
+  CODE_COPIED: 'Copied!',
+  CODE_COPY_FAILED: 'Could not copy. Select the code and copy it manually.',
 
   // CV
   CV_TITLE: 'CV of So Chigusa',

@@ -1,6 +1,5 @@
 import fs from 'fs';
 import matter from 'gray-matter';
-import { marked } from 'marked';
 import useLocale from '../../utils/useLocale';
 import Image from 'next/image';
 import { FacebookIcon, FacebookShareButton, HatenaIcon, HatenaShareButton, LineIcon, LineShareButton, TwitterIcon, TwitterShareButton } from 'react-share';
@@ -8,27 +7,15 @@ import { Box, Stack, Typography } from '@mui/material';
 import createHeaderData from '../../utils/createHeaderData';
 import GoBackButton from '../../components/GoBackButton';
 import PostImages from '../../components/PostImages';
+import MarkdownContent from '../../components/MarkdownContent';
+import renderMarkdown from '../../utils/renderMarkdown';
+import en from '../../locales/en';
+import ja from '../../locales/ja';
 // import Like from '../../components/Like';
 import ArticlesMeta from '../../components/meta/articles';
-import hljs from 'highlight.js';
 import { GetStaticPaths, GetStaticProps } from 'next';
 
 export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
-  // highligh settings
-  const renderer = new marked.Renderer();
-  renderer.code = (code, codeInfo) => {
-    const [lang, fileName] = typeof codeInfo === 'undefined' ? [undefined, undefined] : codeInfo.split(':');
-    const langClass = lang === undefined ? 'bash' : (hljs.getLanguage(lang) ? lang : 'plaintext');
-    const codeBlockClass = fileName === undefined ? 'code-block-no-info' : 'code-block';
-    const highlightedCode = hljs.highlight(code, { language: langClass }).value;
-
-    let codeBlock = `<code class="hljs ${codeBlockClass} language-${langClass}">${highlightedCode}</code>`
-    if (fileName !== undefined) {
-      codeBlock = `<div class="code-info"><span>${fileName}</span></div>` + codeBlock
-    }
-    return `<pre>${codeBlock}</pre>`
-  };
-
   let url: string;
   let file: string;
   let existTranslation = true;
@@ -41,7 +28,8 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
     existTranslation = fs.existsSync(`tips/en/${params!.slug}.md`);
   }
   const my_matter: Matter = matter(file);
-  const html: string = await marked(my_matter.content, { renderer });
+  const t = locale === 'en' ? en : ja;
+  const html: string = await renderMarkdown(my_matter.content, t.COPY_CODE);
 
   const headerData: HeaderData = createHeaderData();
   return { props: { headerData, url, slug: params!.slug, frontMatter: my_matter.data, html, existTranslation: existTranslation } };
@@ -127,7 +115,7 @@ export default function Post({ url, slug, frontMatter, html, existTranslation }:
           }
         </Box>
         <article>
-          <Typography variant='body1' component='div' dangerouslySetInnerHTML={{ __html: html }} />
+          <MarkdownContent key={`${url}:${slug}`} html={html} />
         </article>
       </div>
       {/* <Like sx={{ marginBottom: 2 }} id={{ collection: 'posts', document: slug }} /> */}
