@@ -108,6 +108,12 @@ interface FrontMatter {
   date: string
   description: string
   image: string
+  images?: PostImage[]
+}
+
+interface PostImage {
+  src: string
+  alt: string
 }
 
 interface Post {

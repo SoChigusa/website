@@ -7,6 +7,7 @@ import { FacebookIcon, FacebookShareButton, HatenaIcon, HatenaShareButton, LineI
 import { Box, Stack, Typography } from '@mui/material';
 import createHeaderData from '../../utils/createHeaderData';
 import GoBackButton from '../../components/GoBackButton';
+import PostImages from '../../components/PostImages';
 // import Like from '../../components/Like';
 import ArticlesMeta from '../../components/meta/articles';
 import hljs from 'highlight.js';
@@ -101,13 +102,17 @@ export default function Post({ url, slug, frontMatter, html, existTranslation }:
           </Box>
           <Box
             sx={{ width: { xs: '96%', sm: '80%', md: '30%' }, paddingLeft: { sm: '6%' }, marginLeft: { md: '70%' }, padding: '2%' }}>
-            <Image
-              src={`/logos/${frontMatter.image}`}
-              width={1200}
-              height={675}
-              objectFit='contain'
-              alt='logo'
-            />
+            {frontMatter.images?.length ? (
+              <PostImages images={frontMatter.images} sx={{ width: '100%', aspectRatio: '1200 / 675' }} />
+            ) : (
+              <Image
+                src={`/logos/${frontMatter.image}`}
+                width={1200}
+                height={675}
+                objectFit='contain'
+                alt='logo'
+              />
+            )}
           </Box>
         </Stack>
         <Box sx={{ display: { xs: 'block', md: 'none' }, mt: 2 }}>

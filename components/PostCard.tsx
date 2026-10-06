@@ -1,5 +1,6 @@
 import { Card, CardContent, CardMedia, Grid, SxProps, Theme, Typography } from "@mui/material";
 import Link from "./Link";
+import PostImages from "./PostImages";
 
 const PostCard = ({ post, isIndexPage = false }: { post: Post, isIndexPage?: boolean }) => {
   let xs: number;
@@ -34,12 +35,16 @@ const PostCard = ({ post, isIndexPage = false }: { post: Post, isIndexPage?: boo
     <Grid item xs={xs} sm={sm} md={md}>
       <Card sx={sx}>
         <Link href={`/tips/${post.slug}`}>
-          <CardMedia
-            component='img'
-            sx={sx_media}
-            image={`/logos/${post.frontMatter.image}`}
-            alt={post.frontMatter.title}
-          />
+          {post.frontMatter.images?.length ? (
+            <PostImages images={post.frontMatter.images} sx={sx_media} />
+          ) : (
+            <CardMedia
+              component='img'
+              sx={sx_media}
+              image={`/logos/${post.frontMatter.image}`}
+              alt={post.frontMatter.title}
+            />
+          )}
         </Link>
         <CardContent>
           <Typography variant="body1" component="div">
