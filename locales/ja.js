@@ -72,6 +72,13 @@ export default {
   DOMESTIC: '日本国内の会議',
 
   // Tips
+  NOTE_ARTICLES: 'noteの記事',
+  SEE_ALL_NOTE_ARTICLES: 'noteですべて見る',
+  NOTE_ARTICLES_LOADING: '記事を読み込み中…',
+  NOTE_ARTICLES_UNAVAILABLE: '記事を取得できませんでした。上のリンクからnoteをご覧ください。',
+  NOTE_ARTICLES_EMPTY: '公開された記事はまだありません。',
+  LOCAL_ARTICLES: 'このサイトの記事',
+  RECENT_TIPS: '最近の記事',
   TIPS_TITLE: 'メモ【千草颯】',
   TIPS_DESCRIPTION: '公開されたメモ書きの一覧【千草颯】',
   PAGE: 'ページ',

@@ -1,10 +1,11 @@
 import fs from 'fs';
-import { Box, Grid } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 import createHeaderData from '../../../utils/createHeaderData';
 import ArticlesMeta from "../../../components/meta/articles";
 import PaginationBar from '../../../components/PaginationBar';
 import { PAGE_SIZE, range } from '../../../components/PaginationBar';
 import PostCard from '../../../components/PostCard';
+import NoteArticles from '../../../components/NoteArticles';
 import useLocale from '../../../utils/useLocale';
 import { GetStaticPaths, GetStaticProps } from 'next';
 
@@ -57,6 +58,12 @@ const Page = ({ headerData, current_page }: { headerData: any, current_page: num
         url={`/tips/page/${current_page}`}
         img=""
       />
+      {locale === 'ja' && (
+        <>
+          <NoteArticles />
+          <Typography variant="h6" component="h2" sx={{ mb: 1 }}>{t.LOCAL_ARTICLES}</Typography>
+        </>
+      )}
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
           {posts.map((post: any) => (

@@ -1,10 +1,11 @@
 import createHeaderData from '../utils/createHeaderData';
 // import setDatabase from "../utils/db/setDatabase";
-import { Box, Grid } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import ArticlesMeta from "../components/meta/articles";
 import PaginationBar from '../components/PaginationBar';
 import { PAGE_SIZE } from '../components/PaginationBar';
 import PostCard from '../components/PostCard';
+import NoteArticles from '../components/NoteArticles';
 import useLocale from "../utils/useLocale";
 import { GetStaticProps } from 'next';
 
@@ -32,6 +33,12 @@ const Tips = ({ headerData }: MyPageProps) => {
         url="/tips"
         img=""
       />
+      {locale === 'ja' && (
+        <>
+          <NoteArticles />
+          <Typography variant="h6" component="h2" sx={{ mb: 1 }}>{t.LOCAL_ARTICLES}</Typography>
+        </>
+      )}
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
           {posts.map((post: any) => (

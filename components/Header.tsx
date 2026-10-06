@@ -1,12 +1,14 @@
 import { MouseEventHandler, useState } from "react";
 import useLocale from "../utils/useLocale";
-import { AppBar, Box, Toolbar, Typography, Button, Menu, IconButton, Container, MenuItem, Avatar, Divider, Tooltip, Breadcrumbs } from "@mui/material";
+import { AppBar, Box, Toolbar, Typography, Button, Menu, IconButton, Container, MenuItem, Avatar, Divider, Tooltip, Breadcrumbs, ListSubheader } from "@mui/material";
 import SchoolIcon from '@mui/icons-material/School';
 import MenuIcon from "@mui/icons-material/Menu";
 import TranslateIcon from '@mui/icons-material/Translate';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import { ExpandMore, NavigateNext } from "@mui/icons-material";
 import Link from "./Link";
 import { NextRouter, useRouter } from "next/router";
+import useNotePosts from '../utils/useNotePosts';
 
 const BreadcrumbFromURL = () => {
   const { t } = useLocale();
@@ -74,7 +76,36 @@ const Header = ({ headerData, slug, existTranslation }: { headerData: HeaderData
     { id: t.IMAGE_CAPTIONS, url: '/image-captions' },
     { id: t.REPOSITORIES, url: '/repositories' },
   ];
-  const newTips: Post[] = locale === 'en' ? headerData.tips_en.slice(0, 6) : headerData.tips_ja.slice(0, 6);
+  const showNote = locale === 'ja';
+  const { data: notePosts = [] } = useNotePosts(showNote);
+  const localPosts = locale === 'en' ? headerData.tips_en : headerData.tips_ja;
+  const newTips = [
+    ...localPosts.map(post => ({
+      title: post.frontMatter.title,
+      date: post.frontMatter.date,
+      href: `/tips/${post.slug}`,
+      external: false,
+    })),
+    ...(showNote ? notePosts : []).map(post => ({
+      title: post.title,
+      date: post.publishedAt,
+      href: post.url,
+      external: true,
+    })),
+  ].sort((a, b) => (Date.parse(b.date) || 0) - (Date.parse(a.date) || 0)).slice(0, 6);
+
+  const recentTipItems = (onClick: MouseEventHandler<HTMLLIElement>) => newTips.map(post => (
+    <Link key={post.href} href={post.href} target={post.external ? '_blank' : undefined} color="inherit">
+      <MenuItem onClick={onClick} sx={{ whiteSpace: 'normal', gap: 1 }}>
+        <Typography>{post.title}</Typography>
+        {post.external && (
+          <Typography component="span" variant="caption" color="text.secondary" sx={{ whiteSpace: 'nowrap', ml: 'auto' }}>
+            note <OpenInNewIcon sx={{ fontSize: 14, verticalAlign: 'middle' }} />
+          </Typography>
+        )}
+      </MenuItem>
+    </Link>
+  ));
 
   // for menu icon button
   const [anchorElNav, setAnchorElNav] = useState<EventTarget & HTMLButtonElement | null>(null);
@@ -155,6 +186,7 @@ const Header = ({ headerData, slug, existTranslation }: { headerData: HeaderData
                 }}
                 open={Boolean(anchorElNav)}
                 onClose={handleCloseNavMenu}
+                PaperProps={{ sx: { maxWidth: 'calc(100vw - 32px)' } }}
                 sx={{
                   display: { xs: 'block', md: 'none' },
                 }}
@@ -168,6 +200,9 @@ const Header = ({ headerData, slug, existTranslation }: { headerData: HeaderData
                     </Link>
                   );
                 })}
+                <Divider />
+                <ListSubheader>{t.RECENT_TIPS}</ListSubheader>
+                {recentTipItems(handleMenuLIOnClick)}
               </Menu>
             </Box>
 
@@ -219,23 +254,13 @@ const Header = ({ headerData, slug, existTranslation }: { headerData: HeaderData
                         }}
                         open={Boolean(anchorElDropdown)}
                         onClose={handleCloseDropdown}
+                        PaperProps={{ sx: { maxWidth: 560 } }}
                         // MenuListProps={{ onMouseLeave: handleCloseDropdown }}
                         sx={{
                           display: { xs: 'none', md: 'block' },
                         }}
                       >
-                        {
-                          newTips.map((post: any) => (
-                            <Link key={post.slug} href={`/tips/${post.slug}`} color='inherit'>
-                              <MenuItem
-                                key={post.slug}
-                                onClick={handleTipsOnClick}
-                              >
-                                <Typography textAlign="center">{post.frontMatter.title}</Typography>
-                              </MenuItem>
-                            </Link>
-                          ))
-                        }
+                        {recentTipItems(handleTipsOnClick)}
                         <Divider />
                         <Link href='/tips' color='inherit'>
                           <MenuItem
