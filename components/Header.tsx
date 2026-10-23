@@ -76,8 +76,7 @@ const Header = ({ headerData, slug, existTranslation }: { headerData: HeaderData
     { id: t.IMAGE_CAPTIONS, url: '/image-captions' },
     { id: t.REPOSITORIES, url: '/repositories' },
   ];
-  const showNote = locale === 'ja';
-  const { data: notePosts = [] } = useNotePosts(showNote);
+  const { data: notePosts = [] } = useNotePosts();
   const localPosts = locale === 'en' ? headerData.tips_en : headerData.tips_ja;
   const newTips = [
     ...localPosts.map(post => ({
@@ -86,7 +85,7 @@ const Header = ({ headerData, slug, existTranslation }: { headerData: HeaderData
       href: `/tips/${post.slug}`,
       external: false,
     })),
-    ...(showNote ? notePosts : []).map(post => ({
+    ...notePosts.map(post => ({
       title: post.title,
       date: post.publishedAt,
       href: post.url,

@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import Parser from 'rss-parser';
 import { NotePost, NOTE_PROFILE_URL, NOTE_REFRESH_INTERVAL } from '../../utils/notePosts';
+import { localizeNotePost } from '../../utils/localizeNotePost';
 
 export default async function notePosts(
   req: NextApiRequest,
@@ -39,8 +40,12 @@ export default async function notePosts(
     }
     if (feed.items.length && !posts.length) throw new Error('No valid note articles in RSS.');
     posts.sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt));
+    // Both the article list and the recent-articles menu show at most six items.
+    const localizedPosts = req.query.locale === 'en'
+      ? await Promise.all(posts.slice(0, 6).map(localizeNotePost))
+      : posts;
     res.setHeader('Cache-Control', `public, max-age=0, s-maxage=${NOTE_REFRESH_INTERVAL / 1000}`);
-    res.status(200).json(posts);
+    res.status(200).json(localizedPosts);
   } catch (error) {
     console.error('Could not load note RSS:', error);
     res.status(503).json({ error: 'Could not load note articles.' });

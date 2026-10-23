@@ -33,12 +33,8 @@ const Tips = ({ headerData }: MyPageProps) => {
         url="/tips"
         img=""
       />
-      {locale === 'ja' && (
-        <>
-          <NoteArticles />
-          <Typography variant="h6" component="h2" sx={{ mb: 1 }}>{t.LOCAL_ARTICLES}</Typography>
-        </>
-      )}
+      <NoteArticles />
+      <Typography variant="h6" component="h2" sx={{ mb: 1 }}>{t.LOCAL_ARTICLES}</Typography>
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
           {posts.map((post: any) => (

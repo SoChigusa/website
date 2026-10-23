@@ -72,7 +72,7 @@ export default {
   DOMESTIC: 'Domestic (Japan)',
 
   // Tips
-  NOTE_ARTICLES: 'Articles on note (Japanese)',
+  NOTE_ARTICLES: 'Articles on note',
   SEE_ALL_NOTE_ARTICLES: 'View all on note',
   NOTE_ARTICLES_LOADING: 'Loading articles…',
   NOTE_ARTICLES_UNAVAILABLE: 'Articles could not be loaded. Visit note using the link above.',

@@ -1,5 +1,6 @@
 import useSWR from 'swr';
 import { NotePost, NOTE_REFRESH_INTERVAL } from './notePosts';
+import useLocale from './useLocale';
 
 const fetchNotePosts = async (url: string): Promise<NotePost[]> => {
   const response = await fetch(url);
@@ -7,10 +8,13 @@ const fetchNotePosts = async (url: string): Promise<NotePost[]> => {
   return response.json();
 };
 
-const useNotePosts = (enabled = true) => useSWR<NotePost[]>(enabled ? '/api/note-posts' : null, fetchNotePosts, {
-  refreshInterval: NOTE_REFRESH_INTERVAL,
-  dedupingInterval: 60 * 1000,
-  errorRetryInterval: 60 * 1000,
-});
+const useNotePosts = () => {
+  const { locale } = useLocale();
+  return useSWR<NotePost[]>(`/api/note-posts?locale=${locale === 'en' ? 'en' : 'ja'}`, fetchNotePosts, {
+    refreshInterval: NOTE_REFRESH_INTERVAL,
+    dedupingInterval: 60 * 1000,
+    errorRetryInterval: 60 * 1000,
+  });
+};
 
 export default useNotePosts;
