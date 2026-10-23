@@ -1,33 +1,44 @@
-import fs from 'fs';
-import { Box, Grid, Typography } from '@mui/material';
 import createHeaderData from '../../../utils/createHeaderData';
 import ArticlesMeta from "../../../components/meta/articles";
-import PaginationBar from '../../../components/PaginationBar';
 import { PAGE_SIZE, range } from '../../../components/PaginationBar';
-import PostCard from '../../../components/PostCard';
-import NoteArticles from '../../../components/NoteArticles';
+import ArticleList from '../../../components/ArticleList';
+import loadNotePosts from '../../../utils/loadNotePosts';
+import type { NotePost } from '../../../utils/notePosts';
 import useLocale from '../../../utils/useLocale';
 import { GetStaticPaths, GetStaticProps } from 'next';
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
+  const page = params?.page;
+  if (typeof page !== 'string' || !/^[1-9]\d*$/.test(page) || !Number.isSafeInteger(Number(page))) {
+    return { notFound: true };
+  }
   const headerData: HeaderData = createHeaderData();
+  const initialNotePosts = await loadNotePosts(locale).catch(() => null);
+  const localPosts = locale === 'en' ? headerData.tips_en : headerData.tips_ja;
+  if (initialNotePosts && Number(page) > Math.max(1, Math.ceil((localPosts.length + initialNotePosts.length) / PAGE_SIZE))) {
+    return { notFound: true, revalidate: 600 };
+  }
   return {
     props: {
       headerData,
-      current_page: params!.page,
+      current_page: Number(page),
+      initialNotePosts: initialNotePosts ?? [],
       existTranslation: false,
     },
+    revalidate: 600,
   };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const count_ja: number = fs.readdirSync('tips').length;
+  const headerData = createHeaderData();
+  const notePosts = await loadNotePosts('ja').catch(() => []);
+  const count_ja = headerData.tips_ja.length + notePosts.length;
   const paths_ja: PostPath[] = range(1, Math.ceil(count_ja / PAGE_SIZE)).map((i) =>
   ({
     params: { page: i.toString() },
     locale: 'ja',
   }));
-  const count_en: number = fs.readdirSync('tips/en').length;
+  const count_en = headerData.tips_en.length + notePosts.length;
   const paths_en: PostPath[] = range(1, Math.ceil(count_en / PAGE_SIZE)).map((i) =>
   ({
     params: { page: i.toString() },
@@ -37,18 +48,17 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false,
+    fallback: 'blocking',
   }
 };
 
-const Page = ({ headerData, current_page }: { headerData: any, current_page: number }) => {
+const Page = ({ headerData, current_page, initialNotePosts }: {
+  headerData: HeaderData;
+  current_page: number;
+  initialNotePosts: NotePost[];
+}) => {
   const { locale, t } = useLocale();
   const totalPosts: Post[] = locale === 'en' ? headerData.tips_en : headerData.tips_ja;
-  const total_page: number = Math.ceil(totalPosts.length / PAGE_SIZE);
-  const posts: Post[] = totalPosts.slice(
-    PAGE_SIZE * (current_page - 1),
-    PAGE_SIZE * current_page
-  );
 
   return (
     <>
@@ -58,16 +68,7 @@ const Page = ({ headerData, current_page }: { headerData: any, current_page: num
         url={`/tips/page/${current_page}`}
         img=""
       />
-      <NoteArticles />
-      <Typography variant="h6" component="h2" sx={{ mb: 1 }}>{t.LOCAL_ARTICLES}</Typography>
-      <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={2}>
-          {posts.map((post: any) => (
-            <PostCard key={post.slug} post={post} />
-          ))}
-        </Grid>
-      </Box>
-      <PaginationBar total_page={total_page} current_page={current_page} />
+      <ArticleList localPosts={totalPosts} initialNotePosts={initialNotePosts} currentPage={current_page} />
     </>
   );
 };

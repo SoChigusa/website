@@ -1,8 +1,18 @@
-import { Card, CardContent, CardMedia, Grid, SxProps, Theme, Typography } from "@mui/material";
+import { Box, Card, CardContent, CardMedia, Chip, Grid, SxProps, Theme, Typography } from "@mui/material";
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import Link from "./Link";
 import PostImages from "./PostImages";
+import useLocale from '../utils/useLocale';
+import formatArticleDate from '../utils/formatArticleDate';
+import type { ArticlePost } from '../utils/mergeArticlePosts';
 
-const PostCard = ({ post, isIndexPage = false }: { post: Post, isIndexPage?: boolean }) => {
+const PostCard = ({ post, isIndexPage = false }: { post: ArticlePost, isIndexPage?: boolean }) => {
+  const { locale } = useLocale();
+  const isNote = 'publishedAt' in post;
+  const title = isNote ? post.title : post.frontMatter.title;
+  const date = isNote ? post.publishedAt : post.frontMatter.date;
+  const href = isNote ? post.url : `/tips/${post.slug}`;
+  const target = isNote ? '_blank' : undefined;
   let xs: number;
   let sm: number;
   let md: number;
@@ -33,31 +43,40 @@ const PostCard = ({ post, isIndexPage = false }: { post: Post, isIndexPage?: boo
 
   return (
     <Grid item xs={xs} sm={sm} md={md}>
-      <Card sx={sx}>
-        <Link href={`/tips/${post.slug}`}>
-          {post.frontMatter.images?.length ? (
+      <Card component="article" sx={sx}>
+        <Link href={href} target={target}>
+          {isNote ? (
+            post.thumbnail ? (
+              <CardMedia component="img" sx={sx_media} image={post.thumbnail} alt={title} loading="lazy" />
+            ) : (
+              <Box sx={{ ...sx_media, display: 'flex', alignItems: 'center', justifyContent: 'center', bgcolor: 'grey.50' }}>
+                <Typography sx={{ color: '#242424', fontSize: '2.5rem', fontWeight: 700, letterSpacing: '-0.06em' }}>note</Typography>
+              </Box>
+            )
+          ) : post.frontMatter.images?.length ? (
             <PostImages images={post.frontMatter.images} sx={sx_media} />
           ) : (
             <CardMedia
               component='img'
               sx={sx_media}
               image={`/logos/${post.frontMatter.image}`}
-              alt={post.frontMatter.title}
+              alt={title}
             />
           )}
         </Link>
         <CardContent>
+          {isNote && (
+            <Chip label="note" icon={<OpenInNewIcon />} size="small" variant="outlined" sx={{ mb: 1, fontWeight: 700 }} />
+          )}
           <Typography variant="body1" component="div">
-            <Link href={`/tips/${post.slug}`}>
-              {post.frontMatter.title}
+            <Link href={href} target={target}>
+              {title}
             </Link>
           </Typography>
-          <Typography gutterBottom variant="body2" color="text.secondary">
-            {post.frontMatter.date}
+          <Typography component="time" dateTime={date} gutterBottom variant="body2" color="text.secondary" sx={{ display: 'block' }}>
+            {formatArticleDate(date, locale)}
           </Typography>
-          <Typography variant="body2">
-            {post.frontMatter.description}
-          </Typography>
+          {!isNote && <Typography variant="body2">{post.frontMatter.description}</Typography>}
         </CardContent>
       </Card>
     </Grid>

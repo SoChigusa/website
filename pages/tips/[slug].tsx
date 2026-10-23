@@ -9,6 +9,7 @@ import GoBackButton from '../../components/GoBackButton';
 import PostImages from '../../components/PostImages';
 import MarkdownContent from '../../components/MarkdownContent';
 import renderMarkdown from '../../utils/renderMarkdown';
+import formatArticleDate from '../../utils/formatArticleDate';
 import en from '../../locales/en';
 import ja from '../../locales/ja';
 // import Like from '../../components/Like';
@@ -59,7 +60,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export default function Post({ url, slug, frontMatter, html, existTranslation }: { url: string, slug: string, frontMatter: FrontMatter, html: string, existTranslation: boolean }) {
-  const { t } = useLocale();
+  const { locale, t } = useLocale();
+  const formattedDate = formatArticleDate(frontMatter.date, locale);
   return (
     <>
       <ArticlesMeta
@@ -75,7 +77,7 @@ export default function Post({ url, slug, frontMatter, html, existTranslation }:
         <Stack spacing={2} direction='row'>
           <Box sx={{ display: { xs: 'none', md: 'block' }, width: '70%' }}>
             <Typography>
-              {t.LATEST_UPDATE}: {frontMatter.date}
+              {t.LATEST_UPDATE}: <time dateTime={frontMatter.date}>{formattedDate}</time>
             </Typography>
             <Typography>
               {frontMatter.description}
@@ -104,7 +106,7 @@ export default function Post({ url, slug, frontMatter, html, existTranslation }:
           </Box>
         </Stack>
         <Box sx={{ display: { xs: 'block', md: 'none' }, mt: 2 }}>
-          <Typography variant='body1'>{t.LATEST_UPDATE}: {frontMatter.date}</Typography>
+          <Typography variant='body1'>{t.LATEST_UPDATE}: <time dateTime={frontMatter.date}>{formattedDate}</time></Typography>
           <Typography variant='body1'>{frontMatter.description}</Typography>
           {!existTranslation ?
             (

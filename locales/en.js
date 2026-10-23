@@ -73,9 +73,10 @@ export default {
 
   // Tips
   NOTE_ARTICLES: 'Articles on note',
-  SEE_ALL_NOTE_ARTICLES: 'View all on note',
-  NOTE_ARTICLES_LOADING: 'Loading articles…',
-  NOTE_ARTICLES_UNAVAILABLE: 'Articles could not be loaded. Visit note using the link above.',
+  NOTE_PROFILE: 'Profile on note',
+  NOTE_ARTICLES_LOADING: 'Loading articles from note…',
+  NOTE_ARTICLES_REFRESHING: 'Refreshing articles from note…',
+  NOTE_ARTICLES_UNAVAILABLE: 'Articles from note could not be loaded. Please try again later.',
   NOTE_ARTICLES_EMPTY: 'No published articles yet.',
   LOCAL_ARTICLES: 'Articles on this site',
   RECENT_TIPS: 'Recent articles',

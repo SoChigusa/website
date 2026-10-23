@@ -1,29 +1,26 @@
 import createHeaderData from '../utils/createHeaderData';
-// import setDatabase from "../utils/db/setDatabase";
-import { Box, Grid, Typography } from "@mui/material";
 import ArticlesMeta from "../components/meta/articles";
-import PaginationBar from '../components/PaginationBar';
-import { PAGE_SIZE } from '../components/PaginationBar';
-import PostCard from '../components/PostCard';
-import NoteArticles from '../components/NoteArticles';
+import ArticleList from '../components/ArticleList';
+import loadNotePosts from '../utils/loadNotePosts';
+import type { NotePost } from '../utils/notePosts';
 import useLocale from "../utils/useLocale";
 import { GetStaticProps } from 'next';
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const headerData: HeaderData = createHeaderData();
-  // await setDatabase({ collection: 'posts', posts: headerData.tips_ja });
+  const initialNotePosts = await loadNotePosts(locale).catch(() => []);
   return {
     props: {
       headerData,
+      initialNotePosts,
     },
+    revalidate: 600,
   };
 };
 
-const Tips = ({ headerData }: MyPageProps) => {
+const Tips = ({ headerData, initialNotePosts }: { headerData: HeaderData; initialNotePosts: NotePost[] }) => {
   const { locale, t } = useLocale();
   const totalPosts: Post[] = locale === 'en' ? headerData.tips_en : headerData.tips_ja;
-  const total_page: number = Math.ceil(totalPosts.length / PAGE_SIZE);
-  const posts: Post[] = totalPosts.slice(0, PAGE_SIZE);
 
   return (
     <>
@@ -33,16 +30,7 @@ const Tips = ({ headerData }: MyPageProps) => {
         url="/tips"
         img=""
       />
-      <NoteArticles />
-      <Typography variant="h6" component="h2" sx={{ mb: 1 }}>{t.LOCAL_ARTICLES}</Typography>
-      <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={2}>
-          {posts.map((post: any) => (
-            <PostCard key={post.slug} post={post} />
-          ))}
-        </Grid>
-      </Box>
-      <PaginationBar total_page={total_page} />
+      <ArticleList localPosts={totalPosts} initialNotePosts={initialNotePosts} />
     </>
   )
 };

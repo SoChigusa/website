@@ -9,6 +9,7 @@ import { ExpandMore, NavigateNext } from "@mui/icons-material";
 import Link from "./Link";
 import { NextRouter, useRouter } from "next/router";
 import useNotePosts from '../utils/useNotePosts';
+import mergeArticlePosts from '../utils/mergeArticlePosts';
 
 const BreadcrumbFromURL = () => {
   const { t } = useLocale();
@@ -78,20 +79,11 @@ const Header = ({ headerData, slug, existTranslation }: { headerData: HeaderData
   ];
   const { data: notePosts = [] } = useNotePosts();
   const localPosts = locale === 'en' ? headerData.tips_en : headerData.tips_ja;
-  const newTips = [
-    ...localPosts.map(post => ({
-      title: post.frontMatter.title,
-      date: post.frontMatter.date,
-      href: `/tips/${post.slug}`,
-      external: false,
-    })),
-    ...notePosts.map(post => ({
-      title: post.title,
-      date: post.publishedAt,
-      href: post.url,
-      external: true,
-    })),
-  ].sort((a, b) => (Date.parse(b.date) || 0) - (Date.parse(a.date) || 0)).slice(0, 6);
+  const newTips = mergeArticlePosts(localPosts, notePosts).slice(0, 6).map(post => (
+    'publishedAt' in post
+      ? { title: post.title, href: post.url, external: true }
+      : { title: post.frontMatter.title, href: `/tips/${post.slug}`, external: false }
+  ));
 
   const recentTipItems = (onClick: MouseEventHandler<HTMLLIElement>) => newTips.map(post => (
     <Link key={post.href} href={post.href} target={post.external ? '_blank' : undefined} color="inherit">

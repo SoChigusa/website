@@ -8,9 +8,10 @@ const fetchNotePosts = async (url: string): Promise<NotePost[]> => {
   return response.json();
 };
 
-const useNotePosts = () => {
+const useNotePosts = (initialPosts?: NotePost[]) => {
   const { locale } = useLocale();
   return useSWR<NotePost[]>(`/api/note-posts?locale=${locale === 'en' ? 'en' : 'ja'}`, fetchNotePosts, {
+    fallbackData: initialPosts,
     refreshInterval: NOTE_REFRESH_INTERVAL,
     dedupingInterval: 60 * 1000,
     errorRetryInterval: 60 * 1000,

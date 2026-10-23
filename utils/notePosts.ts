@@ -5,4 +5,5 @@ export interface NotePost {
   title: string;
   url: string;
   publishedAt: string;
+  thumbnail?: string;
 }

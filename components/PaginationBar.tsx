@@ -20,7 +20,7 @@ const PaginationBar = ({ total_page, current_page = 1 }: { total_page: number, c
     <Stack spacing={2}>
       <Pagination
         count={total_page}
-        defaultPage={current_page}
+        page={current_page}
         showFirstButton
         showLastButton
         color="primary"

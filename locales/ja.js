@@ -73,9 +73,10 @@ export default {
 
   // Tips
   NOTE_ARTICLES: 'noteの記事',
-  SEE_ALL_NOTE_ARTICLES: 'noteですべて見る',
-  NOTE_ARTICLES_LOADING: '記事を読み込み中…',
-  NOTE_ARTICLES_UNAVAILABLE: '記事を取得できませんでした。上のリンクからnoteをご覧ください。',
+  NOTE_PROFILE: 'noteのプロフィール',
+  NOTE_ARTICLES_LOADING: 'noteの記事を読み込み中…',
+  NOTE_ARTICLES_REFRESHING: 'noteの記事を更新中…',
+  NOTE_ARTICLES_UNAVAILABLE: 'noteの記事を取得できませんでした。時間をおいて再度お試しください。',
   NOTE_ARTICLES_EMPTY: '公開された記事はまだありません。',
   LOCAL_ARTICLES: 'このサイトの記事',
   RECENT_TIPS: '最近の記事',

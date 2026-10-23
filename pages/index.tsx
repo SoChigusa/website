@@ -8,6 +8,9 @@ import IndexMeta from '../components/meta';
 import RecentResearchTab from "../components/RecentResearchTab";
 import NewestPublication from "../components/NewestPublication";
 import PostCard from "../components/PostCard";
+import NotePostsStatus from '../components/NotePostsStatus';
+import useNotePosts from '../utils/useNotePosts';
+import mergeArticlePosts, { articlePostKey } from '../utils/mergeArticlePosts';
 import Link from "next/link";
 import { GetStaticProps } from "next";
 
@@ -37,7 +40,8 @@ export default function Home({ headerData, publications, talk_list }: MyPageProp
   const { locale, t } = useLocale();
   const publications_recent: Publication[] = publications.slice(1);
   const totalPosts: Post[] = locale === 'en' ? headerData.tips_en : headerData.tips_ja;
-  const posts: Post[] = totalPosts.slice(0, 2);
+  const { data: notePosts = [], error: noteError, isValidating: noteLoading } = useNotePosts();
+  const posts = mergeArticlePosts(totalPosts, notePosts).slice(0, 2);
 
   return (
     <>
@@ -57,9 +61,10 @@ export default function Home({ headerData, publications, talk_list }: MyPageProp
       </Stack>
 
       <IndexSubTitle title={t.TIPS} href='tips' buttonText={t.LIST_PAGE} />
+      <NotePostsStatus loading={noteLoading} hasPosts={notePosts.length > 0} failed={Boolean(noteError)} />
       <Grid container spacing={2}>
-        {posts.map((post: any) => (
-          <PostCard key={post.slug} post={post} isIndexPage />
+        {posts.map(post => (
+          <PostCard key={articlePostKey(post)} post={post} isIndexPage />
         ))}
       </Grid>
     </>
